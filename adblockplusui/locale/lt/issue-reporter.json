@@ -1,0 +1,104 @@
+{
+  "continue": {
+    "message": "Toliau"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Nepavyko, atsiuntimo klaida"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Anoniminis pranešimas"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "Mes negalėsime grįžti prie jūsų ir greičiausiai jūsų ataskaitai bus priskirtas žemas prioritetas."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Parašykite komentarą"
+  },
+  "issueReporter_comment_description": {
+    "message": "Teksto įvedimo laukelis leidžia jums įvesti komentarą kuris mums padės suprasti jūsų problemą. Šis žingsnis nebūtinas, bet rekomenduojamas jei problema neaiški. Taipogi galite peržiūrėti pranešimą prieš jį siunčiant."
+  },
+  "issueReporter_comment_label": {
+    "message": "Komentaras (nebūtinas):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Jūsų pranešimas išsaugotas. Jį pasiekti galite šiuo adresu:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Pastaba:</strong> Laikinai bus atverta nauja kortelė, kad puslapis kuriame esate nebūtų paveiktas pranešėjo."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Detalės"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Baigti"
+  },
+  "issueReporter_email_description": {
+    "message": "Mes raginame įvesti veikiantį el. pašto adresą, tada jei turėsime klausimų galėsime jums juos užduoti. Taipogi tai padės atpažinti jūsų pranešimus ir suteikti jiems aukštesnį prioritetą."
+  },
+  "issueReporter_email_label": {
+    "message": "El. paštas:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Bandymas išsiųsti pranešimą nepavyko, buvo gauta klaida \"?1?\". Įsitikinkite jog esate prisijungę prie interneto ir bandykite dar kartą. Jei problema vis dar yra paprašykite pagalbos forume [link]Adblock Plus forumas[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Pasirinkite šią pasirinkty jei reklama rodoma, net ir įjungus Adblock Plus."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Adblock Plus neblokuoja reklamų"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "Pasirinkite šią pasirinkty jei puslapyje trūksta svarbaus turinio, jei atvaizduojama netinkamai ar puslapis nefunkcionuoja taip kaip turėtų. Norėdami įsitikinti jog problemą sukėlė Adblock Plus galite trumpam išjungti Adblock Plus."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "Adblock Plus blokuoja per daug"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Naudokite įrankius norėdami pažymėti reklamą arba paslėpti neviešą informaciją. Pažymėjus reklamą mes greičiau ją sutvarkysime."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Pažymėti problemą"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "Pranešta klaida turbūt žinoma. Daugiau informacijos:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Pažymėti problemą"
+  },
+  "issueReporter_page_title": {
+    "message": "Klaidos pranešimas"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Privatumo politika"
+  },
+  "issueReporter_processing_screenshot": {
+    "message": "vykdoma"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Slėpti"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Paryškinti"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Pasirinkite problemą"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Siųsti pranešimą"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Siųsti pranešimą"
+  },
+  "issueReporter_sending": {
+    "message": "Palaukite kol Adblock Plus siunčia jūsų pranešimą."
+  },
+  "issueReporter_showData_label": {
+    "message": "Rodyti pranešimo duomenis"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Šis langas padės įvykdyti kelis žingsnius kurie reikalingi pranešti apie Adblock Plus problemą. Pirmiausia, šiame puslapyje, pasirinkite problemos su kuria susidūrėte tipą:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Pasirinkite tipą"
+  }
+}

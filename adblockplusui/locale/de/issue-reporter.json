@@ -1,0 +1,98 @@
+{
+  "continue": {
+    "message": "Fortsetzen"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Fehler, Download fehlgeschlagen"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Anonymer Beitrag"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "Es wird uns nicht möglich sein, sich für Nachfragen an Sie zu wenden, und wir werden Ihrem Bericht möglicherweise eine niedrigere Priorität beimessen."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Kommentar hinterlassen"
+  },
+  "issueReporter_comment_description": {
+    "message": "Hilf uns dabei, das Problem besser zu verstehen, indem du unten einen Kommentar hinterlässt."
+  },
+  "issueReporter_comment_label": {
+    "message": "Kommentar (optional):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Ihr Bericht wurde gespeichert. Sie können Ihn unter der folgenden Adresse aufrufen:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Hinweis:</strong> Es öffnet sich kurzzeitig ein zusätzlicher Tab, sodass die Seite, auf der du dich befindest, nicht durch den Fehlermelder beeinträchtigt wird."
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Fertigstellen"
+  },
+  "issueReporter_email_description": {
+    "message": "Es ist hilfreich, wenn du eine gültige E-Mail-Adresse eingibst. Dadurch können wir dich kontaktieren, um schwerwiegende Probleme wie Malware zu beheben. Denke daran, dass es nicht verpflichtend ist, eine E-Mail-Adresse einzugeben. Deine Adresse wird zudem niemals an andere weitergegeben."
+  },
+  "issueReporter_email_label": {
+    "message": "E-Mail:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Beim Senden des Berichts ist ein Fehler aufgetreten (Fehlercode \"?1?\"). Bitte stellen Sie sicher, dass Sie mit dem Internet verbunden sind, und versuchen Sie, den Bericht noch einmal zu senden. Falls das Problem bestehen bleibt, wenden Sie sich an das [link]Adblock Plus Forum[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Adblock Plus ist aktiviert, aber ich sehe immer noch Anzeigen."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Ich sehe noch Anzeigen"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "Die Seite wird falsch angezeigt oder funktioniert nicht, oder es fehlt wichtiger Inhalt."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "Die Seite, die ich anzeigen möchte, ist kaputt."
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Verwende die Funktionen, um jede Anzeige hervorzuheben oder sensible Daten auf dem Screenshot auszublenden. Durch die Hervorhebung von Anzeigen können wir das Problem schneller auffinden."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Problem hervorheben"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "Das Problem, das Sie berichtet haben, ist möglicherweise bereits bekannt. Zusätzliche Information:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Problem markieren"
+  },
+  "issueReporter_page_title": {
+    "message": "Fehler melden"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Datenschutzerklärung"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Ausblenden"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Hervorheben"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Problem auswählen"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Bericht absenden"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Bericht absenden"
+  },
+  "issueReporter_sending": {
+    "message": "Bitte warten Sie, während Adblock Plus Ihren Bericht sendet."
+  },
+  "issueReporter_showData_label": {
+    "message": "Klicke auf diesen Link, um die Berichtsdaten vor dem Senden zu prüfen."
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Wähle ein Problem aus:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Welche Art von Problem liegt vor?"
+  }
+}

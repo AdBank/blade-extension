@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "Afegeix"
+  },
+  "cancel": {
+    "message": "Cancel·la"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "Amaga els missatges d'advertència d'Adblock"
+  },
+  "common_feature_malware_title": {
+    "message": "Bloqueja el programari maliciós"
+  },
+  "common_feature_privacy_title": {
+    "message": "Bloqueja el seguiment addicional"
+  },
+  "common_feature_social_title": {
+    "message": "Bloqueja les icones de seguiment de les xarxes socials"
+  },
+  "common_notification_hide": {
+    "message": "Tanca la notificació"
+  }
+}

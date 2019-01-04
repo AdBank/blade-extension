@@ -1,0 +1,104 @@
+{
+  "continue": {
+    "message": "Continua"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Sincronizzazione non riuscita, errore durante il download"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Segnalazione anonima"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "Nota: è impossibile rispondere a segnalazioni anonime alle quali viene probabilmente dato un ordine di priorità inferiore"
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Lascia un commento"
+  },
+  "issueReporter_comment_description": {
+    "message": "Aiutaci a comprendere meglio il problema lasciando un commento qui sotto."
+  },
+  "issueReporter_comment_label": {
+    "message": "Commento (opzionale):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Segnalazione inviata correttamente, per visualizzarne i dati fare clic sul seguente link:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Nota:</strong> Viene aperta temporaneamente una scheda aggiuntiva in modo che la pagina su cui ti trovi non venga influenzata dalla Segnalazione dei problemi."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Dettagli"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Fatto"
+  },
+  "issueReporter_email_description": {
+    "message": "È consigliabile inserire un indirizzo e-mail valido. In questo modo possiamo contattarti per risolvere problemi complessi come ad esempio il malware. Ricorda: non è fondamentale inserire un indirizzo e-mail, che non condivideremo mai."
+  },
+  "issueReporter_email_label": {
+    "message": "Indirizzo e-mail:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Il tentativo di inviare la segnalazione non è riuscito a causa del seguente errore: \"?1?\". Accertarsi di essere collegati ad internet e riprovare. Se il problema persiste inviare una richiesta di assistenza nel [link]forum di Adblock Plus[/link]"
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Adblock Plus è abilitato ma continuo a visualizzare gli annunci."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Continuo a visualizzare gli annunci"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "La pagina viene visualizzata in maniera erronea, non funziona o sembra priva di contenuti importanti."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "La pagina che sto cercando di visualizzare è danneggiata"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Utilizza gli strumenti per evidenziare ciascun annuncio o nascondere le informazioni sensibili nella schermata. L'evidenziazione degli annunci consente di risolvere più rapidamente il problema."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Evidenzia problema"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "Problema segnalato precedentemente noto. Ulteriori informazioni:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Contrassegna problema"
+  },
+  "issueReporter_page_title": {
+    "message": "Configurazione guidata per segnalare problemi in una pagina web"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Informativa sulla privacy"
+  },
+  "issueReporter_processing_screenshot": {
+    "message": "Elaborazione in corso"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Nascondi"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Evidenzia"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Seleziona problema"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Invia la segnalazione"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Invio della segnalazione"
+  },
+  "issueReporter_sending": {
+    "message": "Attendere mentre la segnalazione di Adblock Plus viene inviata"
+  },
+  "issueReporter_showData_label": {
+    "message": "Facendo clic su questo collegamento potrai rivedere i dati del rapporto prima dell'invio"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Seleziona un problema:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Quale tipo di problema hai riscontrato?"
+  }
+}

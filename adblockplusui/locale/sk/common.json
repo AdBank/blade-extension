@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "Pridať"
+  },
+  "cancel": {
+    "message": "Zrušiť"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "Skryť varovné správy Adblock"
+  },
+  "common_feature_malware_title": {
+    "message": "Blokovať Malware"
+  },
+  "common_feature_privacy_title": {
+    "message": "Zablokujte ďalšie sledovanie"
+  },
+  "common_feature_social_title": {
+    "message": "Blokovanie sledovania ikon sociálnych médií"
+  },
+  "common_notification_hide": {
+    "message": "Zatvorte oznámenie"
+  }
+}

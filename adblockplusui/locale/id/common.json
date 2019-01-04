@@ -1,0 +1,11 @@
+{
+  "add": {
+    "message": "Tambah"
+  },
+  "cancel": {
+    "message": "Batal"
+  },
+  "common_notification_hide": {
+    "message": "Tutup pemberitahuan"
+  }
+}

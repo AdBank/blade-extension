@@ -1,0 +1,104 @@
+{
+  "continue": {
+    "message": "Tovább"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Sikertelen, letöltési hiba"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Névtelen beküldendő"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "Nem fogunk tudni kapcsolatba lépni Önnel, és valószínű, hogy a jelentése alacsonyabb prioritást kap."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Megjegyzés hozzáadása"
+  },
+  "issueReporter_comment_description": {
+    "message": "Az alábbi szöveges mezőbe beírhat egy megjegyzést, ami segíthet megérteni a problémát. Ez a lépés kihagyható, de ajánlott, ha a probléma nem egyértelmű. A jelentés elküldése előtt még lesz lehetősége átnézni a megadott adatokat."
+  },
+  "issueReporter_comment_label": {
+    "message": "Megjegyzés (nem kötelező):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Az Ön jelentése el lett mentve. Az alábbi címen érheti el a későbbiekben:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Megjegyzés:</strong> Egy további lap ideiglenesen megnyílik, így az oldal, amelyen tartózkodik, nem érinti a kiadói jelentéstevő."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Részletek"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Befejezés"
+  },
+  "issueReporter_email_description": {
+    "message": "Javasoljuk, hogy érvényes e-mail címet adjon meg, így fel tudjuk venni Önnel a kapcsolatot, ha kérdés merül fel a jelentésével kapcsolatban. Ezzel azt is lehetővé teszi, hogy felismerjük az Ön hozzájárulásait, és azok magasabb prioritást kapjanak."
+  },
+  "issueReporter_email_label": {
+    "message": "Email:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "A jelentés elküldése közben hiba történt, melynek kódja: \"?1?\". Kérem ellenőrizze, hogy megfelelően csatlakozik-e az Internethez és próbálja újra. Ha a probléma nem szűnik meg, kérem kérjen segítséget az [link]Adblock Plus fórumon[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Válassza ezt a lehetőséget, ha hirdetések jelennek meg az oldalon annak ellenére, hogy az Adblock Plus engedélyezve van."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Az Adblock Plus nem tiltott le egy hirdetést"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "Válassza ezt a lehetőséget, ha a webhelyről hiányoznak lényeges tartalmak, rosszul jelenik meg, vagy hibásan működik. Úgy bizonyosodhat meg arról, hogy az Adblock Plus okozza a problémát, ha ideiglenesen letiltja azt."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "Az Adblock Plus túl sok mindent letilt"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Az eszközök segítségével kiemelheti az egyes hirdetéseket, vagy elrejtheti az érzékeny információkat a képernyőképen. A hirdetések kiemelése segít gyorsabban megoldani a problémát."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Probléma kiemelése"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "Az Ön által bejelentett hiba már ismert. További információk:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Probléma kijelölés"
+  },
+  "issueReporter_page_title": {
+    "message": "Hibajelentő"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Adatvédelmi elvek"
+  },
+  "issueReporter_processing_screenshot": {
+    "message": "feldolgozás"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Elrejt"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Kiemelés"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Probléma kiválasztása"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Jelentés küldése"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Jelentés küldése"
+  },
+  "issueReporter_sending": {
+    "message": "Kérem várjon, amíg az Adblock Plus elküldi a jelentését."
+  },
+  "issueReporter_showData_label": {
+    "message": "Jelentés adatainak megtekintése"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Ez az ablak végigvezeti az Adblock Plus hiba bejelentési lépésein. Először kérem válassza ki a webhelyen jelentkező hiba jellegét:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Vállasszon típust"
+  }
+}

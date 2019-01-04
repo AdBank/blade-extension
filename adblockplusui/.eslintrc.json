@@ -1,0 +1,20 @@
+{
+  "extends": "eslint-config-eyeo",
+  "root": true,
+  "env": {
+    "browser": true,
+    "webextensions": true
+  },
+  "globals": {
+    "ext": true,
+    "require": true,
+    "module": true
+  },
+  "rules": {
+    // @link https://issues.adblockplus.org/ticket/6581
+    // As long as issue 6581 is under discussion, ABP UI
+    // decided to put an end to all debates and use
+    // the `prefer-const` rule.
+    "prefer-const": ["error", {"destructuring": "all"}]
+  }
+}

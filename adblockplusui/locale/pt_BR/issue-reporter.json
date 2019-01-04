@@ -1,0 +1,104 @@
+{
+  "continue": {
+    "message": "Continuar"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Falhou, falha no download"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Envio anônimo"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "Nós não vamos ser capazes de entrar em contato com você e, portanto, seus relatórios terão baixa prioridade."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Deixe um comentário"
+  },
+  "issueReporter_comment_description": {
+    "message": "Por favor, ajudem-nos a entender melhor a questão, deixando um comentário abaixo."
+  },
+  "issueReporter_comment_label": {
+    "message": "Comentário (opcional):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Seu relatório foi salvo. Você pode acessá-lo no seguinte endereço:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Nota:</strong> abre temporariamente uma guia adicional para que a página em que você está não seja afetada pelo Relatório de Problemas."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Detalhes"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Concluído"
+  },
+  "issueReporter_email_description": {
+    "message": "É útil informar um endereço de e-mail válido. Isso nos permite entrar em contato com você para resolver problemas difíceis, como malware. Tenha em mente que não é obrigatório informar um endereço de e-mail e seu endereço nunca será compartilhado."
+  },
+  "issueReporter_email_label": {
+    "message": "E-mail:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Uma tentativa de enviar o relatório falhou com código de erro \"?1?\". Por favor, assegure que você está conectado à Internet e tente novamente. Se o problema persistir, por favor, solicite ajuda no [link]fórum do Adblock Plus[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "O Adblock Plus está ativado, mas eu ainda vejo um ou mais anúncios."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Eu ainda vejo anúncios"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "A página é exibida incorretamente, não funciona ou parte importante do conteúdo parece estar faltando."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "A página que estou tentando ver não acessa"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Use as ferramentas para destacar cada anúncio ou ocultar informações pessoais na captura de tela. Destacar os anúncios nos ajudará a resolver o problema mais rápido."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Destacar problema"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "O problema que você informou provavelmente já é conhecido. Mais informações:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Marcar problema"
+  },
+  "issueReporter_page_title": {
+    "message": "Relatório de erro"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Política de privacidade"
+  },
+  "issueReporter_processing_screenshot": {
+    "message": "processando"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Ocultar"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Destacar"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Selecionar problema"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Enviar relatório"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Enviar relatório"
+  },
+  "issueReporter_sending": {
+    "message": "Por favor aguarde enquanto o Adblock Plus está enviando seu relatório."
+  },
+  "issueReporter_showData_label": {
+    "message": "Clique neste link para revisar os dados do formulário antes de enviar"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Selecione um problema:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Que tipo de problema você está enfrentando?"
+  }
+}

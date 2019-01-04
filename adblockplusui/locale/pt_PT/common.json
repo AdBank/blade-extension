@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "Adicionar"
+  },
+  "cancel": {
+    "message": "Cancelar"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "Ocultar mensagens de aviso do Adblock"
+  },
+  "common_feature_malware_title": {
+    "message": "Bloquear malware"
+  },
+  "common_feature_privacy_title": {
+    "message": "Bloquear a monitorização adicional"
+  },
+  "common_feature_social_title": {
+    "message": "Bloquear a monitorização de ícones das redes sociais"
+  },
+  "common_notification_hide": {
+    "message": "Fechar notificação"
+  }
+}

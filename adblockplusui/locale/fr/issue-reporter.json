@@ -1,0 +1,104 @@
+{
+  "continue": {
+    "message": "Continuer"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Échec, erreur lors du téléchargement"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Soumettre anonymement"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "Nous ne serons pas en mesure de vous recontacter et votre signalement ne sera probablement pas traité prioritairement."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Laisser un commentaire"
+  },
+  "issueReporter_comment_description": {
+    "message": "Merci de bien vouloir nous aider à mieux comprendre le problème en laissant un commentaire ci-dessous."
+  },
+  "issueReporter_comment_label": {
+    "message": "Commentaire (facultatif) :"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Votre signalement a été envoyé. Vous pouvez y accéder à l'adresse suivante :"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Remarque :</strong> Un onglet supplémentaire s'ouvrira temporairement de façon à ce que la page sur laquelle vous vous trouvez ne soit pas affectée par le signaleur de problèmes."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Détails"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Terminé"
+  },
+  "issueReporter_email_description": {
+    "message": "Si vous saisissez votre adresse mail cela nous aidera. Nous pourrons alors vous contacter pour résoudre les problèmes difficiles comme le malware. N’oubliez pas qu’il n’est pas obligatoire de saisir une adresse e-mail et que votre adresse ne sera jamais partagée avec des tiers."
+  },
+  "issueReporter_email_label": {
+    "message": "E-mail :"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Une tentative d'envoi du signalement a échoué avec le code erreur « ?1? ». Veuillez vérifier que vous êtes bien connecté à Internet et réessayer. Si le problème persiste, veuillez demander assistance dans le [link]forum d'Adblock Plus[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Adblock Plus est activé, mais je continue à voir une ou des publicités."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Je vois encore des publicités"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "La page ne s'affiche pas correctement, ne fonctionne pas ou il manque un contenu important."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "Le lien vers la page que j’essaie d'afficher est brisé"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Utilisez les outils pour mettre en surbrillance chaque publicité ou masquer les informations sensibles sur la copie d’écran. Mettre en surbrillance les publicités nous aidera à résoudre le problème plus rapidement."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Mettre en surbrillance le problème"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "Le problème que vous signalez est probablement déjà connu. Davantage d'informations :"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Marquer le problème"
+  },
+  "issueReporter_page_title": {
+    "message": "Signalement de problèmes"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Politique de confidentialité"
+  },
+  "issueReporter_processing_screenshot": {
+    "message": "en traitement"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Masquer"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Mettre en surbrillance"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Sélectionner le problème"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Envoyer le signalement"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Envoyer le signalement"
+  },
+  "issueReporter_sending": {
+    "message": "Veuillez patienter pendant qu'Adblock Plus soumet votre signalement."
+  },
+  "issueReporter_showData_label": {
+    "message": "Cliquez sur ce lien pour examiner les données contenues dans le rapport avant de l’envoyer"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Sélectionnez un problème :"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Quel type de problème rencontrez-vous ?"
+  }
+}

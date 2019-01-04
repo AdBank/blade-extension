@@ -1,0 +1,20 @@
+# Directory-based project format
+.idea/
+
+# File-based project format
+*.ipr
+*.iws
+*.iml
+
+# OSX Specific Files
+*.DS_Store
+
+*.log
+
+/devenv*/
+/node_modules/
+*.zip
+*.crx
+*.xpi
+*.pyc
+*.pyo

@@ -1,0 +1,47 @@
+{
+  "mops_acceptableAds_description": {
+    "message": "গোপনীয়তা অলঙ্ঘঙ্কারী বিজ্ঞাপনকে অনুমোদন দিন"
+  },
+  "mops_acceptableAds_more": {
+    "message": "আরও জানুন"
+  },
+  "mops_action_cancel": {
+    "message": "বাতিল"
+  },
+  "mops_enabled_label": {
+    "message": "<strong>$domain$</strong>-এ অ্যাডব্লক প্লাস সক্রিয় করুন",
+    "placeholders": {
+      "domain": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "mops_filterlist_add": {
+    "message": "+ একটি ফিল্টার তালিকা যুক্ত করুন"
+  },
+  "mops_filterlist_add_action": {
+    "message": "ফিল্টার তালিকা যুক্ত করুন"
+  },
+  "mops_filterlist_add_url": {
+    "message": "+ একটি স্ব ফিল্টার তালিকা যুক্ত করুন"
+  },
+  "mops_header": {
+    "message": "অ্যাডব্লক প্লাস সেটিং"
+  },
+  "mops_subscribe_header": {
+    "message": "একটি স্ব ফিল্টার তালিকা যুক্ত করুন"
+  },
+  "mops_subscribe_title": {
+    "message": "ছাঁকন তালিকার নাম"
+  },
+  "mops_subscribe_url": {
+    "message": "ছাঁকন তালিকার URL"
+  },
+  "mops_subscriptions_header": {
+    "message": "ছাঁকনি সদস্যতাসমূহ"
+  },
+  "mops_title": {
+    "message": "অ্যাডব্লক প্লাস সেটিং"
+  }
+}

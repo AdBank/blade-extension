@@ -1,0 +1,66 @@
+{
+  "click_element_to_block_it": {
+    "message": "Az elem blokkolásához kattintson egy elemre az oldalon."
+  },
+  "clickhide_instructions": {
+    "message": "Miután bezártad ezt a buborékot, kattints egy elemre az oldalon.."
+  },
+  "disabled_for_site": {
+    "message": "<strong>Kikapcsolva</strong> ezen a weboldalon"
+  },
+  "easy_create_filter": {
+    "message": "Elem blokkolása"
+  },
+  "enabled_for_site": {
+    "message": "<strong>Engedélyezve</strong> ezen a weboldalon"
+  },
+  "options_refresh": {
+    "message": "Frissítés"
+  },
+  "options_short": {
+    "message": "Beállítások"
+  },
+  "overlay_notification_closing_button_hide": {
+    "message": "Bezárás"
+  },
+  "overlay_notification_closing_button_optout": {
+    "message": "Ne jelenjenek meg értesítések"
+  },
+  "promote_abp_module": {
+    "message": "Érdekli az Adblock Plus a mobiltelefonon?"
+  },
+  "refresh_to_take_effect": {
+    "message": "Kattints a <strong>Frissítésre</strong>, hogy a módosítások életbe lépjenek."
+  },
+  "sendReport": {
+    "message": "Hiba bejelentése"
+  },
+  "stats_header": {
+    "message": "Blokkolt elemek száma"
+  },
+  "stats_label_page": {
+    "message": "<strong>$number$</strong> ezen az oldalon",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_label_total": {
+    "message": "<strong>$number$</strong> összesen",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_show_iconnumber": {
+    "message": "Blokkolt reklámok számának kijelzése az ikonon"
+  },
+  "stats_title": {
+    "message": "Blokkolt reklámok:"
+  },
+  "status_header": {
+    "message": "Blokkolt hirdetések:"
+  }
+}

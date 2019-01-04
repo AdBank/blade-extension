@@ -1,0 +1,17 @@
+{
+  "add": {
+    "message": "Přidat"
+  },
+  "cancel": {
+    "message": "Zrušit"
+  },
+  "common_feature_privacy_title": {
+    "message": "Blokovat dodatečné sledování"
+  },
+  "common_feature_social_title": {
+    "message": "Blokování sledování ikon sociálních médií"
+  },
+  "common_notification_hide": {
+    "message": "Uzavřít oznámení"
+  }
+}

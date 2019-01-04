@@ -1,0 +1,365 @@
+{
+  "options_acceptableAds_ads_description_1": {
+    "message": "«Допустимая реклама» не раздражает и не перекрывается с просматриваемым контентом. <a>Узнать больше о критериях «Допустимой рекламы»</a>"
+  },
+  "options_acceptableAds_ads_label": {
+    "message": "Включить допустимую рекламу"
+  },
+  "options_acceptableAds_description": {
+    "message": "«Допустимая реклама» – это ненавязчивая реклама. Это компромисс между блокировкой рекламы и поддержкой онлайн-содержимого, потому что такая реклама создает доход для владельцев сайтов."
+  },
+  "options_acceptableAds_dnt_notification": {
+    "message": "<strong>Примечание:</strong> Вы отключили функцию <strong>запрет отслеживания (DNT)</strong> в настройках вашего браузера. Для надлежащей работы этой функции, пожалуйста, включите <strong>DNT</strong> в настройках своего браузера. <a>Узнайте, как включить DNT</a>"
+  },
+  "options_acceptableAds_header": {
+    "message": "Допустимая реклама"
+  },
+  "options_acceptableAds_privacy_label": {
+    "message": "Разрешить только рекламу без отслеживания третьей стороной"
+  },
+  "options_advanced_description": {
+    "message": "Настраивайте Adblock Plus, добавляйте или удаляйте списки фильтров, создавайте и администрируйте собственные списки фильтров."
+  },
+  "options_anti_cv_header": {
+    "message": "Антиобход"
+  },
+  "options_anti_cv_title": {
+    "message": "Список фильтров для антиобхода ABP"
+  },
+  "options_anti_cv_tooltip": {
+    "message": "Данный список фильтров позволяет бороться с обходами (то есть методами продвижения рекламы пользователям, которые ее блокируют). Эти фильтры распространяются на рекламу, внедряемую посредством обхода, а также на соответствующие службы отслеживания."
+  },
+  "options_close": {
+    "message": "ЗАКРЫТЬ"
+  },
+  "options_control_remove_title": {
+    "message": "Удалить"
+  },
+  "options_customFilter_cancel": {
+    "message": "ОТМЕНА"
+  },
+  "options_customFilter_edit": {
+    "message": "Изменить фильтры"
+  },
+  "options_customFilter_save": {
+    "message": "СОХРАНИТЬ"
+  },
+  "options_customFilters_description": {
+    "message": "Создавайте свои собственные фильтры для более глубоко контроля над тем, какое содержимое Adblock Plus блокирует. <a0>Узнайте, как создавать фильтры</a0>"
+  },
+  "options_customFilters_edit_placeholder": {
+    "message": "например, $filter$",
+    "placeholders": {
+      "filter": {
+        "content": "$1",
+        "example": "/ads/track/*"
+      }
+    }
+  },
+  "options_customFilters_learn": {
+    "message": "Узнайте, как создавать фильтры"
+  },
+  "options_customFilters_start": {
+    "message": "Начать создание списка фильтров"
+  },
+  "options_customFilters_tip": {
+    "message": "Здесь показаны созданные вами фильтры."
+  },
+  "options_customFilters_title": {
+    "message": "Создание и редактирование списка фильтров"
+  },
+  "options_customFilters_widget_title": {
+    "message": "Мой список фильтров"
+  },
+  "options_customize_blockElement": {
+    "message": "Показать пункт контекстного меню «Блокировать элемент»"
+  },
+  "options_customize_blockElement_tooltip": {
+    "message": "Временная блокировка раздражающих элементов на сайте, например изображений или анимационных слайд-шоу."
+  },
+  "options_customize_header": {
+    "message": "Настройки"
+  },
+  "options_customize_iconStats": {
+    "message": "Отображать на значке количество заблокированных рекламных объявлений"
+  },
+  "options_customize_showDevToolsPanel": {
+    "message": "Показывать панель «Adblock Plus» в инструментах разработчика"
+  },
+  "options_customize_showDevToolsPanel_tooltip": {
+    "message": "Просмотр заблокированных и разрешенных элементов из панели средств разработчика вашего браузера."
+  },
+  "options_customize_showNotifications": {
+    "message": "Показывать полезные уведомления"
+  },
+  "options_customize_showNotifications_tooltip": {
+    "message": "Разрешить уведомления от Adblock Plus (уведомления, связанные с критическими проблемами производительности, всегда будут отображаться)."
+  },
+  "options_dialog_about_copyright": {
+    "message": "Авторское право © $currentYear$ eyeo GmbH.",
+    "placeholders": {
+      "currentYear": {
+        "content": "2017",
+        "example": "2017"
+      }
+    }
+  },
+  "options_dialog_about_title": {
+    "message": "Об Adblock Plus"
+  },
+  "options_dialog_about_trademark": {
+    "message": "Все права защищены. Adblock Plus® является зарегистрированной торговой маркой компании eyeo GmbH."
+  },
+  "options_dialog_about_version": {
+    "message": "Номер версии $version$",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "2.6.7"
+      }
+    }
+  },
+  "options_dialog_import_subscription_location": {
+    "message": "URL списка фильтров"
+  },
+  "options_dialog_import_subscription_location_error": {
+    "message": "Введите действительную URL"
+  },
+  "options_dialog_import_title": {
+    "message": "Добавить список фильтров"
+  },
+  "options_dialog_language_other_empty": {
+    "message": "Нет доступных языков."
+  },
+  "options_dialog_language_title": {
+    "message": "Выбрать язык"
+  },
+  "options_dialog_predefined_confirm": {
+    "message": "Да, использовать этот список фильтров"
+  },
+  "options_dialog_predefined_title": {
+    "message": "Вы уверены, что хотите добавить этот список фильтров?"
+  },
+  "options_email": {
+    "message": "Электронная почта:"
+  },
+  "options_english": {
+    "message": "Английский"
+  },
+  "options_filterList_add": {
+    "message": "+ Добавить новый список фильтров"
+  },
+  "options_filterList_column_name": {
+    "message": "Списки фильтров"
+  },
+  "options_filterList_column_status": {
+    "message": "Состояние"
+  },
+  "options_filterList_column_update": {
+    "message": "Последнее обновление"
+  },
+  "options_filterList_description": {
+    "message": "Каждая настройка Adblock Plus работает на основе списка фильтра. Ниже представлены списки фильтров, которые соответствуют всем вашим настройкам Adblock Plus. Вы также можете добавлять дополнительные фильтры, созданные и администрируемые нашим надежным сообществом."
+  },
+  "options_filterList_empty": {
+    "message": "Вы не добавили ни один список фильтров в Adblock Plus. Добавляемые списки фильтров отображаются здесь."
+  },
+  "options_filterList_hours": {
+    "message": "часа(-ов) назад"
+  },
+  "options_filterList_lastDownload_checksumMismatch": {
+    "message": "Ошибка: проверочная сумма не совпадает"
+  },
+  "options_filterList_lastDownload_connectionError": {
+    "message": "Ошибка: невозможно загрузить"
+  },
+  "options_filterList_lastDownload_inProgress": {
+    "message": "Выполняется обновление"
+  },
+  "options_filterList_lastDownload_invalidData": {
+    "message": "Ошибка: неверный формат списка фильтров"
+  },
+  "options_filterList_lastDownload_invalidURL": {
+    "message": "Ошибка: неверный адрес"
+  },
+  "options_filterList_minutes": {
+    "message": "минут(-ы) назад"
+  },
+  "options_filterList_now": {
+    "message": "Только что"
+  },
+  "options_filterList_source": {
+    "message": "Источник"
+  },
+  "options_filterList_state_active": {
+    "message": "Активен"
+  },
+  "options_filterList_state_disabled": {
+    "message": "Отключено"
+  },
+  "options_filterList_title": {
+    "message": "Списки фильтров"
+  },
+  "options_filterList_update": {
+    "message": "ОБНОВИТЬ ВСЕ СПИСКИ ФИЛЬТРОВ"
+  },
+  "options_filterList_updateNow": {
+    "message": "Обновить сейчас"
+  },
+  "options_filterList_website": {
+    "message": "Сайт"
+  },
+  "options_filters_search_or_add": {
+    "message": "Фильтр поиска / добавления (например, $filter$)",
+    "placeholders": {
+      "filter": {
+        "content": "/ads/track/*"
+      }
+    }
+  },
+  "options_footer_about": {
+    "message": "Об Adblock Plus"
+  },
+  "options_footer_contribute": {
+    "message": "УЧАСТИЕ"
+  },
+  "options_general_description": {
+    "message": "Определите, что Adblock Plus показывает и скрывает на сайтах"
+  },
+  "options_help_description": {
+    "message": "Найти помощь или связаться с нами"
+  },
+  "options_language_add": {
+    "message": "+ добавить язык"
+  },
+  "options_language_change": {
+    "message": "ИЗМЕНИТЬ"
+  },
+  "options_language_description": {
+    "message": "Оптимизируйте Adblock Plus для языка(-ов), на которых вы обычно просматриваете сайтов."
+  },
+  "options_language_empty": {
+    "message": "У вас нет фильтров для определенных языков."
+  },
+  "options_language_header": {
+    "message": "Язык"
+  },
+  "options_language_tip": {
+    "message": "<strong>СОВЕТ:</strong> Выберите только нужные языки. При выборе чрезмерного количества языков блокиратор рекламы станет работать медленнее и, следовательно, браузер тоже."
+  },
+  "options_learn_more": {
+    "message": "Узнать больше"
+  },
+  "options_more_filters_description": {
+    "message": "Это дополнительные фильтры, которые вы ранее добавили в Adblock Plus."
+  },
+  "options_more_filters_header": {
+    "message": "Больше фильтров"
+  },
+  "options_more_filters_note": {
+    "message": "<strong>Примечание:</strong> Вы должны использовать только списки сторонних фильтров от авторов, которым вы доверяете."
+  },
+  "options_new_label": {
+    "message": "НОВИНКА"
+  },
+  "options_page_document_title": {
+    "message": "Настройки"
+  },
+  "options_page_title": {
+    "message": "Настройки"
+  },
+  "options_privacy_header": {
+    "message": "КОНФИДЕНЦИАЛЬНОСТЬ И БЕЗОПАСНОСТЬ"
+  },
+  "options_protection_privacy_tooltip": {
+    "message": "Защищайте свою приватность от известных структур, которые могут отслеживать вашу онлайн активность на сайтах, которые вы посещаете."
+  },
+  "options_protection_social_tooltip": {
+    "message": "Значки социальных сетей на посещаемых сайтах позволяют социальным сетям формировать ваш профиль на основании ваших привычек просмотра ресурсов сети – даже если вы их не нажимаете. Скрытие этих значков поможет защитить ваш профиль."
+  },
+  "options_report_bug": {
+    "message": "Нашли ошибку? <a>Отправить нам отчет об ошибках</a>"
+  },
+  "options_report_forum": {
+    "message": "Нужна поддержка от нашего сообщества? <a>Перейти в форум</a>"
+  },
+  "options_social_description": {
+    "message": "Возник вопрос или новая идея? Мы готовы помочь."
+  },
+  "options_social_title": {
+    "message": "Связаться"
+  },
+  "options_support_title": {
+    "message": "Поддержка"
+  },
+  "options_tab_advanced": {
+    "message": "Расширенные"
+  },
+  "options_tab_general": {
+    "message": "Общие"
+  },
+  "options_tab_help": {
+    "message": "Справка"
+  },
+  "options_tab_whitelist": {
+    "message": "Белый список сайтов"
+  },
+  "options_tracking_warning_1": {
+    "message": "Похоже, что вы включили и функцию <strong>$tracking$</strong>, и <strong>$acceptableAds$</strong>.",
+    "placeholders": {
+      "acceptableAds": {
+        "content": "$2",
+        "example": "Allow Acceptable Ads"
+      },
+      "tracking": {
+        "content": "$1",
+        "example": "Block additional tracking"
+      }
+    }
+  },
+  "options_tracking_warning_2": {
+    "message": "Вам следует знать, что допустимая реклама <strong>может</strong> применять отслеживание ваших передвижений, чтобы показывать наиболее интересные предложения."
+  },
+  "options_tracking_warning_3": {
+    "message": "Если вы предпочитаете более высокий уровень конфиденциальности, пометьте ниже флажком <strong>$acceptableAdsPrivacy$</strong>.",
+    "placeholders": {
+      "acceptableAdsPrivacy": {
+        "content": "$1",
+        "example": "Only allow ads without third-party tracking"
+      }
+    }
+  },
+  "options_tracking_warning_acknowledgment": {
+    "message": "Все ясно"
+  },
+  "options_whitelist_add": {
+    "message": "ДОБАВИТЬ САЙТ"
+  },
+  "options_whitelist_description": {
+    "message": "Вы выключили блокировку рекламы на этих сайтах и, следовательно, будете видеть на них рекламу."
+  },
+  "options_whitelist_empty_1": {
+    "message": "У вас нет разрешенных сайтов."
+  },
+  "options_whitelist_empty_2": {
+    "message": "Здесь отображаются сайты, которым вы доверяете и разрешаете показ рекламы."
+  },
+  "options_whitelist_notification": {
+    "message": "$website$ внесен в белый список.",
+    "placeholders": {
+      "website": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "options_whitelist_placeholder_example": {
+    "message": "например, $domain$",
+    "placeholders": {
+      "domain": {
+        "content": "$1",
+        "example": "www.example.com"
+      }
+    }
+  }
+}

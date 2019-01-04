@@ -1,0 +1,17 @@
+{
+  "add": {
+    "message": "Tambah"
+  },
+  "cancel": {
+    "message": "Batal"
+  },
+  "common_feature_privacy_title": {
+    "message": "Sekat pengesanan tambahan"
+  },
+  "common_feature_social_title": {
+    "message": "Sekat pengesanan ikon media sosial"
+  },
+  "common_notification_hide": {
+    "message": "Tutup notifikasi"
+  }
+}
