@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "เพิ่ม"
+  },
+  "cancel": {
+    "message": "ยกเลิก"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "ซ่อนข้อความเตือน Adblock"
+  },
+  "common_feature_malware_title": {
+    "message": "บล็อคมัลแวร์"
+  },
+  "common_feature_privacy_title": {
+    "message": "บล็อคการติดตามเพิ่มเติม"
+  },
+  "common_feature_social_title": {
+    "message": "บล็อคการติดตามไอคอนของโซเชียลมีเดีย"
+  },
+  "common_notification_hide": {
+    "message": "ปิดการแจ้งเตือน"
+  }
+}

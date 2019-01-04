@@ -1,0 +1,98 @@
+{
+  "continue": {
+    "message": "Jätka"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Nurjus, allalaadimise viga"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Anonüümne esitamine"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "Meil ei ole võimalik sinu poole tagasi pöörduda ja tõenäoliselt omistame sellele teatele madamala prioriteedi."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Kommenteeri"
+  },
+  "issueReporter_comment_description": {
+    "message": "Palun aita meil probleemist paremini aru saada, jättes allpool kommentaari."
+  },
+  "issueReporter_comment_label": {
+    "message": "Kommentaar (valikuline):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Su teade on salvestatud. Sa võid sellele ligi pääseda järgneval aadressil:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Pane tähele:</strong> Ajutiselt avaneb lisakaart, et probleemidest teataja ei mõjutaks lehte, kus parasjagu oled."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Üksikasjad"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Valmis"
+  },
+  "issueReporter_email_description": {
+    "message": "Me soovitame sul sisestada oma kehtiva meiliaadressi. See võimaldab meil keeruliste probleemide, näiteks pahavara, korral sinuga ühendust võtta. Pea meeles, et meiliaadressi sisestamine pole kohustuslik ja seda ei jagata kunagi."
+  },
+  "issueReporter_email_label": {
+    "message": "E-post:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Teate saatmine ebaõnnestus. Veakood \"?1?\". Palun kontrolli, et su internetiühendus töötab ja proovi uuesti. Kui see probleem kordub, siis küsi abi [link]Adblock Plus foorumist[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Adblock Plus on lubatud, kuid ma näen endiselt reklaami."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Adblock Plus ei blokeeri reklaami"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "Lehel on kaduma läinud oluline sisu, lehte kuvatakse valesti või ei tööta see korralikult."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "Vaadatav leht on katki"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Kasuta tööriistu, et iga reklaami esile tõsta või ekraanipildil isiklikke andmeid peita. Reklaamide esiletõstmine aitab meil probleemi kiiremini parandada."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Probleemi esiletõst"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "Seda probleemi tõenäoliselt juba teatakse. Rohkem infot:"
+  },
+  "issueReporter_page_title": {
+    "message": "Probleemidest teatamine"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Privaatsus"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Peida"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Tõsta esile"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Vali probleem"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Saada teade"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Saada teade"
+  },
+  "issueReporter_sending": {
+    "message": "Palun oota, kuni Adblock Plus edastab teadet."
+  },
+  "issueReporter_showData_label": {
+    "message": "Näita teate andmeid"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Antud aknas saab teatada Adblock Plusi probleemidest, tehes läbi vajalikud sammud. Kõigepealt tuleb valida probleemi liik, millega sa antud lehel kokku puutud:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Vali probleemi liik"
+  }
+}

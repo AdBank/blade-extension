@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "Дадаць"
+  },
+  "cancel": {
+    "message": "Скасаваць"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "Хаваць папярэджанні сайтаў пра выкарыстанне Adblock"
+  },
+  "common_feature_malware_title": {
+    "message": "Блакаванне шкоднага ПЗ"
+  },
+  "common_feature_privacy_title": {
+    "message": "Блакаванне дадатковых форм адсочвання"
+  },
+  "common_feature_social_title": {
+    "message": "Блакаванне адсочвання праз значкі сацсетак"
+  },
+  "common_notification_hide": {
+    "message": "Закрыць апавяшчэнне"
+  }
+}

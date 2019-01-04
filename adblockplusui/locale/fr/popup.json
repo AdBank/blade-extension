@@ -1,0 +1,66 @@
+{
+  "click_element_to_block_it": {
+    "message": "Cliquez sur un élément de la page pour le bloquer."
+  },
+  "clickhide_instructions": {
+    "message": "Après avoir fermé ce pop-up, cliquez (ou cliquez-droit) sur un élément de la page."
+  },
+  "disabled_for_site": {
+    "message": "<strong>Désactivé</strong> sur ce site"
+  },
+  "easy_create_filter": {
+    "message": "Bloquer l’élément"
+  },
+  "enabled_for_site": {
+    "message": "<strong>Activé</strong> sur ce site"
+  },
+  "options_refresh": {
+    "message": "Actualiser"
+  },
+  "options_short": {
+    "message": "Options"
+  },
+  "overlay_notification_closing_button_hide": {
+    "message": "Fermer"
+  },
+  "overlay_notification_closing_button_optout": {
+    "message": "Cesser d'afficher les notifications"
+  },
+  "promote_abp_module": {
+    "message": "Intéressé par Adblock Plus pour mobile ?"
+  },
+  "refresh_to_take_effect": {
+    "message": "Cliquez sur <strong>Actualiser</strong> pour appliquer les modifications."
+  },
+  "sendReport": {
+    "message": "Signaler le problème"
+  },
+  "stats_header": {
+    "message": "Nombre d’éléments bloqués"
+  },
+  "stats_label_page": {
+    "message": "<strong>$number$</strong> sur cette page",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_label_total": {
+    "message": "<strong>$number$</strong> au total",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_show_iconnumber": {
+    "message": "Afficher le nombre sur l'icône"
+  },
+  "stats_title": {
+    "message": "Publicités bloquées"
+  },
+  "status_header": {
+    "message": "Bloquer les publicités sur :"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "Dodaj"
+  },
+  "cancel": {
+    "message": "Odustani"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "Sakrij poruke upozorenja Adblocka"
+  },
+  "common_feature_malware_title": {
+    "message": "Blokiraj zlonamjerni softver"
+  },
+  "common_feature_privacy_title": {
+    "message": "Blokiraj dodatno praćenje"
+  },
+  "common_feature_social_title": {
+    "message": "Blokiraj praćenje ikona društvenih medija"
+  },
+  "common_notification_hide": {
+    "message": "Zatvori obavijest"
+  }
+}

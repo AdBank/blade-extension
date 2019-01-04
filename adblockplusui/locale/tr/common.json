@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "Ekle"
+  },
+  "cancel": {
+    "message": "Vazgeç"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "Adblock Uyarı İletilerini Gizle"
+  },
+  "common_feature_malware_title": {
+    "message": "Kötücül Yazılımı Engelle"
+  },
+  "common_feature_privacy_title": {
+    "message": "Ek takipçileri engelle"
+  },
+  "common_feature_social_title": {
+    "message": "Sosyal medya simgeleri ile takibi engelle"
+  },
+  "common_notification_hide": {
+    "message": "Uyarıyı kapat"
+  }
+}

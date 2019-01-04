@@ -1,0 +1,66 @@
+{
+  "click_element_to_block_it": {
+    "message": "أنقر فوق عنصر في الصفحة لحظره."
+  },
+  "clickhide_instructions": {
+    "message": "بعد إغلاق هذه النافذة، اضغط (أو اضغط بالزر الأيمن) على أحد العناصر في الصفحة."
+  },
+  "disabled_for_site": {
+    "message": "<strong>معطل</strong> في هذا الموقع"
+  },
+  "easy_create_filter": {
+    "message": "حجب العنصر"
+  },
+  "enabled_for_site": {
+    "message": "<strong>مفعّل</strong> في هذا الموقع"
+  },
+  "options_refresh": {
+    "message": "تحديث"
+  },
+  "options_short": {
+    "message": "الخيارات"
+  },
+  "overlay_notification_closing_button_hide": {
+    "message": "أغلق"
+  },
+  "overlay_notification_closing_button_optout": {
+    "message": "إيقاف عرض الإشعارات"
+  },
+  "promote_abp_module": {
+    "message": "هل أنت مهتم بـ Adblock Plus على الجوال؟"
+  },
+  "refresh_to_take_effect": {
+    "message": "أنقر <strong>تحديث</strong> لتصبح التغييرات سارية المفعول."
+  },
+  "sendReport": {
+    "message": "تبليغ عن مشكلة"
+  },
+  "stats_header": {
+    "message": "عدد العناصر التي حظرها"
+  },
+  "stats_label_page": {
+    "message": "<strong>$number$</strong> على هذه الصفحة",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_label_total": {
+    "message": "<strong>$number$</strong> اجمالي",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_show_iconnumber": {
+    "message": "عرض الرقم في الصورة المرمزة"
+  },
+  "stats_title": {
+    "message": "الإعلانات المحجوبة"
+  },
+  "status_header": {
+    "message": "حظر الإعلانات على:"
+  }
+}

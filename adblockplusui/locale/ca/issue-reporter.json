@@ -1,0 +1,104 @@
+{
+  "continue": {
+    "message": "Continua"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Error en la baixada"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Enviament de forma anònima"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "No podrem contestar-lo i segurament, no el prioritzarem."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Deixeu un comentari"
+  },
+  "issueReporter_comment_description": {
+    "message": "Ajudeu-nos a comprendre millor el problema deixant un comentari a continuació."
+  },
+  "issueReporter_comment_label": {
+    "message": "Comentari (opcional):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "El vostre informe ha estat desat. Podeu accedir-hi a la següent adreça:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Nota:</strong> S'obrirà una pestanya addicional de forma temporal perquè la pàgina en qüestió no es vegi afectada per l'avisador d'incidències."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Detalls"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Fet"
+  },
+  "issueReporter_email_description": {
+    "message": "És útil introduir una adreça de correu vàlida. Això ens permet comunicar-nos amb vós per solucionar problemes difícils com ara el programari maliciós. Tingueu en compte que no és obligatori introduir una adreça de correu i mai no es compartirà la vostra adreça."
+  },
+  "issueReporter_email_label": {
+    "message": "Correu:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "S'ha produït un error en intentar enviar l'informe amb el codi d'error «?1?». Assegureu-vos que esteu connectat a Internet i torneu-ho a provar. Si el problema persisteix, demaneu assistència al [link]fòrum d'Adblock Plus[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "L'Adblock Plus està activat, però encara veig un anunci o anuncis."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Encara veig anuncis"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "La pàgina es mostra de manera incorrecta, no funciona o sembla que hi manca contingut important."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "La pàgina que intento veure no es veu bé"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Utilitzeu les eines per destacar cada anunci o ocultar la informació sensible a la captura de pantalla. Els anuncis destacats ens ajudaran a solucionar el problema amb més rapidesa."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Destaca el problema"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "El problema del que informeu probablement ja es coneix. Més informació:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Marca el problema"
+  },
+  "issueReporter_page_title": {
+    "message": "Avisador d'errors"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Política de privadesa"
+  },
+  "issueReporter_processing_screenshot": {
+    "message": "s'està processant"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Amaga"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Destaca"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Seleccioneu la incidència"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Envia l'informe"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Envia l'informe"
+  },
+  "issueReporter_sending": {
+    "message": "Espereu mentre l'Adblock Plus envia el vostre informe."
+  },
+  "issueReporter_showData_label": {
+    "message": "Feu clic a aquest enllaç per revisar les dades de l'informe abans d'enviar-lo"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Seleccioneu un problema:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Quin tipus de problema teniu?"
+  }
+}

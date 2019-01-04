@@ -1,0 +1,14 @@
+{
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Feilet, nedlastningsfeil"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Ferdig"
+  },
+  "issueReporter_email_label": {
+    "message": "E-post:"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Personvernserklæring"
+  }
+}

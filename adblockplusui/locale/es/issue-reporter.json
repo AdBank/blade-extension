@@ -1,0 +1,101 @@
+{
+  "continue": {
+    "message": "Continuar"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Error: error de descarga"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Envío anónimo"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "No podremos comunicar con usted y es probable que le demos una prioridad inferior a su informe."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Dejar un comentario"
+  },
+  "issueReporter_comment_description": {
+    "message": "Ayúdanos a comprender mejor el problema. Para ello, déjanos un comentario a continuación."
+  },
+  "issueReporter_comment_label": {
+    "message": "Comentario (opcional):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Su informe ha sido guardado. Puede acceder a él en la siguiente dirección:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Nota:</strong> Se abrirá una pestaña temporal adicional para que el generador de informes de problemas no afecte a la página en la que te encuentras actualmente."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Detalles"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Hecho"
+  },
+  "issueReporter_email_description": {
+    "message": "Introduce una dirección de correo electrónico válida. Nos será de gran utilidad. De este modo, podremos ponernos en contacto contigo y solucionar así los problemas más complicados, como el \"malware\". Recuerda que no estás obligado a introducir una dirección de correo electrónico y que nunca la compartiremos con otras personas."
+  },
+  "issueReporter_email_label": {
+    "message": "Correo electrónico:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Un intento de enviar el informe produjo un fallo con código de error \"?1?\". Por favor, asegúrese de que está conectado a Internet y vuelva a intentarlo. Si el problema persiste por favor pida ayuda en el [link]foro de Adblock Plus[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "He activado Adblock Plus, pero siguen apareciendo anuncios."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Siguen apareciendo anuncios"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "La página no se muestra correctamente, no funciona correctamente o parece que falta contenido importante."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "La página que intento visualizar está rota"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Utiliza las herramientas para destacar los anuncios u ocultar la información confidencial que aparezca en la captura de pantalla. Destacar los anuncios nos ayudará a solucionar el problema con mayor rapidez."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Destacar problema"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "El problema del que informó probablemente ya fuera conocido. Más información:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Marcar problema"
+  },
+  "issueReporter_page_title": {
+    "message": "Creador de informes de errores"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Política de privacidad"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Ocultar"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Resaltar"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Seleccionar problema"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Enviar informe"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Enviar informe"
+  },
+  "issueReporter_sending": {
+    "message": "Por favor, espere mientras Adblock Plus envía su informe."
+  },
+  "issueReporter_showData_label": {
+    "message": "Hacer clic en este enlace para revisar los datos del informe antes de enviarlo"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Selecciona un problema:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "¿De qué tipo de problema se trata?"
+  }
+}

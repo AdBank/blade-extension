@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "أضف"
+  },
+  "cancel": {
+    "message": "إلغاء"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "اخفاء رسائل تحذير ادبلوك"
+  },
+  "common_feature_malware_title": {
+    "message": "منع البرامج الضارة"
+  },
+  "common_feature_privacy_title": {
+    "message": "حجب أنواع التعقب الإضافية"
+  },
+  "common_feature_social_title": {
+    "message": "حجب تعقب رموز مواقع التواصل الاجتماعي"
+  },
+  "common_notification_hide": {
+    "message": "أغلق هذا التنبيه"
+  }
+}

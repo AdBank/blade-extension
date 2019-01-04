@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "추가"
+  },
+  "cancel": {
+    "message": "취소"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "Adblock 경고 메시지 숨기기"
+  },
+  "common_feature_malware_title": {
+    "message": "악성코드 차단"
+  },
+  "common_feature_privacy_title": {
+    "message": "추가적인 추적 차단"
+  },
+  "common_feature_social_title": {
+    "message": "소셜 미디어 아이콘 추적 차단"
+  },
+  "common_notification_hide": {
+    "message": "알림 닫기"
+  }
+}

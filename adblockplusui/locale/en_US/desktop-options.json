@@ -1,0 +1,469 @@
+{
+  "options_page_document_title": {
+    "description": "Options page title",
+    "message": "Adblock Plus Options"
+  },
+  "options_page_title": {
+    "description": "Page title in navigation sidebar",
+    "message": "Settings"
+  },
+  "options_tab_general": {
+    "description": "Sidebar tab label",
+    "message": "General"
+  },
+  "options_tab_whitelist": {
+    "description": "Sidebar tab label and main heading inside corresponding tab",
+    "message": "Whitelisted websites"
+  },
+  "options_tab_advanced": {
+    "description": "Sidebar tab label and main heading inside corresponding tab",
+    "message": "Advanced"
+  },
+  "options_tab_help": {
+    "description": "Sidebar tab label",
+    "message": "Help"
+  },
+  "options_footer_contribute": {
+    "description": "Sidebar button label",
+    "message": "Contribute"
+  },
+  "options_footer_about": {
+    "description": "Sidebar button label",
+    "message": "About Adblock Plus"
+  },
+  "options_learn_more": {
+    "description": "Text for `Learn more` link",
+    "message": "Learn more"
+  },
+  "options_control_remove_title": {
+    "description": "Title of remove controls",
+    "message": "remove"
+  },
+  "options_new_label": {
+    "description": "Label of the new elements",
+    "message": "New"
+  },
+  "options_general_description": {
+    "description": "General tab description",
+    "message": "Determine what Adblock Plus shows and hides on websites"
+  },
+  "options_privacy_header": {
+    "description": "Section title in General tab",
+    "message": "Privacy & security"
+  },
+  "options_protection_privacy_tooltip": {
+    "description": "Tooltip for 'Block additional tracking' option in General tab",
+    "message": "Protect your privacy from known entities that may track your online activity across websites you visit."
+  },
+  "options_protection_social_tooltip": {
+    "description": "Tooltip for 'Block social media icons tracking' option in General tab",
+    "message": "The social media icons on the websites you visit allow social media networks to build a profile of you based on your browsing habits - even when you don't click on them. Hiding these icons can protect your profile."
+  },
+  "options_acceptableAds_header": {
+    "description": "Section title in General tab",
+    "message": "Acceptable Ads"
+  },
+  "options_acceptableAds_description": {
+    "description": "Acceptable Ads section description in General tab",
+    "message": "Acceptable Ads are nonintrusive ads. They are the middle ground between ad blocking and supporting online content because they generate revenue for website owners."
+  },
+  "options_tracking_warning_1": {
+    "description": "Text of the tracking notification (being shown when both 'Acceptable Ads' and 'EasyPrivacy' are enabled) in General tab",
+    "message": "We noticed you have both <strong>$tracking$</strong> and <strong>$acceptableAds$</strong> enabled.",
+    "placeholders": {
+      "acceptableAds": {
+        "content": "$2",
+        "example": "Allow Acceptable Ads"
+      },
+      "tracking": {
+        "content": "$1",
+        "example": "Block additional tracking"
+      }
+    }
+  },
+  "options_tracking_warning_2": {
+    "description": "Text of the tracking notification (being shown when both 'Acceptable Ads' and 'EasyPrivacy' are enabled) in General tab",
+    "message": "We want you to know that in order for advertisers to show you more relevant ads, there <strong>may</strong> be some tracking with Acceptable Ads."
+  },
+  "options_tracking_warning_3": {
+    "description": "Text of the tracking notification (being shown when both 'Acceptable Ads' and 'EasyPrivacy' are enabled) in General tab",
+    "message": "If you prefer extra privacy, select the <strong>$acceptableAdsPrivacy$</strong> checkbox below.",
+    "placeholders": {
+      "acceptableAdsPrivacy": {
+        "content": "$1",
+        "example": "Only allow ads without third-party tracking"
+      }
+    }
+  },
+  "options_tracking_warning_acknowledgment": {
+    "description": "Text in the tracking notification (being shown when both 'Acceptable Ads' and 'EasyPrivacy' are enabled) in General tab",
+    "message": "OK, got it"
+  },
+  "options_acceptableAds_ads_label": {
+    "description": "Acceptable Ads section option label in General tab",
+    "message": "Allow Acceptable Ads"
+  },
+  "options_acceptableAds_ads_description_1": {
+    "description": "Acceptable Ads section 'Allow some nonintrusive ads' option description in General tab",
+    "message": "Acceptable Ads are not annoying and do not interfere with the content you are viewing. <a>Read more about the Acceptable Ads criteria</a>"
+  },
+  "options_acceptableAds_privacy_label": {
+    "description": "Acceptable Ads section option label in General tab",
+    "message": "Only allow ads without third-party tracking"
+  },
+  "options_acceptableAds_dnt_notification": {
+    "description": "Acceptable Ads section's notification (being shown if Do Not Track is not enabled) in General tab",
+    "message": "<strong>Note:</strong> You have <strong>Do Not Track (DNT)</strong> disabled in your browser settings. For this feature to work properly, please enable <strong>DNT</strong> in your browser preferences. <a>Find out how to enable DNT</a>."
+  },
+  "options_filters_search_or_add": {
+    "description": "The filter search placeholder.",
+    "message": "Search / add filter (e.g. $filter$)",
+    "placeholders": {
+      "filter": {
+        "content": "/ads/track/*"
+      }
+    }
+  },
+  "options_language_header": {
+    "description": "Section title in General tab",
+    "message": "Language"
+  },
+  "options_language_description": {
+    "description": "Language section description in General tab",
+    "message": "Optimize Adblock Plus for the language(s) you typically browse websites in."
+  },
+  "options_language_empty": {
+    "description": "Language section language list empty text in General tab",
+    "message": "You don't have any language-specific filters."
+  },
+  "options_language_change": {
+    "description": "Language section language list single entry text in General tab",
+    "message": "change"
+  },
+  "options_language_tip": {
+    "description": "Language section tip in General tab",
+    "message": "<strong>TIP:</strong> Only select the languages you need. Selecting more will slow down the ad blocker and, therefore, your browsing speed."
+  },
+  "options_more_filters_header": {
+    "description": "Section title in General tab",
+    "message": "More filters"
+  },
+  "options_more_filters_description": {
+    "description": "More filters section description in General tab",
+    "message": "These are additional filters you previously added to Adblock Plus."
+  },
+  "options_more_filters_note": {
+    "description": "More filters section note in General tab",
+    "message": "<strong>Note:</strong> You should only use third party filter lists from authors that you trust."
+  },
+  "options_english": {
+    "description": "Language section text inside 'Language' table and 'Select language' dialog in General tab",
+    "message": "English"
+  },
+  "options_language_add": {
+    "description": "Add other language button in General Tab",
+    "message": "+ add a language"
+  },
+  "options_whitelist_description": {
+    "description": "Whitelist tab description",
+    "message": "You've turned off ad blocking on these websites and, therefore, will see ads on them."
+  },
+  "options_whitelist_add": {
+    "description": "Add whitelisted domain button",
+    "message": "Add website"
+  },
+  "options_whitelist_placeholder_example": {
+    "description": "Empty Whitelist input placeholder prefix",
+    "message": "e.g. $domain$",
+    "placeholders": {
+      "domain": {
+        "content": "$1",
+        "example": "www.example.com"
+      }
+    }
+  },
+  "options_whitelist_empty_1": {
+    "description": "Empty Whitelist placeholder",
+    "message": "You don't have any whitelisted websites."
+  },
+  "options_whitelist_empty_2": {
+    "description": "Empty Whitelist placeholder",
+    "message": "Websites you trust and want to allow ads on will be shown here."
+  },
+  "options_advanced_description": {
+    "description": "Advanced tab description",
+    "message": "Customize Adblock Plus, add or remove filter lists, create and maintain your own filter lists"
+  },
+  "options_customize_header": {
+    "description": "Section title in Advanced tab",
+    "message": "Customizations"
+  },
+  "options_customize_blockElement": {
+    "description": "Option label of customize section in Advanced tab",
+    "message": "Show 'Block element' right-click menu item"
+  },
+  "options_customize_blockElement_tooltip": {
+    "description": "Tooltip text for Show 'Block element' option item of customize section in Advanced tab",
+    "message": "Temporarily block annoying items on a webpage, e.g. images or animated slideshows."
+  },
+  "options_customize_iconStats": {
+    "description": "Option label of customize section in Advanced tab",
+    "message": "Show number of ads blocked in icon"
+  },
+  "options_customize_showDevToolsPanel": {
+    "description": "Option label of customize section in Advanced tab",
+    "message": "Show 'Adblock Plus' panel in developer tools"
+  },
+  "options_customize_showDevToolsPanel_tooltip": {
+    "description": "Tooltip text for Show 'Adblock Plus' panel option item of customize section in Advanced tab",
+    "message": "View blocked and whitelisted items from your browser's developer tools panel."
+  },
+  "options_customize_showNotifications": {
+    "description": "Option label of customize section in Advanced tab",
+    "message": "Show useful notifications"
+  },
+  "options_customize_showNotifications_tooltip": {
+    "description": "Tooltip text for Show notifications option item of customize section in Advanced tab",
+    "message": "Allow notifications from Adblock Plus (notifications related to critical performance issues will always be shown)."
+  },
+  "options_filterList_title": {
+    "description": "Section title in Advanced tab",
+    "message": "Filter lists"
+  },
+  "options_filterList_description": {
+    "description": "Filter lists section description in Advanced tab",
+    "message": "Each Adblock Plus setting functions because of a filter list. Below are the filter lists that correspond to all of your Adblock Plus settings. You can also add additional filters created and maintained by our trusted community."
+  },
+  "options_filterList_column_status": {
+    "description": "Column name of filter list table in Advanced tab",
+    "message": "Status"
+  },
+  "options_filterList_column_name": {
+    "description": "Column name of filter list table in Advanced tab",
+    "message": "Filter lists"
+  },
+  "options_filterList_column_update": {
+    "description": "Column name of filter list table in Advanced tab",
+    "message": "Last updated"
+  },
+  "options_filterList_empty": {
+    "description": "Empty text of filter list table in Advanced tab",
+    "message": "You have not added any filter lists to Adblock Plus. Filter lists you add will be shown here."
+  },
+  "options_filterList_state_active": {
+    "description": "State of filter list in Advanced tab",
+    "message": "Active"
+  },
+  "options_filterList_state_disabled": {
+    "description": "State of filter list in Advanced tab",
+    "message": "Disabled"
+  },
+  "options_filterList_now": {
+    "description": "Text inside 'Last update' column in Advanced tab",
+    "message": "Just now"
+  },
+  "options_filterList_minutes": {
+    "description": "Text inside 'Last update' column in Advanced tab",
+    "message": "minutes ago"
+  },
+  "options_filterList_hours": {
+    "description": "Text inside 'Last update' column in Advanced tab",
+    "message": "hours ago"
+  },
+  "options_filterList_add": {
+    "description": "Import button in Advanced tab",
+    "message": "+ Add a new filter list"
+  },
+  "options_filterList_update": {
+    "description": "Update button in Advanced tab",
+    "message": "update all filter lists"
+  },
+  "options_customFilters_title": {
+    "description": "Section title in Advanced tab",
+    "message": "Create and edit your filter list"
+  },
+  "options_customFilters_description": {
+    "description": "Custom filter lists section description in Advanced tab",
+    "message": "Create your own filters to further control what content Adblock Plus blocks. <a0>Learn how to create filters</a0>"
+  },
+  "options_customFilters_widget_title": {
+    "description": "Custom filter widget title in Advanced tab",
+    "message": "My filter list"
+  },
+  "options_customFilters_tip": {
+    "description": "Custom filter widget(empty) hint text in Advanced tab",
+    "message": "Filters you create will show up here."
+  },
+  "options_customFilters_start": {
+    "description": "Custom filter widget(empty) button text in Advanced tab",
+    "message": "Start creating my filter list"
+  },
+  "options_customFilters_learn": {
+    "description": "Custom filter widget(empty) link text in Advanced tab",
+    "message": "Learn how to create filters"
+  },
+  "options_customFilters_edit_placeholder": {
+    "description": "Custom filter widget(empty) placeholder text in Advanced tab",
+    "message": "e.g. $filter$",
+    "placeholders": {
+      "filter": {
+        "content": "$1",
+        "example": "/ads/track/*"
+      }
+    }
+  },
+  "options_filterList_lastDownload_invalidURL": {
+    "description": "Error message in advanced tab",
+    "message": "Failed, not a valid address"
+  },
+  "options_filterList_lastDownload_connectionError": {
+    "description": "Error message in advanced tab",
+    "message": "Failed, download failure"
+  },
+  "options_filterList_lastDownload_invalidData": {
+    "description": "Error message in advanced tab",
+    "message": "Failed, not a valid filter list"
+  },
+  "options_filterList_lastDownload_checksumMismatch": {
+    "description": "Error message in advanced tab",
+    "message": "Failed, checksum mismatch"
+  },
+  "options_filterList_lastDownload_inProgress": {
+    "description": "Progress message in advanced tab",
+    "message": "Updating"
+  },
+  "options_filterList_updateNow": {
+    "description": "Context menu item in advanced tab, appears after click on subscription",
+    "message": "update now"
+  },
+  "options_filterList_website": {
+    "description": "Context menu item in advanced tab, appears after click on subscription",
+    "message": "website"
+  },
+  "options_filterList_source": {
+    "description": "Context menu item in advanced tab, appears after click on subscription",
+    "message": "source"
+  },
+  "options_customFilter_edit": {
+    "description": "Label below single input view of user's filter list in Advanced tab",
+    "message": "Edit filters"
+  },
+  "options_customFilter_cancel": {
+    "description": "Label below raw view of user's filter list in Advanced tab",
+    "message": "Cancel"
+  },
+  "options_customFilter_save": {
+    "description": "Label below raw view of user's filter list in Advanced tab",
+    "message": "Save"
+  },
+  "options_help_description": {
+    "description": "Help tab description",
+    "message": "Find help or get in touch with us"
+  },
+  "options_support_title": {
+    "description": "Section title in Help tab",
+    "message": "Support"
+  },
+  "options_report_bug": {
+    "description": "'Support' section list item in Help tab",
+    "message": "Found a bug? <a>Send us a bug report</a>"
+  },
+  "options_report_forum": {
+    "description": "'Support' section list item in Help tab",
+    "message": "Want support from our community? <a>Go to the Forum</a>"
+  },
+  "options_social_title": {
+    "description": "'Section' title in Help tab",
+    "message": "Get in touch"
+  },
+  "options_social_description": {
+    "description": "'Get in touch' section description in Help tab",
+    "message": "Have a question or a new idea? We're here to help."
+  },
+  "options_email": {
+    "description": "Email label in Help tab",
+    "message": "Email:"
+  },
+  "options_dialog_about_title": {
+    "description": "Title of about ABP dialog",
+    "message": "About Adblock Plus"
+  },
+  "options_dialog_about_version": {
+    "description": "Version information in 'about Adblock Plus' modal dialog",
+    "message": "Version number $version$",
+    "placeholders": {
+      "version": {
+        "content": "$1",
+        "example": "2.6.7"
+      }
+    }
+  },
+  "options_dialog_about_copyright": {
+    "description": "Copyright information in 'about Adblock Plus' modal dialog",
+    "message": "Copyright © $currentYear$ eyeo GmbH.",
+    "placeholders": {
+      "currentYear": {
+        "content": "2017",
+        "example": "2017"
+      }
+    }
+  },
+  "options_dialog_about_trademark": {
+    "description": "Trademark information in 'about Adblock Plus' modal dialog",
+    "message": "All rights reserved. Adblock Plus® is a registered trademark of eyeo GmbH."
+  },
+  "options_dialog_predefined_confirm": {
+    "description": "Confirming to add a predefined subscription when asked in a dialog",
+    "message": "Yes, use this filter list"
+  },
+  "options_dialog_predefined_title": {
+    "description": "Dialog title for adding a predefined subscription",
+    "message": "Are you sure you want to add this filter list?"
+  },
+  "options_dialog_import_title": {
+    "description": "Title of 'Add a filter list' dialog",
+    "message": "Add a filter list"
+  },
+  "options_close": {
+    "description": "Close modal button",
+    "message": "close"
+  },
+  "options_dialog_import_subscription_location": {
+    "description": "Input label in 'Add a filter list' dialog",
+    "message": "Filter list URL"
+  },
+  "options_dialog_import_subscription_location_error": {
+    "description": "Error message of 'Filter list URL' input in 'Add a filter list' dialog",
+    "message": "Enter a valid URL"
+  },
+  "options_dialog_language_title": {
+    "description": "Title of lanugage modal dialog",
+    "message": "Select a language"
+  },
+  "options_dialog_language_other_empty": {
+    "description": "Text shown when list of available languages is empty",
+    "message": "There are no available languages."
+  },
+  "options_whitelist_notification": {
+    "description": "Notification that is shown after a new website is whitelisted",
+    "message": "\"$website$\" has been whitelisted.",
+    "placeholders": {
+      "website": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
+  "options_anti_cv_header": {
+    "description": "Text for the section about anti CV",
+    "message": "Anti-Circumvention"
+  },
+  "options_anti_cv_title": {
+    "description": "Title for the Anti-Circumvention list",
+    "message": "ABP Anti-Circumvention Filter List"
+  },
+  "options_anti_cv_tooltip": {
+    "description": "Tooltip for the anti circumvention list",
+    "message": "This filter list works against circumvention (i.e. techniques to force ads on ad-blocking users). These filters address circumventing ads as well as related tracking."
+  }
+}

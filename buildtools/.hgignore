@@ -1,0 +1,8 @@
+syntax: glob
+
+*.pyc
+*.pyo
+.tox
+.cache
+.coverage
+node_modules/

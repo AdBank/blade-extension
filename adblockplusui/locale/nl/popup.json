@@ -1,0 +1,66 @@
+{
+  "click_element_to_block_it": {
+    "message": "Klik op een element op de pagina om het te blokkeren."
+  },
+  "clickhide_instructions": {
+    "message": "Klik (of klik met de rechtermuisknop) na het sluiten van deze pop-up op een element op de pagina."
+  },
+  "disabled_for_site": {
+    "message": "<strong>Uitgeschakeld</strong> op deze website"
+  },
+  "easy_create_filter": {
+    "message": "Element blokkeren"
+  },
+  "enabled_for_site": {
+    "message": "<strong>Ingeschakeld</strong> op deze website"
+  },
+  "options_refresh": {
+    "message": "Vernieuwen"
+  },
+  "options_short": {
+    "message": "Opties"
+  },
+  "overlay_notification_closing_button_hide": {
+    "message": "Sluiten"
+  },
+  "overlay_notification_closing_button_optout": {
+    "message": "Tonen van meldingen stoppen"
+  },
+  "promote_abp_module": {
+    "message": "Interesse in Adblock Plus op mobiel?"
+  },
+  "refresh_to_take_effect": {
+    "message": "Klik op <strong>Vernieuwen</strong> om de wijzigingen toe te passen."
+  },
+  "sendReport": {
+    "message": "Probleem melden"
+  },
+  "stats_header": {
+    "message": "Aantal geblokkeerde items"
+  },
+  "stats_label_page": {
+    "message": "<strong>$number$</strong> op deze pagina",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_label_total": {
+    "message": "<strong>$number$</strong> in totaal",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_show_iconnumber": {
+    "message": "Aantal in pictogram tonen"
+  },
+  "stats_title": {
+    "message": "Geblokkeerde advertenties"
+  },
+  "status_header": {
+    "message": "Advertenties blokkeren op:"
+  }
+}

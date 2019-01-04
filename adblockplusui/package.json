@@ -1,0 +1,133 @@
+{
+  "name": "adblockplusui",
+  "private": true,
+  "description": "Adblock Plus UI",
+  "scripts": {
+    "$": "npm-dollar",
+    "build": "npm run $ build",
+    "bundle": "npm run $ bundle",
+    "lint": "npm run $ lint",
+    "postinstall": "npm run bundle",
+    "start": "http-server & npm run watch",
+    "test": "npm run $ test",
+    "watch": "npm run $ watch",
+    "csv-export": "node build/csv-exporter/main.js -e",
+    "csv-import": "node build/csv-exporter/main.js -i"
+  },
+  "$": {
+    "build": {
+      "popup": [
+        "$ bundle.popup",
+        "cd ../buildtools/",
+        "npm i",
+        "cd ..",
+        "SKIP_DEPENDENCY_UPDATES=true ./build.py devenv -t chrome",
+        "cd -"
+      ]
+    },
+    "bundle": {
+      "desktop-options": {
+        "css": "$ create.css desktop-options",
+        "js": "$ create.js ./js/desktop-options.js ./desktop-options.js"
+      },
+      "first-run": {
+        "css": [
+          "$ create.css first-run",
+          "$ create.css web"
+        ],
+        "js": "$ create.js ./js/first-run.js ./first-run.js"
+      },
+      "issue-reporter": {
+        "css": "$ create.css issue-reporter",
+        "js": "$ create.js ./js/issue-reporter.js ./issue-reporter.js"
+      },
+      "popup": "$ create.bundle popup",
+      "test": [
+        [
+          "if [ ! -z $1 ]; then",
+          " echo \"/* eslint-disable */$(browserify --node ./tests/$1.js)\">./smoke/$1.js;",
+          "fi"
+        ]
+      ]
+    },
+    "create": {
+      "bundle": {
+        "css": "$ create.css $1",
+        "js": "$ create.js ./js/$1.js ./$1.js"
+      },
+      "css": "node-sass ./css/$1.scss ./skin/$1.css",
+      "js": [
+        "!prod eslint ./js/**/*.js",
+        "echo \"/* eslint-disable */$(browserify --node $1)\">$2"
+      ],
+      "test": {
+        "component": {
+          "css": "$ create.test.css $1",
+          "js": [
+            "$ create.test.js $1",
+            "$ bundle.test $1"
+          ]
+        },
+        "css": "node-sass ./css/$1.scss ./smoke/css/$1.css",
+        "js": [
+          "mkdir -p smoke",
+          "cp -R ./tests/{locale,background.html,$1.*} ./smoke"
+        ]
+      }
+    },
+    "lint": {
+      "css": "stylelint ./css/*.scss",
+      "js": "eslint ./*.js ./js/*.js ./lib/*.js ./ext/*.js ./build/*.js"
+    },
+    "test": {
+      "io-element": {
+        "js": [
+          "$ create.test.js io-element",
+          "$ bundle.test io-element"
+        ]
+      },
+      "io-filter-search": "$ create.test.component io-filter-search",
+      "io-highlighter": {
+        "css": [
+          "$ create.test.css io-highlighter",
+          "cp -R ./skin/icons smoke/css",
+          "cp ./tests/image.base64.txt ./smoke"
+        ],
+        "js": [
+          "$ create.test.js io-highlighter",
+          "$ bundle.test io-highlighter"
+        ]
+      },
+      "io-list-box": "$ create.test.component io-list-box",
+      "io-popout": "$ create.test.component io-popout",
+      "io-scrollbar": "$ create.test.component io-scrollbar",
+      "io-steps": "$ create.test.component io-steps",
+      "io-toggle": "$ create.test.component io-toggle",
+      "io-big-toggle": "$ create.test.component io-big-toggle"
+    },
+    "watch": {
+      "build": "watch 'npm run build' ./css ./js",
+      "bundle": "watch 'npm run bundle' ./css ./js",
+      "test": "watch 'npm run test' ./css ./js"
+    }
+  },
+  "dependencies": {
+    "browserify": "^16.2.2",
+    "document-register-element": "^1.11.0",
+    "hyperhtml-element": "^3.1.0",
+    "node-sass": "^4.9.3",
+    "npm-dollar": "^1.0.1",
+    "website-defaults": "github:adblockplus/website-defaults#255e4f1"
+  },
+  "devDependencies": {
+    "csv": "^3.1.0",
+    "eslint": "^5.4.0",
+    "eslint-config-eyeo": "^2.1.0",
+    "glob": "^7.1.2",
+    "http-server": "^0.11.1",
+    "nightmare": "^3.0.1",
+    "stylelint": "^9.5.0",
+    "stylelint-config-eyeo": "^1.0.2",
+    "watch": "^1.0.2"
+  }
+}

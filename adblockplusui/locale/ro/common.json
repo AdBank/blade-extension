@@ -1,0 +1,23 @@
+{
+  "add": {
+    "message": "Adaugă"
+  },
+  "cancel": {
+    "message": "Anulează"
+  },
+  "common_feature_anti_adblock_title": {
+    "message": "Ascunde mesajele de avertizare Adblock"
+  },
+  "common_feature_malware_title": {
+    "message": "Blochează Malware"
+  },
+  "common_feature_privacy_title": {
+    "message": "Blochează tracking"
+  },
+  "common_feature_social_title": {
+    "message": "Blochează tracking pe reţelele sociale"
+  },
+  "common_notification_hide": {
+    "message": "Închideţi această notificare"
+  }
+}

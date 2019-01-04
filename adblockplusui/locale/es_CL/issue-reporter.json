@@ -1,0 +1,104 @@
+{
+  "continue": {
+    "message": "Continuar"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Falló, descarga fracaso"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Envío anónimo"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "No podremos volver a ti y es probable que le demos una prioridad inferior al reporte."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Escribir comentario"
+  },
+  "issueReporter_comment_description": {
+    "message": "El campo de texto de la parte inferior te permite introducir un comentario para ayudarnos a entender el problema. Este paso es opcional, pero recomendable si el problema no algo obvio. Puedes revisar los datos del reporte antes de que sea enviado."
+  },
+  "issueReporter_comment_label": {
+    "message": "Comentario (opcional):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Su informe ha sido guardado. Puede acceder a él en la siguiente dirección:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Nota:</strong> Se abrirá temporalmente una pestaña adicional, así la página en la que te encuentras no será afectada por el Reportador de Problemas."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Detalles"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Listo"
+  },
+  "issueReporter_email_description": {
+    "message": "Te recomendamos que introduzcas una dirección válida de correo electrónico para que podamos contactarte si surgen preguntas sobre tu reporte. Esto también nos permitirá reconocer tus contribuciones y darles mayor prioridad."
+  },
+  "issueReporter_email_label": {
+    "message": "Correo electrónico:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Un intento de enviar el reporte produjo un fallo con código de error \"?1?\". Por favor, asegúrese de que está conectado a Internet y vuelva a intentarlo. Si el problema persiste por favor pida ayuda en el [link]foro de Adblock Plus[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Seleccione esta opción si se muestra un anuncio a pesar de que Adblock Plus está activado."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Adblock Plus no bloquea un anuncio"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "Seleccione esta opción si la pagina carece de contenido importante, se muestra de forma incorrecta o deja de funcionar correctamente. Puede determinar si Adblock Plus es la causa del problema desactivandolo temporalmente."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "Adblock Plus está bloqueando demasiado"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Utiliza las herramientas para destacar cada anuncio u ocultar información sensible en la captura de pantalla. Destacando anuncios nos ayudará a solucionar el problema más rapido."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "Destacar el problema"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "El problema que reporto probablemente ya es conocido. Más información:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "Marca el problema"
+  },
+  "issueReporter_page_title": {
+    "message": "Reportar un error"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Política de privacidad"
+  },
+  "issueReporter_processing_screenshot": {
+    "message": "procesando"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "Ocultar"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "Destacar"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "Selecciona el problema"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Enviar reporte"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Enviar informe"
+  },
+  "issueReporter_sending": {
+    "message": "Por favor, espere mientras Adblock Plus envía su informe."
+  },
+  "issueReporter_showData_label": {
+    "message": "Mostrar datos del informe"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Esta ventana le dará los pasos necesarios para la presentación del informe de Adblock Plus en cuestión. Primero, por favor seleccione el tipo de problema que está experimentando en esta página:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Selecciona el tipo de problema"
+  }
+}

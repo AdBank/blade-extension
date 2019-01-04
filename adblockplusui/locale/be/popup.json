@@ -1,0 +1,66 @@
+{
+  "click_element_to_block_it": {
+    "message": "Націсніце на элемент на старонцы, каб заблакаваць яго."
+  },
+  "clickhide_instructions": {
+    "message": "Пасля закрыцця гэтага акна, націсніце на элемент сайта левай (або правай) кнопкай мышы."
+  },
+  "disabled_for_site": {
+    "message": "<strong>Адключаны</strong> на гэтым сайце"
+  },
+  "easy_create_filter": {
+    "message": "Заблакаваць элемент"
+  },
+  "enabled_for_site": {
+    "message": "<strong>Уключаны</strong> на гэтым сайце"
+  },
+  "options_refresh": {
+    "message": "Абнавіць"
+  },
+  "options_short": {
+    "message": "Налады"
+  },
+  "overlay_notification_closing_button_hide": {
+    "message": "Закрыць"
+  },
+  "overlay_notification_closing_button_optout": {
+    "message": "Не паказваць апавяшчэнні"
+  },
+  "promote_abp_module": {
+    "message": "Цікавіць Adblock Plus для мабільных прылад?"
+  },
+  "refresh_to_take_effect": {
+    "message": "Націсніце <strong>Абнавіць</strong>, каб ажыццявіць змены."
+  },
+  "sendReport": {
+    "message": "Паведаміць аб праблеме"
+  },
+  "stats_header": {
+    "message": "Колькасць заблакаваных элементаў"
+  },
+  "stats_label_page": {
+    "message": "<strong>$number$</strong> на гэтай старонцы",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_label_total": {
+    "message": "<strong>$number$</strong> агулам",
+    "placeholders": {
+      "number": {
+        "content": "$1"
+      }
+    }
+  },
+  "stats_show_iconnumber": {
+    "message": "Паказваць колькасць на значку"
+  },
+  "stats_title": {
+    "message": "Колькасць заблакаваных"
+  },
+  "status_header": {
+    "message": "Блакаванне рэкламы на:"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "continue": {
+    "message": "המשך"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "נכשל, כישלון הורדה"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "הגשה אלמונית"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "לא נוכל לחזור אליך וסביר שנתעדף את הדיווח בצורה נמוכה יותר."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "השאר תגובה"
+  },
+  "issueReporter_comment_description": {
+    "message": "אנא עזור לנו להבין בצורה טובה יותר את הסוגייה ע\"י השארת תגובה למטה."
+  },
+  "issueReporter_comment_label": {
+    "message": "הערה (רשותי):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "הדיווח שלך נשמר. ניתן להשיג גישה אליו בכתובת הבאה:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>הערה:</strong> לשונית נוספת תיפתח באופן זמני כך שהעמוד שאתה עליו לא יושפע ממדווח הסוגיות."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "פרטים"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "בוצע"
+  },
+  "issueReporter_email_description": {
+    "message": "זה מועיל להכניס כתובת דוא\"ל תקפה. זה מאפשר לנו ליצור איתך קשר כדי לתקן סוגיות קשות כמו נוזקה. זכור שאין זה חובה להכניס כתובת דוא\"ל, וכתובתך אף פעם לא תשותף."
+  },
+  "issueReporter_email_label": {
+    "message": "דוא\"ל:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "ניסיון לשלוח את הדיווח נכשל עם קוד השגיאה \"?1?\". אנא וודא שאתה מחובר לאינטרנט ונסה שוב. אם הבעיה נמשכת, אנא בקש סיוע ב[link]פורום Adblock Plus[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Adblock Plus מאופשר, אבל אני עדין רואה פרסומת או פרסומות."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "אני עדין רואה פרסומות"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "הדף מציג בצורה לא נכונה, נכשל לתפקד או נראה שהוא חסר תוכן חשוב."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "העמוד שאני מנסה לראות שבור"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "השתמש בכלים כדי להדגיש כל פרסומת או כדי להסתיר מידע רגיש על צילום המסך. הדגשת פרסומות תעזור לנו לתקן את הסוגייה בצורה מהירה יותר."
+  },
+  "issueReporter_highlighter_heading": {
+    "message": "הדגש סוגייה"
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "הסוגייה שדיווחת עליה כנראה ידועה כבר. מידע נוסף:"
+  },
+  "issueReporter_markIssueButton_label": {
+    "message": "סמן סוגייה"
+  },
+  "issueReporter_page_title": {
+    "message": "מדווח הסוגיות"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "מדיניות פרטיות"
+  },
+  "issueReporter_processing_screenshot": {
+    "message": "מעבד"
+  },
+  "issueReporter_screenshot_hide": {
+    "message": "הסתר"
+  },
+  "issueReporter_screenshot_highlight": {
+    "message": "הדגש"
+  },
+  "issueReporter_selectIssueButton_label": {
+    "message": "בחר סוגייה"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "שלח דיווח"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "שליחת דיווח"
+  },
+  "issueReporter_sending": {
+    "message": "אנא המתן בזמן ש־Adblock Plus מגיש את הדיווח שלך."
+  },
+  "issueReporter_showData_label": {
+    "message": "לחץ על קישור זה כדי לסקור את נתוני הדיווח לפני שליחה"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "אנא בחר סוגייה:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "איזה סוג של סוגייה אתה חווה?"
+  }
+}

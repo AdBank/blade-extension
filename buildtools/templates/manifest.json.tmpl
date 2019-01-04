@@ -1,0 +1,99 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+{
+  "manifest_version": 2,
+  {%- if releaseBuild %}
+  "name": "__MSG_name__",
+  {%- else %}
+  "name": "__MSG_name_devbuild__",
+  {%- endif %}
+
+  "short_name": "__MSG_name__",
+  "description": "__MSG_description__",
+  "default_locale": "en_US",
+  "version": {{version|json}},
+  "author": {{metadata.get('general', 'author')|json}},
+
+  {%- if metadata.has_section('compat') and metadata.has_option('compat', 'chrome') %}
+  "minimum_chrome_version": {{metadata.get('compat', 'chrome')|json}},
+  {%- endif %}
+
+  {%- if metadata.has_section('compat') and metadata.has_option('compat', 'opera') %}
+  "minimum_opera_version": {{metadata.get('compat', 'opera')|json}},
+  {%- endif %}
+
+  {%- if metadata.has_section('compat') and metadata.has_option('compat', 'edge') %}
+  "minimum_edge_version": {{metadata.get('compat', 'edge')|json}},
+  {%- endif %}
+
+  {%- if type == 'gecko' %}
+  "applications":
+  {
+    "gecko":
+    {
+      "id": {{app_id|json}}
+
+      {%- if metadata.has_section('compat') and metadata.has_option('compat', 'gecko') %}
+      ,
+      "strict_min_version": {{metadata.get('compat', 'gecko')|json}}
+      {%- endif %}
+
+      {%- set updateURLSetting = 'updateURL' if releaseBuild else 'devbuildUpdateURL' %}
+      {%- if metadata.has_option('general', updateURLSetting) %}
+      ,
+      "update_url": {{metadata.get('general', updateURLSetting)|json}}
+      {%- endif %}
+    }
+  },
+  {%- endif %}
+
+  {%- if pageAction %}
+  "page_action": {
+    "default_icon": {{pageAction.icon|json}},
+    {%- if pageAction.popup %}
+    "default_popup": {{pageAction.popup|json}},
+    {%- endif %}
+    "default_title": "__MSG_name__"
+  },
+  {%- endif %}
+
+  {%- if browserAction %}
+  "browser_action": {
+    "default_icon": {{browserAction.icon|json}},
+    {%- if browserAction.popup %}
+    "default_popup": {{browserAction.popup|json}},
+    {%- endif %}
+    "default_title": "__MSG_name__"
+  },
+  {%- endif %}
+
+  {%- if icons %}
+  "icons": {{icons|json}},
+  {%- endif %}
+
+  {%- if backgroundScripts %}
+  "background": {
+    "scripts": {{backgroundScripts|json}},
+    "persistent": true
+  },
+  {%- endif %}
+
+  {%- if metadata.has_option('general', 'options') %}
+  {%- if type != 'edge' %}
+  "options_ui": {
+    "page": {{metadata.get('general', 'options')|json}},
+    "open_in_tab": true
+  },
+  {%- else %}
+  "options_page": {{metadata.get('general', 'options')|json}},
+  {%- endif %}
+  {%- endif %}
+
+  {%- if contentScripts %}
+  "content_scripts": {{contentScripts|json}},
+  {%- endif %}
+
+  "_dummy": false
+}

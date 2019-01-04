@@ -1,0 +1,86 @@
+{
+  "continue": {
+    "message": "Напред"
+  },
+  "filters_subscription_lastDownload_connectionError": {
+    "message": "Провален — при изтегляне"
+  },
+  "issueReporter_anonymousSubmission_label": {
+    "message": "Предай анонимно"
+  },
+  "issueReporter_anonymousSubmission_warning": {
+    "message": "Иначе няма да сме в състояние да се свържем с вас и вероятно приоритетът на доклада ви ще бъде понижен."
+  },
+  "issueReporter_commentPage_heading": {
+    "message": "Въвеждане на коментар"
+  },
+  "issueReporter_comment_description": {
+    "message": "Моля, оставете коментар в полето по-долу, който ще помогне да разберем по-добре недостатъка."
+  },
+  "issueReporter_comment_label": {
+    "message": "Коментар (по избор):"
+  },
+  "issueReporter_confirmationMessage": {
+    "message": "Докладът е записан. Ще го откриете на следния адрес:"
+  },
+  "issueReporter_data_gathering_tab": {
+    "message": "<strong>Забележка:</strong> Временно ще бъде отворен допълнителен раздел, така че Докладчикът на недостатък няма да засегне страницата, на която сте в момента."
+  },
+  "issueReporter_detailsButton_label": {
+    "message": "Подробности"
+  },
+  "issueReporter_doneButton_label": {
+    "message": "Готово"
+  },
+  "issueReporter_email_description": {
+    "message": "Добре е да въведете действителен адрес на е-поща. Това ще ни позволи да се свържем при отстраняване на сериозни недостатъци като зловреден код. Имайте предвид, че въвеждането му не е задължително, и че няма никъде да се споделя."
+  },
+  "issueReporter_email_label": {
+    "message": "Е-поща:"
+  },
+  "issueReporter_errorMessage": {
+    "message": "Опитът за изпращане на доклада се провали с код на грешка „?1?“. Моля, уверете се, че сте свързани с интернет и повторете. Ако това продължи, моля потърсете помощ във [link]форума на Adblock Plus[/link]."
+  },
+  "issueReporter_falseNegative_description": {
+    "message": "Изберете настройката когато се изобразява реклама, въпреки включването на Adblock Plus."
+  },
+  "issueReporter_falseNegative_label": {
+    "message": "Adblock Plus не блокира реклама"
+  },
+  "issueReporter_falsePositive_description": {
+    "message": "Изберете настройката когато липсва важно съдържание; то се изобразява неправилно; или функционира неправилно в страницата. Бихте могли да определите дали се причинява от Adblock Plus, като временно го изключите."
+  },
+  "issueReporter_falsePositive_label": {
+    "message": "Adblock Plus блокира прекалено"
+  },
+  "issueReporter_highlighter_description": {
+    "message": "Ползвайте инструментите за открояване или скриване на чувствителни данни върху екрана. Открояването на рекламите ще помогне по-бързо да отстраним недостатъка."
+  },
+  "issueReporter_knownIssueMessage": {
+    "message": "Докладваният недостатък вероятно е вече познат. За повече информация:"
+  },
+  "issueReporter_page_title": {
+    "message": "Докладчик на недостатък"
+  },
+  "issueReporter_privacyPolicy": {
+    "message": "Политика на поверителност"
+  },
+  "issueReporter_sendButton_label": {
+    "message": "Изпрати доклада"
+  },
+  "issueReporter_sendPage_heading": {
+    "message": "Изпращане на доклада"
+  },
+  "issueReporter_sending": {
+    "message": "Моля, изчакайте докато Adblock Plus изпрати доклада."
+  },
+  "issueReporter_showData_label": {
+    "message": "Покажи докладваните данни"
+  },
+  "issueReporter_typeSelector_description": {
+    "message": "Моля, изберете недостатък:"
+  },
+  "issueReporter_typeSelector_heading": {
+    "message": "Какъв вид недостатък срещате?"
+  }
+}
