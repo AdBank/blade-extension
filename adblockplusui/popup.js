@@ -87,6 +87,158 @@ function asIndentedString(element, indentation = 0)
 }
 
 },{}],2:[function(require,module,exports){
+"use strict";
+
+const header = require("./header");
+
+const html = `
+<div class="create-password-view">
+  ${header("Create a Blade Account.")}
+  <form>
+    <div class="form-group">
+      <label>Password</label>
+      <div class="input">
+        <input type="password" id="password" />
+        <span id="password-eye">
+          <i class="icon ion-md-eye-off"></i>
+        </span>
+        <p class="error" id="password-error"></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <div class="input">
+        <input type="password" id="confirm-password" />
+        <span id="confirm-password-eye">
+          <i class="icon ion-md-eye-off"></i>
+        </span>
+        <p class="error" id="confirm-password-error"></p>
+      </div>
+    </div>
+  </form>
+  <button class="main-action-button" id="action-btn">CONTINUE</button>
+</div>
+`;
+
+module.exports = html;
+
+},{"./header":4}],3:[function(require,module,exports){
+"use strict";
+
+const html = `
+<div class="initial-view">
+  <div class="logo">
+    <img src="./skin/blade_assets/blade-powered-adbank-logo.svg" 
+    alt="blade logo" />
+  </div>
+  <p class="desciption">
+    A revolutionary new adblocker that earns you ADB while you browse the web. 
+    All while blocking all other ads!
+  </p>
+  <footer>
+    <button class="main-action-button" id="action-btn">GET STARTED</button>
+    <p class="caption">Recovering an account?</p>
+  </footer>
+</div>
+`;
+
+module.exports = html;
+
+},{}],4:[function(require,module,exports){
+"use strict";
+
+function header(description)
+{
+  return `<div class="logo">
+    <img src="./skin/blade_assets/blade-logo.svg" alt="logo" />
+  </div>
+  <p class="underlogo-desc">${description}</p>`;
+}
+
+module.exports = header;
+
+},{}],5:[function(require,module,exports){
+"use strict";
+
+const getStarted = require("./getStarted.js");
+const termsAndConditions = require("./termsAndConditions.js");
+const createPassword = require("./createPassword.js");
+const secretPhrase = require("./secretPhrase.js");
+
+module.exports = {getStarted, termsAndConditions, createPassword, secretPhrase};
+
+},{"./createPassword.js":2,"./getStarted.js":3,"./secretPhrase.js":6,"./termsAndConditions.js":7}],6:[function(require,module,exports){
+"use strict";
+
+const header = require("./header");
+
+const html = `
+<div class="secret-phrase-view">
+  ${header(`Record your secret phrase. 
+  Make sure you put it somewhere safe and 
+  secure, as it is the only back up to 
+  restore your account if you forget your pin.`)}
+  <div class="secret-phrase-container">
+    <p class="label">Your Secret Phrase</p>
+    <div class="phrase-wrapper">
+      <p>
+        split camp ethics loop piece auto 
+        equal order bargain useless ripple clump
+      </p>
+      <p class="tooltip hidden" id="tooltip">Copied!</p>
+      <div class="action-phrase-buttons">
+        <button class="copy" id="copy-button">
+          <i class="fa fa-copy"></i>
+        </button>
+        <button class="download" id="download-button">
+          <i class="fa fa-download"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="main-action-button" id="action-btn">CONTINUE</button>
+</div>
+`;
+
+module.exports = html;
+
+},{"./header":4}],7:[function(require,module,exports){
+"use strict";
+
+const header = require("./header");
+
+const html = `
+<div class="terms-and-conditions">
+  ${header("Accept Terms & Conditions")}
+  <div class="text">
+    <p>
+      1.0 blade terms of use <br /><br />
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+      pariatur.
+    </p>
+    <div class="form-wrap">
+      <label>I Accept the Terms & Conditions
+        <input type="checkbox" id="checkbox1">
+        <span class="checkmark"></span>
+      </label>
+      <label>I am not a resident of the United States or Canada
+        <input type="checkbox" id="checkbox2">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </div>
+  <button class="main-action-button" id="action-btn">ACCEPT</button>
+</div>
+`
+;
+
+module.exports = html;
+
+},{"./header":4}],8:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -162,7 +314,7 @@ class IOBigToggle extends IOToggle
 
 IOBigToggle.define("io-big-toggle");
 
-},{"./io-toggle":4}],3:[function(require,module,exports){
+},{"./io-toggle":10}],9:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -321,7 +473,7 @@ IOElement.intent("i18n", id =>
 
 module.exports = IOElement;
 
-},{"document-register-element/pony":20,"hyperhtml-element/cjs":27}],4:[function(require,module,exports){
+},{"document-register-element/pony":32,"hyperhtml-element/cjs":39}],10:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -413,7 +565,341 @@ IOToggle.define("io-toggle");
 
 module.exports = IOToggle;
 
-},{"./io-element":3}],5:[function(require,module,exports){
+},{"./io-element":9}],11:[function(require,module,exports){
+"use strict";
+
+/* eslint-disable */
+class BaseClass
+{
+  constructor({onChangeView})
+  {
+    this.wrapper = document.getElementById("main-app-wrapper");
+    this.emitViewChange = onChangeView;
+  }
+
+  initListeners()
+  {
+
+  }
+
+  handleChangeView(current, next)
+  {
+    this.emitViewChange(current, next);
+  }
+
+  render(html)
+  {
+    this.wrapper.insertAdjacentHTML("beforeend", html);
+    this.initListeners();
+  }
+}
+
+module.exports = BaseClass;
+
+},{}],12:[function(require,module,exports){
+"use strict";
+
+/* eslint-disable max-len */
+
+const BaseClass = require("./baseClass");
+
+const MIN_PASSWORD_LENGTH = 8;
+const MAX_PASSWORD_LENGTH = 30;
+
+class CreatePassword extends BaseClass
+{
+  constructor(props)
+  {
+    super(props);
+  }
+
+  initListeners()
+  {
+    const btn = document.getElementById("action-btn");
+    const confirmPasswordEye = document.getElementById("confirm-password-eye");
+    const passwordEye = document.getElementById("password-eye");
+    this.passwordField = document.getElementById("password");
+    this.confirmPasswordField = document.getElementById("confirm-password");
+
+    btn.addEventListener("click", this.handleSubmitButton.bind(this));
+    passwordEye.addEventListener("click", this.handleShowPassword.bind(this));
+    confirmPasswordEye.addEventListener("click", this.handleShowConfirmPassword.bind(this));
+  }
+
+  handleShowPassword(e)
+  {
+    if (e.target.classList.contains("ion-md-eye-off"))
+    {
+      this.showEyeIcon(e);
+      this.passwordField.type = "text";
+    }
+    else
+    {
+      this.hideEyeIcon(e);
+      this.passwordField.type = "password";
+    }
+  }
+
+  handleShowConfirmPassword(e)
+  {
+    if (e.target.classList.contains("ion-md-eye-off"))
+    {
+      this.showEyeIcon(e);
+      this.confirmPasswordField.type = "text";
+    }
+    else
+    {
+      this.hideEyeIcon(e);
+      this.confirmPasswordField.type = "password";
+    }
+  }
+
+  showEyeIcon(e)
+  {
+    e.target.classList.remove("ion-md-eye-off");
+    e.target.classList.add("ion-md-eye");
+  }
+
+  hideEyeIcon(e)
+  {
+    e.target.classList.add("ion-md-eye-off");
+    e.target.classList.remove("ion-md-eye");
+  }
+
+  handleSubmitButton(e)
+  {
+    const passwordError = document.getElementById("password-error");
+    const confirmPasswordError = document.getElementById("confirm-password-error");
+
+    passwordError.innerHTML = "";
+    confirmPasswordError.innerHTML = "";
+    this.confirmPasswordField.classList.remove("input-invalid");
+    this.passwordField.classList.remove("input-invalid");
+
+    if (this.passwordField.value !== this.confirmPasswordField.value)
+    {
+      this.disableSubmitButton(e);
+      confirmPasswordError.innerHTML = "Passwords do not match";
+      this.confirmPasswordField.classList.add("input-invalid");
+      this.passwordField.classList.add("input-invalid");
+      return false;
+    }
+
+    if (this.passwordField.value.length < MIN_PASSWORD_LENGTH)
+    {
+      this.disableSubmitButton(e);
+      passwordError.innerHTML = "Please enter at least 8 characters";
+      this.passwordField.classList.add("input-invalid");
+      return false;
+    }
+
+    if (this.passwordField.value.length > MAX_PASSWORD_LENGTH)
+    {
+      this.disableSubmitButton(e);
+      passwordError.innerHTML = "Please enter no more than 30 characters";
+      this.passwordField.classList.add("input-invalid");
+      return false;
+    }
+
+    if (this.confirmPasswordField.value.length < MIN_PASSWORD_LENGTH)
+    {
+      this.disableSubmitButton(e);
+      confirmPasswordError.innerHTML = "Please enter at least 8 characters";
+      this.confirmPasswordField.classList.add("input-invalid");
+      return false;
+    }
+
+    if (this.confirmPasswordField.value.length > MAX_PASSWORD_LENGTH)
+    {
+      this.disableSubmitButton(e);
+      confirmPasswordError.innerHTML = "Please enter no more than 30 characters";
+      this.confirmPasswordField.classList.add("input-invalid");
+      return false;
+    }
+
+    super.handleChangeView("createPassword", "secretPhrase");
+  }
+
+  disableSubmitButton(e)
+  {
+    e.target.classList.add("disabled");
+  }
+}
+
+module.exports = CreatePassword;
+
+},{"./baseClass":11}],13:[function(require,module,exports){
+"use strict";
+
+const BaseClass = require("./baseClass");
+
+class GetStarted extends BaseClass
+{
+  constructor(props)
+  {
+    super(props);
+  }
+
+  initListeners()
+  {
+    const btn = document.getElementById("action-btn");
+    const mainAppWrapper = document.getElementById("main-app-wrapper");
+    mainAppWrapper.classList.add("custom-bg");
+    btn.addEventListener("click", () =>
+    {
+      super.handleChangeView("getStarted", "termsAndConditions");
+    });
+  }
+}
+
+module.exports = GetStarted;
+
+},{"./baseClass":11}],14:[function(require,module,exports){
+"use strict";
+
+const GetStartedPage = require("./getStarted.js");
+const TermsAndConditionsPage = require("./termsAndConditions.js");
+const CreatePasswordPage = require("./createPassword.js");
+const SecretPhrasePage = require("./secretPhrase.js");
+
+module.exports = {
+  GetStartedPage,
+  TermsAndConditionsPage,
+  CreatePasswordPage,
+  SecretPhrasePage
+};
+
+},{"./createPassword.js":12,"./getStarted.js":13,"./secretPhrase.js":15,"./termsAndConditions.js":16}],15:[function(require,module,exports){
+"use strict";
+
+/* eslint-disable max-len */
+
+const BaseClass = require("./baseClass");
+
+class SecretPhrase extends BaseClass
+{
+  constructor(props)
+  {
+    super(props);
+  }
+
+  initListeners()
+  {
+    const btn = document.getElementById("action-btn");
+    const copyButton = document.getElementById("copy-button");
+    const downloadButton = document.getElementById("download-button");
+    btn.addEventListener("click", this.handleSubmit.bind(this));
+    copyButton.addEventListener("click", this.handleCopyButton.bind(this));
+    downloadButton.addEventListener("click", this.handleDownloadButton.bind(this));
+  }
+
+  handleCopyButton(e)
+  {
+    // getSecretPhrase
+    const tooltip = document.getElementById("tooltip");
+    tooltip.classList.remove("hidden");
+    tooltip.classList.add("visible");
+    setTimeout(() =>
+    {
+      tooltip.classList.add("hidden");
+      tooltip.classList.remove("visible");
+    }, 3000);
+    this.copyToClipboard(`split camp ethics loop piece auto 
+    equal order bargain useless ripple clump`);
+  }
+
+  handleDownloadButton(e)
+  {
+    this.download("secret-phrase.txt", `split camp ethics loop piece auto 
+    equal order bargain useless ripple clump`);
+  }
+
+  copyToClipboard(str)
+  {
+    const el = document.createElement("textarea");
+    el.value = str;
+    el.setAttribute("readonly", "");
+    el.style.position = "absolute";
+    el.style.left = "-9999px";
+    document.body.appendChild(el);
+    const selected =
+      document.getSelection().rangeCount > 0 ?
+        document.getSelection().getRangeAt(0) :
+        false;
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    if (selected)
+    {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(selected);
+    }
+  }
+
+  download(filename, text)
+  {
+    const element = document.createElement("a");
+    element.setAttribute(
+      "href", "data:text/plain;charset=utf-8," +
+      encodeURIComponent(text)
+    );
+    element.setAttribute("download", filename);
+
+    element.style.display = "none";
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  }
+
+  handleSubmit(e)
+  {
+    super.handleChangeView("secretPhrase", "termsAndConditions");
+  }
+}
+
+module.exports = SecretPhrase;
+
+},{"./baseClass":11}],16:[function(require,module,exports){
+"use strict";
+
+const BaseClass = require("./baseClass");
+
+class TermsAndConditions extends BaseClass
+{
+  constructor(props)
+  {
+    super(props);
+  }
+
+  initListeners()
+  {
+    const btn = document.getElementById("action-btn");
+    const mainAppWrapper = document.getElementById("main-app-wrapper");
+    mainAppWrapper.classList.remove("custom-bg");
+    btn.addEventListener("click", this.handleSubmitButton.bind(this));
+  }
+
+  handleSubmitButton(e)
+  {
+    const checkbox1 = document.getElementById("checkbox1");
+    const checkbox2 = document.getElementById("checkbox2");
+
+    if (!checkbox1.checked || !checkbox2.checked)
+    {
+      e.target.classList.add("disabled");
+    }
+    else
+    {
+      super.handleChangeView("termsAndConditions", "createPasswordView");
+    }
+  }
+}
+
+module.exports = TermsAndConditions;
+
+},{"./baseClass":11}],17:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -483,7 +969,7 @@ function cancelClickHide(tab)
   browser.tabs.sendMessage(tab.id, {type: "composer.content.finished"});
 }
 
-},{"./dom":1}],6:[function(require,module,exports){
+},{"./dom":1}],18:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -511,11 +997,53 @@ const setupBlock = require("./popup.blockelement.js");
 const {$, $$} = require("./dom");
 
 const {
+  getStarted, 
+  termsAndConditions, 
+  createPassword,
+  secretPhrase
+} = require("./html/index.js");
+const {
+  GetStartedPage,
+  TermsAndConditionsPage,
+  CreatePasswordPage,
+  SecretPhrasePage
+} = require("./pages/index.js");
+
+const {
   getDocLinks,
   getPref,
   reportIssue,
   whenPageReady
 } = require("./popup.utils.js");
+
+function onChangeView(current, next)
+{
+  const mainWrapper = document.getElementById("main-app-wrapper");
+
+  while (mainWrapper.firstChild)
+  {
+    mainWrapper.removeChild(mainWrapper.firstChild);
+  }
+
+  switch (next)
+  {
+    case "termsAndConditions": {
+      const initialView = new TermsAndConditionsPage({onChangeView});
+      initialView.render(termsAndConditions);
+      break;
+    }
+    case "createPasswordView": {
+      const initialView = new CreatePasswordPage({onChangeView});
+      initialView.render(createPassword);
+      break;
+    }
+    case "secretPhrase": {
+      const initialView = new SecretPhrasePage({onChangeView});
+      initialView.render(secretPhrase);
+      break;
+    }
+  }
+}
 
 browser.runtime.sendMessage({
   type: "app.get",
@@ -535,6 +1063,8 @@ const getTab = new Promise(
   {
     document.addEventListener("DOMContentLoaded", () =>
     {
+      const initialView = new GetStartedPage({onChangeView});
+      initialView.render(getStarted);
       browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
       {
         resolve({id: tabs[0].id, url: tabs[0].url});
@@ -650,7 +1180,7 @@ function updateStats(tab)
   });
 }
 
-},{"./dom":1,"./io-big-toggle.js":2,"./popup.blockelement.js":5,"./popup.notifications.js":7,"./popup.toggle.js":8,"./popup.utils.js":9}],7:[function(require,module,exports){
+},{"./dom":1,"./html/index.js":5,"./io-big-toggle.js":8,"./pages/index.js":14,"./popup.blockelement.js":17,"./popup.notifications.js":19,"./popup.toggle.js":20,"./popup.utils.js":21}],19:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -787,7 +1317,7 @@ window.addEventListener(
   {once: true}
 );
 
-},{"./dom":1,"./io-element":3,"./popup.utils.js":9}],8:[function(require,module,exports){
+},{"./dom":1,"./io-element":9,"./popup.utils.js":21}],20:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -888,7 +1418,7 @@ function whitelistedPage()
   block.disabled = true;
 }
 
-},{"./dom":1,"./popup.utils.js":9}],9:[function(require,module,exports){
+},{"./dom":1,"./popup.utils.js":21}],21:[function(require,module,exports){
 "use strict";
 
 function getDocLinks(notification)
@@ -984,7 +1514,7 @@ module.exports = {
   whenPageReady
 };
 
-},{}],10:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var createContent = (function (document) {'use strict';
   var FRAGMENT = 'fragment';
@@ -1043,7 +1573,7 @@ var createContent = (function (document) {'use strict';
 }(document));
 module.exports = createContent;
 
-},{}],11:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 self.CustomEvent = typeof CustomEvent === 'function' ?
@@ -1060,7 +1590,7 @@ self.CustomEvent = typeof CustomEvent === 'function' ?
   }('prototype'));
 module.exports = self.CustomEvent;
 
-},{}],12:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.Map = Map; }
@@ -1097,7 +1627,7 @@ catch (Map) {
 }
 module.exports = self.Map;
 
-},{}],13:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.WeakSet = WeakSet; }
@@ -1123,7 +1653,7 @@ catch (WeakSet) {
 }
 module.exports = self.WeakSet;
 
-},{}],14:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var importNode = (function (
   document,
@@ -1168,7 +1698,7 @@ var importNode = (function (
 ));
 module.exports = importNode;
 
-},{}],15:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 var isArray = Array.isArray || (function (toString) {
   var $ = toString.call([]);
   return function isArray(object) {
@@ -1177,7 +1707,7 @@ var isArray = Array.isArray || (function (toString) {
 }({}.toString));
 module.exports = isArray;
 
-},{}],16:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 var templateLiteral = (function () {'use strict';
   var RAW = 'raw';
   var isNoOp = false;
@@ -1214,13 +1744,13 @@ var templateLiteral = (function () {'use strict';
 }());
 module.exports = templateLiteral;
 
-},{}],17:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 var trim = ''.trim || function () {
   return String(this).replace(/^\s+|\s+/g, '');
 };
 module.exports = trim;
 
-},{}],18:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.WeakMap = WeakMap; }
@@ -1257,7 +1787,7 @@ catch (WeakMap) {
 }
 module.exports = self.WeakMap;
 
-},{}],19:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 /*! (c) Andrea Giammarchi */
 function disconnected(poly) {'use strict';
   var CONNECTED = 'connected';
@@ -1369,7 +1899,7 @@ function disconnected(poly) {'use strict';
 }
 module.exports = disconnected;
 
-},{}],20:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 /*!
 ISC License
 
@@ -2880,7 +3410,7 @@ function installCustomElements(window, polyfill) {'use strict';
 
 module.exports = installCustomElements;
 
-},{}],21:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 /*! (c) 2018 Andrea Giammarchi (ISC) */
 
@@ -3104,7 +3634,7 @@ const domdiff = (
 
 Object.defineProperty(exports, '__esModule', {value: true}).default = domdiff;
 
-},{"./utils.js":22}],22:[function(require,module,exports){
+},{"./utils.js":34}],34:[function(require,module,exports){
 'use strict';
 const Map = (require('@ungap/essential-map'));
 
@@ -3487,7 +4017,7 @@ const smartDiff = (
 };
 exports.smartDiff = smartDiff;
 
-},{"@ungap/essential-map":12}],23:[function(require,module,exports){
+},{"@ungap/essential-map":24}],35:[function(require,module,exports){
 'use strict';
 // Custom
 var UID = '-' + Math.random().toFixed(6) + '%';
@@ -3520,7 +4050,7 @@ exports.TEXT_NODE = TEXT_NODE;
 exports.SHOULD_USE_TEXT_CONTENT = SHOULD_USE_TEXT_CONTENT;
 exports.VOID_ELEMENTS = VOID_ELEMENTS;
 
-},{}],24:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 'use strict';
 // globals
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
@@ -3627,7 +4157,7 @@ function cleanContent(fragment) {
   }
 }
 
-},{"./sanitizer.js":25,"./walker.js":26,"@ungap/create-content":10,"@ungap/import-node":14,"@ungap/trim":17,"@ungap/weakmap":18}],25:[function(require,module,exports){
+},{"./sanitizer.js":37,"./walker.js":38,"@ungap/create-content":22,"@ungap/import-node":26,"@ungap/trim":29,"@ungap/weakmap":30}],37:[function(require,module,exports){
 'use strict';
 const {UID, UIDC, VOID_ELEMENTS} = require('./constants.js');
 
@@ -3659,7 +4189,7 @@ function fullClosing($0, $1, $2) {
   return VOID_ELEMENTS.test($1) ? $0 : ('<' + $1 + $2 + '></' + $1 + '>');
 }
 
-},{"./constants.js":23}],26:[function(require,module,exports){
+},{"./constants.js":35}],38:[function(require,module,exports){
 'use strict';
 const Map = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-map'));
 const trim = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/trim'));
@@ -3789,7 +4319,7 @@ function parseAttributes(node, holes, parts, path) {
   }
 }
 
-},{"./constants.js":23,"@ungap/essential-map":12,"@ungap/trim":17}],27:[function(require,module,exports){
+},{"./constants.js":35,"@ungap/essential-map":24,"@ungap/trim":29}],39:[function(require,module,exports){
 'use strict';
 /*! (C) 2017-2018 Andrea Giammarchi - ISC Style License */
 
@@ -4152,7 +4682,7 @@ function isReady(created) {
   return false;
 }
 
-},{"hyperhtml":33}],28:[function(require,module,exports){
+},{"hyperhtml":45}],40:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var hyperStyle = (function (){'use strict';
   // from https://github.com/developit/preact/blob/33fc697ac11762a1cb6e71e9847670d047af7ce5/src/varants.js
@@ -4239,7 +4769,7 @@ var hyperStyle = (function (){'use strict';
 }());
 module.exports = hyperStyle;
 
-},{}],29:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 'use strict';
 const CustomEvent = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/custom-event'));
 const Map = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-map'));
@@ -4398,7 +4928,7 @@ const setValue = (self, secret, value) =>
   })[secret]
 ;
 
-},{"@ungap/custom-event":11,"@ungap/essential-map":12,"@ungap/weakmap":18}],30:[function(require,module,exports){
+},{"@ungap/custom-event":23,"@ungap/essential-map":24,"@ungap/weakmap":30}],42:[function(require,module,exports){
 'use strict';
 const { append, doc, fragment } = require('../shared/utils.js');
 
@@ -4438,7 +4968,7 @@ Wire.prototype.remove = function remove() {
   return first;
 };
 
-},{"../shared/utils.js":37}],31:[function(require,module,exports){
+},{"../shared/utils.js":49}],43:[function(require,module,exports){
 'use strict';
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
 
@@ -4480,7 +5010,7 @@ function upgrade() {
 
 Object.defineProperty(exports, '__esModule', {value: true}).default = render;
 
-},{"../objects/Updates.js":35,"../shared/constants.js":36,"../shared/utils.js":37,"@ungap/weakmap":18}],32:[function(require,module,exports){
+},{"../objects/Updates.js":47,"../shared/constants.js":48,"../shared/utils.js":49,"@ungap/weakmap":30}],44:[function(require,module,exports){
 'use strict';
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
 
@@ -4565,7 +5095,7 @@ exports.content = content;
 exports.weakly = weakly;
 Object.defineProperty(exports, '__esModule', {value: true}).default = wire;
 
-},{"../classes/Wire.js":30,"../objects/Updates.js":35,"../shared/utils.js":37,"@ungap/weakmap":18}],33:[function(require,module,exports){
+},{"../classes/Wire.js":42,"../objects/Updates.js":47,"../shared/utils.js":49,"@ungap/weakmap":30}],45:[function(require,module,exports){
 'use strict';
 /*! (c) Andrea Giammarchi (ISC) */
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
@@ -4644,7 +5174,7 @@ function hyper(HTML) {
 }
 Object.defineProperty(exports, '__esModule', {value: true}).default = hyper
 
-},{"./classes/Component.js":29,"./hyper/render.js":31,"./hyper/wire.js":32,"./objects/Intent.js":34,"./objects/Updates.js":35,"@ungap/essential-weakset":13,"@ungap/weakmap":18,"domdiff":21}],34:[function(require,module,exports){
+},{"./classes/Component.js":41,"./hyper/render.js":43,"./hyper/wire.js":44,"./objects/Intent.js":46,"./objects/Updates.js":47,"@ungap/essential-weakset":25,"@ungap/weakmap":30,"domdiff":33}],46:[function(require,module,exports){
 'use strict';
 const attributes = {};
 const intents = {};
@@ -4686,7 +5216,7 @@ Object.defineProperty(exports, '__esModule', {value: true}).default = {
   }
 };
 
-},{}],35:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 const CustomEvent = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/custom-event'));
 const WeakSet = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-weakset'));
@@ -5019,7 +5549,7 @@ Tagger.prototype = {
   }
 };
 
-},{"../classes/Component.js":29,"../classes/Wire.js":30,"../shared/constants.js":36,"../shared/utils.js":37,"./Intent.js":34,"@ungap/create-content":10,"@ungap/custom-event":11,"@ungap/essential-weakset":13,"@ungap/is-array":15,"disconnected":19,"domdiff":21,"domtagger":24,"hyperhtml-style":28}],36:[function(require,module,exports){
+},{"../classes/Component.js":41,"../classes/Wire.js":42,"../shared/constants.js":48,"../shared/utils.js":49,"./Intent.js":46,"@ungap/create-content":22,"@ungap/custom-event":23,"@ungap/essential-weakset":25,"@ungap/is-array":27,"disconnected":31,"domdiff":33,"domtagger":36,"hyperhtml-style":40}],48:[function(require,module,exports){
 'use strict';
 // Node.CONSTANTS
 // 'cause some engine has no global Node defined
@@ -5039,7 +5569,7 @@ exports.CONNECTED = CONNECTED;
 const DISCONNECTED = 'dis' + CONNECTED;
 exports.DISCONNECTED = DISCONNECTED;
 
-},{}],37:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 'use strict';
 const unique = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/template-literal'));
 
@@ -5082,4 +5612,4 @@ exports.reArguments = reArguments
 const slice = [].slice;
 exports.slice = slice;
 
-},{"@ungap/template-literal":16}]},{},[6]);
+},{"@ungap/template-literal":28}]},{},[18]);

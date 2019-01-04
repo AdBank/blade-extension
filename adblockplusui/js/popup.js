@@ -25,11 +25,53 @@ const setupBlock = require("./popup.blockelement.js");
 const {$, $$} = require("./dom");
 
 const {
+  getStarted, 
+  termsAndConditions, 
+  createPassword,
+  secretPhrase
+} = require("./html/index.js");
+const {
+  GetStartedPage,
+  TermsAndConditionsPage,
+  CreatePasswordPage,
+  SecretPhrasePage
+} = require("./pages/index.js");
+
+const {
   getDocLinks,
   getPref,
   reportIssue,
   whenPageReady
 } = require("./popup.utils.js");
+
+function onChangeView(current, next)
+{
+  const mainWrapper = document.getElementById("main-app-wrapper");
+
+  while (mainWrapper.firstChild)
+  {
+    mainWrapper.removeChild(mainWrapper.firstChild);
+  }
+
+  switch (next)
+  {
+    case "termsAndConditions": {
+      const initialView = new TermsAndConditionsPage({onChangeView});
+      initialView.render(termsAndConditions);
+      break;
+    }
+    case "createPasswordView": {
+      const initialView = new CreatePasswordPage({onChangeView});
+      initialView.render(createPassword);
+      break;
+    }
+    case "secretPhrase": {
+      const initialView = new SecretPhrasePage({onChangeView});
+      initialView.render(secretPhrase);
+      break;
+    }
+  }
+}
 
 browser.runtime.sendMessage({
   type: "app.get",
@@ -49,6 +91,8 @@ const getTab = new Promise(
   {
     document.addEventListener("DOMContentLoaded", () =>
     {
+      const initialView = new GetStartedPage({onChangeView});
+      initialView.render(getStarted);
       browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
       {
         resolve({id: tabs[0].id, url: tabs[0].url});
