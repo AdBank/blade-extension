@@ -41,6 +41,9 @@
         "css": "$ create.css issue-reporter",
         "js": "$ create.js ./js/issue-reporter.js ./issue-reporter.js"
       },
+      "blade": {
+        "css": "$ create.css blade"
+      },
       "popup": "$ create.bundle popup",
       "test": [
         [

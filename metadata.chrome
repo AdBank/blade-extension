@@ -106,6 +106,10 @@ skin/social/twitter.svg = adblockplusui/skin/social/twitter.svg
 skin/backgrounds/appstore.svg = adblockplusui/skin/backgrounds/appstore.svg
 skin/updates/base-graphic.svg = adblockplusui/skin/updates/base-graphic.svg
 skin/backgrounds/googleplay.svg = adblockplusui/skin/backgrounds/googleplay.svg
+skin/blade_assets/blade-background-all-other-screens.png = adblockplusui/skin/blade_assets/blade-background-all-other-screens.png
+skin/blade_assets/blade-background-get-started.png = adblockplusui/skin/blade_assets/blade-background-get-started.png
+skin/blade_assets/blade-logo.svg = adblockplusui/skin/blade_assets/blade-logo.svg
+skin/blade_assets/blade-powered-adbank-logo.svg = adblockplusui/skin/blade_assets/blade-powered-adbank-logo.svg
 skin/updates/icon-mobile.svg = adblockplusui/skin/updates/icon-mobile.svg
 skin/updates/icon-rocket.svg = adblockplusui/skin/updates/icon-rocket.svg
 skin/updates/icon-thumbs-up.svg = adblockplusui/skin/updates/icon-thumbs-up.svg
@@ -143,6 +147,7 @@ skin/icons/first-run/lock.svg = adblockplusui/skin/icons/first-run/lock.svg
 skin/icons/first-run/rocket.svg = adblockplusui/skin/icons/first-run/rocket.svg
 skin/icons/web/navbar-logo.svg = adblockplusui/skin/icons/web/navbar-logo.svg
 skin/web.css = adblockplusui/skin/web.css
+skin/blade.css = adblockplusui/skin/blade.css
 
 [bundles]
 lib/adblockplus.js =
