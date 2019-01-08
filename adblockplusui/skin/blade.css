@@ -2,25 +2,31 @@
   display: none; }
 
 body {
-  font-family: 'Montserrat', sans-serif; }
-
-body * {
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box; }
+  padding: 0; }
+  body * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; }
 
 button {
   background: none;
   border: none; }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+
 .main-app-wrapper {
   width: 305px;
   height: 450px;
   padding: 24px;
-  background: url(./blade_assets/blade-background-all-other-screens.png) 0 0/contain no-repeat; }
+  background: url(./blade_assets/blade-background-all-other-screens.png) 0 0/cover no-repeat; }
 
 .main-app-wrapper.custom-bg {
-  background: url(./blade_assets/blade-background-get-started.png) 0 0/contain no-repeat; }
+  background: url(./blade_assets/blade-background-get-started.png) 0 0/cover no-repeat; }
 
 .main-app-wrapper > div {
   height: 100%; }
@@ -40,7 +46,7 @@ button {
 .main-action-button.disabled {
   border: 2px solid #EC1D25; }
 
-input.input-invalid {
+.input-invalid {
   border: 2px solid #EC1D25 !important; }
 
 .underlogo-desc {
@@ -57,7 +63,7 @@ input.input-invalid {
   position: absolute;
   top: 100%;
   left: 12px;
-  margin: 0;
+  margin: 2px 0 0 0;
   color: #ec1d25;
   font-size: 10px;
   line-height: 14px; }
@@ -69,6 +75,51 @@ input.input-invalid {
   font: 10px / 14px Montserrat;
   cursor: pointer;
   text-decoration: underline; }
+
+.confirm-secret-phrase-view .phrase-wrapper {
+  margin: 12px -10px 4px 0; }
+
+.confirm-secret-phrase-view .word-block {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  color: #4A4A4A;
+  font: 10px / 14px Montserrat;
+  border-radius: 6px;
+  text-transform: uppercase;
+  background-color: #EEEEEE;
+  cursor: pointer;
+  user-select: none; }
+  .confirm-secret-phrase-view .word-block.selected {
+    background-color: #EC1D25;
+    color: white; }
+
+.confirm-secret-phrase-view .phrase-block {
+  position: relative;
+  height: 68px;
+  width: 256px;
+  padding: 10px 12px;
+  border: 1px solid #999999;
+  background-color: #FFFFFF; }
+  .confirm-secret-phrase-view .phrase-block .placeholder, .confirm-secret-phrase-view .phrase-block .secret-phrase {
+    color: #999999;
+    font: 500 12px / 16px Montserrat; }
+
+.confirm-secret-phrase-view .view-correct-button {
+  position: absolute;
+  top: 100%;
+  right: 12px;
+  margin: 2px 0 0 0;
+  color: #F6F6F6;
+  text-decoration: underline;
+  font: 10px / 14px Montserrat;
+  cursor: pointer; }
+  .confirm-secret-phrase-view .view-correct-button.hidden {
+    visibility: hidden; }
+
+.confirm-secret-phrase-view .main-action-button {
+  margin-top: auto; }
 
 .initial-view {
   display: flex;

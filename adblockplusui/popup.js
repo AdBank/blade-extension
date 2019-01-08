@@ -87,6 +87,37 @@ function asIndentedString(element, indentation = 0)
 }
 
 },{}],2:[function(require,module,exports){
+/* eslint-disable max-len */
+
+"use strict";
+
+const header = require("./header");
+
+const html = `
+<div class="confirm-secret-phrase-view flex-column">
+  ${header("Verify you’ve recorded your secret phrase by selecting each word in the correct order.")}
+  <div class="phrase-wrapper" id="phrase-of-words-wrapper">
+
+  </div>
+  <div class="phrase-block" id="phrase-block-input">
+    <p class="placeholder" id="phrase-placeholder">
+      Select the words from above in the correct order to complete your secret phrase.
+    </p>
+    <p id="secret-phrase" class="secret-phrase">
+    
+    </p>
+    <div class="footer">
+      <p class="error" id="error"></p>
+      <p class="view-correct-button hidden" id="view-correct-button">View Correct</p>
+    </div>
+  </div>
+  <button class="main-action-button" id="action-btn">CONTINUE</button>
+</div>
+`;
+
+module.exports = html;
+
+},{"./header":5}],3:[function(require,module,exports){
 "use strict";
 
 const header = require("./header");
@@ -122,7 +153,7 @@ const html = `
 
 module.exports = html;
 
-},{"./header":4}],3:[function(require,module,exports){
+},{"./header":5}],4:[function(require,module,exports){
 "use strict";
 
 const html = `
@@ -144,7 +175,7 @@ const html = `
 
 module.exports = html;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 function header(description)
@@ -157,17 +188,24 @@ function header(description)
 
 module.exports = header;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 const getStarted = require("./getStarted.js");
 const termsAndConditions = require("./termsAndConditions.js");
 const createPassword = require("./createPassword.js");
 const secretPhrase = require("./secretPhrase.js");
+const confirmSecretPhrase = require("./confirmSecretPhrase.js");
 
-module.exports = {getStarted, termsAndConditions, createPassword, secretPhrase};
+module.exports = {
+  getStarted,
+  termsAndConditions,
+  createPassword,
+  secretPhrase,
+  confirmSecretPhrase
+};
 
-},{"./createPassword.js":2,"./getStarted.js":3,"./secretPhrase.js":6,"./termsAndConditions.js":7}],6:[function(require,module,exports){
+},{"./confirmSecretPhrase.js":2,"./createPassword.js":3,"./getStarted.js":4,"./secretPhrase.js":7,"./termsAndConditions.js":8}],7:[function(require,module,exports){
 "use strict";
 
 const header = require("./header");
@@ -202,7 +240,7 @@ const html = `
 
 module.exports = html;
 
-},{"./header":4}],7:[function(require,module,exports){
+},{"./header":5}],8:[function(require,module,exports){
 "use strict";
 
 const header = require("./header");
@@ -238,7 +276,7 @@ const html = `
 
 module.exports = html;
 
-},{"./header":4}],8:[function(require,module,exports){
+},{"./header":5}],9:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -314,7 +352,7 @@ class IOBigToggle extends IOToggle
 
 IOBigToggle.define("io-big-toggle");
 
-},{"./io-toggle":10}],9:[function(require,module,exports){
+},{"./io-toggle":11}],10:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -473,7 +511,7 @@ IOElement.intent("i18n", id =>
 
 module.exports = IOElement;
 
-},{"document-register-element/pony":32,"hyperhtml-element/cjs":39}],10:[function(require,module,exports){
+},{"document-register-element/pony":34,"hyperhtml-element/cjs":41}],11:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -565,7 +603,7 @@ IOToggle.define("io-toggle");
 
 module.exports = IOToggle;
 
-},{"./io-element":9}],11:[function(require,module,exports){
+},{"./io-element":10}],12:[function(require,module,exports){
 "use strict";
 
 /* eslint-disable */
@@ -596,7 +634,137 @@ class BaseClass
 
 module.exports = BaseClass;
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+/* eslint-disable max-len, no-console */
+
+"use strict";
+
+const BaseClass = require("./baseClass");
+
+class ConfirmSecretPhrase extends BaseClass
+{
+  constructor(props)
+  {
+    super(props);
+
+    this.wordsSelected = 0;
+  }
+
+  initListeners()
+  {
+    this.error = document.getElementById("error");
+    this.actionButton = document.getElementById("action-btn");
+    this.phraseBlockWrapper = document.getElementById("phrase-block-input");
+    this.phrasePlaceholder = document.getElementById("phrase-placeholder");
+    this.secretPhrase = document.getElementById("secret-phrase");
+    this.viewCorrectButton = document.getElementById("view-correct-button");
+
+    this.actionButton.addEventListener("click", this.handleSubmit.bind(this));
+    this.viewCorrectButton.addEventListener("click", this.handleViewCorrectClick.bind(this));
+    this.setupPhrase();
+  }
+
+  setupPhrase()
+  {
+    const wrapper = document.getElementById("phrase-of-words-wrapper");
+    this.str = "split camp ethics loop piece auto equal order bargain useless ripple clump";
+    const arr = this.str.split(" ").sort();
+
+    const div = document.createElement("div");
+    div.addEventListener("click", this.handlePhraseWrapperClick.bind(this));
+    arr.forEach((word) =>
+    {
+      const p = document.createElement("p");
+      p.innerHTML = word;
+      p.classList.add("word-block");
+      div.append(p);
+    });
+
+    wrapper.append(div);
+  }
+
+  manageWord(wordBlock)
+  {
+    if (wordBlock.classList.contains("selected"))
+    {
+      this.wordsSelected -= 1;
+      wordBlock.classList.remove("selected");
+
+      const wordToRemove = wordBlock.innerHTML;
+      this.secretPhrase.innerHTML = this.secretPhrase.innerHTML.replace(wordToRemove + " ", "");
+    }
+    else
+    {
+      this.wordsSelected += 1;
+      wordBlock.classList.add("selected");
+
+      this.secretPhrase.append(wordBlock.innerHTML + " ");
+    }
+  }
+
+  managePlaceholder()
+  {
+    if (this.wordsSelected === 0)
+    {
+      this.phrasePlaceholder.classList.remove("wrapper-hidden");
+    }
+    else
+    {
+      this.phrasePlaceholder.classList.add("wrapper-hidden");
+    }
+  }
+
+  handlePhraseWrapperClick(e)
+  {
+    if (!e.target.classList.contains("word-block"))
+    {
+      e.preventDefault();
+      return;
+    }
+
+    this.manageWord(e.target);
+    this.managePlaceholder();
+  }
+
+  addErrorOnSubmit(error)
+  {
+    this.error.innerHTML = error;
+    this.actionButton.classList.add("disabled");
+    this.phraseBlockWrapper.classList.add("input-invalid");
+    this.viewCorrectButton.classList.remove("hidden");
+  }
+
+  handleSubmit(e)
+  {
+    const userInput = this.secretPhrase.innerHTML.trim();
+    this.error.innerHTML = "";
+    this.phraseBlockWrapper.classList.remove("input-invalid");
+    this.viewCorrectButton.classList.add("hidden");
+
+    if (userInput.length !== this.str.length)
+    {
+      this.addErrorOnSubmit("Incomplete Secret Phrase");
+      return;
+    }
+    if (userInput === this.str)
+    {
+      super.handleChangeView("confirmSecretPhrase", "termsAndConditions");
+    }
+    else
+    {
+      this.addErrorOnSubmit("Wrong Secret Phrase");
+    }
+  }
+
+  handleViewCorrectClick()
+  {
+    super.handleChangeView("confirmSecretPhrase", "secretPhrase");
+  }
+}
+
+module.exports = ConfirmSecretPhrase;
+
+},{"./baseClass":12}],14:[function(require,module,exports){
 "use strict";
 
 /* eslint-disable max-len */
@@ -728,7 +896,7 @@ class CreatePassword extends BaseClass
 
 module.exports = CreatePassword;
 
-},{"./baseClass":11}],13:[function(require,module,exports){
+},{"./baseClass":12}],15:[function(require,module,exports){
 "use strict";
 
 const BaseClass = require("./baseClass");
@@ -754,22 +922,24 @@ class GetStarted extends BaseClass
 
 module.exports = GetStarted;
 
-},{"./baseClass":11}],14:[function(require,module,exports){
+},{"./baseClass":12}],16:[function(require,module,exports){
 "use strict";
 
 const GetStartedPage = require("./getStarted.js");
 const TermsAndConditionsPage = require("./termsAndConditions.js");
 const CreatePasswordPage = require("./createPassword.js");
 const SecretPhrasePage = require("./secretPhrase.js");
+const ConfirmSecretPhrasePage = require("./confirmSecretPhrase.js");
 
 module.exports = {
   GetStartedPage,
   TermsAndConditionsPage,
   CreatePasswordPage,
-  SecretPhrasePage
+  SecretPhrasePage,
+  ConfirmSecretPhrasePage
 };
 
-},{"./createPassword.js":12,"./getStarted.js":13,"./secretPhrase.js":15,"./termsAndConditions.js":16}],15:[function(require,module,exports){
+},{"./confirmSecretPhrase.js":13,"./createPassword.js":14,"./getStarted.js":15,"./secretPhrase.js":17,"./termsAndConditions.js":18}],17:[function(require,module,exports){
 "use strict";
 
 /* eslint-disable max-len */
@@ -855,13 +1025,13 @@ class SecretPhrase extends BaseClass
 
   handleSubmit(e)
   {
-    super.handleChangeView("secretPhrase", "termsAndConditions");
+    super.handleChangeView("secretPhrase", "confirmSecretPhrase");
   }
 }
 
 module.exports = SecretPhrase;
 
-},{"./baseClass":11}],16:[function(require,module,exports){
+},{"./baseClass":12}],18:[function(require,module,exports){
 "use strict";
 
 const BaseClass = require("./baseClass");
@@ -899,7 +1069,7 @@ class TermsAndConditions extends BaseClass
 
 module.exports = TermsAndConditions;
 
-},{"./baseClass":11}],17:[function(require,module,exports){
+},{"./baseClass":12}],19:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -969,7 +1139,7 @@ function cancelClickHide(tab)
   browser.tabs.sendMessage(tab.id, {type: "composer.content.finished"});
 }
 
-},{"./dom":1}],18:[function(require,module,exports){
+},{"./dom":1}],20:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -997,16 +1167,18 @@ const setupBlock = require("./popup.blockelement.js");
 const {$, $$} = require("./dom");
 
 const {
-  getStarted, 
-  termsAndConditions, 
+  getStarted,
+  termsAndConditions,
   createPassword,
-  secretPhrase
+  secretPhrase,
+  confirmSecretPhrase
 } = require("./html/index.js");
 const {
   GetStartedPage,
   TermsAndConditionsPage,
   CreatePasswordPage,
-  SecretPhrasePage
+  SecretPhrasePage,
+  ConfirmSecretPhrasePage
 } = require("./pages/index.js");
 
 const {
@@ -1015,6 +1187,8 @@ const {
   reportIssue,
   whenPageReady
 } = require("./popup.utils.js");
+
+window.currentStep = "confirmSecretPhrase";
 
 function onChangeView(current, next)
 {
@@ -1025,8 +1199,18 @@ function onChangeView(current, next)
     mainWrapper.removeChild(mainWrapper.firstChild);
   }
 
-  switch (next)
+  loadPage(next);
+}
+
+function loadPage(page)
+{
+  switch (page)
   {
+    case "getStarted": {
+      const initialView = new GetStartedPage({onChangeView});
+      initialView.render(getStarted);
+      break;
+    }
     case "termsAndConditions": {
       const initialView = new TermsAndConditionsPage({onChangeView});
       initialView.render(termsAndConditions);
@@ -1042,7 +1226,19 @@ function onChangeView(current, next)
       initialView.render(secretPhrase);
       break;
     }
+    case "confirmSecretPhrase": {
+      const initialView = new ConfirmSecretPhrasePage({onChangeView});
+      initialView.render(confirmSecretPhrase);
+      break;
+    }
   }
+
+  window.currentStep = page;
+}
+
+function renderInitialView()
+{
+  loadPage(window.currentStep);
 }
 
 browser.runtime.sendMessage({
@@ -1063,8 +1259,7 @@ const getTab = new Promise(
   {
     document.addEventListener("DOMContentLoaded", () =>
     {
-      const initialView = new GetStartedPage({onChangeView});
-      initialView.render(getStarted);
+      renderInitialView();
       browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
       {
         resolve({id: tabs[0].id, url: tabs[0].url});
@@ -1180,7 +1375,7 @@ function updateStats(tab)
   });
 }
 
-},{"./dom":1,"./html/index.js":5,"./io-big-toggle.js":8,"./pages/index.js":14,"./popup.blockelement.js":17,"./popup.notifications.js":19,"./popup.toggle.js":20,"./popup.utils.js":21}],19:[function(require,module,exports){
+},{"./dom":1,"./html/index.js":6,"./io-big-toggle.js":9,"./pages/index.js":16,"./popup.blockelement.js":19,"./popup.notifications.js":21,"./popup.toggle.js":22,"./popup.utils.js":23}],21:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -1317,7 +1512,7 @@ window.addEventListener(
   {once: true}
 );
 
-},{"./dom":1,"./io-element":9,"./popup.utils.js":21}],20:[function(require,module,exports){
+},{"./dom":1,"./io-element":10,"./popup.utils.js":23}],22:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -1418,7 +1613,7 @@ function whitelistedPage()
   block.disabled = true;
 }
 
-},{"./dom":1,"./popup.utils.js":21}],21:[function(require,module,exports){
+},{"./dom":1,"./popup.utils.js":23}],23:[function(require,module,exports){
 "use strict";
 
 function getDocLinks(notification)
@@ -1514,7 +1709,7 @@ module.exports = {
   whenPageReady
 };
 
-},{}],22:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var createContent = (function (document) {'use strict';
   var FRAGMENT = 'fragment';
@@ -1573,7 +1768,7 @@ var createContent = (function (document) {'use strict';
 }(document));
 module.exports = createContent;
 
-},{}],23:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 self.CustomEvent = typeof CustomEvent === 'function' ?
@@ -1590,7 +1785,7 @@ self.CustomEvent = typeof CustomEvent === 'function' ?
   }('prototype'));
 module.exports = self.CustomEvent;
 
-},{}],24:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.Map = Map; }
@@ -1627,7 +1822,7 @@ catch (Map) {
 }
 module.exports = self.Map;
 
-},{}],25:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.WeakSet = WeakSet; }
@@ -1653,7 +1848,7 @@ catch (WeakSet) {
 }
 module.exports = self.WeakSet;
 
-},{}],26:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var importNode = (function (
   document,
@@ -1698,7 +1893,7 @@ var importNode = (function (
 ));
 module.exports = importNode;
 
-},{}],27:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 var isArray = Array.isArray || (function (toString) {
   var $ = toString.call([]);
   return function isArray(object) {
@@ -1707,7 +1902,7 @@ var isArray = Array.isArray || (function (toString) {
 }({}.toString));
 module.exports = isArray;
 
-},{}],28:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var templateLiteral = (function () {'use strict';
   var RAW = 'raw';
@@ -1746,13 +1941,13 @@ var templateLiteral = (function () {'use strict';
 }());
 module.exports = templateLiteral;
 
-},{}],29:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 var trim = ''.trim || function () {
   return String(this).replace(/^\s+|\s+/g, '');
 };
 module.exports = trim;
 
-},{}],30:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.WeakMap = WeakMap; }
@@ -1789,7 +1984,7 @@ catch (WeakMap) {
 }
 module.exports = self.WeakMap;
 
-},{}],31:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 /*! (c) Andrea Giammarchi */
 function disconnected(poly) {'use strict';
   var CONNECTED = 'connected';
@@ -1901,7 +2096,7 @@ function disconnected(poly) {'use strict';
 }
 module.exports = disconnected;
 
-},{}],32:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 /*!
 ISC License
 
@@ -3412,7 +3607,7 @@ function installCustomElements(window, polyfill) {'use strict';
 
 module.exports = installCustomElements;
 
-},{}],33:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 'use strict';
 /*! (c) 2018 Andrea Giammarchi (ISC) */
 
@@ -3636,7 +3831,7 @@ const domdiff = (
 
 Object.defineProperty(exports, '__esModule', {value: true}).default = domdiff;
 
-},{"./utils.js":34}],34:[function(require,module,exports){
+},{"./utils.js":36}],36:[function(require,module,exports){
 'use strict';
 const Map = (require('@ungap/essential-map'));
 
@@ -4019,7 +4214,7 @@ const smartDiff = (
 };
 exports.smartDiff = smartDiff;
 
-},{"@ungap/essential-map":24}],35:[function(require,module,exports){
+},{"@ungap/essential-map":26}],37:[function(require,module,exports){
 'use strict';
 // Custom
 var UID = '-' + Math.random().toFixed(6) + '%';
@@ -4052,7 +4247,7 @@ exports.TEXT_NODE = TEXT_NODE;
 exports.SHOULD_USE_TEXT_CONTENT = SHOULD_USE_TEXT_CONTENT;
 exports.VOID_ELEMENTS = VOID_ELEMENTS;
 
-},{}],36:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 'use strict';
 // globals
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
@@ -4159,7 +4354,7 @@ function cleanContent(fragment) {
   }
 }
 
-},{"./sanitizer.js":37,"./walker.js":38,"@ungap/create-content":22,"@ungap/import-node":26,"@ungap/trim":29,"@ungap/weakmap":30}],37:[function(require,module,exports){
+},{"./sanitizer.js":39,"./walker.js":40,"@ungap/create-content":24,"@ungap/import-node":28,"@ungap/trim":31,"@ungap/weakmap":32}],39:[function(require,module,exports){
 'use strict';
 const {UID, UIDC, VOID_ELEMENTS} = require('./constants.js');
 
@@ -4191,7 +4386,7 @@ function fullClosing($0, $1, $2) {
   return VOID_ELEMENTS.test($1) ? $0 : ('<' + $1 + $2 + '></' + $1 + '>');
 }
 
-},{"./constants.js":35}],38:[function(require,module,exports){
+},{"./constants.js":37}],40:[function(require,module,exports){
 'use strict';
 const Map = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-map'));
 const trim = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/trim'));
@@ -4321,7 +4516,7 @@ function parseAttributes(node, holes, parts, path) {
   }
 }
 
-},{"./constants.js":35,"@ungap/essential-map":24,"@ungap/trim":29}],39:[function(require,module,exports){
+},{"./constants.js":37,"@ungap/essential-map":26,"@ungap/trim":31}],41:[function(require,module,exports){
 'use strict';
 /*! (C) 2017-2018 Andrea Giammarchi - ISC Style License */
 
@@ -4684,7 +4879,7 @@ function isReady(created) {
   return false;
 }
 
-},{"hyperhtml":45}],40:[function(require,module,exports){
+},{"hyperhtml":47}],42:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var hyperStyle = (function (){'use strict';
   // from https://github.com/developit/preact/blob/33fc697ac11762a1cb6e71e9847670d047af7ce5/src/varants.js
@@ -4771,7 +4966,7 @@ var hyperStyle = (function (){'use strict';
 }());
 module.exports = hyperStyle;
 
-},{}],41:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 'use strict';
 const CustomEvent = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/custom-event'));
 const Map = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-map'));
@@ -4930,7 +5125,7 @@ const setValue = (self, secret, value) =>
   })[secret]
 ;
 
-},{"@ungap/custom-event":23,"@ungap/essential-map":24,"@ungap/weakmap":30}],42:[function(require,module,exports){
+},{"@ungap/custom-event":25,"@ungap/essential-map":26,"@ungap/weakmap":32}],44:[function(require,module,exports){
 'use strict';
 const { append, doc, fragment } = require('../shared/utils.js');
 
@@ -4970,7 +5165,7 @@ Wire.prototype.remove = function remove() {
   return first;
 };
 
-},{"../shared/utils.js":49}],43:[function(require,module,exports){
+},{"../shared/utils.js":51}],45:[function(require,module,exports){
 'use strict';
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
 
@@ -5012,7 +5207,7 @@ function upgrade() {
 
 Object.defineProperty(exports, '__esModule', {value: true}).default = render;
 
-},{"../objects/Updates.js":47,"../shared/constants.js":48,"../shared/utils.js":49,"@ungap/weakmap":30}],44:[function(require,module,exports){
+},{"../objects/Updates.js":49,"../shared/constants.js":50,"../shared/utils.js":51,"@ungap/weakmap":32}],46:[function(require,module,exports){
 'use strict';
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
 
@@ -5097,7 +5292,7 @@ exports.content = content;
 exports.weakly = weakly;
 Object.defineProperty(exports, '__esModule', {value: true}).default = wire;
 
-},{"../classes/Wire.js":42,"../objects/Updates.js":47,"../shared/utils.js":49,"@ungap/weakmap":30}],45:[function(require,module,exports){
+},{"../classes/Wire.js":44,"../objects/Updates.js":49,"../shared/utils.js":51,"@ungap/weakmap":32}],47:[function(require,module,exports){
 'use strict';
 /*! (c) Andrea Giammarchi (ISC) */
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
@@ -5176,7 +5371,7 @@ function hyper(HTML) {
 }
 Object.defineProperty(exports, '__esModule', {value: true}).default = hyper
 
-},{"./classes/Component.js":41,"./hyper/render.js":43,"./hyper/wire.js":44,"./objects/Intent.js":46,"./objects/Updates.js":47,"@ungap/essential-weakset":25,"@ungap/weakmap":30,"domdiff":33}],46:[function(require,module,exports){
+},{"./classes/Component.js":43,"./hyper/render.js":45,"./hyper/wire.js":46,"./objects/Intent.js":48,"./objects/Updates.js":49,"@ungap/essential-weakset":27,"@ungap/weakmap":32,"domdiff":35}],48:[function(require,module,exports){
 'use strict';
 const attributes = {};
 const intents = {};
@@ -5218,7 +5413,7 @@ Object.defineProperty(exports, '__esModule', {value: true}).default = {
   }
 };
 
-},{}],47:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 'use strict';
 const CustomEvent = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/custom-event'));
 const WeakSet = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-weakset'));
@@ -5551,7 +5746,7 @@ Tagger.prototype = {
   }
 };
 
-},{"../classes/Component.js":41,"../classes/Wire.js":42,"../shared/constants.js":48,"../shared/utils.js":49,"./Intent.js":46,"@ungap/create-content":22,"@ungap/custom-event":23,"@ungap/essential-weakset":25,"@ungap/is-array":27,"disconnected":31,"domdiff":33,"domtagger":36,"hyperhtml-style":40}],48:[function(require,module,exports){
+},{"../classes/Component.js":43,"../classes/Wire.js":44,"../shared/constants.js":50,"../shared/utils.js":51,"./Intent.js":48,"@ungap/create-content":24,"@ungap/custom-event":25,"@ungap/essential-weakset":27,"@ungap/is-array":29,"disconnected":33,"domdiff":35,"domtagger":38,"hyperhtml-style":42}],50:[function(require,module,exports){
 'use strict';
 // Node.CONSTANTS
 // 'cause some engine has no global Node defined
@@ -5571,7 +5766,7 @@ exports.CONNECTED = CONNECTED;
 const DISCONNECTED = 'dis' + CONNECTED;
 exports.DISCONNECTED = DISCONNECTED;
 
-},{}],49:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 'use strict';
 const unique = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/template-literal'));
 
@@ -5614,4 +5809,4 @@ exports.reArguments = reArguments
 const slice = [].slice;
 exports.slice = slice;
 
-},{"@ungap/template-literal":28}]},{},[18]);
+},{"@ungap/template-literal":30}]},{},[20]);
