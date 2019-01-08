@@ -29,14 +29,16 @@ const {
   termsAndConditions,
   createPassword,
   secretPhrase,
-  confirmSecretPhrase
+  confirmSecretPhrase,
+  verifyKyc
 } = require("./html/index.js");
 const {
   GetStartedPage,
   TermsAndConditionsPage,
   CreatePasswordPage,
   SecretPhrasePage,
-  ConfirmSecretPhrasePage
+  ConfirmSecretPhrasePage,
+  VerifyKycPage
 } = require("./pages/index.js");
 
 const {
@@ -46,7 +48,7 @@ const {
   whenPageReady
 } = require("./popup.utils.js");
 
-window.currentStep = "confirmSecretPhrase";
+window.currentStep = "secretPhrase";
 
 function onChangeView(current, next)
 {
@@ -82,6 +84,11 @@ function loadPage(page)
     case "secretPhrase": {
       const initialView = new SecretPhrasePage({onChangeView});
       initialView.render(secretPhrase);
+      break;
+    }
+    case "verifyKyc": {
+      const initialView = new VerifyKycPage({onChangeView});
+      initialView.render(verifyKyc);
       break;
     }
     case "confirmSecretPhrase": {

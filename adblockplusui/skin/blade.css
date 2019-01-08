@@ -121,6 +121,27 @@ button {
 .confirm-secret-phrase-view .main-action-button {
   margin-top: auto; }
 
+.verify-kyc-view .underlogo-desc {
+  padding: 0 10px; }
+
+.verify-kyc-view .verify-kyc-button {
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+  margin-top: 32px;
+  height: 36px;
+  color: white;
+  background-color: #EC1D25; }
+
+.verify-kyc-view .main-action-button:nth-of-type(2) {
+  margin-top: auto; }
+
+.verify-kyc-view .icon-user-unfollow {
+  margin-right: 12px;
+  font-size: 20px;
+  letter-spacing: 0.33px;
+  line-height: 20px; }
+
 .initial-view {
   display: flex;
   flex-direction: column;
