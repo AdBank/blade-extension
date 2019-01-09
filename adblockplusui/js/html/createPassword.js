@@ -1,31 +1,32 @@
 "use strict";
 
 const header = require("./header");
+const input = require("./input");
 
 const html = `
-<div class="create-password-view">
+<div class="create-password-view flex-column">
   ${header("Create a Blade Account.")}
   <form>
-    <div class="form-group">
-      <label>Password</label>
-      <div class="input">
-        <input type="password" id="password" />
-        <span id="password-eye">
-          <i class="icon ion-md-eye-off"></i>
-        </span>
-        <p class="error" id="password-error"></p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label>Confirm Password</label>
-      <div class="input">
-        <input type="password" id="confirm-password" />
-        <span id="confirm-password-eye">
-          <i class="icon ion-md-eye-off"></i>
-        </span>
-        <p class="error" id="confirm-password-error"></p>
-      </div>
-    </div>
+    ${input({
+      label: "Password",
+      input: {
+        type: "password",
+        id: "password",
+        iconClass: "icon ion-md-eye-off",
+        iconId: "password-eye",
+        errorId: "password-error"
+      }
+    })}
+    ${input({
+      label: "Confirm Password",
+      input: {
+        type: "password",
+        id: "confirm-password",
+        iconClass: "icon ion-md-eye-off",
+        iconId: "confirm-password-eye",
+        errorId: "confirm-password-error"
+      }
+    })}
   </form>
   <button class="main-action-button" id="action-btn">CONTINUE</button>
 </div>

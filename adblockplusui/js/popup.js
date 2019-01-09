@@ -30,7 +30,8 @@ const {
   createPassword,
   secretPhrase,
   confirmSecretPhrase,
-  verifyKyc
+  verifyKyc,
+  setExternalWallet
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -38,7 +39,8 @@ const {
   CreatePasswordPage,
   SecretPhrasePage,
   ConfirmSecretPhrasePage,
-  VerifyKycPage
+  VerifyKycPage,
+  SetExternalWalletPage
 } = require("./pages/index.js");
 
 const {
@@ -48,7 +50,7 @@ const {
   whenPageReady
 } = require("./popup.utils.js");
 
-window.currentStep = "secretPhrase";
+window.currentStep = "setExternalWallet";
 
 function onChangeView(current, next)
 {
@@ -94,6 +96,11 @@ function loadPage(page)
     case "confirmSecretPhrase": {
       const initialView = new ConfirmSecretPhrasePage({onChangeView});
       initialView.render(confirmSecretPhrase);
+      break;
+    }
+    case "setExternalWallet": {
+      const initialView = new SetExternalWalletPage({onChangeView});
+      initialView.render(setExternalWallet);
       break;
     }
   }

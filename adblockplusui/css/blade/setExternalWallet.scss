@@ -1,0 +1,44 @@
+.set-external-wallet-view {
+  .underlogo-desc {
+    padding: 0 10px;
+  }
+
+  .icon {
+    cursor: default;
+  }
+
+  .form-group .input-field {
+    color: #336699;	
+    font: 500 12px / 16px Montserrat;
+  }
+
+  .main-action-button {
+    margin-top: auto;
+  }
+
+  .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 36px 0 20px 0;
+
+    .label {
+      margin-right: 8px;
+      color: #EEEEEE;	
+      font: bold 12px / 16px Montserrat;
+      letter-spacing: .2px;
+    }
+
+    .toggle-checkbox {
+      margin-left: auto;
+    }
+
+    .info-tooltip .text {
+      width: 232px;
+      right: -67px;
+
+      &:after {
+        left: 65.5%;
+      }
+    }
+  }
+}
