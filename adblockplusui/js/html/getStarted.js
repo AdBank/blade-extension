@@ -1,7 +1,7 @@
 "use strict";
 
 const html = `
-<div class="initial-view">
+<div class="get-started-view flex-column">
   <div class="logo">
     <img src="./skin/blade_assets/blade-powered-adbank-logo.svg" 
     alt="blade logo" />

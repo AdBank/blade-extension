@@ -3,7 +3,7 @@
 const header = require("./header");
 
 const html = `
-<div class="secret-phrase-view">
+<div class="secret-phrase-view flex-column">
   ${header(`Record your secret phrase. 
   Make sure you put it somewhere safe and 
   secure, as it is the only back up to 

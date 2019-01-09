@@ -3,7 +3,7 @@
 const header = require("./header");
 
 const html = `
-<div class="terms-and-conditions">
+<div class="terms-and-conditions flex-column">
   ${header("Accept Terms & Conditions")}
   <div class="text">
     <p>

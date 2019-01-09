@@ -1,0 +1,27 @@
+.registration-completed-view {
+  .underlogo-desc {
+    margin-top: 73px;
+  }
+
+  .fa-check {
+    display: block;
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 47px;
+    color: #EC1D25;	
+    font-size: 64px;	
+    font-weight: 500;	
+    letter-spacing: .91px;
+    line-height: 74px;
+  }
+
+  .skip {
+    display: block;
+    margin: auto;
+    text-decoration: underline;
+    color: #FFFFFF;	
+    font: 10px / 14px Montserrat;
+    text-align: center;
+    cursor: pointer;
+  }
+}
