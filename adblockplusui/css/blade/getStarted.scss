@@ -1,0 +1,19 @@
+.get-started-view {
+  justify-content: space-between;
+  height: 100%;
+
+  .desciption {
+    padding: 0 15px;
+    color: #ffffff;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .logo {
+    padding-top: 65px;
+    text-align: center;
+  }
+}

@@ -7,6 +7,7 @@ const SecretPhrasePage = require("./secretPhrase.js");
 const ConfirmSecretPhrasePage = require("./confirmSecretPhrase.js");
 const VerifyKycPage = require("./verifyKyc.js");
 const SetExternalWalletPage = require("./setExternalWallet.js");
+const RegistrationCompletedPage = require("./registrationCompleted.js");
 
 module.exports = {
   GetStartedPage,
@@ -15,5 +16,6 @@ module.exports = {
   SecretPhrasePage,
   ConfirmSecretPhrasePage,
   VerifyKycPage,
-  SetExternalWalletPage
+  SetExternalWalletPage,
+  RegistrationCompletedPage
 };

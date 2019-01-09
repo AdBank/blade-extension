@@ -30,11 +30,11 @@ class SetExternalWallet extends BaseClass
   {
     if (isAddress(this.userInput) && this.checkbox.checked)
     {
-      super.handleChangeView("setExternalWallet", "createPasswordView");
+      super.handleChangeView("setExternalWallet", "registrationCompleted");
     }
     else if (!this.checkbox.checked)
     {
-      super.handleChangeView("setExternalWallet", "createPasswordView");
+      super.handleChangeView("setExternalWallet", "registrationCompleted");
     }
     else
     {

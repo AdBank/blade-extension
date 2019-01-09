@@ -7,6 +7,7 @@ const secretPhrase = require("./secretPhrase.js");
 const confirmSecretPhrase = require("./confirmSecretPhrase.js");
 const verifyKyc = require("./verifyKyc.js");
 const setExternalWallet = require("./setExternalWallet.js");
+const registrationCompleted = require("./registrationCompleted.js");
 
 module.exports = {
   getStarted,
@@ -15,5 +16,6 @@ module.exports = {
   secretPhrase,
   confirmSecretPhrase,
   verifyKyc,
-  setExternalWallet
+  setExternalWallet,
+  registrationCompleted
 };
