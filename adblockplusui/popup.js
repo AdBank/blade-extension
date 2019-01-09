@@ -1097,11 +1097,6 @@ class RegistrationCompleted extends BaseClass
   {
     super(props);
   }
-
-  initListeners()
-  {
-    // const btn = document.getElementById("action-btn");
-  }
 }
 
 module.exports = RegistrationCompleted;
