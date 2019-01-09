@@ -4,12 +4,14 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-}
-
-body * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 button {
@@ -17,15 +19,21 @@ button {
   border: none;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .main-app-wrapper {
   width: 305px;
   height: 450px;
   padding: 24px;
-  background: url(./blade_assets/blade-background-all-other-screens.png) 0 0 / contain no-repeat;
+  background: url(./blade_assets/blade-background-all-other-screens.png) 0 0 / cover no-repeat;
 }
 
 .main-app-wrapper.custom-bg {
-  background: url(./blade_assets/blade-background-get-started.png) 0 0 / contain no-repeat;
+  background: url(./blade_assets/blade-background-get-started.png) 0 0 / cover no-repeat;
 }
 
 .main-app-wrapper > div {
@@ -49,7 +57,7 @@ button {
   border: 2px solid #EC1D25;
 }
 
-input.input-invalid {
+.input-invalid {
   border: 2px solid #EC1D25 !important;
 }
 
@@ -69,7 +77,7 @@ input.input-invalid {
   position: absolute;
   top: 100%;
   left: 12px;
-  margin: 0;
+  margin: 2px 0 0 0;
   color: #ec1d25;
   font-size: 10px;
   line-height: 14px;

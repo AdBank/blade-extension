@@ -25,16 +25,20 @@ const setupBlock = require("./popup.blockelement.js");
 const {$, $$} = require("./dom");
 
 const {
-  getStarted, 
-  termsAndConditions, 
+  getStarted,
+  termsAndConditions,
   createPassword,
-  secretPhrase
+  secretPhrase,
+  confirmSecretPhrase,
+  verifyKyc
 } = require("./html/index.js");
 const {
   GetStartedPage,
   TermsAndConditionsPage,
   CreatePasswordPage,
-  SecretPhrasePage
+  SecretPhrasePage,
+  ConfirmSecretPhrasePage,
+  VerifyKycPage
 } = require("./pages/index.js");
 
 const {
@@ -43,6 +47,8 @@ const {
   reportIssue,
   whenPageReady
 } = require("./popup.utils.js");
+
+window.currentStep = "secretPhrase";
 
 function onChangeView(current, next)
 {
@@ -53,8 +59,18 @@ function onChangeView(current, next)
     mainWrapper.removeChild(mainWrapper.firstChild);
   }
 
-  switch (next)
+  loadPage(next);
+}
+
+function loadPage(page)
+{
+  switch (page)
   {
+    case "getStarted": {
+      const initialView = new GetStartedPage({onChangeView});
+      initialView.render(getStarted);
+      break;
+    }
     case "termsAndConditions": {
       const initialView = new TermsAndConditionsPage({onChangeView});
       initialView.render(termsAndConditions);
@@ -70,7 +86,24 @@ function onChangeView(current, next)
       initialView.render(secretPhrase);
       break;
     }
+    case "verifyKyc": {
+      const initialView = new VerifyKycPage({onChangeView});
+      initialView.render(verifyKyc);
+      break;
+    }
+    case "confirmSecretPhrase": {
+      const initialView = new ConfirmSecretPhrasePage({onChangeView});
+      initialView.render(confirmSecretPhrase);
+      break;
+    }
   }
+
+  window.currentStep = page;
+}
+
+function renderInitialView()
+{
+  loadPage(window.currentStep);
 }
 
 browser.runtime.sendMessage({
@@ -91,8 +124,7 @@ const getTab = new Promise(
   {
     document.addEventListener("DOMContentLoaded", () =>
     {
-      const initialView = new GetStartedPage({onChangeView});
-      initialView.render(getStarted);
+      renderInitialView();
       browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
       {
         resolve({id: tabs[0].id, url: tabs[0].url});

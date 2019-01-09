@@ -38,8 +38,7 @@ class SecretPhrase extends BaseClass
 
   handleDownloadButton(e)
   {
-    this.download("secret-phrase.txt", `split camp ethics loop piece auto 
-    equal order bargain useless ripple clump`);
+    this.download("secret-phrase.txt", "split camp ethics loop piece auto equal order bargain useless ripple clump");
   }
 
   copyToClipboard(str)
@@ -83,7 +82,7 @@ class SecretPhrase extends BaseClass
 
   handleSubmit(e)
   {
-    super.handleChangeView("secretPhrase", "termsAndConditions");
+    super.handleChangeView("secretPhrase", "verifyKyc");
   }
 }
 

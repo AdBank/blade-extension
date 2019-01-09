@@ -5,7 +5,9 @@
   "scripts": {
     "$": "npm-dollar",
     "build": "npm run $ build",
+    "test-prod": "npm run $ test-prod",
     "bundle": "npm run $ bundle",
+    "bundle-blade": "npm run $ bundle.blade",
     "lint": "npm run $ lint",
     "postinstall": "npm run bundle",
     "start": "http-server & npm run watch",
@@ -16,6 +18,11 @@
   },
   "$": {
     "build": {
+      "popup": [
+        "$ bundle.popup"
+      ]
+    },
+    "test-prod": {
       "popup": [
         "$ bundle.popup",
         "cd ../buildtools/",
@@ -109,7 +116,7 @@
       "io-big-toggle": "$ create.test.component io-big-toggle"
     },
     "watch": {
-      "build": "watch 'npm run build' ./css ./js",
+      "build": "watch 'npm run build & npm run bundle-blade' ./css ./js",
       "bundle": "watch 'npm run bundle' ./css ./js",
       "test": "watch 'npm run test' ./css ./js"
     }
