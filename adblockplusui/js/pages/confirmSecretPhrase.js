@@ -1,4 +1,4 @@
-/* eslint-disable max-len, no-console */
+/* eslint-disable max-len */
 
 "use strict";
 
@@ -30,8 +30,8 @@ class ConfirmSecretPhrase extends BaseClass
   setupPhrase()
   {
     const wrapper = document.getElementById("phrase-of-words-wrapper");
-    this.str = "split camp ethics loop piece auto equal order bargain useless ripple clump";
-    const arr = this.str.split(" ").sort();
+    this.originalSecretPhrase = "split camp ethics loop piece auto equal order bargain useless ripple clump";
+    const arr = this.originalSecretPhrase.split(" ").sort();
 
     const div = document.createElement("div");
     div.addEventListener("click", this.handlePhraseWrapperClick.bind(this));
@@ -104,12 +104,12 @@ class ConfirmSecretPhrase extends BaseClass
     this.phraseBlockWrapper.classList.remove("input-invalid");
     this.viewCorrectButton.classList.add("hidden");
 
-    if (userInput.length !== this.str.length)
+    if (userInput.length !== this.originalSecretPhrase.length)
     {
       this.addErrorOnSubmit("Incomplete Secret Phrase");
       return;
     }
-    if (userInput === this.str)
+    if (userInput === this.originalSecretPhrase)
     {
       super.handleChangeView("confirmSecretPhrase", "termsAndConditions");
     }
