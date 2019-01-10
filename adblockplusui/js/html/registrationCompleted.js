@@ -1,6 +1,6 @@
 "use strict";
 
-const header = require("./header");
+const header = require("./common/header");
 
 const html = `
 <div class="registration-completed-view">

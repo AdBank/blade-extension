@@ -1,6 +1,6 @@
 "use strict";
 
-const header = require("./header");
+const header = require("./common/header");
 
 const html = `
 <div class="verify-kyc-view flex-column">
@@ -11,7 +11,7 @@ const html = `
   until the verification is complete.`)}
   <button class="main-action-button verify-kyc-button">
     <i class="icon-user-unfollow"></i>
-    VERIFY YOUR IDENTITY NOW
+    VERIFY YOUR IDENTIY NOW
   </button>
   <button class="main-action-button" id="action-btn">SKIP</button>
 </div>

@@ -8,6 +8,8 @@ const ConfirmSecretPhrasePage = require("./confirmSecretPhrase.js");
 const VerifyKycPage = require("./verifyKyc.js");
 const SetExternalWalletPage = require("./setExternalWallet.js");
 const RegistrationCompletedPage = require("./registrationCompleted.js");
+const AboutPage = require("./about.js");
+const TermsAndConditionsTextPage = require("./termsAndConditionsText");
 
 module.exports = {
   GetStartedPage,
@@ -17,5 +19,7 @@ module.exports = {
   ConfirmSecretPhrasePage,
   VerifyKycPage,
   SetExternalWalletPage,
-  RegistrationCompletedPage
+  RegistrationCompletedPage,
+  AboutPage,
+  TermsAndConditionsTextPage
 };

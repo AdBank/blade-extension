@@ -89,6 +89,33 @@ function asIndentedString(element, indentation = 0)
 },{}],2:[function(require,module,exports){
 "use strict";
 
+const headerNavbar = require("./common/headerNavbar");
+const settingsTabGroup = require("./common/settingsTabGroup");
+
+const html = `
+<div class="about-view">
+  ${headerNavbar("SETTINGS")}
+  ${settingsTabGroup("info")}
+  <div class="content">
+    <img src="./skin/blade_assets/blade-powered-adbank-logo.svg" class="logo" />
+    <p class="title">Version</p>
+    <p class="version-number">0.0.1</p>
+    <p class="title">Links</p>
+    <ul>
+      <li class="link-item">
+        <a href="www.blade.software">www.blade.software</a>
+      </li>
+      <li class="link-item" id="terms-and-conditions">Terms & Conditions</li>
+    </ul>
+  </div>
+</div>
+`;
+
+module.exports = html;
+
+},{"./common/headerNavbar":5,"./common/settingsTabGroup":8}],3:[function(require,module,exports){
+"use strict";
+
 function checkbox(checked)
 {
   return `
@@ -101,12 +128,108 @@ function checkbox(checked)
 
 module.exports = checkbox;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
+"use strict";
+
+function header(description)
+{
+  return `<div class="logo">
+    <img src="./skin/blade_assets/blade-logo.svg" alt="logo" />
+  </div>
+  <p class="underlogo-desc">${description}</p>`;
+}
+
+module.exports = header;
+
+},{}],5:[function(require,module,exports){
+"use strict";
+
+const infoTooltip = require("./informationTooltip");
+
+function headerNavbar(activeMenu, info = "")
+{
+  return `
+  <header class="main-navbar-header">
+    <div class="top-section">
+      <img src="./skin/blade_assets/blade-logo.svg" />
+      <span class="burger-menu">
+        <i class="fa fa-navicon"></i>
+      </span>
+    </div>
+    <div class="active-menu">
+      <p class="menu-item">${activeMenu}</p>
+      ${infoTooltip(info)}
+    </div>
+  </header>
+  `;
+}
+
+module.exports = headerNavbar;
+
+},{"./informationTooltip":6}],6:[function(require,module,exports){
+"use strict";
+
+function information(text)
+{
+  return !text ? "" : `
+  <div class="info-tooltip" id="info-tooltip">
+    <i class="icon icon-info"></i>
+    <div class="text" id="text">
+      <p>${text}</p>
+    </div>
+  </div>
+  `;
+}
+
+module.exports = information;
+
+},{}],7:[function(require,module,exports){
 /* eslint-disable max-len */
 
 "use strict";
 
-const header = require("./header");
+function input({label, wrapperId, input: {type, id, iconClass, iconId, errorId}})
+{
+  return `
+  <div class="form-group" id=${wrapperId}>
+    <label>${label}</label>
+    <div class="input-wrapper">
+      <input class="input-field" type=${type} id=${id} />
+      <span id=${iconId}>
+        <i class="${iconClass}"></i>
+      </span>
+      <p class="error" id=${errorId}></p>
+    </div>
+  </div>
+  `;
+}
+
+module.exports = input;
+
+},{}],8:[function(require,module,exports){
+"use strict";
+
+function settingsTabGroup(active)
+{
+  return `
+  <div class="settings-tab-group">
+    <ul>
+      <li class="${active === "profile" && "active"}">PROFILE</li>
+      <li class="${active === "transfers" && "active"}">TRANSFERS</li>
+      <li class="${active === "info" && "active"}">INFO</li>
+    </ul>
+  </div>
+  `;
+}
+
+module.exports = settingsTabGroup;
+
+},{}],9:[function(require,module,exports){
+/* eslint-disable max-len */
+
+"use strict";
+
+const header = require("./common/header");
 
 const html = `
 <div class="confirm-secret-phrase-view flex-column">
@@ -132,11 +255,11 @@ const html = `
 
 module.exports = html;
 
-},{"./header":6}],4:[function(require,module,exports){
+},{"./common/header":4}],10:[function(require,module,exports){
 "use strict";
 
-const header = require("./header");
-const input = require("./input");
+const header = require("./common/header");
+const input = require("./common/input");
 
 const html = `
 <div class="create-password-view flex-column">
@@ -169,7 +292,7 @@ const html = `
 
 module.exports = html;
 
-},{"./header":6,"./input":9}],5:[function(require,module,exports){
+},{"./common/header":4,"./common/input":7}],11:[function(require,module,exports){
 "use strict";
 
 const html = `
@@ -191,20 +314,7 @@ const html = `
 
 module.exports = html;
 
-},{}],6:[function(require,module,exports){
-"use strict";
-
-function header(description)
-{
-  return `<div class="logo">
-    <img src="./skin/blade_assets/blade-logo.svg" alt="logo" />
-  </div>
-  <p class="underlogo-desc">${description}</p>`;
-}
-
-module.exports = header;
-
-},{}],7:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 "use strict";
 
 const getStarted = require("./getStarted.js");
@@ -215,6 +325,8 @@ const confirmSecretPhrase = require("./confirmSecretPhrase.js");
 const verifyKyc = require("./verifyKyc.js");
 const setExternalWallet = require("./setExternalWallet.js");
 const registrationCompleted = require("./registrationCompleted.js");
+const about = require("./about.js");
+const termsAndConditionsText = require("./termsAndConditionsText");
 
 module.exports = {
   getStarted,
@@ -224,53 +336,15 @@ module.exports = {
   confirmSecretPhrase,
   verifyKyc,
   setExternalWallet,
-  registrationCompleted
+  registrationCompleted,
+  about,
+  termsAndConditionsText
 };
 
-},{"./confirmSecretPhrase.js":3,"./createPassword.js":4,"./getStarted.js":5,"./registrationCompleted.js":10,"./secretPhrase.js":11,"./setExternalWallet.js":12,"./termsAndConditions.js":13,"./verifyKyc.js":14}],8:[function(require,module,exports){
+},{"./about.js":2,"./confirmSecretPhrase.js":9,"./createPassword.js":10,"./getStarted.js":11,"./registrationCompleted.js":13,"./secretPhrase.js":14,"./setExternalWallet.js":15,"./termsAndConditions.js":16,"./termsAndConditionsText":17,"./verifyKyc.js":18}],13:[function(require,module,exports){
 "use strict";
 
-function information(text)
-{
-  return `
-  <div class="info-tooltip" id="info-tooltip">
-    <i class="icon icon-info"></i>
-    <div class="text" id="text">
-      <p>${text}</p>
-    </div>
-  </div>
-  `;
-}
-
-module.exports = information;
-
-},{}],9:[function(require,module,exports){
-/* eslint-disable max-len */
-
-"use strict";
-
-function input({label, wrapperId, input: {type, id, iconClass, iconId, errorId}})
-{
-  return `
-  <div class="form-group" id=${wrapperId}>
-    <label>${label}</label>
-    <div class="input-wrapper">
-      <input class="input-field" type=${type} id=${id} />
-      <span id=${iconId}>
-        <i class="${iconClass}"></i>
-      </span>
-      <p class="error" id=${errorId}></p>
-    </div>
-  </div>
-  `;
-}
-
-module.exports = input;
-
-},{}],10:[function(require,module,exports){
-"use strict";
-
-const header = require("./header");
+const header = require("./common/header");
 
 const html = `
 <div class="registration-completed-view">
@@ -283,10 +357,10 @@ const html = `
 
 module.exports = html;
 
-},{"./header":6}],11:[function(require,module,exports){
+},{"./common/header":4}],14:[function(require,module,exports){
 "use strict";
 
-const header = require("./header");
+const header = require("./common/header");
 
 const html = `
 <div class="secret-phrase-view flex-column">
@@ -318,13 +392,13 @@ const html = `
 
 module.exports = html;
 
-},{"./header":6}],12:[function(require,module,exports){
+},{"./common/header":4}],15:[function(require,module,exports){
 "use strict";
 
-const header = require("./header");
-const input = require("./input");
-const informationTooltip = require("./informationTooltip");
-const checkbox = require("./checkbox");
+const header = require("./common/header");
+const input = require("./common/input");
+const informationTooltip = require("./common/informationTooltip");
+const checkbox = require("./common/checkbox");
 
 const html = `
 <div class="set-external-wallet-view flex-column">
@@ -358,10 +432,10 @@ const html = `
 
 module.exports = html;
 
-},{"./checkbox":2,"./header":6,"./informationTooltip":8,"./input":9}],13:[function(require,module,exports){
+},{"./common/checkbox":3,"./common/header":4,"./common/informationTooltip":6,"./common/input":7}],16:[function(require,module,exports){
 "use strict";
 
-const header = require("./header");
+const header = require("./common/header");
 
 const html = `
 <div class="terms-and-conditions flex-column">
@@ -394,10 +468,36 @@ const html = `
 
 module.exports = html;
 
-},{"./header":6}],14:[function(require,module,exports){
+},{"./common/header":4}],17:[function(require,module,exports){
 "use strict";
 
-const header = require("./header");
+const header = require("./common/header");
+
+const html = `
+<div class="terms-and-conditions flex-column">
+  ${header("Terms & Conditions")}
+  <div class="text">
+    <p>
+      1.0 blade terms of use <br /><br />
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+      pariatur.
+    </p>
+  </div>
+  <button class="main-action-button" id="action-btn">BACK</button>
+</div>
+`
+;
+
+module.exports = html;
+
+},{"./common/header":4}],18:[function(require,module,exports){
+"use strict";
+
+const header = require("./common/header");
 
 const html = `
 <div class="verify-kyc-view flex-column">
@@ -408,7 +508,7 @@ const html = `
   until the verification is complete.`)}
   <button class="main-action-button verify-kyc-button">
     <i class="icon-user-unfollow"></i>
-    VERIFY YOUR IDENTITY NOW
+    VERIFY YOUR IDENTIY NOW
   </button>
   <button class="main-action-button" id="action-btn">SKIP</button>
 </div>
@@ -417,7 +517,7 @@ const html = `
 
 module.exports = html;
 
-},{"./header":6}],15:[function(require,module,exports){
+},{"./common/header":4}],19:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -493,7 +593,7 @@ class IOBigToggle extends IOToggle
 
 IOBigToggle.define("io-big-toggle");
 
-},{"./io-toggle":17}],16:[function(require,module,exports){
+},{"./io-toggle":21}],20:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -652,7 +752,7 @@ IOElement.intent("i18n", id =>
 
 module.exports = IOElement;
 
-},{"document-register-element/pony":46,"hyperhtml-element/cjs":54}],17:[function(require,module,exports){
+},{"document-register-element/pony":52,"hyperhtml-element/cjs":60}],21:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -744,7 +844,34 @@ IOToggle.define("io-toggle");
 
 module.exports = IOToggle;
 
-},{"./io-element":16}],18:[function(require,module,exports){
+},{"./io-element":20}],22:[function(require,module,exports){
+"use strict";
+
+const BaseClass = require("./baseClass");
+
+class About extends BaseClass
+{
+  constructor(props)
+  {
+    super(props);
+  }
+
+  initListeners()
+  {
+    const btnPageChange = document.getElementById("terms-and-conditions");
+
+    btnPageChange.addEventListener("click", this.changePage.bind(this));
+  }
+
+  changePage(e)
+  {
+    super.handleChangeView("aboutPage", "termsAndConditionsText");
+  }
+}
+
+module.exports = About;
+
+},{"./baseClass":23}],23:[function(require,module,exports){
 "use strict";
 
 /* eslint-disable */
@@ -775,7 +902,7 @@ class BaseClass
 
 module.exports = BaseClass;
 
-},{}],19:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 /* eslint-disable max-len */
 
 "use strict";
@@ -905,7 +1032,7 @@ class ConfirmSecretPhrase extends BaseClass
 
 module.exports = ConfirmSecretPhrase;
 
-},{"./baseClass":18}],20:[function(require,module,exports){
+},{"./baseClass":23}],25:[function(require,module,exports){
 "use strict";
 
 /* eslint-disable max-len */
@@ -1037,7 +1164,7 @@ class CreatePassword extends BaseClass
 
 module.exports = CreatePassword;
 
-},{"./baseClass":18}],21:[function(require,module,exports){
+},{"./baseClass":23}],26:[function(require,module,exports){
 "use strict";
 
 const BaseClass = require("./baseClass");
@@ -1063,7 +1190,7 @@ class GetStarted extends BaseClass
 
 module.exports = GetStarted;
 
-},{"./baseClass":18}],22:[function(require,module,exports){
+},{"./baseClass":23}],27:[function(require,module,exports){
 "use strict";
 
 const GetStartedPage = require("./getStarted.js");
@@ -1074,6 +1201,8 @@ const ConfirmSecretPhrasePage = require("./confirmSecretPhrase.js");
 const VerifyKycPage = require("./verifyKyc.js");
 const SetExternalWalletPage = require("./setExternalWallet.js");
 const RegistrationCompletedPage = require("./registrationCompleted.js");
+const AboutPage = require("./about.js");
+const TermsAndConditionsTextPage = require("./termsAndConditionsText");
 
 module.exports = {
   GetStartedPage,
@@ -1083,10 +1212,12 @@ module.exports = {
   ConfirmSecretPhrasePage,
   VerifyKycPage,
   SetExternalWalletPage,
-  RegistrationCompletedPage
+  RegistrationCompletedPage,
+  AboutPage,
+  TermsAndConditionsTextPage
 };
 
-},{"./confirmSecretPhrase.js":19,"./createPassword.js":20,"./getStarted.js":21,"./registrationCompleted.js":23,"./secretPhrase.js":24,"./setExternalWallet.js":25,"./termsAndConditions.js":26,"./verifyKyc.js":27}],23:[function(require,module,exports){
+},{"./about.js":22,"./confirmSecretPhrase.js":24,"./createPassword.js":25,"./getStarted.js":26,"./registrationCompleted.js":28,"./secretPhrase.js":29,"./setExternalWallet.js":30,"./termsAndConditions.js":31,"./termsAndConditionsText":32,"./verifyKyc.js":33}],28:[function(require,module,exports){
 "use strict";
 
 const BaseClass = require("./baseClass");
@@ -1097,16 +1228,11 @@ class RegistrationCompleted extends BaseClass
   {
     super(props);
   }
-
-  initListeners()
-  {
-    // const btn = document.getElementById("action-btn");
-  }
 }
 
 module.exports = RegistrationCompleted;
 
-},{"./baseClass":18}],24:[function(require,module,exports){
+},{"./baseClass":23}],29:[function(require,module,exports){
 "use strict";
 
 /* eslint-disable max-len */
@@ -1197,12 +1323,15 @@ class SecretPhrase extends BaseClass
 
 module.exports = SecretPhrase;
 
-},{"./baseClass":18}],25:[function(require,module,exports){
+},{"./baseClass":23}],30:[function(require,module,exports){
+/* eslint-disable max-len */
+
 "use strict";
 
-/* eslint-disable max-len */
 const BaseClass = require("./baseClass");
 const {isAddress} = require("ethereum-address");
+
+const VALID_LENGTH = 25;
 
 class SetExternalWallet extends BaseClass
 {
@@ -1223,7 +1352,19 @@ class SetExternalWallet extends BaseClass
 
     this.actionButton.addEventListener("click", this.handleSubmitButton.bind(this));
     this.input.addEventListener("change", this.handleInputChange.bind(this));
+    this.input.addEventListener("focus", this.handleInputFocus.bind(this));
+    this.input.addEventListener("blur", this.handleInputBlur.bind(this));
     this.checkbox.addEventListener("change", this.handleCheckboxChange.bind(this));
+  }
+
+  handleInputFocus(e)
+  {
+    e.target.value = this.userInput;
+  }
+
+  handleInputBlur(e)
+  {
+    e.target.value = e.target.value.slice(0, VALID_LENGTH) + "...";
   }
 
   handleSubmitButton(e)
@@ -1267,7 +1408,6 @@ class SetExternalWallet extends BaseClass
 
   handleInputChange(e)
   {
-    const VALID_LENGTH = 25;
     const userAddress = e.target.value;
 
     this.actionButton.classList.remove("disabled");
@@ -1293,7 +1433,7 @@ class SetExternalWallet extends BaseClass
 
 module.exports = SetExternalWallet;
 
-},{"./baseClass":18,"ethereum-address":53}],26:[function(require,module,exports){
+},{"./baseClass":23,"ethereum-address":59}],31:[function(require,module,exports){
 "use strict";
 
 const BaseClass = require("./baseClass");
@@ -1331,7 +1471,34 @@ class TermsAndConditions extends BaseClass
 
 module.exports = TermsAndConditions;
 
-},{"./baseClass":18}],27:[function(require,module,exports){
+},{"./baseClass":23}],32:[function(require,module,exports){
+"use strict";
+
+const BaseClass = require("./baseClass");
+
+class TermsAndConditionsText extends BaseClass
+{
+  constructor(props)
+  {
+    super(props);
+  }
+
+  initListeners()
+  {
+    const btn = document.getElementById("action-btn");
+
+    btn.addEventListener("click", this.handleSubmitButton.bind(this));
+  }
+
+  handleSubmitButton(e)
+  {
+    super.handleChangeView("termsAndConditionsText", "aboutExtension");
+  }
+}
+
+module.exports = TermsAndConditionsText;
+
+},{"./baseClass":23}],33:[function(require,module,exports){
 "use strict";
 
 const BaseClass = require("./baseClass");
@@ -1358,7 +1525,7 @@ class VerifyKyc extends BaseClass
 
 module.exports = VerifyKyc;
 
-},{"./baseClass":18}],28:[function(require,module,exports){
+},{"./baseClass":23}],34:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -1428,7 +1595,7 @@ function cancelClickHide(tab)
   browser.tabs.sendMessage(tab.id, {type: "composer.content.finished"});
 }
 
-},{"./dom":1}],29:[function(require,module,exports){
+},{"./dom":1}],35:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -1463,7 +1630,9 @@ const {
   confirmSecretPhrase,
   verifyKyc,
   setExternalWallet,
-  registrationCompleted
+  registrationCompleted,
+  about,
+  termsAndConditionsText
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -1473,7 +1642,9 @@ const {
   ConfirmSecretPhrasePage,
   VerifyKycPage,
   SetExternalWalletPage,
-  RegistrationCompletedPage
+  RegistrationCompletedPage,
+  AboutPage,
+  TermsAndConditionsTextPage
 } = require("./pages/index.js");
 
 const {
@@ -1483,7 +1654,7 @@ const {
   whenPageReady
 } = require("./popup.utils.js");
 
-window.currentStep = "getStarted";
+window.currentStep = "aboutExtension";
 
 function onChangeView(current, next)
 {
@@ -1540,6 +1711,19 @@ function loadPage(page)
       const initialView = new RegistrationCompletedPage({onChangeView});
       initialView.render(registrationCompleted);
       break;
+    }
+    case "aboutExtension": {
+      const initialView = new AboutPage({onChangeView});
+      initialView.render(about);
+      break;
+    }
+    case "termsAndConditionsText": {
+      const initialView = new TermsAndConditionsTextPage({onChangeView});
+      initialView.render(termsAndConditionsText);
+      break;
+    }
+    default: {
+      console.error(`Page '${page}' is not declared`);
     }
   }
 
@@ -1685,7 +1869,7 @@ function updateStats(tab)
   });
 }
 
-},{"./dom":1,"./html/index.js":7,"./io-big-toggle.js":15,"./pages/index.js":22,"./popup.blockelement.js":28,"./popup.notifications.js":30,"./popup.toggle.js":31,"./popup.utils.js":32}],30:[function(require,module,exports){
+},{"./dom":1,"./html/index.js":12,"./io-big-toggle.js":19,"./pages/index.js":27,"./popup.blockelement.js":34,"./popup.notifications.js":36,"./popup.toggle.js":37,"./popup.utils.js":38}],36:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -1822,7 +2006,7 @@ window.addEventListener(
   {once: true}
 );
 
-},{"./dom":1,"./io-element":16,"./popup.utils.js":32}],31:[function(require,module,exports){
+},{"./dom":1,"./io-element":20,"./popup.utils.js":38}],37:[function(require,module,exports){
 /*
  * This file is part of Adblock Plus <https://adblockplus.org/>,
  * Copyright (C) 2006-present eyeo GmbH
@@ -1923,7 +2107,7 @@ function whitelistedPage()
   block.disabled = true;
 }
 
-},{"./dom":1,"./popup.utils.js":32}],32:[function(require,module,exports){
+},{"./dom":1,"./popup.utils.js":38}],38:[function(require,module,exports){
 "use strict";
 
 function getDocLinks(notification)
@@ -2019,7 +2203,7 @@ module.exports = {
   whenPageReady
 };
 
-},{}],33:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var createContent = (function (document) {'use strict';
   var FRAGMENT = 'fragment';
@@ -2078,7 +2262,7 @@ var createContent = (function (document) {'use strict';
 }(document));
 module.exports = createContent;
 
-},{}],34:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 self.CustomEvent = typeof CustomEvent === 'function' ?
@@ -2095,7 +2279,7 @@ self.CustomEvent = typeof CustomEvent === 'function' ?
   }('prototype'));
 module.exports = self.CustomEvent;
 
-},{}],35:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.Map = Map; }
@@ -2132,7 +2316,7 @@ catch (Map) {
 }
 module.exports = self.Map;
 
-},{}],36:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.WeakSet = WeakSet; }
@@ -2158,7 +2342,7 @@ catch (WeakSet) {
 }
 module.exports = self.WeakSet;
 
-},{}],37:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var importNode = (function (
   document,
@@ -2203,7 +2387,7 @@ var importNode = (function (
 ));
 module.exports = importNode;
 
-},{}],38:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 var isArray = Array.isArray || (function (toString) {
   var $ = toString.call([]);
   return function isArray(object) {
@@ -2212,7 +2396,7 @@ var isArray = Array.isArray || (function (toString) {
 }({}.toString));
 module.exports = isArray;
 
-},{}],39:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var templateLiteral = (function () {'use strict';
   var RAW = 'raw';
@@ -2251,13 +2435,13 @@ var templateLiteral = (function () {'use strict';
 }());
 module.exports = templateLiteral;
 
-},{}],40:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 var trim = ''.trim || function () {
   return String(this).replace(/^\s+|\s+/g, '');
 };
 module.exports = trim;
 
-},{}],41:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var self = this || /* istanbul ignore next */ {};
 try { self.WeakMap = WeakMap; }
@@ -2294,7 +2478,7 @@ catch (WeakMap) {
 }
 module.exports = self.WeakMap;
 
-},{}],42:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -3055,7 +3239,7 @@ module.exports = self.WeakMap;
 	return CryptoJS;
 
 }));
-},{}],43:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 ;(function (root, factory, undef) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -3379,7 +3563,7 @@ module.exports = self.WeakMap;
 	return CryptoJS.SHA3;
 
 }));
-},{"./core":42,"./x64-core":44}],44:[function(require,module,exports){
+},{"./core":48,"./x64-core":50}],50:[function(require,module,exports){
 ;(function (root, factory) {
 	if (typeof exports === "object") {
 		// CommonJS
@@ -3684,7 +3868,7 @@ module.exports = self.WeakMap;
 	return CryptoJS;
 
 }));
-},{"./core":42}],45:[function(require,module,exports){
+},{"./core":48}],51:[function(require,module,exports){
 /*! (c) Andrea Giammarchi */
 function disconnected(poly) {'use strict';
   var CONNECTED = 'connected';
@@ -3796,7 +3980,7 @@ function disconnected(poly) {'use strict';
 }
 module.exports = disconnected;
 
-},{}],46:[function(require,module,exports){
+},{}],52:[function(require,module,exports){
 /*!
 ISC License
 
@@ -5307,7 +5491,7 @@ function installCustomElements(window, polyfill) {'use strict';
 
 module.exports = installCustomElements;
 
-},{}],47:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 'use strict';
 /*! (c) 2018 Andrea Giammarchi (ISC) */
 
@@ -5531,7 +5715,7 @@ const domdiff = (
 
 Object.defineProperty(exports, '__esModule', {value: true}).default = domdiff;
 
-},{"./utils.js":48}],48:[function(require,module,exports){
+},{"./utils.js":54}],54:[function(require,module,exports){
 'use strict';
 const Map = (require('@ungap/essential-map'));
 
@@ -5914,7 +6098,7 @@ const smartDiff = (
 };
 exports.smartDiff = smartDiff;
 
-},{"@ungap/essential-map":35}],49:[function(require,module,exports){
+},{"@ungap/essential-map":41}],55:[function(require,module,exports){
 'use strict';
 // Custom
 var UID = '-' + Math.random().toFixed(6) + '%';
@@ -5947,7 +6131,7 @@ exports.TEXT_NODE = TEXT_NODE;
 exports.SHOULD_USE_TEXT_CONTENT = SHOULD_USE_TEXT_CONTENT;
 exports.VOID_ELEMENTS = VOID_ELEMENTS;
 
-},{}],50:[function(require,module,exports){
+},{}],56:[function(require,module,exports){
 'use strict';
 // globals
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
@@ -6054,7 +6238,7 @@ function cleanContent(fragment) {
   }
 }
 
-},{"./sanitizer.js":51,"./walker.js":52,"@ungap/create-content":33,"@ungap/import-node":37,"@ungap/trim":40,"@ungap/weakmap":41}],51:[function(require,module,exports){
+},{"./sanitizer.js":57,"./walker.js":58,"@ungap/create-content":39,"@ungap/import-node":43,"@ungap/trim":46,"@ungap/weakmap":47}],57:[function(require,module,exports){
 'use strict';
 const {UID, UIDC, VOID_ELEMENTS} = require('./constants.js');
 
@@ -6086,7 +6270,7 @@ function fullClosing($0, $1, $2) {
   return VOID_ELEMENTS.test($1) ? $0 : ('<' + $1 + $2 + '></' + $1 + '>');
 }
 
-},{"./constants.js":49}],52:[function(require,module,exports){
+},{"./constants.js":55}],58:[function(require,module,exports){
 'use strict';
 const Map = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-map'));
 const trim = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/trim'));
@@ -6216,7 +6400,7 @@ function parseAttributes(node, holes, parts, path) {
   }
 }
 
-},{"./constants.js":49,"@ungap/essential-map":35,"@ungap/trim":40}],53:[function(require,module,exports){
+},{"./constants.js":55,"@ungap/essential-map":41,"@ungap/trim":46}],59:[function(require,module,exports){
 'use strict';
 
 let SHA3 = require('crypto-js/sha3');
@@ -6260,7 +6444,7 @@ let isChecksumAddress = function (address) {
 module.exports.isAddress = isAddress;
 module.exports.isChecksumAddress = isChecksumAddress;
 
-},{"crypto-js/sha3":43}],54:[function(require,module,exports){
+},{"crypto-js/sha3":49}],60:[function(require,module,exports){
 'use strict';
 /*! (C) 2017-2018 Andrea Giammarchi - ISC Style License */
 
@@ -6623,7 +6807,7 @@ function isReady(created) {
   return false;
 }
 
-},{"hyperhtml":60}],55:[function(require,module,exports){
+},{"hyperhtml":66}],61:[function(require,module,exports){
 /*! (c) Andrea Giammarchi - ISC */
 var hyperStyle = (function (){'use strict';
   // from https://github.com/developit/preact/blob/33fc697ac11762a1cb6e71e9847670d047af7ce5/src/varants.js
@@ -6710,7 +6894,7 @@ var hyperStyle = (function (){'use strict';
 }());
 module.exports = hyperStyle;
 
-},{}],56:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 'use strict';
 const CustomEvent = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/custom-event'));
 const Map = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-map'));
@@ -6869,7 +7053,7 @@ const setValue = (self, secret, value) =>
   })[secret]
 ;
 
-},{"@ungap/custom-event":34,"@ungap/essential-map":35,"@ungap/weakmap":41}],57:[function(require,module,exports){
+},{"@ungap/custom-event":40,"@ungap/essential-map":41,"@ungap/weakmap":47}],63:[function(require,module,exports){
 'use strict';
 const { append, doc, fragment } = require('../shared/utils.js');
 
@@ -6909,7 +7093,7 @@ Wire.prototype.remove = function remove() {
   return first;
 };
 
-},{"../shared/utils.js":64}],58:[function(require,module,exports){
+},{"../shared/utils.js":70}],64:[function(require,module,exports){
 'use strict';
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
 
@@ -6951,7 +7135,7 @@ function upgrade() {
 
 Object.defineProperty(exports, '__esModule', {value: true}).default = render;
 
-},{"../objects/Updates.js":62,"../shared/constants.js":63,"../shared/utils.js":64,"@ungap/weakmap":41}],59:[function(require,module,exports){
+},{"../objects/Updates.js":68,"../shared/constants.js":69,"../shared/utils.js":70,"@ungap/weakmap":47}],65:[function(require,module,exports){
 'use strict';
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
 
@@ -7036,7 +7220,7 @@ exports.content = content;
 exports.weakly = weakly;
 Object.defineProperty(exports, '__esModule', {value: true}).default = wire;
 
-},{"../classes/Wire.js":57,"../objects/Updates.js":62,"../shared/utils.js":64,"@ungap/weakmap":41}],60:[function(require,module,exports){
+},{"../classes/Wire.js":63,"../objects/Updates.js":68,"../shared/utils.js":70,"@ungap/weakmap":47}],66:[function(require,module,exports){
 'use strict';
 /*! (c) Andrea Giammarchi (ISC) */
 const WeakMap = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/weakmap'));
@@ -7115,7 +7299,7 @@ function hyper(HTML) {
 }
 Object.defineProperty(exports, '__esModule', {value: true}).default = hyper
 
-},{"./classes/Component.js":56,"./hyper/render.js":58,"./hyper/wire.js":59,"./objects/Intent.js":61,"./objects/Updates.js":62,"@ungap/essential-weakset":36,"@ungap/weakmap":41,"domdiff":47}],61:[function(require,module,exports){
+},{"./classes/Component.js":62,"./hyper/render.js":64,"./hyper/wire.js":65,"./objects/Intent.js":67,"./objects/Updates.js":68,"@ungap/essential-weakset":42,"@ungap/weakmap":47,"domdiff":53}],67:[function(require,module,exports){
 'use strict';
 const attributes = {};
 const intents = {};
@@ -7157,7 +7341,7 @@ Object.defineProperty(exports, '__esModule', {value: true}).default = {
   }
 };
 
-},{}],62:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 const CustomEvent = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/custom-event'));
 const WeakSet = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/essential-weakset'));
@@ -7490,7 +7674,7 @@ Tagger.prototype = {
   }
 };
 
-},{"../classes/Component.js":56,"../classes/Wire.js":57,"../shared/constants.js":63,"../shared/utils.js":64,"./Intent.js":61,"@ungap/create-content":33,"@ungap/custom-event":34,"@ungap/essential-weakset":36,"@ungap/is-array":38,"disconnected":45,"domdiff":47,"domtagger":50,"hyperhtml-style":55}],63:[function(require,module,exports){
+},{"../classes/Component.js":62,"../classes/Wire.js":63,"../shared/constants.js":69,"../shared/utils.js":70,"./Intent.js":67,"@ungap/create-content":39,"@ungap/custom-event":40,"@ungap/essential-weakset":42,"@ungap/is-array":44,"disconnected":51,"domdiff":53,"domtagger":56,"hyperhtml-style":61}],69:[function(require,module,exports){
 'use strict';
 // Node.CONSTANTS
 // 'cause some engine has no global Node defined
@@ -7510,7 +7694,7 @@ exports.CONNECTED = CONNECTED;
 const DISCONNECTED = 'dis' + CONNECTED;
 exports.DISCONNECTED = DISCONNECTED;
 
-},{}],64:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 'use strict';
 const unique = (m => m.__esModule ? /* istanbul ignore next */ m.default : /* istanbul ignore next */ m)(require('@ungap/template-literal'));
 
@@ -7553,4 +7737,4 @@ exports.reArguments = reArguments
 const slice = [].slice;
 exports.slice = slice;
 
-},{"@ungap/template-literal":39}]},{},[29]);
+},{"@ungap/template-literal":45}]},{},[35]);

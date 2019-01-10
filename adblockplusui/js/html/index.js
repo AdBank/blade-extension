@@ -8,6 +8,8 @@ const confirmSecretPhrase = require("./confirmSecretPhrase.js");
 const verifyKyc = require("./verifyKyc.js");
 const setExternalWallet = require("./setExternalWallet.js");
 const registrationCompleted = require("./registrationCompleted.js");
+const about = require("./about.js");
+const termsAndConditionsText = require("./termsAndConditionsText");
 
 module.exports = {
   getStarted,
@@ -17,5 +19,7 @@ module.exports = {
   confirmSecretPhrase,
   verifyKyc,
   setExternalWallet,
-  registrationCompleted
+  registrationCompleted,
+  about,
+  termsAndConditionsText
 };

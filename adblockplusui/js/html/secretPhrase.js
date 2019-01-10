@@ -1,6 +1,6 @@
 "use strict";
 
-const header = require("./header");
+const header = require("./common/header");
 
 const html = `
 <div class="secret-phrase-view flex-column">

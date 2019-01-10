@@ -1,9 +1,9 @@
 "use strict";
 
-const header = require("./header");
-const input = require("./input");
-const informationTooltip = require("./informationTooltip");
-const checkbox = require("./checkbox");
+const header = require("./common/header");
+const input = require("./common/input");
+const informationTooltip = require("./common/informationTooltip");
+const checkbox = require("./common/checkbox");
 
 const html = `
 <div class="set-external-wallet-view flex-column">
