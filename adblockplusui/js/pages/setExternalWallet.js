@@ -1,8 +1,11 @@
+/* eslint-disable max-len */
+
 "use strict";
 
-/* eslint-disable max-len */
 const BaseClass = require("./baseClass");
 const {isAddress} = require("ethereum-address");
+
+const VALID_LENGTH = 25;
 
 class SetExternalWallet extends BaseClass
 {
@@ -23,7 +26,19 @@ class SetExternalWallet extends BaseClass
 
     this.actionButton.addEventListener("click", this.handleSubmitButton.bind(this));
     this.input.addEventListener("change", this.handleInputChange.bind(this));
+    this.input.addEventListener("focus", this.handleInputFocus.bind(this));
+    this.input.addEventListener("blur", this.handleInputBlur.bind(this));
     this.checkbox.addEventListener("change", this.handleCheckboxChange.bind(this));
+  }
+
+  handleInputFocus(e)
+  {
+    e.target.value = this.userInput;
+  }
+
+  handleInputBlur(e)
+  {
+    e.target.value = e.target.value.slice(0, VALID_LENGTH) + "...";
   }
 
   handleSubmitButton(e)
@@ -67,7 +82,6 @@ class SetExternalWallet extends BaseClass
 
   handleInputChange(e)
   {
-    const VALID_LENGTH = 25;
     const userAddress = e.target.value;
 
     this.actionButton.classList.remove("disabled");

@@ -1,7 +1,7 @@
 "use strict";
 
-const header = require("./header");
-const input = require("./input");
+const header = require("./common/header");
+const input = require("./common/input");
 
 const html = `
 <div class="create-password-view flex-column">

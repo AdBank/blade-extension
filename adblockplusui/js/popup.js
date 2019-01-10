@@ -32,7 +32,9 @@ const {
   confirmSecretPhrase,
   verifyKyc,
   setExternalWallet,
-  registrationCompleted
+  registrationCompleted,
+  about,
+  termsAndConditionsText
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -42,7 +44,9 @@ const {
   ConfirmSecretPhrasePage,
   VerifyKycPage,
   SetExternalWalletPage,
-  RegistrationCompletedPage
+  RegistrationCompletedPage,
+  AboutPage,
+  TermsAndConditionsTextPage
 } = require("./pages/index.js");
 
 const {
@@ -52,7 +56,7 @@ const {
   whenPageReady
 } = require("./popup.utils.js");
 
-window.currentStep = "getStarted";
+window.currentStep = "aboutExtension";
 
 function onChangeView(current, next)
 {
@@ -109,6 +113,19 @@ function loadPage(page)
       const initialView = new RegistrationCompletedPage({onChangeView});
       initialView.render(registrationCompleted);
       break;
+    }
+    case "aboutExtension": {
+      const initialView = new AboutPage({onChangeView});
+      initialView.render(about);
+      break;
+    }
+    case "termsAndConditionsText": {
+      const initialView = new TermsAndConditionsTextPage({onChangeView});
+      initialView.render(termsAndConditionsText);
+      break;
+    }
+    default: {
+      console.error(`Page '${page}' is not declared`);
     }
   }
 

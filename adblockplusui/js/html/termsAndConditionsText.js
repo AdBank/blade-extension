@@ -4,7 +4,7 @@ const header = require("./common/header");
 
 const html = `
 <div class="terms-and-conditions flex-column">
-  ${header("Accept Terms & Conditions")}
+  ${header("Terms & Conditions")}
   <div class="text">
     <p>
       1.0 blade terms of use <br /><br />
@@ -15,18 +15,8 @@ const html = `
       reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
       pariatur.
     </p>
-    <div class="form-wrap">
-      <label>I Accept the Terms & Conditions
-        <input type="checkbox" id="checkbox1">
-        <span class="checkmark"></span>
-      </label>
-      <label>I am not a resident of the United States or Canada
-        <input type="checkbox" id="checkbox2">
-        <span class="checkmark"></span>
-      </label>
-    </div>
   </div>
-  <button class="main-action-button" id="action-btn">ACCEPT</button>
+  <button class="main-action-button" id="action-btn">BACK</button>
 </div>
 `
 ;

@@ -1,0 +1,31 @@
+.about-view {
+  .content {
+    text-align: center;
+  }
+  .logo {
+    margin-bottom: 16px;
+    text-align: center;
+    height: 104px;	
+    width: 144px;
+  }
+
+  .title {
+    color: #EEEEEE;	
+    font: 700 12px / 16px Montserrat;
+    letter-spacing: .2px;
+  }
+
+  .version-number {
+    margin-top: 4px;
+    margin-bottom: 12px;
+    color: #FFFFFF;	
+    font: 14px / 20px Montserrat;
+  }
+
+  .link-item {
+    margin-top: 8px;
+    color: #4CC1FC;	
+    font: 14px / 20px Montserrat;
+    cursor: pointer;
+  }
+}
