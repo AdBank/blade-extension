@@ -1654,7 +1654,6 @@ const {
   whenPageReady
 } = require("./popup.utils.js");
 
-window.currentStep = "aboutExtension";
 
 function onChangeView(current, next)
 {
@@ -1668,7 +1667,7 @@ function onChangeView(current, next)
   loadPage(next);
 }
 
-function loadPage(page)
+function loadPage(page = "getStarted")
 {
   switch (page)
   {
@@ -1724,15 +1723,24 @@ function loadPage(page)
     }
     default: {
       console.error(`Page '${page}' is not declared`);
+      return;
     }
   }
 
-  window.currentStep = page;
+  setViewToStorage(page);
 }
 
 function renderInitialView()
 {
-  loadPage(window.currentStep);
+  browser.storage.local.get("bladeCurrentPage").then((view) =>
+  {
+    loadPage(view.bladeCurrentPage);
+  });
+}
+
+function setViewToStorage(view)
+{
+  browser.storage.local.set({bladeCurrentPage: view});
 }
 
 browser.runtime.sendMessage({
@@ -1754,6 +1762,7 @@ const getTab = new Promise(
     document.addEventListener("DOMContentLoaded", () =>
     {
       renderInitialView();
+
       browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
       {
         resolve({id: tabs[0].id, url: tabs[0].url});
