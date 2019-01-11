@@ -1,7 +1,7 @@
 [general]
-basename = adblockpluschrome
-version = 3.4.2
-author = eyeo GmbH
+basename = bladechrome
+version = 0.0.1
+author = Adbank
 backgroundScripts = polyfill.js
   ext/common.js
   ext/background.js
@@ -16,19 +16,19 @@ testScripts = ../polyfill.js
   tests.js
 options = options.html
 browserAction =
-  icons/abp-16.png
-  icons/abp-19.png
-  icons/abp-20.png
-  icons/abp-32.png
-  icons/abp-38.png
-  icons/abp-40.png
+  icons/blade/blade-16.png
+  icons/blade/blade-19.png
+  icons/blade/blade-20.png
+  icons/blade/blade-32.png
+  icons/blade/blade-38.png
+  icons/blade/blade-40.png
   popup.html
 icons =
-  icons/abp-16.png
-  icons/abp-32.png
-  icons/detailed/abp-48.png
-  icons/detailed/abp-64.png
-  icons/detailed/abp-128.png
+  icons/blade/blade-16.png
+  icons/blade/blade-32.png
+  icons/blade/blade-48.png
+  icons/blade/blade-64.png
+  icons/blade/blade-128.png
 
 [manifest]
 devtools_page = devtools.html
@@ -62,11 +62,10 @@ first-run.html = adblockplusui/first-run.html
 common.js = adblockplusui/common.js
 first-run.js = adblockplusui/first-run.js
 i18n.js = adblockplusui/i18n.js
-icons/detailed/abp-128.png = adblockplusui/skin/abp-128.png
+icons/blade/blade-128.png = adblockplusui/skin/blade_icons/blade-128.png
 skin/common.css = adblockplusui/skin/common.css
 skin/fonts.css = adblockplusui/skin/fonts.css
 skin/first-run.css = adblockplusui/skin/first-run.css
-skin/abp-logo.svg = adblockplusui/skin/abp-logo.svg
 skin/abb-logo.png = adblockplusui/skin/abb-logo.png
 skin/fonts/Source-Sans-Pro/300/cyrillic.woff2 = adblockplusui/skin/fonts/Source-Sans-Pro/300/cyrillic.woff2
 skin/fonts/Source-Sans-Pro/300/cyrillic-ext.woff2 = adblockplusui/skin/fonts/Source-Sans-Pro/300/cyrillic-ext.woff2
