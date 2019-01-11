@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "Adblock Plus je s preko 500-mi milijoni prenosov eno najbolj priljubljenih orodij za blokiranje oglasov na svetu."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Adblock Plus"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus razvojna različica"
+    "message": "Blade development build"
   }
 }

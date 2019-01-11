@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "مع أكثر من 500 مليون عملية تحميل، يعتبر Adblock Plus أحد أكثر أدوات حظر الإعلانات شيوعًا في العالم."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "آدبلوك بلس"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "رقم نسخة تطوير آدبلوك بلس"
+    "message": "Blade development build"
   }
 }

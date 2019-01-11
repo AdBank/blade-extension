@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "עם יותר מ־500 מיליון הורדות, Adblock Plus הוא אחד מחוסמי הפרסומות הפופולריים ביותר בעולם."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Adblock Plus"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "בניית פיתוח Adblock Plus"
+    "message": "Blade development build"
   }
 }

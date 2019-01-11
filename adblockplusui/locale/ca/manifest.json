@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "Amb més de 500 milions de baixades, l'Adblock Plus és un dels bloquejadors d'anuncis més populars del món."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Adblock Plus"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus (versió en desenvolupament)"
+    "message": "Blade development build"
   }
 }

@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "С более чем 500 миллионами загрузок, Adblock Plus один из наиболее популярных блокировщиков рекламы в мире."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Adblock Plus"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus (тестовая сборка)"
+    "message": "Blade development build"
   }
 }

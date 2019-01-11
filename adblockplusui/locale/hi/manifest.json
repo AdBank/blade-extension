@@ -1,8 +1,11 @@
 {
   "description": {
-    "message": "500 मिलियन से अधिक डाउनलोड के साथ, एडब्लॉक प्लस दुनिया का एक सबसे लोकप्रिय विज्ञापन अवरोधक है।"
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
+  "name": {
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus डेवलपमेंट बिल्ड"
+    "message": "Blade development build"
   }
 }
