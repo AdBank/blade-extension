@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "Izmantots vairāk nekā 500 miljonos ierīču, Adblock Plus ir pasaulē populārākais reklāmu bloķētājs."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Adblock Plus"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus attīstības programma"
+    "message": "Blade development build"
   }
 }

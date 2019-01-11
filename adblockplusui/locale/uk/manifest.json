@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "Понад 500 мільйонів завантажень. Adblock Plus є одним з найбільш популярних блокувальників реклами в світі."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Adblock Plus"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus (тестова збiрка)"
+    "message": "Blade development build"
   }
 }

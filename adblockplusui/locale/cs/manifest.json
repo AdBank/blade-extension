@@ -1,8 +1,11 @@
 {
   "description": {
-    "message": "Více než 500 milionů stažení, Adblock Plus je jedním z nejvíce používaných programu na blokování reklamy."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
+  "name": {
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Vývojové sestavení Adblock Plus"
+    "message": "Blade development build"
   }
 }

@@ -1,8 +1,11 @@
 {
   "description": {
-    "message": "Adblock Plus əlavəni 500 milyondan çox insan istifadə edir. Bu, dünyanın ən məşhir reklama qarşı əlavədir."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
+  "name": {
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus (sınaq versiyası)"
+    "message": "Blade development build"
   }
 }

@@ -1,8 +1,11 @@
 {
   "description": {
-    "message": "Usado em mais de 500 milhões de dispositivos, o AdBlock Plus é um dos bloqueadores de anúncios mais popular do mundo."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
+  "name": {
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Versão de desenvolvimento do Adblock Plus"
+    "message": "Blade development build"
   }
 }

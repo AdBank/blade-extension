@@ -1,8 +1,11 @@
 {
+  "description": {
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
   "name": {
-    "message": "ആഡ്ബ്ലോക്ക്‌ പ്ലസ്‌"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "ആഡ്ബ്ലോക്ക് പ്ലസ് ഡെവലപ്മെന്റ് ബില്‍ഡ്"
+    "message": "Blade development build"
   }
 }

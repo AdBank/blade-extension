@@ -1,8 +1,11 @@
 {
   "description": {
-    "message": "500만 대 이상의 기기가 사용하고 있는 Adblock Plus는 세계에서 가장 인기있는 광고 차단기입니다."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
+  "name": {
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus 개발 빌드"
+    "message": "Blade development build"
   }
 }

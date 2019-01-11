@@ -1,8 +1,11 @@
 {
   "description": {
-    "message": "ایڈ بلاک پلس، 5 کروڑ بار ڈاؤن لوڈ کیا جانے والا سب سے مقبول غیر ضروری اشتہارات کو روکنے والا سافٹ ویئر ہے۔"
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "ایڈ بلاک پلس"
+    "message": "Blade"
+  },
+  "name_devbuild": {
+    "message": "Blade development build"
   }
 }

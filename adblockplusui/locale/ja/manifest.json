@@ -1,8 +1,11 @@
 {
   "description": {
-    "message": "Adblock Plus は、5億回以上ダウンロードされた、世界で最も人気のある広告ブロッカーのひとつです。"
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
+  "name": {
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus 開発版"
+    "message": "Blade development build"
   }
 }

@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "Cu peste 500 de milioane de descărcări, Adblock Plus este unul dintre cele mai populare ad blocker din lume."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Adblock Plus"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Versiune de test Adblock Plus"
+    "message": "Blade development build"
   }
 }

@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "Са преко 500 милиона преузимања, Adblock Plus је један од најпопуларнијих блокатора огласа на свету."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Adblock Plus"
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Развојна верзија Adblock Plus-а"
+    "message": "Blade development build"
   }
 }

@@ -1,5 +1,11 @@
 {
   "description": {
-    "message": "Ավելի քան 500 միլիոն բերբեռնումներով Adblock Plus- ը աշխարհի ամենատարածված գովազդային արգելափակողներից մեկն է."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
+  "name": {
+    "message": "Blade"
+  },
+  "name_devbuild": {
+    "message": "Blade development build"
   }
 }

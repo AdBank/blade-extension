@@ -1,8 +1,11 @@
 {
   "description": {
-    "message": "Adblock Plus anvendes på over 500 millioner enheder og er således verdens mest populære ad blocker."
+    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+  },
+  "name": {
+    "message": "Blade"
   },
   "name_devbuild": {
-    "message": "Adblock Plus-udviklingsversion"
+    "message": "Blade development build"
   }
 }
