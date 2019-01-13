@@ -58,28 +58,28 @@ document_end = include.postload.js
 
 [mapping]
 subscriptions.xml = adblockpluscore/chrome/content/ui/subscriptions.xml
-first-run.html = adblockplusui/first-run.html
-common.js = adblockplusui/common.js
-first-run.js = adblockplusui/first-run.js
-i18n.js = adblockplusui/i18n.js
-icons/blade/blade-128.png = adblockplusui/skin/blade_icons/blade-128.png
-skin/blade_assets/blade-background-all-other-screens.png = adblockplusui/skin/blade_assets/blade-background-all-other-screens.png
-skin/blade_assets/blade-background-get-started.png = adblockplusui/skin/blade_assets/blade-background-get-started.png
-skin/blade_assets/blade-logo.svg = adblockplusui/skin/blade_assets/blade-logo.svg
-skin/blade_assets/blade-powered-adbank-logo.svg = adblockplusui/skin/blade_assets/blade-powered-adbank-logo.svg
-devtools-panel.html = adblockplusui/devtools-panel.html
-devtools-panel.js = adblockplusui/devtools-panel.js
-skin/devtools-panel.css = adblockplusui/skin/devtools-panel.css
-issue-reporter.html = adblockplusui/issue-reporter.html
-issue-reporter.js = adblockplusui/issue-reporter.js
-desktop-options.html = adblockplusui/desktop-options.html
-desktop-options.js = adblockplusui/desktop-options.js
-updates.html = adblockplusui/updates.html
-updates.js = adblockplusui/updates.js
+first-run.html = bladeui/first-run.html
+common.js = bladeui/common.js
+first-run.js = bladeui/first-run.js
+i18n.js = bladeui/i18n.js
+icons/blade/blade-128.png = bladeui/skin/blade_icons/blade-128.png
+skin/blade_assets/blade-background-all-other-screens.png = bladeui/skin/blade_assets/blade-background-all-other-screens.png
+skin/blade_assets/blade-background-get-started.png = bladeui/skin/blade_assets/blade-background-get-started.png
+skin/blade_assets/blade-logo.svg = bladeui/skin/blade_assets/blade-logo.svg
+skin/blade_assets/blade-powered-adbank-logo.svg = bladeui/skin/blade_assets/blade-powered-adbank-logo.svg
+devtools-panel.html = bladeui/devtools-panel.html
+devtools-panel.js = bladeui/devtools-panel.js
+skin/devtools-panel.css = bladeui/skin/devtools-panel.css
+issue-reporter.html = bladeui/issue-reporter.html
+issue-reporter.js = bladeui/issue-reporter.js
+desktop-options.html = bladeui/desktop-options.html
+desktop-options.js = bladeui/desktop-options.js
+updates.html = bladeui/updates.html
+updates.js = bladeui/updates.js
 snippets.js = adblockpluscore/lib/content/snippets.js
-popup.js = adblockplusui/popup.js
-popup.html = adblockplusui/popup.html
-skin/blade.css = adblockplusui/skin/blade.css
+popup.js = bladeui/popup.js
+popup.html = bladeui/popup.html
+skin/blade.css = bladeui/skin/blade.css
 
 [bundles]
 lib/adblockplus.js =
@@ -94,7 +94,7 @@ lib/adblockplus.js =
   lib/uninstall.js
   lib/csp.js
   lib/contentFiltering.js
-  adblockplusui/messageResponder.js
+  bladeui/messageResponder.js
 include.preload.js =
   include.preload.js
   inject.preload.js
@@ -103,14 +103,14 @@ include.postload.js =
   composer.postload.js
 
 [import_locales]
-adblockplusui/locale/*/antiadblockInit.json = *
-adblockplusui/locale/*/common.json = *
-adblockplusui/locale/*/composer.json = *
-adblockplusui/locale/*/desktop-options.json = *
-adblockplusui/locale/*/filter-validation.json = *
-adblockplusui/locale/*/first-run.json = *
-adblockplusui/locale/*/issue-reporter.json = *
-adblockplusui/locale/*/manifest.json = *
-adblockplusui/locale/*/notification-helper.json = *
-adblockplusui/locale/*/popup.json = *
-adblockplusui/locale/*/updates.json = *
+bladeui/locale/*/antiadblockInit.json = *
+bladeui/locale/*/common.json = *
+bladeui/locale/*/composer.json = *
+bladeui/locale/*/desktop-options.json = *
+bladeui/locale/*/filter-validation.json = *
+bladeui/locale/*/first-run.json = *
+bladeui/locale/*/issue-reporter.json = *
+bladeui/locale/*/manifest.json = *
+bladeui/locale/*/notification-helper.json = *
+bladeui/locale/*/popup.json = *
+bladeui/locale/*/updates.json = *

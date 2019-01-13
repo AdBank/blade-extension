@@ -177,7 +177,7 @@ def create_bundles(params, files, bundle_tests):
     # resolve paths. Going forward we should always use relative paths, once we
     # do that consistently this can be removed. See issues 5760, 5761 and 5762.
     resolve_paths = [os.path.join(base_extension_path, dir, 'lib')
-                     for dir in ['', 'adblockpluscore', 'adblockplusui']]
+                     for dir in ['', 'adblockpluscore', 'bladeui']]
 
     info_template = getTemplate(info_templates[params['type']])
     info_module = info_template.render(
