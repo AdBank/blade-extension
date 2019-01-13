@@ -33,17 +33,6 @@
       ]
     },
     "bundle": {
-      "desktop-options": {
-        "css": "$ create.css desktop-options",
-        "js": "$ create.js ./js/desktop-options.js ./desktop-options.js"
-      },
-      "first-run": {
-        "css": [
-          "$ create.css first-run",
-          "$ create.css web"
-        ],
-        "js": "$ create.js ./js/first-run.js ./first-run.js"
-      },
       "issue-reporter": {
         "css": "$ create.css issue-reporter",
         "js": "$ create.js ./js/issue-reporter.js ./issue-reporter.js"
