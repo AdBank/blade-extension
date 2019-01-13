@@ -14,6 +14,7 @@ testScripts = ../polyfill.js
   ../lib/compat.js
   ../lib/publicSuffixList.js
   tests.js
+options = options.html
 browserAction =
   icons/blade/blade-16.png
   icons/blade/blade-19.png
@@ -57,7 +58,9 @@ document_end = include.postload.js
 
 [mapping]
 subscriptions.xml = adblockpluscore/chrome/content/ui/subscriptions.xml
+first-run.html = bladeui/first-run.html
 common.js = bladeui/common.js
+first-run.js = bladeui/first-run.js
 i18n.js = bladeui/i18n.js
 icons/blade/blade-128.png = bladeui/skin/blade_icons/blade-128.png
 skin/blade_assets/blade-background-all-other-screens.png = bladeui/skin/blade_assets/blade-background-all-other-screens.png
@@ -69,6 +72,8 @@ devtools-panel.js = bladeui/devtools-panel.js
 skin/devtools-panel.css = bladeui/skin/devtools-panel.css
 issue-reporter.html = bladeui/issue-reporter.html
 issue-reporter.js = bladeui/issue-reporter.js
+desktop-options.html = bladeui/desktop-options.html
+desktop-options.js = bladeui/desktop-options.js
 updates.html = bladeui/updates.html
 updates.js = bladeui/updates.js
 snippets.js = adblockpluscore/lib/content/snippets.js
@@ -101,7 +106,9 @@ include.postload.js =
 bladeui/locale/*/antiadblockInit.json = *
 bladeui/locale/*/common.json = *
 bladeui/locale/*/composer.json = *
+bladeui/locale/*/desktop-options.json = *
 bladeui/locale/*/filter-validation.json = *
+bladeui/locale/*/first-run.json = *
 bladeui/locale/*/issue-reporter.json = *
 bladeui/locale/*/manifest.json = *
 bladeui/locale/*/notification-helper.json = *
