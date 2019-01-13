@@ -2,7 +2,9 @@
   "name": "adblockpluschrome",
   "repository": "https://hg.adblockplus.org/adblockpluschrome",
   "license": "GPL-3.0",
-  "dependencies": {},
+  "dependencies": {
+    "npm-dollar": "^1.0.1"
+  },
   "devDependencies": {
     "//": [
       "'dmg', 'extract-zip' and 'ncp' are needed by `download_*.js` modules",
@@ -27,11 +29,25 @@
     "sign-addon": "^0.3.1"
   },
   "scripts": {
+    "$": "npm-dollar",
+    "test-prod": "npm run $ test-prod",
     "pretest": "bash -c \"python ensure_dependencies.py\"",
     "lint": "eslint *.js lib/ qunit/ ext/ test/ build/",
     "test-only": "mocha",
     "test": "npm run test-only --",
     "posttest": "npm run lint",
     "publish": "node build/publish.js"
+  },
+  "$": {
+    "test-prod": [
+      "cd ./bladeui",
+      "npm i",
+      "$ bundle.popup",
+      "cd ../buildtools/",
+      "npm i",
+      "cd ..",
+      "SKIP_DEPENDENCY_UPDATES=true ./build.py devenv -t chrome",
+      "cd -"
+    ]
   }
 }
