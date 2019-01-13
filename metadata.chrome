@@ -58,9 +58,7 @@ document_end = include.postload.js
 
 [mapping]
 subscriptions.xml = adblockpluscore/chrome/content/ui/subscriptions.xml
-first-run.html = bladeui/first-run.html
 common.js = bladeui/common.js
-first-run.js = bladeui/first-run.js
 i18n.js = bladeui/i18n.js
 icons/blade/blade-128.png = bladeui/skin/blade_icons/blade-128.png
 skin/blade_assets/blade-background-all-other-screens.png = bladeui/skin/blade_assets/blade-background-all-other-screens.png
@@ -70,8 +68,6 @@ skin/blade_assets/blade-powered-adbank-logo.svg = bladeui/skin/blade_assets/blad
 devtools-panel.html = bladeui/devtools-panel.html
 devtools-panel.js = bladeui/devtools-panel.js
 skin/devtools-panel.css = bladeui/skin/devtools-panel.css
-issue-reporter.html = bladeui/issue-reporter.html
-issue-reporter.js = bladeui/issue-reporter.js
 desktop-options.html = bladeui/desktop-options.html
 desktop-options.js = bladeui/desktop-options.js
 updates.html = bladeui/updates.html
