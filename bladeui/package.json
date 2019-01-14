@@ -33,10 +33,6 @@
       ]
     },
     "bundle": {
-      "desktop-options": {
-        "css": "$ create.css desktop-options",
-        "js": "$ create.js ./js/desktop-options.js ./desktop-options.js"
-      },
       "blade": {
         "css": "$ create.css blade"
       },

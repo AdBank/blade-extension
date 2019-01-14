@@ -45,8 +45,6 @@
     RegularSubscription
   } = require("subscriptionClasses");
 
-  const {showOptions} = require("options");
-
   port.on("types.get", (message, sender) =>
   {
     const filterTypes = Array.from(require("requestBlocker").filterTypes);
@@ -244,20 +242,6 @@
     return info[message.what];
   });
 
-  port.on("app.open", (message, sender) =>
-  {
-    if (message.what == "options")
-    {
-      showOptions(() =>
-      {
-        if (!message.action)
-          return;
-
-        sendMessage("app", message.action, ...message.args);
-      });
-    }
-  });
-
   port.on("filters.add", (message, sender) =>
   {
     const result = require("filterValidation").parseFilter(message.text);
@@ -392,11 +376,6 @@
         subscription.title = message.title;
       if ("homepage" in message)
         subscription.homepage = message.homepage;
-
-      showOptions(() =>
-      {
-        sendMessage("app", "addSubscription", subscription);
-      });
     }
     else
     {

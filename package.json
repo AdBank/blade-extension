@@ -1,6 +1,6 @@
 {
-  "name": "adblockpluschrome",
-  "repository": "https://hg.adblockplus.org/adblockpluschrome",
+  "name": "blade",
+  "repository": "https://github.com/AdBank/blade-extension.git",
   "license": "GPL-3.0",
   "dependencies": {
     "npm-dollar": "^1.0.1"

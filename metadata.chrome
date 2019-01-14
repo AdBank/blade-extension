@@ -14,7 +14,6 @@ testScripts = ../polyfill.js
   ../lib/compat.js
   ../lib/publicSuffixList.js
   tests.js
-options = options.html
 browserAction =
   icons/blade/blade-16.png
   icons/blade/blade-19.png
@@ -68,8 +67,6 @@ skin/blade_assets/blade-powered-adbank-logo.svg = bladeui/skin/blade_assets/blad
 devtools-panel.html = bladeui/devtools-panel.html
 devtools-panel.js = bladeui/devtools-panel.js
 skin/devtools-panel.css = bladeui/skin/devtools-panel.css
-desktop-options.html = bladeui/desktop-options.html
-desktop-options.js = bladeui/desktop-options.js
 updates.html = bladeui/updates.html
 updates.js = bladeui/updates.js
 snippets.js = adblockpluscore/lib/content/snippets.js
@@ -102,7 +99,6 @@ include.postload.js =
 bladeui/locale/*/antiadblockInit.json = *
 bladeui/locale/*/common.json = *
 bladeui/locale/*/composer.json = *
-bladeui/locale/*/desktop-options.json = *
 bladeui/locale/*/filter-validation.json = *
 bladeui/locale/*/first-run.json = *
 bladeui/locale/*/issue-reporter.json = *
