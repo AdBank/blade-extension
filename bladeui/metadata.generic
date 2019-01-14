@@ -1,5 +1,5 @@
 [general]
-basename = adblockplusui
+basename = bladeui
 
 [locales]
 base_path = locale

@@ -1,15 +1,15 @@
 # BLADE-extension
 
-### Running development environment
+### Running UI development environment
 
-Run the following commands in the ```adblockplusui``` directory :
+Run the following commands in the ```bladeui``` directory :
 
 * ```npm i```
 * ```npm start```
 
 ### Building the extension
 
-Run the following commands in the ```adblockplusui``` directory :
+Run the following commands in the root directory :
 
 * ```npm i```
 * ```npm run test-prod```
