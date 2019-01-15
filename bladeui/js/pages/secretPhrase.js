@@ -1,6 +1,6 @@
 "use strict";
 
-/* eslint-disable */
+/* eslint-disable max-len */
 
 const BaseClass = require("./baseClass");
 
@@ -18,8 +18,8 @@ class SecretPhrase extends BaseClass
     const downloadButton = document.getElementById("download-button");
     const secretPhraseText = document.getElementById("secret-phrase-text");
 
-    browser.storage.sync.get(null, (data) => {
-      console.log(data);
+    browser.storage.sync.get(null, (data) =>
+    {
       this.originalSecretPhrase = data.bladeUserData.secretPhrase;
       secretPhraseText.innerHTML = this.originalSecretPhrase;
     });
