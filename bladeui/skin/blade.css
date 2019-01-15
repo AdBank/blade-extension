@@ -389,7 +389,7 @@ button {
   text-align: center; }
 
 .confirm-secret-phrase-view .phrase-wrapper {
-  margin: 12px -10px 4px 0; }
+  margin: 12px -24px 4px 0; }
 
 .confirm-secret-phrase-view .word-block {
   display: inline-block;

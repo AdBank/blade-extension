@@ -8,6 +8,18 @@ class RegistrationCompleted extends BaseClass
   {
     super(props);
   }
+
+  initListeners()
+  {
+    const skipButton = document.getElementById("skip-button");
+
+    skipButton.addEventListener("click", this.handleSkipClicked.bind(this));
+  }
+
+  handleSkipClicked()
+  {
+    super.handleChangeView("registrationCompleted", "aboutExtension");
+  }
 }
 
 module.exports = RegistrationCompleted;
