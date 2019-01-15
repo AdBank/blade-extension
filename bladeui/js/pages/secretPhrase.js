@@ -16,6 +16,14 @@ class SecretPhrase extends BaseClass
     const btn = document.getElementById("action-btn");
     const copyButton = document.getElementById("copy-button");
     const downloadButton = document.getElementById("download-button");
+    const secretPhraseText = document.getElementById("secret-phrase-text");
+
+    browser.storage.sync.get(null, (data) =>
+    {
+      this.originalSecretPhrase = data.bladeUserData.secretPhrase;
+      secretPhraseText.innerHTML = this.originalSecretPhrase;
+    });
+
     btn.addEventListener("click", this.handleSubmit.bind(this));
     copyButton.addEventListener("click", this.handleCopyButton.bind(this));
     downloadButton.addEventListener("click", this.handleDownloadButton.bind(this));
@@ -23,7 +31,6 @@ class SecretPhrase extends BaseClass
 
   handleCopyButton(e)
   {
-    // getSecretPhrase
     const tooltip = document.getElementById("tooltip");
     tooltip.classList.remove("hidden");
     tooltip.classList.add("visible");
@@ -32,13 +39,12 @@ class SecretPhrase extends BaseClass
       tooltip.classList.add("hidden");
       tooltip.classList.remove("visible");
     }, 3000);
-    this.copyToClipboard(`split camp ethics loop piece auto 
-    equal order bargain useless ripple clump`);
+    this.copyToClipboard(this.originalSecretPhrase);
   }
 
   handleDownloadButton(e)
   {
-    this.download("secret-phrase.txt", "split camp ethics loop piece auto equal order bargain useless ripple clump");
+    this.download("secret-phrase.txt", this.originalSecretPhrase);
   }
 
   copyToClipboard(str)

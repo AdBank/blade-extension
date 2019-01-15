@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+/* eslint-disable */
 
 "use strict";
 
@@ -24,13 +24,16 @@ class ConfirmSecretPhrase extends BaseClass
 
     this.actionButton.addEventListener("click", this.handleSubmit.bind(this));
     this.viewCorrectButton.addEventListener("click", this.handleViewCorrectClick.bind(this));
-    this.setupPhrase();
+
+    browser.storage.sync.get("bladeUserData", (data) => {
+      this.originalSecretPhrase = data.bladeUserData.secretPhrase;
+      this.setupPhrase();
+    });
   }
 
   setupPhrase()
   {
     const wrapper = document.getElementById("phrase-of-words-wrapper");
-    this.originalSecretPhrase = "split camp ethics loop piece auto equal order bargain useless ripple clump";
     const arr = this.originalSecretPhrase.split(" ").sort();
 
     const div = document.createElement("div");

@@ -1,9 +1,10 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len, no-console */
 
 "use strict";
 
 const BaseClass = require("./baseClass");
 const {isAddress} = require("ethereum-address");
+const request = require("../utils/request");
 
 const VALID_LENGTH = 25;
 
@@ -24,6 +25,11 @@ class SetExternalWallet extends BaseClass
     this.inputGroup = document.getElementById("form-group");
     this.checkbox = document.getElementById("checkbox");
 
+    browser.storage.sync.get("bladeUserData", (data) =>
+    {
+      this.bearerToken = data.bladeUserData.token;
+    });
+
     this.actionButton.addEventListener("click", this.handleSubmitButton.bind(this));
     this.input.addEventListener("change", this.handleInputChange.bind(this));
     this.input.addEventListener("focus", this.handleInputFocus.bind(this));
@@ -43,9 +49,14 @@ class SetExternalWallet extends BaseClass
 
   handleSubmitButton(e)
   {
+    const data = {
+      auto_transfer: this.checkbox.checked,
+      user_wallet: this.userInput
+    };
+
     if (isAddress(this.userInput) && this.checkbox.checked)
     {
-      super.handleChangeView("setExternalWallet", "registrationCompleted");
+      this.sendRequest(data);
     }
     else if (!this.checkbox.checked)
     {
@@ -57,10 +68,25 @@ class SetExternalWallet extends BaseClass
     }
   }
 
-  highlightErrors()
+  sendRequest(data)
+  {
+    request({
+      method: "post",
+      url: "/jwt/user/wallet",
+      data,
+      headers: {
+        "Authorization": `Bearer ${this.bearerToken}`,
+        "Content-Type": "application/json"
+      }
+    })
+    .then(() => super.handleChangeView("setExternalWallet", "registrationCompleted"))
+    .catch(errorInfo => this.highlightErrors(errorInfo.error));
+  }
+
+  highlightErrors(error = "Please enter a ERC20 compatible wallet")
   {
     this.actionButton.classList.add("disabled");
-    this.error.innerHTML = "Please enter a ERC20 compatible wallet";
+    this.error.innerHTML = error;
     this.input.classList.add("input-invalid");
   }
 

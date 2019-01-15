@@ -11,9 +11,8 @@ const html = `
   <div class="secret-phrase-container">
     <p class="label">Your Secret Phrase</p>
     <div class="phrase-wrapper">
-      <p>
-        split camp ethics loop piece auto 
-        equal order bargain useless ripple clump
+      <p id="secret-phrase-text">
+        
       </p>
       <p class="tooltip hidden" id="tooltip">Copied!</p>
       <div class="action-phrase-buttons">
