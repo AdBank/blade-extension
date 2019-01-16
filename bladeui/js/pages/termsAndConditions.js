@@ -15,18 +15,18 @@ class TermsAndConditions extends BaseClass
   {
     this.mainActionButton = document.getElementById("action-btn");
     const mainAppWrapper = document.getElementById("main-app-wrapper");
-    this.checkbox1 = document.getElementById("checkbox1");
-    this.checkbox2 = document.getElementById("checkbox2");
+    this.termsAndConditionsCheckbox = document.getElementById("checkbox1");
+    this.notResidentOfUSAorCanadaCheckbox = document.getElementById("checkbox2");
 
     mainAppWrapper.classList.remove("custom-bg");
     this.mainActionButton.addEventListener("click", this.handleSubmitButton.bind(this));
-    this.checkbox1.addEventListener("change", this.handleCheckboxChanged.bind(this));
-    this.checkbox2.addEventListener("change", this.handleCheckboxChanged.bind(this));
+    this.termsAndConditionsCheckbox.addEventListener("change", this.handleCheckboxChanged.bind(this));
+    this.notResidentOfUSAorCanadaCheckbox.addEventListener("change", this.handleCheckboxChanged.bind(this));
   }
 
   handleCheckboxChanged(e)
   {
-    if (this.checkbox1.checked && this.checkbox2.checked)
+    if (this.termsAndConditionsCheckbox.checked && this.notResidentOfUSAorCanadaCheckbox.checked)
     {
       this.mainActionButton.disabled = false;
     }
@@ -38,7 +38,7 @@ class TermsAndConditions extends BaseClass
 
   handleSubmitButton(e)
   {
-    if (!this.checkbox1.checked || !this.checkbox2.checked)
+    if (!this.termsAndConditionsCheckbox.checked || !this.notResidentOfUSAorCanadaCheckbox.checked)
     {
       e.target.classList.add("disabled");
     }
