@@ -31,6 +31,7 @@
   "scripts": {
     "$": "npm-dollar",
     "test-prod": "npm run $ test-prod",
+    "prod": "npm run $ prod",
     "pretest": "bash -c \"python ensure_dependencies.py\"",
     "lint": "eslint *.js lib/ qunit/ ext/ test/ build/",
     "test-only": "mocha",
@@ -47,6 +48,18 @@
       "npm i",
       "cd ..",
       "SKIP_DEPENDENCY_UPDATES=true ./build.py devenv -t chrome",
+      "cd -"
+    ],
+    "prod": [
+      "cd ./bladeui",
+      "npm i",
+      "$ bundle.popup",
+      "cd ../buildtools/",
+      "npm i",
+      "cd ..",
+      "SKIP_DEPENDENCY_UPDATES=true ./build.py devenv -t chrome",
+      "cd devenv.chrome",
+      "zip -r ../blade.zip *",
       "cd -"
     ]
   }
