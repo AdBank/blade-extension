@@ -3,7 +3,8 @@
   "repository": "https://github.com/AdBank/blade-extension.git",
   "license": "GPL-3.0",
   "dependencies": {
-    "npm-dollar": "^1.0.1"
+    "npm-dollar": "^1.0.1",
+    "onchange": "^5.2.0"
   },
   "devDependencies": {
     "//": [
@@ -22,8 +23,8 @@
     "geckodriver": "^1.14.1",
     "handlebars": "^4.0.12",
     "jimp": "^0.3.11",
-    "ncp": "^2.0.0",
     "mocha": "^5.2.0",
+    "ncp": "^2.0.0",
     "request": "^2.88.0",
     "selenium-webdriver": "^4.0.0-alpha",
     "sign-addon": "^0.3.1"
@@ -37,9 +38,13 @@
     "test-only": "mocha",
     "test": "npm run test-only --",
     "posttest": "npm run lint",
-    "publish": "node build/publish.js"
+    "publish": "node build/publish.js",
+    "dev": "onchange '*/*.js' -e 'devenv.chrome'  -- npm run $ build"  
   },
   "$": {
+    "build": [
+      "SKIP_DEPENDENCY_UPDATES=true ./build.py devenv -t chrome"
+    ],
     "test-prod": [
       "cd ./bladeui",
       "npm i",

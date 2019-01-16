@@ -26,6 +26,11 @@ li {
 button {
   background: none;
   border: none;
+
+  &[disabled] {
+    opacity: .5;
+    cursor: default;
+  }
 }
 
 .flex-column {
