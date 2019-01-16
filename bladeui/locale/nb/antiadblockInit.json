@@ -1,8 +1,8 @@
 {
   "notification_antiadblock_message": {
-    "message": "Dette området er kjent for å vise meldinger som henvender seg til Adblock Plus-brukere. Vil du at Adblock Plus skal skjule disse meldingene?"
+    "message": "Dette området er kjent for å vise meldinger som henvender seg til Blade-brukere. Vil du at Blade skal skjule disse meldingene?"
   },
   "notification_antiadblock_title": {
-    "message": "Skjul meldinger til Adblock Plus-brukere?"
+    "message": "Skjul meldinger til Blade-brukere?"
   }
 }
