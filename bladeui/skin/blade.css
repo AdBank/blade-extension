@@ -21,6 +21,9 @@ li {
 button {
   background: none;
   border: none; }
+  button[disabled] {
+    opacity: .5;
+    cursor: default; }
 
 .flex-column {
   display: flex;

@@ -1,5 +1,7 @@
 "use strict";
 
+/* eslint-disable max-len */
+
 const header = require("./common/header");
 
 const html = `
@@ -26,7 +28,7 @@ const html = `
       </label>
     </div>
   </div>
-  <button class="main-action-button" id="action-btn">ACCEPT</button>
+  <button class="main-action-button" id="action-btn" disabled="true">ACCEPT</button>
 </div>
 `
 ;
