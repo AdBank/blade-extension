@@ -13,3 +13,10 @@ Run the following commands in the root directory :
 
 * ```npm i```
 * ```npm run test-prod```
+
+### Building Production version of the extension
+
+Run the following commands in the root directory :
+
+* ```npm i```
+* ```npm run prod```
