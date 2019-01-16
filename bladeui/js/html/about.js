@@ -14,7 +14,7 @@ const html = `
     <p class="title">Links</p>
     <ul>
       <li class="link-item">
-        <a href="www.blade.software">www.blade.software</a>
+        <a href="http://www.blade.software" id="url-link">www.blade.software</a>
       </li>
       <li class="link-item" id="terms-and-conditions">Terms & Conditions</li>
     </ul>

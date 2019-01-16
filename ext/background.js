@@ -354,10 +354,10 @@
         // simply a menu item.
         if ("setBadgeText" in browser.browserAction)
         {
-          browser.browserAction.setBadgeText({
-            tabId: this._tabId,
-            text: this._changes.badgeText
-          });
+          // browser.browserAction.setBadgeText({
+          //   tabId: this._tabId,
+          //   text: this._changes.badgeText
+          // });
         }
       }
 
