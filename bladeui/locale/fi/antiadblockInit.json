@@ -1,6 +1,6 @@
 {
   "notification_antiadblock_message": {
-    "message": "Tämän sivun tiedetään näyttäneen kohdennettuja viestejä Adblock Plussan käyttäjille. Haluatko, että Adblock Plus piilottaa kohdennetut viestit?"
+    "message": "Tämän sivun tiedetään näyttäneen kohdennettuja viestejä Bladesan käyttäjille. Haluatko, että Blade piilottaa kohdennetut viestit?"
   },
   "notification_antiadblock_title": {
     "message": "Piilotetaanko kohdennetut viestit?"

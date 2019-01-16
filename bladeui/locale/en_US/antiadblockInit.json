@@ -1,6 +1,6 @@
 {
   "notification_antiadblock_message": {
-    "message": "This site has been known to show targeted messages to Adblock Plus users. Do you want Adblock Plus to hide targeted messages?"
+    "message": "This site has been known to show targeted messages to Blade users. Do you want Blade to hide targeted messages?"
   },
   "notification_antiadblock_title": {
     "message": "Hide targeted messages?"

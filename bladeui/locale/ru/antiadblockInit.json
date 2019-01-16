@@ -1,6 +1,6 @@
 {
   "notification_antiadblock_message": {
-    "message": "Известно, что этот сайт показывает сообщения пользователям Adblock Plus. Хотите, чтобы Adblock Plus скрывал такие сообщения?"
+    "message": "Известно, что этот сайт показывает сообщения пользователям Blade. Хотите, чтобы Blade скрывал такие сообщения?"
   },
   "notification_antiadblock_title": {
     "message": "Скрыть целевые сообщения?"
