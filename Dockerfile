@@ -1,4 +1,3 @@
-# Use an official Python runtime as a parent image
 FROM python:2.7-stretch
 
 COPY . .
