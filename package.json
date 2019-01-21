@@ -56,6 +56,7 @@
       "cd -"
     ],
     "prod": [
+      "npm i",
       "cd ./bladeui",
       "npm i",
       "$ bundle.popup",
