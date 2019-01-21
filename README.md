@@ -26,7 +26,7 @@ Once done, click **Add new item** and select generated **zip**. (https://drive.g
 
 Fill the fields (description, screenshots, promotional tile images etc.) and click **Preview changes**. Make sure everything is correct and click **Publish**.
 
-The publishing process takes up to 3 days after that extesion can be installed via **Chrome Web Store**.
+The publishing process takes up to 3 days after that extension can be installed via **Chrome Web Store**.
 
 ### Updating extension
 
