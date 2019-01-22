@@ -11,6 +11,7 @@ const registrationCompleted = require("./registrationCompleted.js");
 const about = require("./about.js");
 const termsAndConditionsText = require("./termsAndConditionsText");
 const recoverPhrase = require("./recoverPhrase");
+const recoveredAccount = require("./recoveredAccount");
 
 module.exports = {
   getStarted,
@@ -23,5 +24,6 @@ module.exports = {
   registrationCompleted,
   about,
   termsAndConditionsText,
-  recoverPhrase
+  recoverPhrase,
+  recoveredAccount
 };

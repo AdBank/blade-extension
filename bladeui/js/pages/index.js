@@ -11,6 +11,7 @@ const RegistrationCompletedPage = require("./registrationCompleted.js");
 const AboutPage = require("./about.js");
 const TermsAndConditionsTextPage = require("./termsAndConditionsText");
 const RecoverPhrasePage = require("./recoverPhrase");
+const RecoveredAccountPage = require("./recoveredAccount");
 
 module.exports = {
   GetStartedPage,
