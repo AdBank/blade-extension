@@ -1,8 +1,9 @@
 "use strict";
 
-/* eslint-disable max-len */
+/* eslint-disable */
 
 const BaseClass = require("./baseClass");
+const request = require("../utils/request");
 
 class RecoverPhrase extends BaseClass
 {
@@ -14,14 +15,15 @@ class RecoverPhrase extends BaseClass
   initListeners()
   {
     const backButton = document.getElementById("back-button");
-    const mainActionButton = document.getElementById("main-action-button");
+    this.mainActionButton = document.getElementById("main-action-button");
     this.phraseTextarea = document.getElementById("phrase-textarea");
     const mainAppWrapper = document.getElementById("main-app-wrapper");
+    this.error = document.getElementById("error");
 
     mainAppWrapper.classList.remove("custom-bg");
 
     backButton.addEventListener("click", this.handleOpenPreviousView.bind(this));
-    mainActionButton.addEventListener("click", this.handleOpenRecoverPhrase.bind(this));
+    this.mainActionButton.addEventListener("click", this.handleSubmit.bind(this));
   }
 
   handleOpenPreviousView()
@@ -29,11 +31,43 @@ class RecoverPhrase extends BaseClass
     super.handleChangeView("recoverPhrase", "getStarted");
   }
 
-  handleOpenRecoverPhrase()
+  handleSubmit()
   {
-    // const userPhrase = this.phraseTextarea.value;
-    // send userPhrase to server if ok change view
-    super.handleChangeView("recoverPhrase", "recoverPassword");
+    this.error.innerHTML = "";
+    this.mainActionButton.classList.remove("disabled");
+
+    browser.storage.sync.get(null, (data) =>
+    {
+      const bladeUserData = data.bladeUserData;
+      this.sendRequest(bladeUserData);
+    });
+  }
+
+  sendRequest(bladeUserData)
+  {
+    request({
+      method: "post",
+      url: "/api/phrase/check",
+      data: {secret_phrase: this.phraseTextarea.value.trim()},
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + bladeUserData.token
+      }
+    })
+    .then((response) =>
+    {
+      const token = response.getResponseHeader("token");
+      const newObj = Object.assign({}, bladeUserData, {'token': token});
+      browser.storage.sync.set(newObj, () =>
+      {
+        super.handleChangeView("recoverPhrase", "recoverPassword");
+      });
+    })
+    .catch((err) =>
+    {
+      this.mainActionButton.classList.add("disabled");
+      this.error.innerHTML = err.error;
+    });
   }
 }
 

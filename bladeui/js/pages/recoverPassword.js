@@ -1,6 +1,6 @@
 "use strict";
 
-/* eslint-disable max-len */
+/* eslint-disable max-len, no-console */
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
@@ -122,37 +122,31 @@ class RecoverPassword extends BaseClass
       return false;
     }
 
-    // this.sendRequest();
+    browser.storage.sync.get(null, (data) =>
+    {
+      const token = data.bladeUserData.token;
+      this.sendRequest(token);
+    });
   }
 
-  sendRequest()
+  sendRequest(token)
   {
     request({
       method: "post",
-      url: "/api/user",
+      url: "/jwt/user/password",
       data: {password: this.passwordField.value},
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
       }
     })
     .then((response) =>
     {
-      const token = response.getResponseHeader("token");
-      const responseObj = JSON.parse(response.response);
-
-      browser.storage.sync.set({
-        bladeUserData: {
-          token,
-          secretPhrase: responseObj.secret_phrase,
-          userCode: responseObj.user_code
-        }
-      });
-
-      super.handleChangeView("createPassword", "secretPhrase");
+      super.handleChangeView("recoverPassword", "recoveredAccount");
     })
     .catch((err) =>
     {
-      this.onErrorMainField(err.statusText);
+      this.onErrorMainField(err.error);
     });
   }
 
