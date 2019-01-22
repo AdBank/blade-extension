@@ -4,7 +4,7 @@
 
 const BaseClass = require("./baseClass");
 
-class RecoverPassword extends BaseClass
+class RecoverPhrase extends BaseClass
 {
   constructor(props)
   {
@@ -16,6 +16,9 @@ class RecoverPassword extends BaseClass
     const backButton = document.getElementById("back-button");
     const mainActionButton = document.getElementById("main-action-button");
     this.phraseTextarea = document.getElementById("phrase-textarea");
+    const mainAppWrapper = document.getElementById("main-app-wrapper");
+
+    mainAppWrapper.classList.remove("custom-bg");
 
     backButton.addEventListener("click", this.handleOpenPreviousView.bind(this));
     mainActionButton.addEventListener("click", this.handleOpenRecoverPhrase.bind(this));
@@ -28,10 +31,10 @@ class RecoverPassword extends BaseClass
 
   handleOpenRecoverPhrase()
   {
-    const userPhrase = this.phraseTextarea.value;
+    // const userPhrase = this.phraseTextarea.value;
     // send userPhrase to server if ok change view
     super.handleChangeView("recoverPhrase", "recoverPassword");
   }
 }
 
-module.exports = RecoverPassword;
+module.exports = RecoverPhrase;

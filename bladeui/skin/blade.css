@@ -580,3 +580,32 @@ button {
 
 .recover-password-view .main-action-button {
   margin-top: auto; }
+
+.recover-password-view .form-group {
+  margin-bottom: 18px; }
+
+.recover-password-view form {
+  margin-top: 40px; }
+
+.recover-completed-view .underlogo-desc {
+  margin-top: 73px; }
+
+.recover-completed-view .fa-check {
+  display: block;
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 47px;
+  color: #EC1D25;
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: .91px;
+  line-height: 74px; }
+
+.recover-completed-view .skip {
+  display: block;
+  margin: auto;
+  text-decoration: underline;
+  color: #FFFFFF;
+  font: 10px / 14px Montserrat;
+  text-align: center;
+  cursor: pointer; }

@@ -12,6 +12,7 @@ const about = require("./about.js");
 const termsAndConditionsText = require("./termsAndConditionsText");
 const recoverPhrase = require("./recoverPhrase");
 const recoveredAccount = require("./recoveredAccount");
+const recoverPassword = require("./recoverPassword");
 
 module.exports = {
   getStarted,
@@ -25,5 +26,6 @@ module.exports = {
   about,
   termsAndConditionsText,
   recoverPhrase,
-  recoveredAccount
+  recoveredAccount,
+  recoverPassword
 };

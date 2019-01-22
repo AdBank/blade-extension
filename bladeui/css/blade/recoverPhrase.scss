@@ -1,0 +1,45 @@
+.recover-password-view {
+  .fa-long-arrow-left {
+    position: absolute;
+    left: 0;
+    color: #FFFFFF;	
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .underheader {
+    margin-top: 20px;
+    color: #EEEEEE;	
+    font: 700 14px / 20px Montserrat;
+    letter-spacing: .2px;
+    text-align: center;
+  }
+
+  .content-wrapper {
+    margin-top: 36px;
+  }
+
+  .label {
+    margin-bottom: 6px;
+    color: #EEEEEE;	
+    font: 700 12px / 16px Montserrat;
+    letter-spacing: .2px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    color: #4A4A4A;
+    height: 68px;	
+    border: 1px solid #999999;	
+    background-color: #FFFFFF;
+    resize: none;
+    font: 500 12px / 16px Montserrat;
+    overflow: hidden;
+  }
+
+  .main-action-button {
+    margin-top: auto;
+  }
+}
