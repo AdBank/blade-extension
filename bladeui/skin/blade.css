@@ -61,6 +61,7 @@ button {
   border: 2px solid #EC1D25 !important; }
 
 .underlogo-desc {
+  position: relative;
   color: #EEEEEE;
   font: bold 14px / 20px Montserrat;
   letter-spacing: 0.2px;
@@ -541,3 +542,41 @@ button {
   color: #4CC1FC;
   font: 14px / 20px Montserrat;
   cursor: pointer; }
+
+.recover-password-view .fa-long-arrow-left {
+  position: absolute;
+  left: 0;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer; }
+
+.recover-password-view .underheader {
+  margin-top: 20px;
+  color: #EEEEEE;
+  font: 700 14px / 20px Montserrat;
+  letter-spacing: .2px;
+  text-align: center; }
+
+.recover-password-view .content-wrapper {
+  margin-top: 36px; }
+
+.recover-password-view .label {
+  margin-bottom: 6px;
+  color: #EEEEEE;
+  font: 700 12px / 16px Montserrat;
+  letter-spacing: .2px; }
+
+.recover-password-view textarea {
+  width: 100%;
+  padding: 10px 12px;
+  color: #4A4A4A;
+  height: 68px;
+  border: 1px solid #999999;
+  background-color: #FFFFFF;
+  resize: none;
+  font: 500 12px / 16px Montserrat;
+  overflow: hidden; }
+
+.recover-password-view .main-action-button {
+  margin-top: auto; }

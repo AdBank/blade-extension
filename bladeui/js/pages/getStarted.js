@@ -1,5 +1,7 @@
 "use strict";
 
+/* eslint-disable max-len */
+
 const BaseClass = require("./baseClass");
 
 class GetStarted extends BaseClass
@@ -13,11 +15,23 @@ class GetStarted extends BaseClass
   {
     const btn = document.getElementById("action-btn");
     const mainAppWrapper = document.getElementById("main-app-wrapper");
+    const accountRecoveringButton = document.getElementById("account-recovering");
+
     mainAppWrapper.classList.add("custom-bg");
-    btn.addEventListener("click", () =>
-    {
-      super.handleChangeView("getStarted", "termsAndConditions");
-    });
+
+    btn.addEventListener("click", this.handleOpenTermsAndConditions.bind(this));
+
+    accountRecoveringButton.addEventListener("click", this.handleOpenRecoveringPage.bind(this));
+  }
+
+  handleOpenTermsAndConditions()
+  {
+    super.handleChangeView("getStarted", "termsAndConditions");
+  }
+
+  handleOpenRecoveringPage()
+  {
+    super.handleChangeView("getStarted", "recoverPhrase");
   }
 }
 
