@@ -25,7 +25,7 @@ class About extends BaseClass
 
   changePage(e)
   {
-    super.handleChangeView("aboutExtension", "termsAndConditionsText");
+    super.handleChangeView("termsAndConditionsText");
   }
 }
 

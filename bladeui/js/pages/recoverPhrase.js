@@ -1,6 +1,6 @@
 "use strict";
 
-/* eslint-disable */
+/* eslint-disable max-len */
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
@@ -28,7 +28,7 @@ class RecoverPhrase extends BaseClass
 
   handleOpenPreviousView()
   {
-    super.handleChangeView("recoverPhrase", "getStarted");
+    super.handleChangeView("getStarted");
   }
 
   handleSubmit()
@@ -57,10 +57,10 @@ class RecoverPhrase extends BaseClass
     .then((response) =>
     {
       const token = response.getResponseHeader("token");
-      const newObj = Object.assign({}, bladeUserData, {'token': token});
+      const newObj = Object.assign({}, bladeUserData, {token});
       browser.storage.sync.set(newObj, () =>
       {
-        super.handleChangeView("recoverPhrase", "recoverPassword");
+        super.handleChangeView("recoverPassword");
       });
     })
     .catch((err) =>

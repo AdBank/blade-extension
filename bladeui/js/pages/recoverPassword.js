@@ -1,6 +1,6 @@
 "use strict";
 
-/* eslint-disable max-len, no-console */
+/* eslint-disable max-len */
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
@@ -142,7 +142,7 @@ class RecoverPassword extends BaseClass
     })
     .then((response) =>
     {
-      super.handleChangeView("recoverPassword", "recoveredAccount");
+      super.handleChangeView("recoveredAccount");
     })
     .catch((err) =>
     {

@@ -1,7 +1,5 @@
 "use strict";
 
-/* eslint-disable max-len */
-
 const BaseClass = require("./baseClass");
 
 class RecoveredAccount extends BaseClass
@@ -13,7 +11,14 @@ class RecoveredAccount extends BaseClass
 
   initListeners()
   {
+    const skipButton = document.getElementById("skip-button");
 
+    skipButton.addEventListener("click", this.handleSkipClicked.bind(this));
+  }
+
+  handleSkipClicked()
+  {
+    super.handleChangeView("aboutExtension");
   }
 }
 

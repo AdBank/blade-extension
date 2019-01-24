@@ -1,6 +1,5 @@
 "use strict";
 
-/* eslint-disable */
 class BaseClass
 {
   constructor({onChangeView})

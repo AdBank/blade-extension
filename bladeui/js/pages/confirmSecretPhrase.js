@@ -114,7 +114,7 @@ class ConfirmSecretPhrase extends BaseClass
     }
     if (userInput === this.originalSecretPhrase)
     {
-      super.handleChangeView("confirmSecretPhrase", "setExternalWallet");
+      super.handleChangeView("setExternalWallet");
     }
     else
     {
@@ -124,7 +124,7 @@ class ConfirmSecretPhrase extends BaseClass
 
   handleViewCorrectClick()
   {
-    super.handleChangeView("confirmSecretPhrase", "secretPhrase");
+    super.handleChangeView("secretPhrase");
   }
 }
 

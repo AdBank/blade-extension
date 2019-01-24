@@ -44,7 +44,7 @@ class TermsAndConditions extends BaseClass
     }
     else
     {
-      super.handleChangeView("termsAndConditions", "createPasswordView");
+      super.handleChangeView("createPasswordView");
     }
   }
 }

@@ -88,7 +88,7 @@ class SecretPhrase extends BaseClass
 
   handleSubmit(e)
   {
-    super.handleChangeView("secretPhrase", "verifyKyc");
+    super.handleChangeView("verifyKyc");
   }
 }
 

@@ -150,7 +150,7 @@ class CreatePassword extends BaseClass
         }
       });
 
-      super.handleChangeView("createPassword", "secretPhrase");
+      super.handleChangeView("secretPhrase");
     })
     .catch((err) =>
     {

@@ -26,12 +26,12 @@ class GetStarted extends BaseClass
 
   handleOpenTermsAndConditions()
   {
-    super.handleChangeView("getStarted", "termsAndConditions");
+    super.handleChangeView("termsAndConditions");
   }
 
   handleOpenRecoveringPage()
   {
-    super.handleChangeView("getStarted", "recoverPhrase");
+    super.handleChangeView("recoverPhrase");
   }
 }
 

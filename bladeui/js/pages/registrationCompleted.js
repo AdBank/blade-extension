@@ -18,7 +18,7 @@ class RegistrationCompleted extends BaseClass
 
   handleSkipClicked()
   {
-    super.handleChangeView("registrationCompleted", "aboutExtension");
+    super.handleChangeView("aboutExtension");
   }
 }
 

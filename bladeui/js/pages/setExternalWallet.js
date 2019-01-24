@@ -1,4 +1,4 @@
-/* eslint-disable max-len, no-console */
+/* eslint-disable max-len */
 
 "use strict";
 
@@ -60,7 +60,7 @@ class SetExternalWallet extends BaseClass
     }
     else if (!this.checkbox.checked)
     {
-      super.handleChangeView("setExternalWallet", "registrationCompleted");
+      super.handleChangeView("registrationCompleted");
     }
     else
     {
