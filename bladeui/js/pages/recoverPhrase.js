@@ -39,7 +39,15 @@ class RecoverPhrase extends BaseClass
     browser.storage.sync.get(null, (data) =>
     {
       const bladeUserData = data.bladeUserData;
-      this.sendRequest(bladeUserData);
+      if (bladeUserData && bladeUserData.token)
+      {
+        this.sendRequest(bladeUserData);
+      }
+      else
+      {
+        this.mainActionButton.classList.add("disabled");
+        this.error.innerHTML = "Something went wrong.";
+      }
     });
   }
 
