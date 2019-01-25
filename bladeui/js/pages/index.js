@@ -13,6 +13,8 @@ const TermsAndConditionsTextPage = require("./termsAndConditionsText");
 const RecoverPhrasePage = require("./recoverPhrase");
 const RecoveredAccountPage = require("./recoveredAccount");
 const RecoverPasswordPage = require("./recoverPassword");
+const ProfilePage = require("./profile");
+const TransfersPage = require("./transfers");
 
 module.exports = {
   GetStartedPage,
@@ -27,5 +29,7 @@ module.exports = {
   TermsAndConditionsTextPage,
   RecoverPhrasePage,
   RecoveredAccountPage,
-  RecoverPasswordPage
+  RecoverPasswordPage,
+  ProfilePage,
+  TransfersPage
 };

@@ -1,13 +1,15 @@
 "use strict";
 
+/* eslint-disable max-len */
+
 function settingsTabGroup(active)
 {
   return `
-  <div class="settings-tab-group">
+  <div class="settings-tab-group" id="settings-tabs">
     <ul>
-      <li class="${active === "profile" && "active"}">PROFILE</li>
-      <li class="${active === "transfers" && "active"}">TRANSFERS</li>
-      <li class="${active === "info" && "active"}">INFO</li>
+      <li data-item="profile" class="${active === "profile" ? "active menu-item" : "menu-item"}">PROFILE</li>
+      <li data-item="transfers" class="${active === "transfers" ? "active menu-item" : "menu-item"}">TRANSFERS</li>
+      <li data-item="info" class="${active === "info" ? "active menu-item" : "menu-item"}">INFO</li>
     </ul>
   </div>
   `;

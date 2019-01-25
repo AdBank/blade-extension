@@ -17,6 +17,14 @@
 
 "use strict";
 
+// insert BLADE element to page, to recognize if extension is installed
+(function()
+{
+  const div = document.createElement("div");
+  div.id = "blade-extension";
+  document.body.appendChild(div);
+})();
+
 // We would rather export these properly and then require("./include.preload")
 // here, but that would result in include.preload running both at pre and post
 // load.
