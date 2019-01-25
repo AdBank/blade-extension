@@ -1,16 +1,19 @@
 "use strict";
 
+/* eslint-disable max-len */
+
 const infoTooltip = require("./informationTooltip");
 
-function headerNavbar(activeMenu, info = "")
+function headerNavbar(activeMenu, withNotification = false, info = "")
 {
   return `
   <header class="main-navbar-header">
     <div class="top-section">
       <img src="./skin/blade_assets/blade-logo.svg" />
-      <span class="burger-menu">
+      <button class="burger-menu" id="burger-button">
         <i class="fa fa-navicon"></i>
-      </span>
+        ${withNotification ? "<div class=\"notification-icon\"><i class=\"fa fa-exclamation\"></i></div>" : ""}
+      </button>
     </div>
     <div class="active-menu">
       <p class="menu-item">${activeMenu}</p>

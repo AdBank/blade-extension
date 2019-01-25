@@ -18,7 +18,7 @@ class TermsAndConditionsText extends BaseClass
 
   handleSubmitButton(e)
   {
-    super.handleChangeView("aboutExtension");
+    super.handleChangeView("info");
   }
 }
 

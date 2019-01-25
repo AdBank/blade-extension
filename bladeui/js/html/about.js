@@ -2,10 +2,12 @@
 
 const headerNavbar = require("./common/headerNavbar");
 const settingsTabGroup = require("./common/settingsTabGroup");
+const menuList = require("./common/menuList");
 
 const html = `
+${menuList("settings", true)}
 <div class="about-view">
-  ${headerNavbar("SETTINGS")}
+  ${headerNavbar("settings")}
   ${settingsTabGroup("info")}
   <div class="content">
     <img src="./skin/blade_assets/blade-powered-adbank-logo.svg" class="logo" />
