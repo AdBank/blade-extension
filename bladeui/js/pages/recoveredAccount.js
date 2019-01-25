@@ -2,7 +2,7 @@
 
 const BaseClass = require("./baseClass");
 
-class RegistrationCompleted extends BaseClass
+class RecoveredAccount extends BaseClass
 {
   constructor(props)
   {
@@ -22,4 +22,4 @@ class RegistrationCompleted extends BaseClass
   }
 }
 
-module.exports = RegistrationCompleted;
+module.exports = RecoveredAccount;

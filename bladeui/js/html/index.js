@@ -10,6 +10,9 @@ const setExternalWallet = require("./setExternalWallet.js");
 const registrationCompleted = require("./registrationCompleted.js");
 const about = require("./about.js");
 const termsAndConditionsText = require("./termsAndConditionsText");
+const recoverPhrase = require("./recoverPhrase");
+const recoveredAccount = require("./recoveredAccount");
+const recoverPassword = require("./recoverPassword");
 
 module.exports = {
   getStarted,
@@ -21,5 +24,8 @@ module.exports = {
   setExternalWallet,
   registrationCompleted,
   about,
-  termsAndConditionsText
+  termsAndConditionsText,
+  recoverPhrase,
+  recoveredAccount,
+  recoverPassword
 };

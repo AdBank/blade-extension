@@ -18,7 +18,7 @@ class VerifyKyc extends BaseClass
 
   handleSubmitButton(e)
   {
-    super.handleChangeView("verifyKyc", "confirmSecretPhrase");
+    super.handleChangeView("confirmSecretPhrase");
   }
 }
 

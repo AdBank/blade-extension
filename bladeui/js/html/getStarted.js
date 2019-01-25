@@ -12,7 +12,7 @@ const html = `
   </p>
   <footer>
     <button class="main-action-button" id="action-btn">GET STARTED</button>
-    <p class="caption">Recovering an account?</p>
+    <p class="caption" id="account-recovering">Recovering an account?</p>
   </footer>
 </div>
 `;

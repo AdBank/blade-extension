@@ -10,6 +10,9 @@ const SetExternalWalletPage = require("./setExternalWallet.js");
 const RegistrationCompletedPage = require("./registrationCompleted.js");
 const AboutPage = require("./about.js");
 const TermsAndConditionsTextPage = require("./termsAndConditionsText");
+const RecoverPhrasePage = require("./recoverPhrase");
+const RecoveredAccountPage = require("./recoveredAccount");
+const RecoverPasswordPage = require("./recoverPassword");
 
 module.exports = {
   GetStartedPage,
@@ -21,5 +24,8 @@ module.exports = {
   SetExternalWalletPage,
   RegistrationCompletedPage,
   AboutPage,
-  TermsAndConditionsTextPage
+  TermsAndConditionsTextPage,
+  RecoverPhrasePage,
+  RecoveredAccountPage,
+  RecoverPasswordPage
 };

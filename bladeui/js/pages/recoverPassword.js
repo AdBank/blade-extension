@@ -1,6 +1,6 @@
 "use strict";
 
-/* eslint-disable max-len, no-console, no-debugger */
+/* eslint-disable max-len */
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
@@ -8,7 +8,7 @@ const request = require("../utils/request");
 const MIN_PASSWORD_LENGTH = 8;
 const MAX_PASSWORD_LENGTH = 30;
 
-class CreatePassword extends BaseClass
+class RecoverPassword extends BaseClass
 {
   constructor(props)
   {
@@ -17,20 +17,22 @@ class CreatePassword extends BaseClass
 
   initListeners()
   {
-    this.mainActionButton = document.getElementById("action-btn");
-    const confirmPasswordEye = document.getElementById("confirm-password-eye");
-    const passwordEye = document.getElementById("password-eye");
+    this.passwordEye = document.getElementById("password-eye");
+    this.confirmPasswordEye = document.getElementById("confirm-password-eye");
     this.passwordField = document.getElementById("password");
     this.confirmPasswordField = document.getElementById("confirm-password");
+    this.passwordError = document.getElementById("password-error");
     this.confirmPasswordError = document.getElementById("confirm-password-error");
+    this.mainActionButton = document.getElementById("main-action-button");
+    this.backButton = document.getElementById("back-button");
 
-
-    this.mainActionButton.addEventListener("click", this.handleSubmitButton.bind(this));
-    passwordEye.addEventListener("click", this.handleShowPassword.bind(this));
-    confirmPasswordEye.addEventListener("click", this.handleShowConfirmPassword.bind(this));
+    this.passwordEye.addEventListener("click", this.handleClickOnPasswordEye.bind(this));
+    this.confirmPasswordEye.addEventListener("click", this.handleClickOnConfirmPasswordEye.bind(this));
+    this.mainActionButton.addEventListener("click", this.handleSubmit.bind(this));
+    this.backButton.addEventListener("click", this.handleOpenPreviousView.bind(this));
   }
 
-  handleShowPassword(e)
+  handleClickOnPasswordEye(e)
   {
     if (e.target.classList.contains("ion-md-eye-off"))
     {
@@ -44,7 +46,12 @@ class CreatePassword extends BaseClass
     }
   }
 
-  handleShowConfirmPassword(e)
+  handleOpenPreviousView()
+  {
+    super.handleChangeView("getStarted");
+  }
+
+  handleClickOnConfirmPasswordEye(e)
   {
     if (e.target.classList.contains("ion-md-eye-off"))
     {
@@ -73,7 +80,7 @@ class CreatePassword extends BaseClass
   onErrorMainField(errorText)
   {
     this.disableSubmitButton();
-    this.confirmPasswordError.innerHTML = errorText;
+    this.passwordError.innerHTML = errorText;
     this.passwordField.classList.add("input-invalid");
   }
 
@@ -84,11 +91,9 @@ class CreatePassword extends BaseClass
     this.confirmPasswordField.classList.add("input-invalid");
   }
 
-  handleSubmitButton(e)
+  handleSubmit(e)
   {
-    const passwordError = document.getElementById("password-error");
-
-    passwordError.innerHTML = "";
+    this.passwordError.innerHTML = "";
     this.confirmPasswordError.innerHTML = "";
     this.confirmPasswordField.classList.remove("input-invalid");
     this.passwordField.classList.remove("input-invalid");
@@ -124,37 +129,31 @@ class CreatePassword extends BaseClass
       return false;
     }
 
-    this.sendRequest();
+    browser.storage.sync.get(null, (data) =>
+    {
+      const token = data.bladeUserData.token;
+      this.sendRequest(token);
+    });
   }
 
-  sendRequest()
+  sendRequest(token)
   {
     request({
       method: "post",
-      url: "/api/user",
+      url: "/jwt/user/password",
       data: {password: this.passwordField.value},
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
       }
     })
     .then((response) =>
     {
-      const token = response.getResponseHeader("token");
-      const responseObj = JSON.parse(response.response);
-
-      browser.storage.sync.set({
-        bladeUserData: {
-          token,
-          secretPhrase: responseObj.secret_phrase,
-          userCode: responseObj.user_code
-        }
-      });
-
-      super.handleChangeView("secretPhrase");
+      super.handleChangeView("recoveredAccount");
     })
     .catch((err) =>
     {
-      this.onErrorMainField(err.statusText);
+      this.onErrorMainField(err.error);
     });
   }
 
@@ -164,4 +163,4 @@ class CreatePassword extends BaseClass
   }
 }
 
-module.exports = CreatePassword;
+module.exports = RecoverPassword;
