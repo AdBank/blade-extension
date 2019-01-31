@@ -30,7 +30,12 @@ const {
   setExternalWallet,
   registrationCompleted,
   about,
-  termsAndConditionsText
+  termsAndConditionsText,
+  recoverPhrase,
+  recoveredAccount,
+  recoverPassword,
+  profile,
+  transfers
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -42,11 +47,16 @@ const {
   SetExternalWalletPage,
   RegistrationCompletedPage,
   AboutPage,
-  TermsAndConditionsTextPage
+  TermsAndConditionsTextPage,
+  RecoverPhrasePage,
+  RecoveredAccountPage,
+  RecoverPasswordPage,
+  ProfilePage,
+  TransfersPage
 } = require("./pages/index.js");
 
 
-function onChangeView(current, next)
+function onChangeView(next)
 {
   const mainWrapper = document.getElementById("main-app-wrapper");
 
@@ -102,7 +112,7 @@ function loadPage(page = "getStarted")
       initialView.render(registrationCompleted);
       break;
     }
-    case "aboutExtension": {
+    case "info": {
       const initialView = new AboutPage({onChangeView});
       initialView.render(about);
       break;
@@ -112,9 +122,33 @@ function loadPage(page = "getStarted")
       initialView.render(termsAndConditionsText);
       break;
     }
+    case "recoverPhrase": {
+      const initialView = new RecoverPhrasePage({onChangeView});
+      initialView.render(recoverPhrase);
+      break;
+    }
+    case "recoverPassword": {
+      const initialView = new RecoverPasswordPage({onChangeView});
+      initialView.render(recoverPassword);
+      break;
+    }
+    case "recoveredAccount": {
+      const initialView = new RecoveredAccountPage({onChangeView});
+      initialView.render(recoveredAccount);
+      break;
+    }
+    case "profile": {
+      const initialView = new ProfilePage({onChangeView});
+      initialView.render(profile);
+      break;
+    }
+    case "transfers": {
+      const initialView = new TransfersPage({onChangeView});
+      initialView.render(transfers);
+      break;
+    }
     default: {
       console.error(`Page '${page}' is not declared`);
-      return;
     }
   }
 
@@ -127,6 +161,7 @@ function renderInitialView()
   {
     loadPage(view.bladeCurrentPage);
   });
+  // loadPage("info");
 }
 
 function setViewToStorage(view)
