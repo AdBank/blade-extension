@@ -150,11 +150,42 @@ class CreatePassword extends BaseClass
         }
       });
 
+      this.getAdserverUrl(token);
+
       super.handleChangeView("secretPhrase");
     })
     .catch((err) =>
     {
       this.onErrorMainField(err.statusText);
+    });
+  }
+
+  getAdserverUrl(token)
+  {
+    request({
+      method: "get",
+      url: "/api/config/adserver",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + token
+      }
+    })
+    .then((response) =>
+    {
+      const adbankUrl = JSON.parse(response.response).adserver_url;
+
+      this.saveAdserverUrl(adbankUrl);
+    })
+    .catch((err) =>
+    {
+      console.error(err);
+    });
+  }
+
+  saveAdserverUrl(url)
+  {
+    browser.storage.sync.set({
+      bladeAdserverUrl: url
     });
   }
 
