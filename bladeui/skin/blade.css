@@ -385,6 +385,23 @@ button {
   overflow: auto;
   background: white; }
 
+.terms-and-conditions h1 {
+  font-size: 22px;
+  text-align: center; }
+
+.terms-and-conditions .underheader {
+  margin-top: 10px; }
+  .terms-and-conditions .underheader p {
+    margin-top: 10px;
+    text-align: center; }
+
+.terms-and-conditions h3 {
+  margin-bottom: 10px; }
+
+.terms-and-conditions h2 {
+  text-align: center;
+  font-size: 18px; }
+
 .terms-and-conditions .text p {
   margin-bottom: 16px;
   color: #4A4A4A;
