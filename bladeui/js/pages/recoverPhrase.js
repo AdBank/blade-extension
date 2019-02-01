@@ -36,40 +36,27 @@ class RecoverPhrase extends BaseClass
     this.error.innerHTML = "";
     this.mainActionButton.classList.remove("disabled");
 
-    browser.storage.sync.get(null, (data) =>
-    {
-      const bladeUserData = data.bladeUserData;
-      if (bladeUserData && bladeUserData.token)
-      {
-        this.sendRequest(bladeUserData);
-      }
-      else
-      {
-        this.mainActionButton.classList.add("disabled");
-        this.error.innerHTML = "Something went wrong.";
-      }
-    });
+    browser.storage.sync.get("bladeUserData", (data) => this.sendRequest(data.bladeUserData));
   }
 
-  sendRequest(bladeUserData)
+  sendRequest(userData)
   {
     request({
       method: "post",
       url: "/api/phrase/check",
       data: {secret_phrase: this.phraseTextarea.value.trim()},
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + bladeUserData.token
+        "Content-Type": "application/json"
       }
     })
     .then((response) =>
     {
       const token = response.getResponseHeader("token");
-      const newObj = Object.assign({}, bladeUserData, {token});
-      browser.storage.sync.set(newObj, () =>
-      {
-        super.handleChangeView("recoverPassword");
-      });
+      const newObj = Object.assign({}, userData, {token});
+
+      browser.storage.sync.set({
+        newObj
+      }, () => super.handleChangeView("recoverPassword"));
     })
     .catch((err) =>
     {
