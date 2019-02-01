@@ -688,6 +688,13 @@ button {
 .recover-password-view .form-group {
   margin-bottom: 18px; }
 
+.recover-password-view .underheader {
+  margin-top: 20px;
+  color: #EEEEEE;
+  font: 700 14px / 20px Montserrat;
+  letter-spacing: .2px;
+  text-align: center; }
+
 .recover-password-view form {
   margin-top: 40px; }
 

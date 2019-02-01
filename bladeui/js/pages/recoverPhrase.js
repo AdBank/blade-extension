@@ -55,7 +55,7 @@ class RecoverPhrase extends BaseClass
       const newObj = Object.assign({}, userData, {token});
 
       browser.storage.sync.set({
-        newObj
+        bladeUserData: newObj
       }, () => super.handleChangeView("recoverPassword"));
     })
     .catch((err) =>
