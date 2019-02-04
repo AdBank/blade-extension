@@ -143,8 +143,7 @@ class RecoverPassword extends BaseClass
       url: "/jwt/user/password",
       data: {password: this.passwordField.value},
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token
+        Authorization: "Bearer " + token
       }
     })
     .then((response) =>

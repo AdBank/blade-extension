@@ -12,5 +12,3 @@ RUN apt-get update -yq \
 RUN pip install Jinja2 
 
 RUN apt-get install zip
-
-RUN npm run prod

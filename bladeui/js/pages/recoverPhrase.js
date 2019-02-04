@@ -5,6 +5,8 @@
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
 
+const saveAdserverUrl = require("../utils/saveAdserverUrl");
+
 class RecoverPhrase extends BaseClass
 {
   constructor(props)
@@ -44,16 +46,15 @@ class RecoverPhrase extends BaseClass
     request({
       method: "post",
       url: "/api/phrase/check",
-      data: {secret_phrase: this.phraseTextarea.value.trim()},
-      headers: {
-        "Content-Type": "application/json"
-      }
+      data: {secret_phrase: this.phraseTextarea.value.trim()}
     })
     .then((response) =>
     {
       const token = response.getResponseHeader("token");
       const userCode = JSON.parse(response.response).user_code;
       const newObj = Object.assign({}, userData, {token, userCode});
+
+      saveAdserverUrl();
 
       browser.storage.sync.set({
         bladeUserData: newObj
