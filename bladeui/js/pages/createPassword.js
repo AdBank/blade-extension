@@ -4,6 +4,7 @@
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
+const saveAdserverUrl = require("../utils/saveAdserverUrl");
 
 const MIN_PASSWORD_LENGTH = 8;
 const MAX_PASSWORD_LENGTH = 30;
@@ -150,42 +151,13 @@ class CreatePassword extends BaseClass
         }
       });
 
-      this.getAdserverUrl(token);
+      saveAdserverUrl();
 
       super.handleChangeView("secretPhrase");
     })
     .catch((err) =>
     {
       this.onErrorMainField(err.statusText);
-    });
-  }
-
-  getAdserverUrl(token)
-  {
-    request({
-      method: "get",
-      url: "/api/config/adserver",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token
-      }
-    })
-    .then((response) =>
-    {
-      const adbankUrl = JSON.parse(response.response).adserver_url;
-
-      this.saveAdserverUrl(adbankUrl);
-    })
-    .catch((err) =>
-    {
-      console.error(err);
-    });
-  }
-
-  saveAdserverUrl(url)
-  {
-    browser.storage.sync.set({
-      bladeAdserverUrl: url
     });
   }
 

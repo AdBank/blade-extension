@@ -5,6 +5,8 @@
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
 
+const saveAdserverUrl = require("../utils/saveAdserverUrl");
+
 class RecoverPhrase extends BaseClass
 {
   constructor(props)
@@ -54,6 +56,8 @@ class RecoverPhrase extends BaseClass
       const token = response.getResponseHeader("token");
       const userCode = JSON.parse(response.response).user_code;
       const newObj = Object.assign({}, userData, {token, userCode});
+
+      saveAdserverUrl();
 
       browser.storage.sync.set({
         bladeUserData: newObj
