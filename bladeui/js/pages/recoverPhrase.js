@@ -52,7 +52,8 @@ class RecoverPhrase extends BaseClass
     .then((response) =>
     {
       const token = response.getResponseHeader("token");
-      const newObj = Object.assign({}, userData, {token});
+      const userCode = JSON.parse(response.response).user_code;
+      const newObj = Object.assign({}, userData, {token, userCode});
 
       browser.storage.sync.set({
         bladeUserData: newObj
