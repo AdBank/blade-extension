@@ -1,6 +1,6 @@
 # BLADE-extension
 
-### Building extension for production
+### Building extension
 
 Run the following commands to generate **zip** file, which you will publish to **Chrome Web Store**.
 
@@ -13,7 +13,8 @@ cd ./blade-extension
 ./build.sh
 ./run.sh
 ```
-This will create **zip** file ready to deploy to **Chrome Web Store**.
+
+This will create **zip** file ready to deploy to **Chrome Web Store** and **devenv.chrome** folder ready to upload to **chrome://extensions/** in developer mode.
 
 ### Publish extension to Chrome Web Store
 
@@ -41,17 +42,3 @@ Run the following commands in the ```bladeui``` directory :
 
 * ```npm i```
 * ```npm start```
-
-### Building Development Version of extension
-
-Download **Docker** for your platform. https://www.docker.com/get-started
-
-Run following commands in terminal:
-```sh
-git clone https://github.com/AdBank/blade-extension.git
-cd ./blade-extension
-./build.sh
-./run.sh
-```
-
-This will create **devenv.chrome** file ready to download to **chrome://extensions/** in developer mode.

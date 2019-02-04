@@ -75,8 +75,7 @@ class SetExternalWallet extends BaseClass
       url: "/jwt/user/wallet",
       data,
       headers: {
-        "Authorization": `Bearer ${this.bearerToken}`,
-        "Content-Type": "application/json"
+        Authorization: `Bearer ${this.bearerToken}`
       }
     })
     .then(() => super.handleChangeView("setExternalWallet", "registrationCompleted"))

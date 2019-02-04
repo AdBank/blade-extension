@@ -133,10 +133,7 @@ class CreatePassword extends BaseClass
     request({
       method: "post",
       url: "/api/user",
-      data: {password: this.passwordField.value},
-      headers: {
-        "Content-Type": "application/json"
-      }
+      data: {password: this.passwordField.value}
     })
     .then((response) =>
     {

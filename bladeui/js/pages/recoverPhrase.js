@@ -46,10 +46,7 @@ class RecoverPhrase extends BaseClass
     request({
       method: "post",
       url: "/api/phrase/check",
-      data: {secret_phrase: this.phraseTextarea.value.trim()},
-      headers: {
-        "Content-Type": "application/json"
-      }
+      data: {secret_phrase: this.phraseTextarea.value.trim()}
     })
     .then((response) =>
     {

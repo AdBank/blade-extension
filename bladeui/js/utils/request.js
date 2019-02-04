@@ -31,6 +31,7 @@ function makeRequest(opts)
         error: JSON.parse(this.response).error
       });
     };
+    xhr.setRequestHeader("Content-Type", "application/json");
     if (opts.headers)
     {
       Object.keys(opts.headers).forEach((key) =>
