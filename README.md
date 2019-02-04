@@ -44,7 +44,14 @@ Run the following commands in the ```bladeui``` directory :
 
 ### Building Development Version of extension
 
-Run the following commands in the root directory :
+Download **Docker** for your platform. https://www.docker.com/get-started
 
-* ```npm i```
-* ```npm run test-prod```
+Run following commands in terminal:
+```sh
+git clone https://github.com/AdBank/blade-extension.git
+cd ./blade-extension
+./build.sh
+./run.sh
+```
+
+This will create **devenv.chrome** file ready to download to **chrome://extensions/** in developer mode.
