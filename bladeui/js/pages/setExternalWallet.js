@@ -78,7 +78,7 @@ class SetExternalWallet extends BaseClass
         Authorization: `Bearer ${this.bearerToken}`
       }
     })
-    .then(() => super.handleChangeView("setExternalWallet", "registrationCompleted"))
+    .then(() => super.handleChangeView("registrationCompleted"))
     .catch(errorInfo => this.highlightErrors(errorInfo.error));
   }
 
