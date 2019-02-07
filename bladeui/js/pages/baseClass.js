@@ -2,6 +2,7 @@
 
 /* eslint-disable max-len, no-console */
 
+const {isPageWhitelisted} = require("../popup.utils.js");
 class BaseClass
 {
   constructor({onChangeView})
@@ -25,6 +26,42 @@ class BaseClass
     burgerButton && burgerButton.addEventListener("click", this.handleClickOnBurger.bind(this));
     closeButton && closeButton.addEventListener("click", this.handleClose.bind(this));
     settingsTabs && settingsTabs.addEventListener("click", this.handleSettingsTabClick.bind(this));
+
+    browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
+    {
+      this.initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
+    });
+  }
+
+  initToggleOnOff(tab)
+  {
+    this.toggler = document.getElementById("checkbox");
+
+    isPageWhitelisted(tab, whitelisted =>
+    {
+      if (whitelisted)
+      {
+        this.toggler.checked = false;
+      }
+    });
+
+    this.toggler.addEventListener("change", () =>
+    {
+      if (this.toggler.checked)
+      {
+        browser.runtime.sendMessage({
+          type: "filters.unwhitelist",
+          tab
+        });
+      }
+      else
+      {
+        browser.runtime.sendMessage({
+          type: "filters.whitelist",
+          tab
+        });
+      }
+    });
   }
 
   handleSettingsTabClick(e)
