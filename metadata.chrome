@@ -53,6 +53,7 @@ document_start =
   ext/common.js
   ext/content.js
   include.preload.js
+document_idle = blade.idle.js
 document_end = include.postload.js
 
 [mapping]
@@ -94,6 +95,7 @@ include.preload.js =
 include.postload.js =
   subscriptionLink.postload.js
   composer.postload.js
+blade.idle.js = blade.idle.js
 
 [import_locales]
 bladeui/locale/*/antiadblockInit.json = *
