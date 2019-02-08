@@ -15,6 +15,8 @@ const recoveredAccount = require("./recoveredAccount");
 const recoverPassword = require("./recoverPassword");
 const profile = require("./profie");
 const transfers = require("./transfers");
+const referrals = require("./referralsMenuView");
+const referralsFormView = require("./referralsFormView");
 
 module.exports = {
   getStarted,
@@ -31,5 +33,7 @@ module.exports = {
   recoveredAccount,
   recoverPassword,
   profile,
-  transfers
+  transfers,
+  referrals,
+  referralsFormView
 };

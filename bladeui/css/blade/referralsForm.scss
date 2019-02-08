@@ -1,0 +1,39 @@
+.referrals-form-description {
+  position: relative;
+  color: #EEEEEE;
+  font: bold 14px / 20px Montserrat;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin-bottom: 48px;
+  i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}
+
+.referrals-view {
+  .form-group .input-field {
+    font-size: 12px;
+    color: #4A4A4A;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  textarea {
+    resize: none;
+    width: 100%;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #4A4A4A;
+    &:focus {
+      outline: none;
+    }
+  }
+}
