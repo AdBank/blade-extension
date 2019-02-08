@@ -5,7 +5,7 @@ const menuList = require("./common/menuList");
 const statsRepresentation = require("./common/statsRepresentation");
 const referralsList = require("./common/referralsList");
 // eslint-disable-next-line max-len
-const TOOLTIP_TEXT = require("../constants/referralTooltip");
+const TOOLTIP_TEXT = "Get rewarded for referrals! Earn 5 ADB for every invited friend that joins blade.";
 
 const html = `
 ${menuList("referrals")}
