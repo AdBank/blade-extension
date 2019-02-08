@@ -54,6 +54,8 @@ button {
   font: 700 12px / 16px Montserrat;
   letter-spacing: .2px;
   cursor: pointer; }
+  .main-action-button:focus {
+    outline: none; }
 
 .main-action-button.disabled {
   border: 2px solid #EC1D25; }
@@ -923,3 +925,33 @@ button {
   color: #4A4A4A; }
   .referrals-view textarea:focus {
     outline: none; }
+
+.referrals-view .loader {
+  margin: 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top: 2px solid #EC1D25;
+  border-right: 2px solid #EC1D25;
+  border-bottom: 2px solid #EC1D25;
+  width: 15px;
+  height: 15px;
+  animation: spin 2s cubic-bezier(0.22, 0.73, 0.9, 0.39) infinite; }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.referrals-view .check {
+  margin: 0 auto;
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 13px;
+  width: 7px;
+  border-bottom: 1px solid #EC1D25;
+  border-right: 1px solid #EC1D25; }
+
+.referrals-view button[disabled] {
+  opacity: 1;
+  cursor: default; }
