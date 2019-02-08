@@ -1,6 +1,7 @@
 "use strict";
 
 const BaseClass = require("./baseClass");
+const REFERRAL_ROW_COUNT = require("../constants/referralRowCount");
 
 class Referrals extends BaseClass
 {
@@ -12,15 +13,17 @@ class Referrals extends BaseClass
   initListeners()
   {
     const linkBnt = document.getElementById("go-to-referal-form-send-btn");
+    this.displayedEmailQuantity = document.getElementById("displayed-emails");
     const optionsDropDown = document.getElementById("open-select-options");
-    const chooseOption = document.getElementById("choose-option");
+    this.dropdown = document.getElementById("choose-option");
     this.emailListTarget = document.getElementById("referrals-list-content");
-    this.renderReferralsList(10);
+    super.renderRewardStats("some-api-address-for-request");
+    this.renderReferralsList(REFERRAL_ROW_COUNT);
 
     linkBnt.addEventListener("click", this.handleLinkBnt.bind(this));
     optionsDropDown.addEventListener("click",
       this.handleOpenOptions.bind(this));
-    chooseOption.addEventListener("click", this.handleSelectOption.bind(this));
+    this.dropdown.addEventListener("click", this.handleSelectOption.bind(this));
   }
 
   handleLinkBnt()
@@ -30,20 +33,18 @@ class Referrals extends BaseClass
 
   handleOpenPreviousView()
   {
-    super.handleChangeView("refferalsMenuView");
+    super.handleChangeView("referralsMenuView");
   }
 
   handleOpenOptions()
   {
-    const dropdown = document.getElementsByClassName("options-container")[0];
-    const style = window.getComputedStyle(dropdown);
-    if (style.display === "none")
+    if (this.dropdown.style.display === "none")
     {
-      dropdown.style.display = "block";
+      this.dropdown.style.display = "block";
     }
     else
     {
-      dropdown.style.display = "none";
+      this.dropdown.style.display = "none";
     }
   }
 
@@ -72,7 +73,7 @@ class Referrals extends BaseClass
               email: "kakakakakaka@www.com",
               date: "05-01-19",
               quantity: "10 ABD"}];
-    const wirtualRowContainer = document.createElement("div");
+    const virtualRowContainer = document.createElement("div");
     for (let i = 0; i < responce.length; i += 1)
     {
       const newRow = document.createElement("div");
@@ -82,16 +83,15 @@ class Referrals extends BaseClass
         "icon-user-follow green" : "icon-user-unfollow red";
       /* eslint-disable max-len */
       newRow.innerHTML = `<i class="${classNameUserStatus}"></i><p class="email">${responce[i].email}</p><p class="date">${responce[i].date}</p><p class="quantity">${rewardInfo[0]}</p><p class="unit">${rewardInfo[1]}</p>`;
-      wirtualRowContainer.appendChild(newRow);
+      virtualRowContainer.appendChild(newRow);
     }
-    this.emailListTarget.appendChild(wirtualRowContainer);
+    this.emailListTarget.appendChild(virtualRowContainer);
   }
 
   handleSelectOption(event)
   {
     const emailQuantity = event.target.dataset.quantity;
-    const displayedEmailQuantity = document.getElementById("displayed-emails");
-    displayedEmailQuantity.innerText = emailQuantity;
+    this.displayedEmailQuantity.innerText = emailQuantity;
     this.handleOpenOptions();
     while (this.emailListTarget.firstChild)
     {

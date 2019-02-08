@@ -13,23 +13,27 @@
     cursor: pointer;
   }
 }
-.form-group .input-field {
-  font-size: 12px;
-  color: #4A4A4A;
-  &:focus {
-    outline: none;
+
+.referrals-view {
+  .form-group .input-field {
+    font-size: 12px;
+    color: #4A4A4A;
+    &:focus {
+      outline: none;
+    }
   }
-}
-textarea {
-  resize: none;
-  width: 100%;
-  padding: 10px 12px;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 16px;
-  color: #4A4A4A;
-  &:focus {
-    outline: none;
+
+  textarea {
+    resize: none;
+    width: 100%;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #4A4A4A;
+    &:focus {
+      outline: none;
+    }
   }
 }

@@ -68,6 +68,24 @@ class BaseClass
     this.emitViewChange(current, next);
   }
 
+  renderRewardStats(apiAddres)
+  {
+    const statsRepresentation = document.getElementById("stats-representation");
+    if (statsRepresentation)
+    {
+      // send request to apiAddres
+      const responce = [{nbr: 1000, txt: "friends refered"}, {nbr: 100, txt: "rewards earned"}];
+      const leftQuantity = document.getElementById("left-quantity");
+      const rightQuantity = document.getElementById("right-quantity");
+      leftQuantity.innerHTML = responce[0].nbr;
+      rightQuantity.innerHTML = `${responce[1].nbr} <span>ADB</span>`;
+      const leftDescription = document.getElementById("left-description");
+      const rightDescription = document.getElementById("right-description");
+      leftDescription.innerHTML = responce[0].txt;
+      rightDescription.innerHTML = responce[1].txt;
+    }
+  }
+
   render(html)
   {
     this.wrapper.insertAdjacentHTML("beforeend", html);

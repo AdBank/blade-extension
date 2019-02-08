@@ -5,23 +5,15 @@ const menuList = require("./common/menuList");
 const statsRepresentation = require("./common/statsRepresentation");
 const referralsList = require("./common/referralsList");
 // eslint-disable-next-line max-len
-const tooltipText = "Get rewarded for referrals! Earn 5 ADB for every invited friend that joins blade.";
-const leftColumn = {nbr: 1000, txt: "friends refered"};
-const rightColumn = {nbr: 100, txt: "rewards earned"};
-const friendsList = [{
-  icon: "",
-  email: "lala@wow.com",
-  date: "08-01-10",
-  adQuantity: 0,
-  units: "ADB"}];
+const TOOLTIP_TEXT = require("../constants/referralTooltip");
 
 const html = `
-${menuList("refferals")}
+${menuList("referrals")}
 <div class="referrals-view">
-  ${headerNavbar("referrals", false, tooltipText)}
+  ${headerNavbar("referrals", false, TOOLTIP_TEXT)}
   <div class="content">
-    ${statsRepresentation(leftColumn, rightColumn, true, "adb")}
-    ${referralsList(friendsList)}
+    ${statsRepresentation()}
+    ${referralsList()}
     <button class="main-action-button" id="go-to-referal-form-send-btn">
       SEND A REFERRAL
     </button>

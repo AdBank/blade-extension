@@ -3,24 +3,20 @@
 
 /* eslint-disable max-len */
 
-function statsRepresentation(leftColumn, rightColumn, isAddSpan, spanText)
+function statsRepresentation()
 {
   return `
-  <div class="stats-representation">
+  <div class="stats-representation" id="stats-representation">
       <div class="column">
-        <p class="quantity">
-          ${leftColumn.nbr}
+        <p class="quantity" id="left-quantity">
         </p>
-        <p class="description">
-          ${leftColumn.txt}
+        <p class="description" id="left-description">
         </p>
       </div>
       <div class="column">
-        <p class="quantity">
-          ${rightColumn.nbr} ${isAddSpan ? `<span>${spanText}</span>` : null}
+        <p class="quantity" id="right-quantity">
         </p>
-        <p class="description">
-          ${rightColumn.txt}
+        <p class="description" id="right-description">
         </p>
       </div>
     </div>

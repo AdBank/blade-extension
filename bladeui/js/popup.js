@@ -151,7 +151,7 @@ function loadPage(page = "getStarted")
       initialView.render(transfers);
       break;
     }
-    case "refferalsMenuView": {
+    case "referralsMenuView": {
       const initialView = new ReferralsPage({onChangeView});
       initialView.render(referrals);
       break;

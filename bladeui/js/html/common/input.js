@@ -8,7 +8,7 @@ function input({label, wrapperId, input: {type, id, iconClass, iconId, errorId, 
   <div class="form-group" id=${wrapperId}>
     <label>${label}</label>
     <div class="input-wrapper">
-      <input class="input-field" type=${type} id=${id} required=${!!required}/>
+      <input class="input-field" type=${type} id=${id} required=${required}/>
       <span id=${iconId}>
         <i class="${iconClass}"></i>
       </span>

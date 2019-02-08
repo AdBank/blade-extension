@@ -741,11 +741,11 @@ button {
   text-align: center;
   cursor: pointer; }
 
-.refferals-view .info-tooltip .text {
+.referrals-view .info-tooltip .text {
   right: -10px;
   width: 208px; }
 
-.refferals-view .info-tooltip .text:after {
+.referrals-view .info-tooltip .text:after {
   left: 89%; }
 
 .stats-representation {
@@ -781,35 +781,35 @@ button {
     height: 162px;
     padding: 8px 0;
     margin: 0 auto; }
-    .referrals-list-container .referrals-list #referrals-list-content {
+    .referrals-list-container .referrals-list .referrals-list-content {
       overflow-x: hidden; }
-      .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row {
+      .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 16px; }
-        .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row p {
+        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p {
           margin: 0;
           padding: 0;
           line-height: 18px;
           letter-spacing: 0.2px;
           font-size: 12px;
           color: #EEEEEE; }
-          .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row p.email {
+          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.email {
             width: 87px;
             overflow-x: hidden;
             text-overflow: ellipsis;
             text-align: center; }
-          .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row p.date {
+          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.date {
             width: 52px;
             text-align: right; }
-          .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row p.unit {
+          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.unit {
             text-transform: uppercase; }
-        .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row i {
+        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row i {
           width: 20px; }
-        .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row .red {
+        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .red {
           color: #EC1D25; }
-        .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row .green {
+        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .green {
           color: #00CB00; }
     .referrals-list-container .referrals-list::-webkit-scrollbar {
       width: 2px;
@@ -821,48 +821,51 @@ button {
     .referrals-list-container .referrals-list .select-container {
       position: relative;
       line-height: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       width: 55px;
-      margin-left: 77%; }
-      .referrals-list-container .referrals-list .select-container p {
-        display: inline-block;
-        text-transform: uppercase;
-        color: #EEEEEE;
-        font-size: 10px;
-        line-height: 14px; }
-        .referrals-list-container .referrals-list .select-container p span {
-          width: 11px;
-          text-align: right;
-          display: inline-block; }
-      .referrals-list-container .referrals-list .select-container .button {
-        width: 16px;
-        height: 16px;
-        padding: 0;
-        border: none;
-        background: transparent;
-        color: #EC1D25;
+      margin-left: 77%;
+      cursor: pointer; }
+      .referrals-list-container .referrals-list .select-container .select-control-items {
+        width: 100%;
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
-        cursor: pointer; }
-        .referrals-list-container .referrals-list .select-container .button:focus {
+        justify-content: space-between; }
+        .referrals-list-container .referrals-list .select-container .select-control-items p {
+          display: inline-block;
+          text-transform: uppercase;
+          color: #EEEEEE;
+          font-size: 10px;
+          line-height: 14px; }
+          .referrals-list-container .referrals-list .select-container .select-control-items p span {
+            width: 11px;
+            text-align: right;
+            display: inline-block; }
+        .referrals-list-container .referrals-list .select-container .select-control-items .button {
+          width: 16px;
+          height: 16px;
+          padding: 0;
           border: none;
-          background: inherit;
-          color: inherit;
-          outline: none; }
-        .referrals-list-container .referrals-list .select-container .button:before, .referrals-list-container .referrals-list .select-container .button:after {
-          content: "";
-          display: block;
-          width: 0;
-          height: 0;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
-          border-bottom: 3px solid #EC1D25; }
-        .referrals-list-container .referrals-list .select-container .button:after {
-          transform: rotate(180deg); }
+          background: transparent;
+          color: #EC1D25;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-evenly;
+          cursor: pointer; }
+          .referrals-list-container .referrals-list .select-container .select-control-items .button:focus {
+            border: none;
+            background: inherit;
+            color: inherit;
+            outline: none; }
+          .referrals-list-container .referrals-list .select-container .select-control-items .button:before, .referrals-list-container .referrals-list .select-container .select-control-items .button:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-bottom: 3px solid #EC1D25; }
+          .referrals-list-container .referrals-list .select-container .select-control-items .button:after {
+            transform: rotate(180deg); }
       .referrals-list-container .referrals-list .select-container .options-container {
         width: 100%;
         border: 1px solid #c4cdd5;
@@ -903,13 +906,13 @@ button {
     transform: translateY(-50%);
     cursor: pointer; }
 
-.form-group .input-field {
+.referrals-view .form-group .input-field {
   font-size: 12px;
   color: #4A4A4A; }
-  .form-group .input-field:focus {
+  .referrals-view .form-group .input-field:focus {
     outline: none; }
 
-textarea {
+.referrals-view textarea {
   resize: none;
   width: 100%;
   padding: 10px 12px;
@@ -918,5 +921,5 @@ textarea {
   font-weight: 500;
   line-height: 16px;
   color: #4A4A4A; }
-  textarea:focus {
+  .referrals-view textarea:focus {
     outline: none; }
