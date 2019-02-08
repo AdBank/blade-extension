@@ -16,7 +16,7 @@ function headerNavbar(activeMenu, withNotification = false, info = "")
       </button>
     </div>
     <div class="active-menu">
-      <p class="menu-item">${activeMenu}</p>
+      <p class="tab-item">${activeMenu}</p>
       ${infoTooltip(info)}
     </div>
   </header>

@@ -78,7 +78,7 @@ button {
 
 .underlogo-desc {
   position: relative;
-  color: #EEEEEE;	
+  color: #EEEEEE;
   font: bold 14px / 20px Montserrat;
   letter-spacing: 0.2px;
   text-align: center;
@@ -118,18 +118,18 @@ button {
   label {
     display: block;
     margin-bottom: 6px;
-    color: #EEEEEE;	
+    color: #EEEEEE;
     font: 700 12px / 16px Montserrat;
     letter-spacing: 0.2px;
   }
 
   .input-field {
     width: 100%;
-    height: 36px;	
+    height: 36px;
     padding: 14px;
     font-size: 28px;
     padding-right: 35px;
-    border: 1px solid #999999;	
+    border: 1px solid #999999;
     background-color: #FFFFFF;
 
     &[type=text] {
@@ -176,8 +176,8 @@ button {
       position: absolute;
       content: '';
       display: block;
-      width: 0; 
-      height: 0; 
+      width: 0;
+      height: 0;
       left: 50%;
       bottom: 100%;
       border-left: 7px solid transparent;
@@ -186,7 +186,7 @@ button {
     }
 
     p {
-      color: #222222;	
+      color: #222222;
       font: 10px / 13px Montserrat;
       letter-spacing: .5px;
       text-align: center;
@@ -194,9 +194,9 @@ button {
   }
 
   .icon {
-    color: #FFFFFF;	
-    font-size: 12px;	
-    letter-spacing: .2px;	
+    color: #FFFFFF;
+    font-size: 12px;
+    letter-spacing: .2px;
   }
 }
 
@@ -240,7 +240,7 @@ button {
       background-color: #EEEEEE;
       transform: translate3d(0,0,0);
       transition: 0.2s cubic-bezier(0, 1.1, 1, 1.1);
-      box-shadow: 2px 0 2px 0 rgba(0,0,0,0.5); 
+      box-shadow: 2px 0 2px 0 rgba(0,0,0,0.5);
       z-index: 1;
     }
   }
@@ -272,7 +272,7 @@ button {
 
   img {
     margin-top: 8px;
-    height: 32px;	
+    height: 32px;
     width: 59px;
   }
 
@@ -280,10 +280,10 @@ button {
     position: absolute;
     top: 16px;
     right: 16px;
-    color: #FFFFFF;	
-    font-size: 20px;	
-    font-weight: 500;	
-    letter-spacing: 2px;	
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 2px;
     line-height: 24px;
     cursor: pointer;
   }
@@ -293,8 +293,8 @@ button {
     padding: 16px 0;
     background-color: rgba(#333333, .5);
 
-    .menu-item {
-      color: #EEEEEE;	
+    .tab-item {
+      color: #EEEEEE;
       font: 700 12px / 16px Montserrat;
       letter-spacing: 1.2px;
       text-transform: uppercase;
@@ -318,7 +318,7 @@ button {
     margin-right: 12px;
     list-style: none;
     padding-bottom: 2px;
-    color: #EEEEEE;	
+    color: #EEEEEE;
     font: 700 12px / 16px Montserrat;
     letter-spacing: 1px;
     cursor: pointer;
@@ -342,18 +342,18 @@ button {
   position: absolute;
   top: -4px;
   right: -4px;
-  height: 16px;	
-  width: 16px;	
-  color: #EEEEEE;	
+  height: 16px;
+  width: 16px;
+  color: #EEEEEE;
   border-radius: 50%;
   background: #EC1D25;
 
   .fa {
     display: block;
     margin-left: 1px;
-    font-size: 12px;	
-    font-weight: 500;	
-    line-height: 16px;	
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
     text-align: center;
   }
 }
@@ -382,15 +382,15 @@ button {
     position: relative;
 
     .fa {
-      font-size: 18px;	
-      font-weight: 500;	
+      font-size: 18px;
+      font-weight: 500;
       line-height: 16px;
     }
   }
 
   .logo {
     margin: 8px auto 0 auto;
-    height: 32px;	
+    height: 32px;
     width: 59px;
   }
 
@@ -425,7 +425,7 @@ button {
     &:before {
       transform: rotate(45deg);
     }
-    
+
     &:after {
       transform: rotate(-45deg);
     }
@@ -442,7 +442,7 @@ button {
 
     span {
       margin-right: 12px;
-      color: #EEEEEE;	
+      color: #EEEEEE;
       font: bold 12px / 16px Montserrat;
       letter-spacing: .2px;
     }
@@ -450,16 +450,16 @@ button {
 
   .menu-list {
     margin: auto 0;
-  
+
     li {
       position: relative;
-      color: #EEEEEE;	
+      color: #EEEEEE;
       font: 900 16px / 36px Montserrat;
-      letter-spacing: .8px;	
+      letter-spacing: .8px;
       text-align: center;
       text-transform: uppercase;
       cursor: pointer;
-  
+
       &:hover:after, &.active:after {
         content: '';
         display: block;
@@ -469,7 +469,7 @@ button {
         left: 50%;
         transform: translate3d(-50%, -50%, 0);
         border: 1px solid #EC1D25;
-      } 
+      }
     }
   }
 }

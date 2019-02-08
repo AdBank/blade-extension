@@ -229,7 +229,7 @@ button {
     position: relative;
     padding: 16px 0;
     background-color: rgba(51, 51, 51, 0.5); }
-    .main-navbar-header .active-menu .menu-item {
+    .main-navbar-header .active-menu .tab-item {
       color: #EEEEEE;
       font: 700 12px / 16px Montserrat;
       letter-spacing: 1.2px;
@@ -740,3 +740,183 @@ button {
   font: 10px / 14px Montserrat;
   text-align: center;
   cursor: pointer; }
+
+.refferals-view .info-tooltip .text {
+  right: -10px;
+  width: 208px; }
+
+.refferals-view .info-tooltip .text:after {
+  left: 89%; }
+
+.stats-representation {
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center; }
+  .stats-representation .column {
+    width: 120px; }
+    .stats-representation .column .quantity {
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      line-height: 24px; }
+      .stats-representation .column .quantity span {
+        font-size: 10px;
+        text-transform: uppercase; }
+    .stats-representation .column .description {
+      color: #EC1D25;
+      font-size: 10px;
+      line-height: 14px;
+      text-transform: uppercase; }
+
+.referrals-list-container {
+  margin: 0 -24px 25px;
+  height: 162px;
+  background-color: rgba(51, 51, 51, 0.5); }
+  .referrals-list-container .referrals-list {
+    overflow-y: auto;
+    width: 256px;
+    height: 162px;
+    padding: 8px 0;
+    margin: 0 auto; }
+    .referrals-list-container .referrals-list #referrals-list-content {
+      overflow-x: hidden; }
+      .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px; }
+        .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row p {
+          margin: 0;
+          padding: 0;
+          line-height: 18px;
+          letter-spacing: 0.2px;
+          font-size: 12px;
+          color: #EEEEEE; }
+          .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row p.email {
+            width: 87px;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            text-align: center; }
+          .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row p.date {
+            width: 52px;
+            text-align: right; }
+          .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row p.unit {
+            text-transform: uppercase; }
+        .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row i {
+          width: 20px; }
+        .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row .red {
+          color: #EC1D25; }
+        .referrals-list-container .referrals-list #referrals-list-content .referrals-list-row .green {
+          color: #00CB00; }
+    .referrals-list-container .referrals-list::-webkit-scrollbar {
+      width: 2px;
+      border-radius: 1px; }
+    .referrals-list-container .referrals-list::-webkit-scrollbar-track {
+      background: transparent; }
+    .referrals-list-container .referrals-list::-webkit-scrollbar-thumb {
+      background: #999999; }
+    .referrals-list-container .referrals-list .select-container {
+      position: relative;
+      line-height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 55px;
+      margin-left: 77%; }
+      .referrals-list-container .referrals-list .select-container p {
+        display: inline-block;
+        text-transform: uppercase;
+        color: #EEEEEE;
+        font-size: 10px;
+        line-height: 14px; }
+        .referrals-list-container .referrals-list .select-container p span {
+          width: 11px;
+          text-align: right;
+          display: inline-block; }
+      .referrals-list-container .referrals-list .select-container .button {
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: #EC1D25;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        cursor: pointer; }
+        .referrals-list-container .referrals-list .select-container .button:focus {
+          border: none;
+          background: inherit;
+          color: inherit;
+          outline: none; }
+        .referrals-list-container .referrals-list .select-container .button:before, .referrals-list-container .referrals-list .select-container .button:after {
+          content: "";
+          display: block;
+          width: 0;
+          height: 0;
+          border-left: 3px solid transparent;
+          border-right: 3px solid transparent;
+          border-bottom: 3px solid #EC1D25; }
+        .referrals-list-container .referrals-list .select-container .button:after {
+          transform: rotate(180deg); }
+      .referrals-list-container .referrals-list .select-container .options-container {
+        width: 100%;
+        border: 1px solid #c4cdd5;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 2;
+        font-size: 14px;
+        text-align: center;
+        display: none; }
+        .referrals-list-container .referrals-list .select-container .options-container span {
+          font-family: inherit;
+          font-size: inherit;
+          color: #4A4A4A;
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          user-select: none;
+          padding: 6px 0;
+          background-color: #ffffff;
+          border-bottom: 1px solid #f4f6f8;
+          cursor: pointer; }
+          .referrals-list-container .referrals-list .select-container .options-container span:nth-last-of-type(1) {
+            border-bottom: 0; }
+
+.referrals-form-description {
+  position: relative;
+  color: #EEEEEE;
+  font: bold 14px / 20px Montserrat;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin-bottom: 48px; }
+  .referrals-form-description i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; }
+
+.form-group .input-field {
+  font-size: 12px;
+  color: #4A4A4A; }
+  .form-group .input-field:focus {
+    outline: none; }
+
+textarea {
+  resize: none;
+  width: 100%;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #4A4A4A; }
+  textarea:focus {
+    outline: none; }
