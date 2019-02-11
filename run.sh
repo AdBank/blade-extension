@@ -8,4 +8,4 @@ docker cp blade:/app/blade.zip .
 
 docker cp blade:/app/devenv.chrome .
 
-docker stop blade && docker rm blade
+docker stop blade && docker rm blade && docker rmi blade

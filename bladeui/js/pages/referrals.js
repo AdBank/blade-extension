@@ -18,20 +18,27 @@ class Referrals extends BaseClass
     const optionsDropDown = document.getElementById("open-select-options");
     this.dropdown = document.getElementById("choose-option");
     this.emailListTarget = document.getElementById("referrals-list-content");
-    browser.storage.sync.get("bladeUserData", (data) =>
-    {
-      this.bearerToken = data.bladeUserData.token;
-      this.getReferralsInfo();
-    });
+    // in developer mode doesnt work requests
+    // browser.storage.sync.get("bladeUserData", (data) =>
+    // {
+      //   this.bearerToken = data.bladeUserData.token;
+      //   this.getReferralsInfo();
+      // });
+    // to render at list something according to designed layout
+    this.getReferralsInfo();
+    this.totalReferred = 0;
+    this.totalReward = 0;
 
     linkBnt.addEventListener("click", this.handleLinkBnt.bind(this));
     optionsDropDown.addEventListener("click",
       this.handleOpenOptions.bind(this));
     this.dropdown.addEventListener("click", this.handleSelectOption.bind(this));
+    window.addEventListener("click", this.closeSelectOptions.bind(this));
   }
 
   getReferralsInfo(skip = 0, limit = REFERRAL_ROW_COUNT)
   {
+    this.renderRewardStats("0", "0");
     request({
       method: "get",
       url: `/jwt/user/referrals/list?skip=${skip}&limit=${limit}`,
@@ -47,7 +54,7 @@ class Referrals extends BaseClass
       {
         this.totalReferred = res.total_referred;
         this.totalReward = res.total_rewards;
-        this.renderRewardStats(res.total_referred, res.total_rewards);
+        this.renderRewardStats(this.totalReferred, this.totalReward);
       }
       this.renderReferralsList(res.referrals);
     })
@@ -76,8 +83,16 @@ class Referrals extends BaseClass
     super.handleChangeView("referralsMenuView");
   }
 
-  handleOpenOptions()
+  closeSelectOptions()
   {
+    this.dropdown.style.display = "none";
+  }
+
+  handleOpenOptions(event)
+  {
+    /* to prevent mess due to event listener on window
+    for closing opened options */
+    event.stopPropagation();
     if (this.dropdown.style.display === "none")
     {
       this.dropdown.style.display = "block";
@@ -103,8 +118,8 @@ class Referrals extends BaseClass
           "<img src=\"./skin/blade_icons/pending-referral.svg\"></img>" :
           "<i class=\"icon-user-unfollow red\"></i>";
       }
-      const date = info[i].created_at.substring(0, 10).split("").reverse().join("");
       /* eslint-disable max-len */
+      const date = info[i].created_at.substring(0, 10).split("").reverse().join("");
       newRow.innerHTML = `${userStatus}<p class="email">${info[i].email}</p><p class="date">${date}</p><p class="quantity">${rewardInfo}</p><p class="unit">ADB</p>`;
       virtualRowContainer.appendChild(newRow);
     }

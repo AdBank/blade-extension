@@ -14,10 +14,10 @@ ${menuList("referrals")}
   <div class="content">
     ${statsRepresentation()}
     ${referralsList()}
-    <button class="main-action-button" id="go-to-referal-form-send-btn">
-      SEND A REFERRAL
-    </button>
-  </div>
+    </div>
+  <button class="main-action-button" id="go-to-referal-form-send-btn">
+    SEND A REFERRAL
+  </button>
 </div>
 `;
 

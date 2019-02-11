@@ -23,12 +23,10 @@ class ReferralCode extends BaseClass
 
     this.mainActionButton.addEventListener("click",
       this.handleSubmitButton.bind(this));
-    this.referralCodeField.addEventListener("keypress",
-      this.handleReferralCodeKeyPress.bind(this)
-    );
-    this.referralCodeField.addEventListener("keydown", this.keyDown.bind(this));
+    this.referralCodeField.addEventListener("keydown",
+      this.handleReferralCodeKeyDown.bind(this));
     this.referralCodeField.addEventListener("paste",
-      this.handlePasteCode.bind(this));
+      this.handleReferralCodeKeyDown.bind(this));
   }
 
   highlightErrors(errorText)
@@ -38,16 +36,10 @@ class ReferralCode extends BaseClass
     this.referralCodeField.classList.add("input-invalid");
   }
 
-  handleReferralCodeKeyPress()
-  {
-    this.referralCodeField.classList.remove("input-invalid");
-    this.referralCodeError.innerHTML = "";
-    this.mainActionButton.innerHTML = "CONFIRM";
-  }
-
-  keyDown(event)
+  handleReferralCodeKeyDown(event)
   {
     const keyID = event.keyCode;
+    // check if entered referral code was removed completely
     switch (keyID)
     {
       case 8:
@@ -56,13 +48,11 @@ class ReferralCode extends BaseClass
           this.referralCodeField.value.length === 1 ? "SKIP" : "CONFIRM";
         break;
       default:
+        this.referralCodeField.classList.remove("input-invalid");
+        this.referralCodeError.innerHTML = "";
+        this.mainActionButton.innerHTML = "CONFIRM";
         break;
     }
-  }
-
-  handlePasteCode()
-  {
-    this.handleReferralCodeKeyPress();
   }
 
   handleSubmitButton(e)

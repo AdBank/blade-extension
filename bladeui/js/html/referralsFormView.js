@@ -37,12 +37,12 @@ ${menuList("refferalsMenuView")}
         required: true,
         id: "message"
       })}
-      <button form="referral-form"
-        type="submit" class="main-action-button" id="send-referral-btn">
-        SEND
-      </button>
     </form>
   </div>
+  <button form="referral-form"
+    type="submit" class="main-action-button" id="send-referral-btn">
+    SEND
+  </button>
 </div>
 `;
 
