@@ -926,7 +926,11 @@ button {
   .referrals-view textarea:focus {
     outline: none; }
 
-.referrals-view .loader {
+.referrals-view button[disabled] {
+  opacity: 1;
+  cursor: default; }
+
+.loader {
   margin: 0 auto;
   border: 2px solid #fff;
   border-radius: 50%;
@@ -943,7 +947,7 @@ button {
   100% {
     transform: rotate(360deg); } }
 
-.referrals-view .check {
+.check {
   margin: 0 auto;
   display: inline-block;
   transform: rotate(45deg);
@@ -951,7 +955,3 @@ button {
   width: 7px;
   border-bottom: 1px solid #EC1D25;
   border-right: 1px solid #EC1D25; }
-
-.referrals-view button[disabled] {
-  opacity: 1;
-  cursor: default; }

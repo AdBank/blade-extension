@@ -1,6 +1,8 @@
 "use strict";
 
 const BaseClass = require("./baseClass");
+const loader = require("../html/common/loader");
+const request = require("../utils/request");
 
 class ReferralsForm extends BaseClass
 {
@@ -14,13 +16,20 @@ class ReferralsForm extends BaseClass
     this.backButton = document.getElementById("back-button");
     this.sendButton = document.getElementById("send-referral-btn");
     this.email = document.getElementById("email");
+    this.emailError = document.getElementById("email-error");
     this.message = document.getElementById("message");
+    this.form = document.getElementById("referral-form");
+    browser.storage.sync.get("bladeUserData", (data) =>
+    {
+      this.bearerToken = data.bladeUserData.token;
+    });
 
     this.backButton.addEventListener("click",
       this.handleOpenPreviousView.bind(this));
     this.sendButton.addEventListener("click",
       this.handleSubmitReferralForm.bind(this));
     this.email.addEventListener("change", this.onChangeEmail.bind(this));
+    this.email.addEventListener("paste", this.handlePasteEmail.bind(this));
     this.message.addEventListener("change", this.onChangeMessage.bind(this));
   }
 
@@ -34,7 +43,14 @@ class ReferralsForm extends BaseClass
     if (this.validateEmail(e.target.value))
     {
       this.email.classList.remove("input-invalid");
+      this.sendButton.innerHTML = "SEND";
     }
+  }
+
+  handlePasteEmail()
+  {
+    this.email.classList.remove("input-invalid");
+    this.sendButton.innerHTML = "SEND";
   }
 
   onChangeMessage(e)
@@ -47,8 +63,8 @@ class ReferralsForm extends BaseClass
 
   validateEmail(email)
   {
-    const re = /\S+@\S+\.\S+/;
-    return re.test(String(email).toLowerCase());
+    const emailRegex = /\S+@\S+\.\S+/;
+    return emailRegex.test(email);
   }
 
   highlightErrors(email, message)
@@ -66,19 +82,32 @@ class ReferralsForm extends BaseClass
   handleSubmitReferralForm(e)
   {
     e.preventDefault();
-    const form = document.getElementById("referral-form").elements;
-    const email = form[0].value;
-    const message = form[1].value;
+    const email = this.form.elements["email"].value;
+    const message = this.form.elements["message"].value;
+    this.emailError.innerHTML = "";
     if (this.validateEmail(email) && message)
     {
-      this.sendButton.innerHTML = "<div class=\"loader\"></div>";
+      this.sendButton.innerHTML = loader(true);
       this.sendButton.disabled = true;
-      // send some reqiest with form data in response set check as div
-      setTimeout(() =>
+      request({
+        method: "post",
+        url: "/jwt/user/referrals/send",
+        data: {email, message},
+        headers: {
+          Authorization: `Bearer ${this.bearerToken}`
+        }
+      })
+      .then(() =>
       {
-        this.sendButton.innerHTML = "<div class=\"check\"></div>";
+        this.sendButton.innerHTML = loader(false);
         this.sendButton.disabled = false;
-      }, 5000);
+      })
+      .catch((err) =>
+      {
+        this.sendButton.innerHTML = loader(false);
+        this.sendButton.disabled = false;
+        this.emailError.innerHTML = err.error;
+      });
     }
     else
     {

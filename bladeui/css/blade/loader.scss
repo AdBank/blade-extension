@@ -1,0 +1,26 @@
+.loader {
+  margin: 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  border-top: 2px solid #EC1D25;
+  border-right: 2px solid #EC1D25;
+  border-bottom: 2px solid #EC1D25;
+  width: 15px;
+  height: 15px;
+  animation: spin 2s cubic-bezier(.22,.73,.9,.39) infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.check {
+  margin: 0 auto;
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 13px;
+  width: 7px;
+  border-bottom: 1px solid #EC1D25;
+  border-right: 1px solid #EC1D25;
+}

@@ -30,7 +30,7 @@ ${menuList("refferalsMenuView")}
       ${textarea({
         label: "Your Message",
         placeholder: "Type your message",
-        maxlength: 115,
+        maxlength: 255,
         name: "message",
         rows: 3,
         errorId: "message-error",
