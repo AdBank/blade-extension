@@ -1,0 +1,27 @@
+.stats-representation {
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  .column {
+    width: 120px;
+    .quantity {
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      line-height: 24px;
+      span {
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+    }
+    .description {
+      color: #EC1D25;
+      font-size: 10px;
+      line-height: 14px;
+      text-transform: uppercase;
+    }
+  }
+}

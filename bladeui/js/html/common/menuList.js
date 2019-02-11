@@ -10,17 +10,17 @@ function menuList(active, withNotification)
   <div class="menu-wrapper hidden" id="menu-wrapper">
     <img class="logo" src="./skin/blade_assets/blade-logo.svg" alt="logo"/>
     <button id="close" class="close"></button>
-    <nav class="menu-list">
+    <nav class="menu-list" id="menu-list">
       <ul>
-        <li class="${active === "dashboard" && "active"}"><span>dashboard</span></li>
-        <li class="${active === "transfers" && "active"}">
+        <li data-menu-item="dashboardMenuView" class="${active === "dashboard" && "active"} menu-item"><span>dashboard</span></li>
+        <li data-menu-item="transfersMenuView" class="${active === "transfers" && "active"} menu-item">
           <span>transfers ${withNotification ?
             "<div class=\"notification-icon\"><i class=\"fa fa-exclamation\"></i></div>" :
             ""}</span>
         </li>
-        <li class="${active === "feed" && "active"}"><span>feed</span></li>
-        <li class="${active === "refferals" && "active"}"><span>refferals</span></li>
-        <li class="${active === "settings" && "active"}"><span>settings</span></li>
+        <li data-menu-item="feedMenuView" class="${active === "feed" && "active"} menu-item"><span>feed</span></li>
+        <li data-menu-item="referralsMenuView" class="${active === "referrals" && "active"} menu-item" id="refferals-link"><span>refferals</span></li>
+        <li data-menu-item="settingsMenuView" class="${active === "settings" && "active"} menu-item"><span>settings</span></li>
       </ul>
     </nav>
     <div class="toggler">

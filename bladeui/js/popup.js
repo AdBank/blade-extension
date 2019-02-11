@@ -35,7 +35,9 @@ const {
   recoveredAccount,
   recoverPassword,
   profile,
-  transfers
+  transfers,
+  referrals,
+  referralsFormView
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -52,7 +54,9 @@ const {
   RecoveredAccountPage,
   RecoverPasswordPage,
   ProfilePage,
-  TransfersPage
+  TransfersPage,
+  ReferralsPage,
+  ReferralsForm
 } = require("./pages/index.js");
 
 
@@ -147,21 +151,31 @@ function loadPage(page = "getStarted")
       initialView.render(transfers);
       break;
     }
+    case "referralsMenuView": {
+      const initialView = new ReferralsPage({onChangeView});
+      initialView.render(referrals);
+      break;
+    }
+    case "referralsFormView": {
+      const initialView = new ReferralsForm({onChangeView});
+      initialView.render(referralsFormView);
+      break;
+    }
     default: {
       console.error(`Page '${page}' is not declared`);
     }
   }
 
-  setViewToStorage(page);
+  // setViewToStorage(page);
 }
 
 function renderInitialView()
 {
-  browser.storage.local.get("bladeCurrentPage").then((view) =>
-  {
-    loadPage(view.bladeCurrentPage);
-  });
-  // loadPage("info");
+  // browser.storage.local.get("bladeCurrentPage").then((view) =>
+  // {
+  //   loadPage(view.bladeCurrentPage);
+  // });
+  loadPage("info");
 }
 
 function setViewToStorage(view)
