@@ -15,6 +15,7 @@ const RecoveredAccountPage = require("./recoveredAccount");
 const RecoverPasswordPage = require("./recoverPassword");
 const ProfilePage = require("./profile");
 const TransfersPage = require("./transfers");
+const ReferralCode = require("./referralCode");
 
 module.exports = {
   GetStartedPage,
@@ -31,5 +32,6 @@ module.exports = {
   RecoveredAccountPage,
   RecoverPasswordPage,
   ProfilePage,
-  TransfersPage
+  TransfersPage,
+  ReferralCode
 };
