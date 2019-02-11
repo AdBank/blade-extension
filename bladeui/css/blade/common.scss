@@ -66,6 +66,9 @@ button {
   font: 700 12px / 16px Montserrat;
   letter-spacing: .2px;
   cursor: pointer;
+  &:focus {
+    outline: none;
+  }
 }
 
 .main-action-button.disabled {

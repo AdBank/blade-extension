@@ -1,32 +1,8 @@
 "use strict";
 
 const BaseClass = require("./baseClass");
+const request = require("../utils/request");
 const REFERRAL_ROW_COUNT = 10;
-const RESPONCE = [
-  {status: "follow",
-    email: "email@www.com",
-    date: "08-12-18",
-    quantity: "0 ABD"},
-  {status: "unfollow",
-    email: "lalalalalala@www.com",
-    date: "10-12-18",
-    quantity: "0 ABD"},
-  {status: "follow",
-    email: "kakakakakaka@www.com",
-    date: "05-01-19",
-    quantity: "10 ABD"},
-  {status: "follow",
-    email: "kakakakakaka@www.com",
-    date: "05-01-19",
-    quantity: "10 ABD"},
-  {status: "follow",
-    email: "kakakakakaka@www.com",
-    date: "05-01-19",
-    quantity: "10 ABD"},
-  {status: "follow",
-    email: "kakakakakaka@www.com",
-    date: "05-01-19",
-    quantity: "10 ABD"}];
 
 class Referrals extends BaseClass
 {
@@ -42,13 +18,52 @@ class Referrals extends BaseClass
     const optionsDropDown = document.getElementById("open-select-options");
     this.dropdown = document.getElementById("choose-option");
     this.emailListTarget = document.getElementById("referrals-list-content");
-    super.renderRewardStats("some-api-address-for-request");
-    this.renderReferralsList(REFERRAL_ROW_COUNT);
+    browser.storage.sync.get("bladeUserData", (data) =>
+    {
+      this.bearerToken = data.bladeUserData.token;
+      this.getReferralsInfo();
+    });
 
     linkBnt.addEventListener("click", this.handleLinkBnt.bind(this));
     optionsDropDown.addEventListener("click",
       this.handleOpenOptions.bind(this));
     this.dropdown.addEventListener("click", this.handleSelectOption.bind(this));
+  }
+
+  getReferralsInfo(skip = 0, limit = REFERRAL_ROW_COUNT)
+  {
+    request({
+      method: "get",
+      url: `/jwt/user/referrals/list?skip=${skip}&limit=${limit}`,
+      headers: {
+        Authorization: `Bearer ${this.bearerToken}`
+      }
+    })
+    .then((response) =>
+    {
+      const res = JSON.parse(response.response);
+      if (this.totalReferred !== res.total_referred ||
+        this.totalReward !== res.total_rewards)
+      {
+        this.totalReferred = res.total_referred;
+        this.totalReward = res.total_rewards;
+        this.renderRewardStats(res.total_referred, res.total_rewards);
+      }
+      this.renderReferralsList(res.referrals);
+    })
+    .catch((err) => console.error(err));
+  }
+
+  renderRewardStats(totalReferred, totalReward)
+  {
+    const leftQuantity = document.getElementById("left-quantity");
+    const rightQuantity = document.getElementById("right-quantity");
+    leftQuantity.innerHTML = totalReferred;
+    rightQuantity.innerHTML = `${totalReward} <span>ADB</span>`;
+    const leftDescription = document.getElementById("left-description");
+    const rightDescription = document.getElementById("right-description");
+    leftDescription.innerHTML = "friends refered";
+    rightDescription.innerHTML = "rewards earned";
   }
 
   handleLinkBnt()
@@ -73,19 +88,24 @@ class Referrals extends BaseClass
     }
   }
 
-  renderReferralsList(quantity)
+  renderReferralsList(info)
   {
-    // send some api request for list data according quantity
     const virtualRowContainer = document.createElement("div");
-    for (let i = 0; i < RESPONCE.length; i += 1)
+    for (let i = 0; i < info.length; i += 1)
     {
       const newRow = document.createElement("div");
       newRow.className = "referrals-list-row";
-      const rewardInfo = RESPONCE[i].quantity.split(" ");
-      const classNameUserStatus = RESPONCE[i].status === "follow" ?
-        "icon-user-follow green" : "icon-user-unfollow red";
+      const rewardInfo = info[i].reward;
+      let userStatus = "<i class=\"icon-user-follow green\"></i>";
+      if (info[i].status !== "ACCEPTED")
+      {
+        userStatus = info[i].status === "PENDING" ?
+          "<img src=\"./skin/blade_icons/pending-referral.svg\"></img>" :
+          "<i class=\"icon-user-unfollow red\"></i>";
+      }
+      const date = info[i].created_at.substring(0, 10).split("").reverse().join("");
       /* eslint-disable max-len */
-      newRow.innerHTML = `<i class="${classNameUserStatus}"></i><p class="email">${RESPONCE[i].email}</p><p class="date">${RESPONCE[i].date}</p><p class="quantity">${rewardInfo[0]}</p><p class="unit">${rewardInfo[1]}</p>`;
+      newRow.innerHTML = `${userStatus}<p class="email">${info[i].email}</p><p class="date">${date}</p><p class="quantity">${rewardInfo}</p><p class="unit">ADB</p>`;
       virtualRowContainer.appendChild(newRow);
     }
     this.emailListTarget.appendChild(virtualRowContainer);
@@ -100,7 +120,7 @@ class Referrals extends BaseClass
     {
       this.emailListTarget.removeChild(this.emailListTarget.firstChild);
     }
-    this.renderReferralsList(Number(emailQuantity));
+    this.getReferralsInfo(0, Number(emailQuantity));
   }
 }
 

@@ -36,4 +36,9 @@
       outline: none;
     }
   }
+
+  button[disabled] {
+    opacity: 1;
+    cursor: default;
+  }
 }
