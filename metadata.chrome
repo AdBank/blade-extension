@@ -61,6 +61,7 @@ subscriptions.xml = adblockpluscore/chrome/content/ui/subscriptions.xml
 common.js = bladeui/common.js
 i18n.js = bladeui/i18n.js
 icons/blade/blade-128.png = bladeui/skin/blade_icons/blade-128.png
+icons/blade/pending-referral.svg = bladeui/skin/blade_icons/pending-referral.svg
 skin/blade_assets/blade-background-all-other-screens.png = bladeui/skin/blade_assets/blade-background-all-other-screens.png
 skin/blade_assets/blade-background-get-started.png = bladeui/skin/blade_assets/blade-background-get-started.png
 skin/blade_assets/blade-logo.svg = bladeui/skin/blade_assets/blade-logo.svg

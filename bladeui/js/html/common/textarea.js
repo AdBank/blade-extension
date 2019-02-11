@@ -2,14 +2,13 @@
 
 "use strict";
 
-function textarea({label, wrapperId, placeholder, maxlength, name, rows, errorId, required})
+function textarea(props)
 {
   return `
-  <div class="form-group" id=${wrapperId}>
-    <label>${label}</label>
+  <div class="form-group" id=${props.wrapperId}>
+    <label>${props.label}</label>
     <div class="input-wrapper">
-      <textarea maxlength=${maxlength} placeholder=${placeholder} name=${name} rows=${rows} required=${!!required}></textarea>
-      <p class="error" id=${errorId}></p>
+      <textarea id=${props.id} maxlength=${props.maxlength} placeholder=${props.placeholder} name=${props.name} rows=${props.rows} required=${props.required}></textarea>
     </div>
   </div>
   `;
