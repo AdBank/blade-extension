@@ -15,6 +15,8 @@ const RecoveredAccountPage = require("./recoveredAccount");
 const RecoverPasswordPage = require("./recoverPassword");
 const ProfilePage = require("./profile");
 const TransfersPage = require("./transfers");
+const ReferralsPage = require("./referrals");
+const ReferralsForm = require("./referralsForm");
 const ReferralCode = require("./referralCode");
 
 module.exports = {
@@ -33,5 +35,7 @@ module.exports = {
   RecoverPasswordPage,
   ProfilePage,
   TransfersPage,
+  ReferralsPage,
+  ReferralsForm,
   ReferralCode
 };

@@ -36,6 +36,8 @@ const {
   recoverPassword,
   profile,
   transfers,
+  referrals,
+  referralsFormView,
   referralCode
 } = require("./html/index.js");
 const {
@@ -54,6 +56,8 @@ const {
   RecoverPasswordPage,
   ProfilePage,
   TransfersPage,
+  ReferralsPage,
+  ReferralsForm,
   ReferralCode
 } = require("./pages/index.js");
 
@@ -149,6 +153,16 @@ function loadPage(page = "getStarted")
       initialView.render(transfers);
       break;
     }
+    case "referralsMenuView": {
+      const initialView = new ReferralsPage({onChangeView});
+      initialView.render(referrals);
+      break;
+    }
+    case "referralsFormView": {
+      const initialView = new ReferralsForm({onChangeView});
+      initialView.render(referralsFormView);
+      break;
+    }
     case "referralCode": {
       const initialView = new ReferralCode({onChangeView});
       initialView.render(referralCode);
@@ -159,7 +173,7 @@ function loadPage(page = "getStarted")
     }
   }
 
-  setViewToStorage(page);
+  // setViewToStorage(page);
 }
 
 function renderInitialView()
@@ -168,7 +182,7 @@ function renderInitialView()
   // {
   //   loadPage(view.bladeCurrentPage);
   // });
-  loadPage("referralCode");
+  loadPage("info");
 }
 
 function setViewToStorage(view)
