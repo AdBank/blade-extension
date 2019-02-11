@@ -68,7 +68,7 @@ class BaseClass
 
   handleGoToMenuView(e)
   {
-    if (!e.target.classList.contains("menu-item"))
+    if (!e.target.classList.contains("menu-item") || e.target.parentNode.classList.contains("menu-item"))
     {
       return;
     }
