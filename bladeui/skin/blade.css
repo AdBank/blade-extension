@@ -894,14 +894,14 @@ button {
           .referrals-list-container .referrals-list .select-container .options-container span:nth-last-of-type(1) {
             border-bottom: 0; }
 
-.referrals-form-description {
+.referrals-view .referrals-form-description {
   position: relative;
   color: #EEEEEE;
   font: bold 14px / 20px Montserrat;
   letter-spacing: 0.2px;
   text-align: center;
   margin-bottom: 48px; }
-  .referrals-form-description i {
+  .referrals-view .referrals-form-description i {
     position: absolute;
     left: 0;
     top: 50%;
@@ -955,3 +955,17 @@ button {
   width: 7px;
   border-bottom: 1px solid #EC1D25;
   border-right: 1px solid #EC1D25; }
+
+.manual-transfers-view .manual-transfer-form-description {
+  position: relative;
+  color: #EEEEEE;
+  font: bold 14px / 20px Montserrat;
+  letter-spacing: 0.2px;
+  text-align: center;
+  margin-bottom: 48px; }
+  .manual-transfers-view .manual-transfer-form-description i {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer; }
