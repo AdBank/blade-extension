@@ -3,12 +3,40 @@
 /* eslint-disable max-len, no-console */
 
 const {isPageWhitelisted} = require("../popup.utils.js");
+const PAGES_ALLOWED_FOR_UNREGISTERED = [
+  "getStarted",
+  "termsAndConditions",
+  "createPasswordView",
+  "recoverPhrase",
+  "recoverPassword"
+];
+const FIRST_PAGE = "getStarted";
 class BaseClass
 {
   constructor({onChangeView})
   {
     this.wrapper = document.getElementById("main-app-wrapper");
     this.emitViewChange = onChangeView;
+    browser.storage.local.get(null, (data) =>
+    {
+      const page = data.bladeCurrentPage;
+      if (!PAGES_ALLOWED_FOR_UNREGISTERED.includes(page))
+      {
+        this.checkUserHasToken();
+      }
+    });
+  }
+
+  checkUserHasToken()
+  {
+    browser.storage.sync.get(null, (data) =>
+    {
+      const token = data && data.bladeUserData ? data.bladeUserData.token : null;
+      if (!token)
+      {
+        this.handleChangeView(FIRST_PAGE);
+      }
+    });
   }
 
   initListeners()
@@ -31,7 +59,10 @@ class BaseClass
 
     browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
     {
-      this.initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
+      if (menuList)
+      {
+        this.initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
+      }
     });
   }
 
