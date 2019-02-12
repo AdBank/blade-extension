@@ -17,6 +17,7 @@ const profile = require("./profie");
 const transfers = require("./transfers");
 const referrals = require("./referralsMenuView");
 const referralsFormView = require("./referralsFormView");
+const manualTransfer = require("./manualTransfer");
 
 module.exports = {
   getStarted,
@@ -35,5 +36,6 @@ module.exports = {
   profile,
   transfers,
   referrals,
-  referralsFormView
+  referralsFormView,
+  manualTransfer
 };

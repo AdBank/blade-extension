@@ -68,12 +68,12 @@ class BaseClass
 
   handleGoToMenuView(e)
   {
-    if (!e.target.classList.contains("menu-item") || e.target.parentNode.classList.contains("menu-item"))
+    if (!e.target.classList.contains("menu-item") && !e.target.parentNode.classList.contains("menu-item"))
     {
       return;
     }
 
-    const menuItemClicked = e.target.getAttribute("data-menu-item");
+    const menuItemClicked = e.target.getAttribute("data-menu-item") || e.target.parentNode.getAttribute("data-menu-item");
 
     this.handleChangeView(menuItemClicked);
   }

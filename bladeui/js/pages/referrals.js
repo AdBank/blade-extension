@@ -1,5 +1,7 @@
 "use strict";
 
+/* eslint-disable max-len */
+
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
 const REFERRAL_ROW_COUNT = 10;
@@ -62,7 +64,7 @@ class Referrals extends BaseClass
     rightQuantity.innerHTML = `${totalReward} <span>ADB</span>`;
     const leftDescription = document.getElementById("left-description");
     const rightDescription = document.getElementById("right-description");
-    leftDescription.innerHTML = "friends refered";
+    leftDescription.innerHTML = "friends referred";
     rightDescription.innerHTML = "rewards earned";
   }
 
