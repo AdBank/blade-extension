@@ -59,7 +59,7 @@ class BaseClass
 
     browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
     {
-      if (menuList)
+      if (this.menuList)
       {
         this.initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
       }
