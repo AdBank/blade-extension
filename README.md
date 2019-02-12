@@ -11,7 +11,7 @@ Run following commands in terminal:
 git clone https://github.com/AdBank/blade-extension.git
 cd ./blade-extension
 ./build.sh
-./run.sh
+./run-daemon.sh
 ```
 
 This will create **zip** file ready to deploy to **Chrome Web Store** and **devenv.chrome** folder ready to upload to **chrome://extensions/** in developer mode.
