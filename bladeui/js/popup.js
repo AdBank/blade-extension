@@ -166,16 +166,16 @@ function loadPage(page = "getStarted")
     }
   }
 
-  // setViewToStorage(page);
+  setViewToStorage(page);
 }
 
 function renderInitialView()
 {
-  // browser.storage.local.get("bladeCurrentPage").then((view) =>
-  // {
-  //   loadPage(view.bladeCurrentPage);
-  // });
-  loadPage("info");
+  browser.storage.local.get("bladeCurrentPage").then((view) =>
+  {
+    loadPage(view.bladeCurrentPage);
+  });
+  // loadPage("info");
 }
 
 function setViewToStorage(view)
