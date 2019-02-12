@@ -175,7 +175,6 @@ function renderInitialView()
   {
     loadPage(view.bladeCurrentPage);
   });
-  // loadPage("info");
 }
 
 function setViewToStorage(view)
