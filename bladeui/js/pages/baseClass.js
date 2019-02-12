@@ -7,8 +7,7 @@ const PAGES_ALLOWED_FOR_UNREGISTERED = [
   "getStarted",
   "termsAndConditions",
   "createPasswordView",
-  "recoverPhrase",
-  "recoverPassword"
+  "recoverPhrase"
 ];
 const FIRST_PAGE = "getStarted";
 class BaseClass
