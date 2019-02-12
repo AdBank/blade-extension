@@ -53,7 +53,8 @@ button {
   color: #222222;
   font: 700 12px / 16px Montserrat;
   letter-spacing: .2px;
-  cursor: pointer; }
+  cursor: pointer;
+  margin-top: auto; }
   .main-action-button:focus {
     outline: none; }
 
@@ -775,12 +776,13 @@ button {
 
 .referrals-list-container {
   margin: 0 -24px 12px;
-  height: 162px;
-  background-color: rgba(51, 51, 51, 0.5); }
+  height: 170px;
+  background-color: rgba(51, 51, 51, 0.5);
+  position: relative; }
   .referrals-list-container .referrals-list {
     overflow-y: auto;
     width: 256px;
-    height: 162px;
+    height: 170px;
     padding: 8px 0;
     margin: 0 auto; }
     .referrals-list-container .referrals-list .referrals-list-content {
@@ -801,7 +803,8 @@ button {
             width: 87px;
             overflow-x: hidden;
             text-overflow: ellipsis;
-            text-align: center; }
+            text-align: left;
+            white-space: nowrap; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.date {
             width: 52px;
             text-align: right; }
@@ -958,3 +961,38 @@ button {
   width: 7px;
   border-bottom: 1px solid #EC1D25;
   border-right: 1px solid #EC1D25; }
+
+.sending-request {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 16px;
+  position: absolute;
+  bottom: 0;
+  width: 45px;
+  height: 10px;
+  left: 43%; }
+  .sending-request span {
+    animation-name: blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    color: #d9d9d9;
+    font-size: 70px;
+    position: absolute;
+    top: -246%;
+    left: 0; }
+    .sending-request span:nth-child(2) {
+      animation-delay: .2s;
+      left: 15px; }
+    .sending-request span:nth-child(3) {
+      animation-delay: .4s;
+      left: 30px; }
+
+@keyframes blink {
+  0% {
+    opacity: .1; }
+  20% {
+    opacity: 1; }
+  100% {
+    opacity: .2; } }

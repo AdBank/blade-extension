@@ -19,10 +19,10 @@ class ReferralsForm extends BaseClass
     this.emailError = document.getElementById("email-error");
     this.message = document.getElementById("message");
     this.form = document.getElementById("referral-form");
-    // browser.storage.sync.get("bladeUserData", (data) =>
-    // {
-    //   this.bearerToken = data.bladeUserData.token;
-    // });
+    browser.storage.sync.get("bladeUserData", (data) =>
+    {
+      this.bearerToken = data.bladeUserData.token;
+    });
 
     this.backButton.addEventListener("click",
       this.handleOpenPreviousView.bind(this));

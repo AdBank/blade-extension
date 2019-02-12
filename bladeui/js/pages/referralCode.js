@@ -15,7 +15,6 @@ class ReferralCode extends BaseClass
     this.mainActionButton = document.getElementById("action-btn");
     this.referralCodeField = document.getElementById("referral-code");
     this.referralCodeError = document.getElementById("referral-code-error");
-
     browser.storage.sync.get("bladeUserData", (data) =>
     {
       this.bearerToken = data.bladeUserData.token;
@@ -40,19 +39,15 @@ class ReferralCode extends BaseClass
   {
     const keyID = event.keyCode;
     // check if entered referral code was removed completely
-    switch (keyID)
+    if (keyID === 8 || keyID === 46)
     {
-      case 8:
-      case 46:
-        this.mainActionButton.innerHTML = this.referralCodeField.value === "" ||
-          this.referralCodeField.value.length === 1 ? "SKIP" : "CONFIRM";
-        break;
-      default:
-        this.referralCodeField.classList.remove("input-invalid");
-        this.referralCodeError.innerHTML = "";
-        this.mainActionButton.innerHTML = "CONFIRM";
-        break;
+      this.mainActionButton.innerHTML = this.referralCodeField.value === "" ||
+        this.referralCodeField.value.length === 1 ? "SKIP" : "CONFIRM";
+      return true;
     }
+    this.referralCodeField.classList.remove("input-invalid");
+    this.referralCodeError.innerHTML = "";
+    this.mainActionButton.innerHTML = "CONFIRM";
   }
 
   handleSubmitButton(e)

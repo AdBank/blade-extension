@@ -1,7 +1,11 @@
+/* eslint-disable max-len, no-console */
+
 "use strict";
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
+const formatDate = require("../utils/formatDate");
+const infiniteScrollLoader = require("../html/common/infiniteScrollLoader");
 const REFERRAL_ROW_COUNT = 10;
 
 class Referrals extends BaseClass
@@ -9,6 +13,8 @@ class Referrals extends BaseClass
   constructor(props)
   {
     super(props);
+    this.skip = 0;
+    this.limit = REFERRAL_ROW_COUNT;
   }
 
   initListeners()
@@ -18,27 +24,52 @@ class Referrals extends BaseClass
     const optionsDropDown = document.getElementById("open-select-options");
     this.dropdown = document.getElementById("choose-option");
     this.emailListTarget = document.getElementById("referrals-list-content");
-    // in developer mode doesnt work requests
-    // browser.storage.sync.get("bladeUserData", (data) =>
-    // {
-      //   this.bearerToken = data.bladeUserData.token;
-      //   this.getReferralsInfo();
-      // });
-    // to render at list something according to designed layout
-    this.getReferralsInfo();
-    this.totalReferred = 0;
-    this.totalReward = 0;
+    this.infiniteScrollTrigger = document.getElementById("infinite-scroll-trigger");
+
+    browser.storage.sync.get("bladeUserData", (data) =>
+    {
+      this.bearerToken = data.bladeUserData.token;
+      this.initScrollObserver = this.initScrollObserver.bind(this);
+      this.initScrollObserver();
+      this.getReferralsInfo(this.skip, this.limit);
+    });
 
     linkBnt.addEventListener("click", this.handleLinkBnt.bind(this));
-    optionsDropDown.addEventListener("click",
-      this.handleOpenOptions.bind(this));
+    optionsDropDown.addEventListener("click", this.handleOpenOptions.bind(this));
     this.dropdown.addEventListener("click", this.handleSelectOption.bind(this));
     window.addEventListener("click", this.closeSelectOptions.bind(this));
   }
 
+  initScrollObserver()
+  {
+    const options = {
+      root: document.getElementById("referral-list-scroll-container"),
+      rootMargin: "0px",
+      threshold: 1.0
+    };
+
+    this.scrollObserver = new IntersectionObserver(this.scrollObserverCallback.bind(this), options);
+  }
+
+  stopScrollObserver()
+  {
+    this.scrollObserver.unobserve(this.infiniteScrollTrigger);
+  }
+
+  scrollObserverCallback(entries)
+  {
+    entries.forEach(entry =>
+    {
+      if (entry.intersectionRatio === 1)
+      {
+        this.getReferralsInfo(this.skip, this.limit);
+      }
+    });
+  }
+
   getReferralsInfo(skip = 0, limit = REFERRAL_ROW_COUNT)
   {
-    this.renderRewardStats("0", "0");
+    this.showLoader();
     request({
       method: "get",
       url: `/jwt/user/referrals/list?skip=${skip}&limit=${limit}`,
@@ -56,7 +87,16 @@ class Referrals extends BaseClass
         this.totalReward = res.total_rewards;
         this.renderRewardStats(this.totalReferred, this.totalReward);
       }
-      this.renderReferralsList(res.referrals);
+      if (res.referrals.length)
+      {
+        this.renderReferralsList(res.referrals);
+        this.skip = this.skip + limit;
+      }
+      else
+      {
+        this.hideLoader();
+        this.stopScrollObserver();
+      }
     })
     .catch((err) => console.error(err));
   }
@@ -65,10 +105,11 @@ class Referrals extends BaseClass
   {
     const leftQuantity = document.getElementById("left-quantity");
     const rightQuantity = document.getElementById("right-quantity");
-    leftQuantity.innerHTML = totalReferred;
-    rightQuantity.innerHTML = `${totalReward} <span>ADB</span>`;
     const leftDescription = document.getElementById("left-description");
     const rightDescription = document.getElementById("right-description");
+
+    leftQuantity.innerHTML = totalReferred;
+    rightQuantity.innerHTML = `${totalReward} <span>ADB</span>`;
     leftDescription.innerHTML = "friends refered";
     rightDescription.innerHTML = "rewards earned";
   }
@@ -78,11 +119,6 @@ class Referrals extends BaseClass
     super.handleChangeView("referralsFormView");
   }
 
-  handleOpenPreviousView()
-  {
-    super.handleChangeView("referralsMenuView");
-  }
-
   closeSelectOptions()
   {
     this.dropdown.style.display = "none";
@@ -90,17 +126,9 @@ class Referrals extends BaseClass
 
   handleOpenOptions(event)
   {
-    /* to prevent mess due to event listener on window
-    for closing opened options */
     event.stopPropagation();
-    if (this.dropdown.style.display === "none")
-    {
-      this.dropdown.style.display = "block";
-    }
-    else
-    {
-      this.dropdown.style.display = "none";
-    }
+    this.dropdown.style.display = this.dropdown.style.display === "none" ?
+      "block" : "none";
   }
 
   renderReferralsList(info)
@@ -118,25 +146,52 @@ class Referrals extends BaseClass
           "<img src=\"./skin/blade_icons/pending-referral.svg\"></img>" :
           "<i class=\"icon-user-unfollow red\"></i>";
       }
-      /* eslint-disable max-len */
-      const date = info[i].created_at.substring(0, 10).split("").reverse().join("");
+      const date = formatDate(info[i].created_at);
       newRow.innerHTML = `${userStatus}<p class="email">${info[i].email}</p><p class="date">${date}</p><p class="quantity">${rewardInfo}</p><p class="unit">ADB</p>`;
       virtualRowContainer.appendChild(newRow);
     }
+    this.hideLoader();
     this.emailListTarget.appendChild(virtualRowContainer);
+    this.scrollObserver.observe(this.infiniteScrollTrigger);
+  }
+
+  showLoader()
+  {
+    const loader = document.createElement("div");
+    loader.id = "waitting-request";
+    loader.innerHTML = infiniteScrollLoader();
+    this.emailListTarget.appendChild(loader);
+  }
+
+  hideLoader()
+  {
+    const loader = document.getElementById("waitting-request");
+    this.emailListTarget.removeChild(loader);
   }
 
   handleSelectOption(event)
   {
     const emailQuantity = event.target.dataset.quantity;
     this.displayedEmailQuantity.innerText = emailQuantity;
-    this.handleOpenOptions();
+
+    this.limit = Number(emailQuantity);
+    this.skip = 0;
+
+    this.clearList();
+    this.getReferralsInfo(this.skip, this.limit);
+
+    this.closeSelectOptions();
+  }
+
+  clearList()
+  {
     while (this.emailListTarget.firstChild)
     {
       this.emailListTarget.removeChild(this.emailListTarget.firstChild);
     }
-    this.getReferralsInfo(0, Number(emailQuantity));
+    this.stopScrollObserver();
   }
 }
+
 
 module.exports = Referrals;

@@ -9,7 +9,7 @@ const TOOLTIP_TEXT = "Get rewarded for referrals! Earn 5 ADB for every invited f
 
 const html = `
 ${menuList("referrals")}
-<div class="referrals-view">
+<div class="referrals-view flex-column">
   ${headerNavbar("referrals", false, TOOLTIP_TEXT)}
   <div class="content">
     ${statsRepresentation()}

@@ -1,13 +1,14 @@
 .referrals-list-container {
 
   margin: 0 -24px 12px;
-  height: 162px;
+  height: 170px;
   background-color: rgba(51, 51, 51, 0.5);
+  position: relative;
 
   .referrals-list {
     overflow-y: auto;
     width: 256px;
-    height: 162px;
+    height: 170px;
     padding: 8px 0;
     margin: 0 auto;
     .referrals-list-content {
@@ -28,7 +29,8 @@
             width: 87px;
             overflow-x: hidden;
             text-overflow: ellipsis;
-            text-align: center;
+            text-align: left;
+            white-space: nowrap;
           }
 
           &.date {

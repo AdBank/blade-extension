@@ -7,7 +7,7 @@ function referralsList()
 {
   return `
   <div class="referrals-list-container">
-    <div class="referrals-list">
+    <div class="referrals-list" id="referral-list-scroll-container">
       <div class="select-container">
         <div class="select-control-items" id="open-select-options">
           <p>Last <span id="displayed-emails">10</span></p>
@@ -19,7 +19,9 @@ function referralsList()
           <span data-quantity="25">25</span>
         </div>
       </div>
-      <div class="referrals-list-content" id="referrals-list-content"></div>
+      <div class="referrals-list-content" id="referrals-list-content">
+      </div>
+      <div id="infinite-scroll-trigger"></div>
     </div>
   </div>
   `;

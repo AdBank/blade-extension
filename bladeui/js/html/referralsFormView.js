@@ -1,14 +1,13 @@
 "use strict";
 
 const headerNavbar = require("./common/headerNavbar");
-const header = require("./common/header");
 const menuList = require("./common/menuList");
 const input = require("./common/input");
 const textarea = require("./common/textarea");
 
 const html = `
 ${menuList("refferalsMenuView")}
-<div class="referrals-view">
+<div class="referrals-view flex-column">
   ${headerNavbar("referrals")}
   <div class="content">
     <p class="referrals-form-description">
