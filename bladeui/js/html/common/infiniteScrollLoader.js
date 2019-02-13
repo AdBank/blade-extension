@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
+
 "use strict";
 
 function infiniteScrollLoader()
 {
-  /* eslint-disable max-len */
-  return "<div class=\"sending-request\"><span>.</span><span>.</span><span>.</span></div>";
+  return "<div class=\"sending-request\"></div>";
 }
 
 module.exports = infiniteScrollLoader;

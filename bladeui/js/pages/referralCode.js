@@ -35,6 +35,12 @@ class ReferralCode extends BaseClass
     this.referralCodeField.classList.add("input-invalid");
   }
 
+  clearErrors()
+  {
+    this.referralCodeField.classList.remove("input-invalid");
+    this.referralCodeError.innerHTML = "";
+  }
+
   handleReferralCodeKeyDown(event)
   {
     const keyID = event.keyCode;
@@ -45,15 +51,13 @@ class ReferralCode extends BaseClass
         this.referralCodeField.value.length === 1 ? "SKIP" : "CONFIRM";
       return true;
     }
-    this.referralCodeField.classList.remove("input-invalid");
-    this.referralCodeError.innerHTML = "";
+    this.clearErrors();
     this.mainActionButton.innerHTML = "CONFIRM";
   }
 
   handleSubmitButton(e)
   {
-    this.referralCodeError.innerHTML = "";
-    this.referralCodeField.classList.remove("input-invalid");
+    this.clearErrors();
 
     if (this.referralCodeField.value)
     {

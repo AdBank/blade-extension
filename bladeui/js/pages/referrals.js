@@ -193,5 +193,4 @@ class Referrals extends BaseClass
   }
 }
 
-
 module.exports = Referrals;
