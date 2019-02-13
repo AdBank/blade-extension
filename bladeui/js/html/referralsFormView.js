@@ -1,3 +1,5 @@
+/* eslint-disable max-len*/
+
 "use strict";
 
 const headerNavbar = require("./common/headerNavbar");
@@ -28,6 +30,7 @@ ${menuList("refferalsMenuView")}
       })}
       ${textarea({
         label: "Your Message",
+        value: "I’ve been using this chrome extension to earn ADB tokens as I browse the web! Download it and check it out!",
         maxlength: 255,
         name: "message",
         rows: 3,
