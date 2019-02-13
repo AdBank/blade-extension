@@ -37,7 +37,8 @@ const {
   profile,
   transfers,
   referrals,
-  referralsFormView
+  referralsFormView,
+  referralCode
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -56,7 +57,8 @@ const {
   ProfilePage,
   TransfersPage,
   ReferralsPage,
-  ReferralsForm
+  ReferralsForm,
+  ReferralCode
 } = require("./pages/index.js");
 
 
@@ -159,6 +161,11 @@ function loadPage(page = "getStarted")
     case "referralsFormView": {
       const initialView = new ReferralsForm({onChangeView});
       initialView.render(referralsFormView);
+      break;
+    }
+    case "referralCode": {
+      const initialView = new ReferralCode({onChangeView});
+      initialView.render(referralCode);
       break;
     }
     default: {

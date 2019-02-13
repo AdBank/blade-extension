@@ -53,7 +53,8 @@ button {
   color: #222222;
   font: 700 12px / 16px Montserrat;
   letter-spacing: .2px;
-  cursor: pointer; }
+  cursor: pointer;
+  margin-top: auto; }
   .main-action-button:focus {
     outline: none; }
 
@@ -774,13 +775,14 @@ button {
       text-transform: uppercase; }
 
 .referrals-list-container {
-  margin: 0 -24px 25px;
-  height: 162px;
-  background-color: rgba(51, 51, 51, 0.5); }
+  margin: 0 -24px 12px;
+  height: 170px;
+  background-color: rgba(51, 51, 51, 0.5);
+  position: relative; }
   .referrals-list-container .referrals-list {
     overflow-y: auto;
     width: 256px;
-    height: 162px;
+    height: 170px;
     padding: 8px 0;
     margin: 0 auto; }
     .referrals-list-container .referrals-list .referrals-list-content {
@@ -801,14 +803,15 @@ button {
             width: 87px;
             overflow-x: hidden;
             text-overflow: ellipsis;
-            text-align: center; }
+            text-align: left;
+            white-space: nowrap; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.date {
             width: 52px;
             text-align: right; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.unit {
             text-transform: uppercase; }
         .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row i {
-          width: 20px; }
+          font-size: 20px; }
         .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .red {
           color: #EC1D25; }
         .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .green {
@@ -893,6 +896,9 @@ button {
           cursor: pointer; }
           .referrals-list-container .referrals-list .select-container .options-container span:nth-last-of-type(1) {
             border-bottom: 0; }
+          .referrals-list-container .referrals-list .select-container .options-container span:hover {
+            background-color: #d9d9d9;
+            transition: background-color 0.3s linear; }
 
 .referrals-form-description {
   position: relative;
@@ -900,7 +906,7 @@ button {
   font: bold 14px / 20px Montserrat;
   letter-spacing: 0.2px;
   text-align: center;
-  margin-bottom: 48px; }
+  margin-bottom: 28px; }
   .referrals-form-description i {
     position: absolute;
     left: 0;
@@ -955,3 +961,32 @@ button {
   width: 7px;
   border-bottom: 1px solid #EC1D25;
   border-right: 1px solid #EC1D25; }
+
+.sending-request {
+  margin-bottom: 15px; }
+  .sending-request:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    background: transparent;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    animation: bounce 1s infinite ease-in-out;
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); }
+
+@keyframes bounce {
+  0% {
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); }
+  16% {
+    box-shadow: -15px 10px 0 #d9d9d9, 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); }
+  32% {
+    box-shadow: -15px 10px 0 #d9d9d9, 0 10px #d9d9d9, 15px 10px rgba(217, 217, 217, 0); }
+  48% {
+    box-shadow: -15px 10px 0 #d9d9d9, 0 10px #d9d9d9, 15px 10px #d9d9d9; }
+  66% {
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px #d9d9d9, 15px 10px #d9d9d9; }
+  82% {
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px #d9d9d9; }
+  100% {
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); } }

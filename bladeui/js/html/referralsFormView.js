@@ -1,14 +1,13 @@
 "use strict";
 
 const headerNavbar = require("./common/headerNavbar");
-const header = require("./common/header");
 const menuList = require("./common/menuList");
 const input = require("./common/input");
 const textarea = require("./common/textarea");
 
 const html = `
 ${menuList("refferalsMenuView")}
-<div class="referrals-view">
+<div class="referrals-view flex-column">
   ${headerNavbar("referrals")}
   <div class="content">
     <p class="referrals-form-description">
@@ -29,7 +28,6 @@ ${menuList("refferalsMenuView")}
       })}
       ${textarea({
         label: "Your Message",
-        placeholder: "Type your message",
         maxlength: 255,
         name: "message",
         rows: 3,
@@ -37,12 +35,12 @@ ${menuList("refferalsMenuView")}
         required: true,
         id: "message"
       })}
-      <button form="referral-form"
-        type="submit" class="main-action-button" id="send-referral-btn">
-        SEND
-      </button>
     </form>
   </div>
+  <button form="referral-form"
+    type="submit" class="main-action-button" id="send-referral-btn">
+    SEND
+  </button>
 </div>
 `;
 
