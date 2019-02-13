@@ -69,6 +69,7 @@ class ReferralsForm extends BaseClass
 
   highlightErrors(email, message)
   {
+    this.sendButton.innerHTML = "SEND";
     if (!this.validateEmail(email))
     {
       this.email.classList.add("input-invalid");
@@ -104,7 +105,7 @@ class ReferralsForm extends BaseClass
       })
       .catch((err) =>
       {
-        this.sendButton.innerHTML = loader(false);
+        this.sendButton.innerHTML = "SEND";
         this.sendButton.disabled = false;
         this.emailError.innerHTML = err.error;
       });
