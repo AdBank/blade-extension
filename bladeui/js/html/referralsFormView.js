@@ -1,7 +1,7 @@
 "use strict";
 
 const headerNavbar = require("./common/headerNavbar");
-const header = require("./common/header");
+const backButtonWithTitle = require("./common/backButtonWithTitle");
 const menuList = require("./common/menuList");
 const input = require("./common/input");
 const textarea = require("./common/textarea");
@@ -11,10 +11,7 @@ ${menuList("refferalsMenuView")}
 <div class="referrals-view">
   ${headerNavbar("referrals")}
   <div class="content">
-    <p class="referrals-form-description">
-      <i class="fa fa-long-arrow-left" id="back-button"></i>
-      Send a Referral
-    </p>
+    ${backButtonWithTitle("Send a Referral")}
     <form id="referral-form">
       ${input({
         label: "Friends Email Address",

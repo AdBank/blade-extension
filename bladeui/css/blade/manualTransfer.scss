@@ -1,17 +1,13 @@
 .manual-transfers-view {
-  .manual-transfer-form-description {
-    position: relative;
-    color: #EEEEEE;
-    font: bold 14px / 20px Montserrat;
-    letter-spacing: 0.2px;
-    text-align: center;
-    margin-bottom: 48px;
-    i {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
+  .page-description {
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+
+    &:nth-of-type(1) {
+      margin-bottom: 12px;
     }
   }
 }

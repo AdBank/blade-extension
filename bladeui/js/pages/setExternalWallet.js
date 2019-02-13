@@ -5,8 +5,7 @@
 const BaseClass = require("./baseClass");
 const {isAddress} = require("ethereum-address");
 const request = require("../utils/request");
-
-const VALID_LENGTH = 25;
+const {VALID_WALLET_ADDRESS_LENGTH} = require("../utils/constants");
 
 class SetExternalWallet extends BaseClass
 {
@@ -44,7 +43,7 @@ class SetExternalWallet extends BaseClass
 
   handleInputBlur(e)
   {
-    e.target.value = e.target.value.slice(0, VALID_LENGTH) + "...";
+    e.target.value = e.target.value.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
   }
 
   handleSubmitButton(e)
@@ -113,10 +112,10 @@ class SetExternalWallet extends BaseClass
     e.target.classList.remove("input-invalid");
     this.error.innerHTML = "";
 
-    if (userAddress.length > VALID_LENGTH)
+    if (userAddress.length > VALID_WALLET_ADDRESS_LENGTH)
     {
       this.userInput = userAddress;
-      e.target.value = userAddress.slice(0, VALID_LENGTH) + "...";
+      e.target.value = userAddress.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
     }
     else
     {
