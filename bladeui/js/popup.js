@@ -38,7 +38,7 @@ const {
   transfers,
   referrals,
   referralsFormView,
-  manualTransferView
+  manualTransfer
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -165,7 +165,7 @@ function loadPage(page = "getStarted")
     }
     case "transfersMenuView": {
       const initialView = new ManualTransfer({onChangeView});
-      initialView.render(manualTransferView);
+      initialView.render(manualTransfer);
       break;
     }
     default: {
@@ -173,15 +173,16 @@ function loadPage(page = "getStarted")
     }
   }
 
-  setViewToStorage(page);
+  // setViewToStorage(page);
 }
 
 function renderInitialView()
 {
-  browser.storage.local.get("bladeCurrentPage").then((view) =>
-  {
-    loadPage(view.bladeCurrentPage);
-  });
+  // browser.storage.local.get("bladeCurrentPage").then((view) =>
+  // {
+  //   loadPage(view.bladeCurrentPage);
+  // });
+  loadPage("transfersMenuView");
 }
 
 function setViewToStorage(view)

@@ -5,7 +5,8 @@
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
 const {isAddress} = require("ethereum-address");
-const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, VALID_WALLET_ADDRESS_LENGTH} = require("../utils/constants");
+const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH,  MIN_PASSWORD_ERROR,
+  MAX_PASSWORD_ERROR,VALID_WALLET_ADDRESS_LENGTH} = require("../utils/constants");
 
 class ManualTransfer extends BaseClass
 {
@@ -13,29 +14,49 @@ class ManualTransfer extends BaseClass
   {
     super(props);
     this.walletAddress = "";
+    this.walletConfirmAddress = "";
   }
 
   initListeners()
   {
+    const backButton = document.getElementById("back-button");
+
     const passwordEye = document.getElementById("password-eye");
     this.passwordField = document.getElementById("password");
+    this.passwordFieldError = document.getElementById("password-error");
+
     this.walletField = document.getElementById("wallet-address");
-    this.confirmWalletField = document.getElementById("confirm-wallet-address");
-    this.sendButton = document.getElementById("send-button");
     this.walletErrorField = document.getElementById("wallet-error");
 
-    browser.storage.sync.get(null, (data) =>
-    {
-      this.bearerToken = data.bladeUserData.token;
-    });
+    this.walletConfirmField = document.getElementById("confirm-wallet-address");
+    this.walletConfirmErrorField = document.getElementById("confirm-wallet-error");
+
+    this.sendButton = document.getElementById("send-button");
+
+    // browser.storage.sync.get(null, (data) =>
+    // {
+    //   this.bearerToken = data.bladeUserData.token;
+    // });
 
     this.walletField.addEventListener("change", this.handleWalletInputChange.bind(this));
     this.walletField.addEventListener("focus", this.handleWalletInputFocus.bind(this));
     this.walletField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
-    // this.confirmWalletField.addEventListener("focus", this.handleInputFocus.bind(this));
-    // this.confirmWalletField.addEventListener("blur", this.handleInputBlur.bind(this));
+
+    this.walletConfirmField.addEventListener("change", this.handleConfirmWalletInputChange.bind(this));
+    this.walletConfirmField.addEventListener("focus", this.handleWalletConfirmInputFocus.bind(this));
+    this.walletConfirmField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
+
     passwordEye.addEventListener("click", this.handleShowHidePassword.bind(this));
+    this.passwordField.addEventListener("change", this.handlePasswordFieldChange.bind(this));
+
+    backButton.addEventListener("click", this.handleChangeView.bind(this));
+
     this.sendButton.addEventListener("click", this.handleSubmitButton.bind(this));
+  }
+
+  handleChangeView()
+  {
+    super.handleChangeView("transfersListView")
   }
 
   handleWalletInputFocus(e)
@@ -43,28 +64,61 @@ class ManualTransfer extends BaseClass
     e.target.value = this.walletAddress;
   }
 
+  handleWalletConfirmInputFocus(e)
+  {
+    e.target.value = this.walletConfirmAddress;
+  }
+
   handleWalletInputBlur(e)
   {
-    e.target.value = e.target.value.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
+    if (e.target.value.length > VALID_WALLET_ADDRESS_LENGTH)
+    {
+      e.target.value = e.target.value.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
+      console.log(e.target.value);
+    }
   }
 
   handleWalletInputChange(e)
   {
     this.walletAddress = e.target.value;
 
+    this.unhighlightErrors(e.target, this.walletErrorField);
+
+    this.checkWallet(e.target, this.walletAddress, this.walletErrorField);
+  }
+
+  handleConfirmWalletInputChange(e)
+  {
+    this.walletConfirmAddress = e.target.value;
+
+    this.unhighlightErrors(e.target, this.walletConfirmErrorField);
+
+    this.checkWallet(e.target, this.walletConfirmAddress, this.walletConfirmErrorField);
+  }
+
+  checkWallet(walletField, walletAddress, walletErrorField)
+  {
+    if (walletAddress.length > VALID_WALLET_ADDRESS_LENGTH)
+    {
+      walletField.value = walletAddress.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
+    }
+
+    if (!isAddress(walletAddress))
+    {
+      this.highlightErrors(walletErrorField, walletField);
+    }
+
+    if (this.walletAddress && this.walletConfirmAddress && this.walletAddress !== this.walletConfirmAddress)
+    {
+      this.highlightErrors(this.walletConfirmErrorField, this.walletConfirmField, "Addresses need to match");
+    }
+  }
+
+  unhighlightErrors(inputField, errorField)
+  {
     this.sendButton.classList.remove("disabled");
-    e.target.classList.remove("input-invalid");
-    this.error.innerHTML = "";
-
-    if (this.walletAddress.length > VALID_WALLET_ADDRESS_LENGTH)
-    {
-      e.target.value = this.walletAddress.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
-    }
-
-    if (!isAddress(this.walletAddress))
-    {
-      this.highlightErrors(this.walletErrorField, this.walletField);
-    }
+    inputField.classList.remove("input-invalid");
+    errorField.innerHTML = "";
   }
 
   highlightErrors(errorField, inputField, error = "Please enter a ERC20 compatible wallet")
@@ -94,6 +148,21 @@ class ManualTransfer extends BaseClass
     }
   }
 
+  handlePasswordFieldChange(e)
+  {
+    this.unhighlightErrors(this.passwordField, this.passwordFieldError);
+    const password = e.target.value;
+
+    if (password.length < MIN_PASSWORD_LENGTH)
+    {
+      this.highlightErrors(this.passwordFieldError, this.passwordField, MIN_PASSWORD_ERROR)
+    }
+    if (password.length > MAX_PASSWORD_LENGTH)
+    {
+      this.highlightErrors(this.passwordFieldError, this.passwordField, MAX_PASSWORD_ERROR)
+    }
+  }
+
   handleSubmitButton()
   {
     const data = {
@@ -101,8 +170,9 @@ class ManualTransfer extends BaseClass
       password: this.passwordField.value
     };
 
-    if (isAddress(this.userInput) && this.passwordField.length > MIN_PASSWORD_LENGTH &&
-      this.passwordField.length < MAX_PASSWORD_LENGTH)
+    if (isAddress(this.walletAddress) && isAddress(this.walletConfirmAddress) 
+      && this.passwordField.value.length > MIN_PASSWORD_LENGTH &&
+      this.passwordField.value.length < MAX_PASSWORD_LENGTH)
     {
       this.sendRequest(data);
     }
@@ -123,7 +193,7 @@ class ManualTransfer extends BaseClass
       }
     })
     .then(() => {})
-    .catch(errorInfo => this.highlightErrors(errorInfo.error));
+    .catch(errorInfo => this.highlightErrors(null, this.passwordFieldError, errorInfo.error));
   }
 }
 

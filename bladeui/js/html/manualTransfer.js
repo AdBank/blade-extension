@@ -26,7 +26,20 @@ ${menuList("transfers")}
         }
       })}
       ${input({
-        label: "Password",
+        label: "Confirm Public Wallet Address",
+        input: {
+          type: "text",
+          id: "confirm-wallet-address",
+          iconClass: "icon icon-wallet",
+          iconId: "",
+          errorId: "confirm-wallet-error",
+          required: true,
+          withTooltip: `You are responsible for ensuring the accuracy of your wallet address. 
+          There is no way to reverse a transfer to a wrong address.`
+        }
+      })}
+      ${input({
+        label: "Blade Password",
         input: {
           type: "password",
           id: "password",
@@ -41,15 +54,5 @@ ${menuList("transfers")}
   <button class="main-action-button" id="send-button">SEND</button>
 </div>
 `;
-// ${input({
-//   label: "Confirm Public Wallet Address",
-//   input: {
-//     type: "text",
-//     id: "confirm-wallet-address",
-//     iconClass: "icon icon-wallet",
-//     iconId: "",
-//     errorId: "confirm-wallet-error",
-//     required: true
-//   }
-// })}
+
 module.exports = html;

@@ -957,9 +957,33 @@ p.page-description {
   border-right: 1px solid #EC1D25; }
 
 .manual-transfers-view .page-description {
-  margin-bottom: 20px; }
+  margin-bottom: 13px; }
 
 .manual-transfers-view .form-group {
-  margin-bottom: 18px; }
-  .manual-transfers-view .form-group:nth-of-type(1) {
-    margin-bottom: 12px; }
+  margin-bottom: 16px; }
+  .manual-transfers-view .form-group label {
+    position: relative;
+    display: inline-block; }
+
+.manual-transfers-view .info-tooltip {
+  position: absolute;
+  right: -35px;
+  top: 50%; }
+  .manual-transfers-view .info-tooltip .text {
+    margin-bottom: 18px;
+    width: 235px;
+    left: -239px;
+    bottom: 100%;
+    top: auto; }
+    .manual-transfers-view .info-tooltip .text:after {
+      top: 100%;
+      left: 91%;
+      border-bottom: 0;
+      border-top: 10px solid #EEEEEE; }
+
+.manual-transfers-view .input-field[type=text] {
+  color: #336699;
+  font-size: 12px; }
+
+.manual-transfers-view .main-action-button {
+  margin-top: auto; }
