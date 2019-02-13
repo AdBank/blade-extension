@@ -147,7 +147,7 @@ class Referrals extends BaseClass
           "<i class=\"icon-user-unfollow red\"></i>";
       }
       const date = formatDate(info[i].created_at);
-      newRow.innerHTML = `${userStatus}<p class="email">${info[i].email}</p><p class="date">${date}</p><p class="quantity">${rewardInfo}</p><p class="unit">ADB</p>`;
+      newRow.innerHTML = `${userStatus}<p class="email">${info[i].email}</p><p class="info-tooltip">${info[i].email}</p><p class="date">${date}</p><p class="quantity">${rewardInfo}</p><p class="unit">ADB</p>`;
       virtualRowContainer.appendChild(newRow);
     }
     this.hideLoader();

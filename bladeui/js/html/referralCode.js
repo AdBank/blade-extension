@@ -4,7 +4,7 @@ const header = require("./common/header");
 const input = require("./common/input");
 
 const html = `
-<div class="create-password-view flex-column">
+<div class="insert-referral-code-view flex-column">
   ${header("Insert a referral code")}
   <form>
     ${input({
