@@ -1,4 +1,4 @@
-$size: 10px !global;
+$size: 10px;
 
 @mixin three-dots($size: 10px, $a: 0, $b: 0, $c: 0, $color: #d9d9d9) {
   $margin: $size*0.5;
