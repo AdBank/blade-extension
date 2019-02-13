@@ -38,7 +38,9 @@ const {
   transfers,
   referrals,
   referralsFormView,
-  referralCode
+  referralCode,
+  dashboardMenuView,
+  feedMenuView
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -58,7 +60,9 @@ const {
   TransfersPage,
   ReferralsPage,
   ReferralsForm,
-  ReferralCode
+  ReferralCode,
+  DashboardView,
+  FeedView
 } = require("./pages/index.js");
 
 
@@ -168,20 +172,36 @@ function loadPage(page = "getStarted")
       initialView.render(referralCode);
       break;
     }
+    case "transfersListView": {
+      const initialView = new TransfersList({onChangeView});
+      initialView.render(transfersListView);
+      break;
+    }
+    case "dashboardMenuView": {
+      const initialView = new DashboardView({onChangeView});
+      initialView.render(dashboardMenuView);
+      break;
+    }
+    case "feedMenuView": {
+      const initialView = new FeedView({onChangeView});
+      initialView.render(feedMenuView);
+      break;
+    }
     default: {
       console.error(`Page '${page}' is not declared`);
     }
   }
 
-  setViewToStorage(page);
+  // setViewToStorage(page);
 }
 
 function renderInitialView()
 {
-  browser.storage.local.get("bladeCurrentPage").then((view) =>
-  {
-    loadPage(view.bladeCurrentPage);
-  });
+  // browser.storage.local.get("bladeCurrentPage").then((view) =>
+  // {
+  //   loadPage(view.bladeCurrentPage);
+  // });
+  loadPage("transfersListView");
 }
 
 function setViewToStorage(view)

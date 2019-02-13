@@ -9,7 +9,7 @@ function textarea(props)
     <label>${props.label}</label>
     <div class="input-wrapper">
       <textarea id=${props.id} maxlength=${props.maxlength}
-      placeholder="${props.placeholder || " "}" name=${props.name} rows=${props.rows} required=${props.required}></textarea>
+      placeholder="${props.placeholder || " "}" name=${props.name} rows=${props.rows} required=${props.required}>${props.value || ""}</textarea>
     </div>
   </div>
   `;
