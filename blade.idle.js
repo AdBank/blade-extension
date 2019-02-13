@@ -1,5 +1,12 @@
 "use strict";
 
+/* eslint-disable */
+
+const Fingerprint = require("./fingerprint");
+
+const reviveUrl = "http://3.81.128.247:8080";
+const userCode = "948e55289d4246ce83e36e5a56066654";
+
 browser.runtime.sendMessage({
   type: "background.checkWhitelisted"
 },
@@ -38,7 +45,7 @@ function findDomSelectors()
 function getAdblockBlockableSelectors(allSelectors)
 {
   browser.runtime.sendMessage({
-    type: "background.getSelectorsForPage"
+    type: "background.getSelectorsAndReviveAddress"
   },
   response =>
   {
@@ -75,8 +82,10 @@ function findBlockedSelectors(selectors, allSelectors)
 function getSelectorsWidth(selectors)
 {
   selectors.forEach(selector =>
-{
+  {
     let node = document.querySelector(selector);
+    const id= "blade-ext-" + Date.now();
+    node.id = id;
     if (!node)
     {
       return;
@@ -89,13 +98,19 @@ function getSelectorsWidth(selectors)
       nodeWidth = node.clientWidth;
     }
 
-    getAddForSelector(selector, nodeWidth);
+    insertAdd(id, nodeWidth);
     console.log("node=", node);
     console.log("width=", nodeWidth);
+    console.log("selector=", selector);
   });
 }
 
-function getAddForSelector(selector, selectorWidth)
+function insertAdd(selectorId, selectorWidth)
 {
-
+  const fp = new Fingerprint().get();
+  const charset = document.charset ? 'charset='+document.charset : (document.characterSet ? 'charset='+document.characterSet : '');
+  const src = `http://3.81.128.247:8080/www/delivery/blade_controller.php?sel=${selectorId}&blade_id=948e55289d4246ce83e36e5a56066654&width=${selectorWidth}&finger_print=`+fp+'&loc='+ escape(window.location)+'&'+charset;
+  const script = document.createElement("script");
+  script.src = src;
+  document.body.appendChild(script);
 }
