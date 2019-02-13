@@ -1,5 +1,7 @@
 "use strict";
 
+/* eslint-disable max-len */
+
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
 
@@ -59,7 +61,7 @@ class ReferralCode extends BaseClass
   {
     this.clearErrors();
 
-    if (this.referralCodeField.value)
+    if (this.referralCodeField.value && this.mainActionButton.innerHTML !== "SKIP")
     {
       this.sendRequest();
       return true;
