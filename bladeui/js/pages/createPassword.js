@@ -5,9 +5,11 @@
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
 const saveAdserverUrl = require("../utils/saveAdserverUrl");
-
-const MIN_PASSWORD_LENGTH = 8;
-const MAX_PASSWORD_LENGTH = 30;
+const {MIN_PASSWORD_LENGTH,
+  MAX_PASSWORD_LENGTH,
+  MIN_PASSWORD_ERROR,
+  MAX_PASSWORD_ERROR,
+  PASSWORDS_MATCH_ERROR} = require("../utils/constants");
 
 class CreatePassword extends BaseClass
 {
@@ -96,32 +98,32 @@ class CreatePassword extends BaseClass
 
     if (this.passwordField.value !== this.confirmPasswordField.value)
     {
-      this.onErrorMainField("Passwords do not match");
+      this.onErrorMainField(PASSWORDS_MATCH_ERROR);
       this.confirmPasswordField.classList.add("input-invalid");
       return false;
     }
 
     if (this.passwordField.value.length < MIN_PASSWORD_LENGTH)
     {
-      this.onErrorMainField("Please enter at least 8 characters");
+      this.onErrorMainField(MIN_PASSWORD_ERROR);
       return false;
     }
 
     if (this.passwordField.value.length > MAX_PASSWORD_LENGTH)
     {
-      this.onErrorMainField("Please enter no more than 30 characters");
+      this.onErrorMainField(MAX_PASSWORD_ERROR);
       return false;
     }
 
     if (this.confirmPasswordField.value.length < MIN_PASSWORD_LENGTH)
     {
-      this.onErrorConfirmField("Please enter at least 8 characters");
+      this.onErrorConfirmField(MIN_PASSWORD_ERROR);
       return false;
     }
 
     if (this.confirmPasswordField.value.length > MAX_PASSWORD_LENGTH)
     {
-      this.onErrorConfirmField("Please enter no more than 30 characters");
+      this.onErrorConfirmField(MAX_PASSWORD_ERROR);
       return false;
     }
 
