@@ -79,18 +79,7 @@
       }
     }
 
-    &::-webkit-scrollbar {
-      width: 2px;
-      border-radius: 1px;
-    }
-
-    &::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #999999;
-    }
+    @import "_scroll";
 
     .select-container {
       position: relative;

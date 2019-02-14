@@ -41,7 +41,8 @@ const {
   manualTransfer,
   referralCode,
   dashboardMenuView,
-  feedMenuView
+  feedMenuView,
+  transfersListView
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -64,7 +65,8 @@ const {
   ManualTransfer,
   ReferralCode,
   DashboardView,
-  FeedView
+  FeedView,
+  TransfersList
 } = require("./pages/index.js");
 
 
@@ -186,6 +188,11 @@ function loadPage(page = "getStarted")
     case "feedMenuView": {
       const initialView = new FeedView({onChangeView});
       initialView.render(feedMenuView);
+      break;
+    }
+    case "transfersListView": {
+      const initialView = new TransfersList({onChangeView});
+      initialView.render(transfersListView);
       break;
     }
     default: {

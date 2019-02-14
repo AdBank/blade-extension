@@ -7,6 +7,7 @@ const request = require("../utils/request");
 const formatDate = require("../utils/formatDate");
 const infiniteScrollLoader = require("../html/common/infiniteScrollLoader");
 const REFERRAL_ROW_COUNT = 10;
+const MAXIMUM_FIT_WITHOUT_SCROLL = 4;
 
 class Referrals extends BaseClass
 {
@@ -152,7 +153,10 @@ class Referrals extends BaseClass
     }
     this.hideLoader();
     this.emailListTarget.appendChild(virtualRowContainer);
-    this.scrollObserver.observe(this.infiniteScrollTrigger);
+    if (info.length > MAXIMUM_FIT_WITHOUT_SCROLL)
+    {
+      this.scrollObserver.observe(this.infiniteScrollTrigger);
+    }
   }
 
   showLoader()
