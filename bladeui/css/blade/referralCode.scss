@@ -1,0 +1,12 @@
+.insert-referral-code-view {
+  form {
+    flex-grow: 1;
+    display: flex;
+    .form-group {
+      align-self: center;
+      .input-field {
+        padding: 14px;
+      }
+    }
+  }
+}
