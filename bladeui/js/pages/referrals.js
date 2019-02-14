@@ -152,7 +152,10 @@ class Referrals extends BaseClass
     }
     this.hideLoader();
     this.emailListTarget.appendChild(virtualRowContainer);
-    this.scrollObserver.observe(this.infiniteScrollTrigger);
+    if (info.length > 4)
+    {
+      this.scrollObserver.observe(this.infiniteScrollTrigger);
+    }
   }
 
   showLoader()

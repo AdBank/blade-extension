@@ -20,6 +20,7 @@ const ReferralsForm = require("./referralsForm");
 const ReferralCode = require("./referralCode");
 const DashboardView = require("./dashboardView");
 const FeedView = require("./feedView");
+const TransfersList = require("./transfersList");
 
 module.exports = {
   GetStartedPage,
@@ -41,5 +42,6 @@ module.exports = {
   ReferralsForm,
   ReferralCode,
   DashboardView,
-  FeedView
+  FeedView,
+  TransfersList
 };
