@@ -4,9 +4,7 @@
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
-
-const MIN_PASSWORD_LENGTH = 8;
-const MAX_PASSWORD_LENGTH = 30;
+const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH} = require("../utils/constants");
 
 class RecoverPassword extends BaseClass
 {

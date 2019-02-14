@@ -121,7 +121,7 @@ def createManifest(params, files):
                 'matches': ['http://*/*', 'https://*/*'],
                 'js': scripts.split(),
                 'run_at': run_at,
-                'all_frames': True,
+                'all_frames': False,
                 'match_about_blank': True,
             })
         templateData['contentScripts'] = contentScripts

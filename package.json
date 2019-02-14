@@ -39,7 +39,7 @@
     "test": "npm run test-only --",
     "posttest": "npm run lint",
     "publish": "node build/publish.js",
-    "dev": "onchange '*/*.js' -e 'devenv.chrome'  -- npm run $ build"
+    "dev": "onchange '*.js' -e 'devenv.chrome'  -- npm run $ build"
   },
   "$": {
     "build": [

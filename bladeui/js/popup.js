@@ -38,6 +38,7 @@ const {
   transfers,
   referrals,
   referralsFormView,
+  manualTransfer,
   referralCode,
   dashboardMenuView,
   feedMenuView,
@@ -61,6 +62,7 @@ const {
   TransfersPage,
   ReferralsPage,
   ReferralsForm,
+  ManualTransfer,
   ReferralCode,
   DashboardView,
   FeedView,
@@ -168,6 +170,10 @@ function loadPage(page = "getStarted")
       const initialView = new ReferralsForm({onChangeView});
       initialView.render(referralsFormView);
       break;
+    }
+    case "makeManualTransfer": {
+      const initialView = new ManualTransfer({onChangeView});
+      initialView.render(manualTransfer);
     }
     case "referralCode": {
       const initialView = new ReferralCode({onChangeView});

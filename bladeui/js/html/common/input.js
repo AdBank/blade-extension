@@ -2,11 +2,13 @@
 
 "use strict";
 
-function input({label, wrapperId, input: {type, id, iconClass, iconId, errorId, required}})
+const tooltip = require("./informationTooltip");
+
+function input({label, wrapperId, input: {type, id, iconClass, iconId, errorId, required, withTooltip}})
 {
   return `
   <div class="form-group" id=${wrapperId}>
-    <label>${label}</label>
+    <label>${label} ${tooltip(withTooltip)}</label>
     <div class="input-wrapper">
       <input class="input-field" type=${type} id=${id} required=${required}/>
       <span id=${iconId}>

@@ -49,16 +49,16 @@ class BaseClass
     const burgerButton = document.getElementById("burger-button");
     const closeButton = document.getElementById("close");
     const settingsTabs = document.getElementById("settings-tabs");
-    this.menuList = document.getElementById("menu-list");
+    const menuList = document.getElementById("menu-list");
 
     burgerButton && burgerButton.addEventListener("click", this.handleClickOnBurger.bind(this));
     closeButton && closeButton.addEventListener("click", this.handleClose.bind(this));
     settingsTabs && settingsTabs.addEventListener("click", this.handleSettingsTabClick.bind(this));
-    this.menuList && this.menuList.addEventListener("click", this.handleGoToMenuView.bind(this));
+    menuList && menuList.addEventListener("click", this.handleGoToMenuView.bind(this));
 
     browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
     {
-      if (this.menuList)
+      if (menuList)
       {
         this.initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
       }
@@ -98,12 +98,12 @@ class BaseClass
 
   handleGoToMenuView(e)
   {
-    if (!e.target.classList.contains("menu-item") || e.target.parentNode.classList.contains("menu-item"))
+    if (!e.target.classList.contains("menu-item") && !e.target.parentNode.classList.contains("menu-item"))
     {
       return;
     }
 
-    const menuItemClicked = e.target.getAttribute("data-menu-item");
+    const menuItemClicked = e.target.getAttribute("data-menu-item") || e.target.parentNode.getAttribute("data-menu-item");
 
     this.handleChangeView(menuItemClicked);
   }

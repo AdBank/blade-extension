@@ -1,6 +1,6 @@
-/* eslint-disable max-len, no-console */
-
 "use strict";
+
+/* eslint-disable max-len */
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
@@ -108,9 +108,9 @@ class Referrals extends BaseClass
     const leftDescription = document.getElementById("left-description");
     const rightDescription = document.getElementById("right-description");
 
+    leftDescription.innerHTML = "friends referred";
     leftQuantity.innerHTML = totalReferred;
     rightQuantity.innerHTML = `${totalReward} <span>ADB</span>`;
-    leftDescription.innerHTML = "friends refered";
     rightDescription.innerHTML = "rewards earned";
   }
 
