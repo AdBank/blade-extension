@@ -83,19 +83,17 @@ function getSelectorsWidth(selectors, data)
     let node = document.querySelector(selector);
     const id = "blade-ext-" + Date.now();
     node.id = id;
-    if (!node)
+    if (node)
     {
-      return;
-    }
+      let nodeWidth = node.clientWidth;
+      while (nodeWidth === 0 && node)
+      {
+        node = node.parentNode;
+        nodeWidth = node.clientWidth;
+      }
 
-    let nodeWidth = node.clientWidth;
-    while (nodeWidth === 0 && node)
-    {
-      node = node.parentNode;
-      nodeWidth = node.clientWidth;
+      insertAdd(id, nodeWidth, data);
     }
-
-    insertAdd(id, nodeWidth, data);
   });
 }
 
