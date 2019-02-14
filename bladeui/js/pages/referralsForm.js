@@ -108,6 +108,7 @@ class ReferralsForm extends BaseClass
         this.sendButton.innerHTML = "SEND";
         this.sendButton.disabled = false;
         this.emailError.innerHTML = err.error;
+        this.email.classList.add("input-invalid");
       });
     }
     else
