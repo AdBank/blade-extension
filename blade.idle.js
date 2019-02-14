@@ -96,9 +96,6 @@ function getSelectorsWidth(selectors, data)
     }
 
     insertAdd(id, nodeWidth, data);
-    // console.log("node=", node);
-    // console.log("width=", nodeWidth);
-    // console.log("selector=", selector);
   });
 }
 

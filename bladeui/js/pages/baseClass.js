@@ -16,14 +16,14 @@ class BaseClass
   {
     this.wrapper = document.getElementById("main-app-wrapper");
     this.emitViewChange = onChangeView;
-    // browser.storage.local.get(null, (data) =>
-    // {
-    //   const page = data.bladeCurrentPage;
-    //   if (!PAGES_ALLOWED_FOR_UNREGISTERED.includes(page))
-    //   {
-    //     this.checkUserHasToken();
-    //   }
-    // });
+    browser.storage.local.get(null, (data) =>
+    {
+      const page = data.bladeCurrentPage;
+      if (!PAGES_ALLOWED_FOR_UNREGISTERED.includes(page))
+      {
+        this.checkUserHasToken();
+      }
+    });
   }
 
   checkUserHasToken()
@@ -56,13 +56,13 @@ class BaseClass
     settingsTabs && settingsTabs.addEventListener("click", this.handleSettingsTabClick.bind(this));
     menuList && menuList.addEventListener("click", this.handleGoToMenuView.bind(this));
 
-    // browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
-    // {
-    //   if (menuList)
-    //   {
-    //     this.initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
-    //   }
-    // });
+    browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
+    {
+      if (menuList)
+      {
+        this.initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
+      }
+    });
   }
 
   initToggleOnOff(tab)

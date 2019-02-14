@@ -17,11 +17,21 @@ function makeRequest(opts)
       }
       else
       {
-        reject({
-          status: this.status,
-          statusText: xhr.statusText,
-          error: JSON.parse(this.response).error
-        });
+        try
+        {
+          const parsedJSON = JSON.parse(this.response);
+          reject({
+            status: this.status,
+            statusText: xhr.statusText,
+            error: parsedJSON.error
+          });
+        }
+        catch (error)
+        {
+          reject({
+            error: GENERAL_ERROR
+          });
+        }
       }
     };
     xhr.onerror = function()
@@ -50,16 +60,7 @@ function makeRequest(opts)
       });
     }
 
-    try
-    {
-      xhr.send(JSON.stringify(opts.data));
-    }
-    catch (error)
-    {
-      reject({
-        error
-      });
-    }
+    xhr.send(JSON.stringify(opts.data));
   }));
 }
 

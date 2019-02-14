@@ -1,12 +1,12 @@
 "use strict";
 
-/* eslint-disable */
+/* eslint-disable max-len */
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
 const {isAddress} = require("ethereum-address");
-const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH,  MIN_PASSWORD_ERROR,
-  MAX_PASSWORD_ERROR,VALID_WALLET_ADDRESS_LENGTH} = require("../utils/constants");
+const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_ERROR,
+  MAX_PASSWORD_ERROR, VALID_WALLET_ADDRESS_LENGTH} = require("../utils/constants");
 const loader = require("../html/common/loader");
 
 class ManualTransfer extends BaseClass
@@ -34,10 +34,10 @@ class ManualTransfer extends BaseClass
 
     this.sendButton = document.getElementById("send-button");
 
-    // browser.storage.sync.get(null, (data) =>
-    // {
-    //   this.bearerToken = data.bladeUserData.token;
-    // });
+    browser.storage.sync.get(null, (data) =>
+    {
+      this.bearerToken = data.bladeUserData.token;
+    });
 
     this.walletField.addEventListener("change", this.handleWalletInputChange.bind(this));
     this.walletField.addEventListener("focus", this.handleWalletInputFocus.bind(this));
@@ -57,7 +57,7 @@ class ManualTransfer extends BaseClass
 
   handleChangeView()
   {
-    super.handleChangeView("transfersListView")
+    super.handleChangeView("transfersListView");
   }
 
   handleWalletInputFocus(e)
@@ -75,7 +75,6 @@ class ManualTransfer extends BaseClass
     if (e.target.value.length > VALID_WALLET_ADDRESS_LENGTH)
     {
       e.target.value = e.target.value.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
-      console.log(e.target.value);
     }
   }
 
@@ -156,23 +155,34 @@ class ManualTransfer extends BaseClass
 
     if (password.length < MIN_PASSWORD_LENGTH)
     {
-      this.highlightErrors(this.passwordFieldError, this.passwordField, MIN_PASSWORD_ERROR)
+      this.highlightErrors(this.passwordFieldError, this.passwordField, MIN_PASSWORD_ERROR);
     }
     if (password.length > MAX_PASSWORD_LENGTH)
     {
-      this.highlightErrors(this.passwordFieldError, this.passwordField, MAX_PASSWORD_ERROR)
+      this.highlightErrors(this.passwordFieldError, this.passwordField, MAX_PASSWORD_ERROR);
     }
+  }
+
+  disableSubmitButton()
+  {
+    this.sendButton.disabled = true;
+  }
+
+  enableSubmitButton()
+  {
+    this.sendButton.disabled = false;
   }
 
   handleSubmitButton()
   {
+    this.disableSubmitButton();
     const data = {
       user_wallet: this.walletAddress,
       password: this.passwordField.value
     };
 
-    if (isAddress(this.walletAddress) && isAddress(this.walletConfirmAddress) 
-      && this.passwordField.value.length > MIN_PASSWORD_LENGTH &&
+    if (isAddress(this.walletAddress) && isAddress(this.walletConfirmAddress) &&
+      this.passwordField.value.length > MIN_PASSWORD_LENGTH &&
       this.passwordField.value.length < MAX_PASSWORD_LENGTH)
     {
       this.sendRequest(data);
@@ -181,6 +191,7 @@ class ManualTransfer extends BaseClass
     else
     {
       this.highlightErrors();
+      this.enableSubmitButton();
     }
   }
 
@@ -194,13 +205,16 @@ class ManualTransfer extends BaseClass
         Authorization: `Bearer ${this.bearerToken}`
       }
     })
-    .then(() => {
+    .then(() =>
+    {
       this.sendButton.innerHTML = loader(true);
+      this.enableSubmitButton();
     })
-    .catch(errorInfo => {
-      console.log(errorInfo);
+    .catch(errorInfo =>
+    {
       this.highlightErrors(this.passwordFieldError, null, errorInfo.error);
       this.sendButton.innerHTML = "SEND";
+      this.enableSubmitButton();
     });
   }
 }

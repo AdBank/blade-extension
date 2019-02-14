@@ -163,7 +163,7 @@ function loadPage(page = "getStarted")
       initialView.render(referralsFormView);
       break;
     }
-    case "transfersMenuView": {
+    case "makeManualTransfer": {
       const initialView = new ManualTransfer({onChangeView});
       initialView.render(manualTransfer);
       break;
@@ -173,16 +173,15 @@ function loadPage(page = "getStarted")
     }
   }
 
-  // setViewToStorage(page);
+  setViewToStorage(page);
 }
 
 function renderInitialView()
 {
-  // browser.storage.local.get("bladeCurrentPage").then((view) =>
-  // {
-  //   loadPage(view.bladeCurrentPage);
-  // });
-  loadPage("transfersMenuView");
+  browser.storage.local.get("bladeCurrentPage").then((view) =>
+  {
+    loadPage(view.bladeCurrentPage);
+  });
 }
 
 function setViewToStorage(view)
