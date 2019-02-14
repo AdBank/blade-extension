@@ -5,7 +5,7 @@ const settingsTabGroup = require("./common/settingsTabGroup");
 const menuList = require("./common/menuList");
 
 const html = `
-${menuList("profile")}
+${menuList("settings")}
 <div class="profile-view">
   ${headerNavbar("profile")}
   ${settingsTabGroup("profile")}

@@ -1,3 +1,5 @@
+/* eslint-disable max-len*/
+
 "use strict";
 
 const headerNavbar = require("./common/headerNavbar");
@@ -8,7 +10,7 @@ const textarea = require("./common/textarea");
 
 const html = `
 ${menuList("refferalsMenuView")}
-<div class="referrals-view">
+<div class="referrals-view flex-column">
   ${headerNavbar("referrals")}
   <div class="content">
     ${backButtonWithTitle("Send a Referral")}
@@ -26,7 +28,7 @@ ${menuList("refferalsMenuView")}
       })}
       ${textarea({
         label: "Your Message",
-        placeholder: "Type your message",
+        value: "I’ve been using this chrome extension to earn ADB tokens as I browse the web! Download it and check it out!",
         maxlength: 255,
         name: "message",
         rows: 3,
@@ -34,12 +36,12 @@ ${menuList("refferalsMenuView")}
         required: true,
         id: "message"
       })}
-      <button form="referral-form"
-        type="submit" class="main-action-button" id="send-referral-btn">
-        SEND
-      </button>
     </form>
   </div>
+  <button form="referral-form"
+    type="submit" class="main-action-button" id="send-referral-btn">
+    SEND
+  </button>
 </div>
 `;
 

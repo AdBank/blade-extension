@@ -1,18 +1,20 @@
 .referrals-list-container {
 
-  margin: 0 -24px 25px;
-  height: 162px;
+  margin: 0 -24px 12px;
+  height: 170px;
   background-color: rgba(51, 51, 51, 0.5);
+  position: relative;
 
   .referrals-list {
     overflow-y: auto;
     width: 256px;
-    height: 162px;
+    height: 170px;
     padding: 8px 0;
     margin: 0 auto;
     .referrals-list-content {
       overflow-x: hidden;
       .referrals-list-row {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -25,10 +27,15 @@
           font-size: 12px;
           color: #EEEEEE;
           &.email {
+            position: relative;
             width: 87px;
             overflow-x: hidden;
             text-overflow: ellipsis;
-            text-align: center;
+            text-align: left;
+            white-space: nowrap;
+            &:hover + .info-tooltip {
+              display: block;
+            }
           }
 
           &.date {
@@ -41,8 +48,25 @@
           }
         }
 
+        .info-tooltip {
+          display: none;
+          box-sizing: border-box;
+          height: 16px;
+          align-self: center;
+          position: absolute;
+          top: 100%;
+          left: 35px;
+          padding: 0px 3px;
+          color: #000;
+          width: auto;
+          background-color: #eee;
+          &::after {
+            left: 0;
+          }
+        }
+
         i {
-          width: 20px;
+          font-size: 20px;
         }
 
         .red {
@@ -153,6 +177,10 @@
           cursor: pointer;
           &:nth-last-of-type(1) {
             border-bottom: 0;
+          }
+          &:hover {
+            background-color: #d9d9d9;
+            transition: background-color 0.3s linear;
           }
         }
       }

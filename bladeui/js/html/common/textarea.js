@@ -8,7 +8,8 @@ function textarea(props)
   <div class="form-group" id=${props.wrapperId}>
     <label>${props.label}</label>
     <div class="input-wrapper">
-      <textarea id=${props.id} maxlength=${props.maxlength} placeholder=${props.placeholder} name=${props.name} rows=${props.rows} required=${props.required}></textarea>
+      <textarea id=${props.id} maxlength=${props.maxlength}
+      placeholder="${props.placeholder || " "}" name=${props.name} rows=${props.rows} required=${props.required}>${props.value || ""}</textarea>
     </div>
   </div>
   `;

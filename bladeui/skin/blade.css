@@ -53,7 +53,8 @@ button {
   color: #222222;
   font: 700 12px / 16px Montserrat;
   letter-spacing: .2px;
-  cursor: pointer; }
+  cursor: pointer;
+  margin-top: auto; }
   .main-action-button:focus {
     outline: none; }
 
@@ -788,18 +789,20 @@ p.page-description {
       text-transform: uppercase; }
 
 .referrals-list-container {
-  margin: 0 -24px 25px;
-  height: 162px;
-  background-color: rgba(51, 51, 51, 0.5); }
+  margin: 0 -24px 12px;
+  height: 170px;
+  background-color: rgba(51, 51, 51, 0.5);
+  position: relative; }
   .referrals-list-container .referrals-list {
     overflow-y: auto;
     width: 256px;
-    height: 162px;
+    height: 170px;
     padding: 8px 0;
     margin: 0 auto; }
     .referrals-list-container .referrals-list .referrals-list-content {
       overflow-x: hidden; }
       .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -812,17 +815,35 @@ p.page-description {
           font-size: 12px;
           color: #EEEEEE; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.email {
+            position: relative;
             width: 87px;
             overflow-x: hidden;
             text-overflow: ellipsis;
-            text-align: center; }
+            text-align: left;
+            white-space: nowrap; }
+            .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.email:hover + .info-tooltip {
+              display: block; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.date {
             width: 52px;
             text-align: right; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.unit {
             text-transform: uppercase; }
+        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .info-tooltip {
+          display: none;
+          box-sizing: border-box;
+          height: 16px;
+          align-self: center;
+          position: absolute;
+          top: 100%;
+          left: 35px;
+          padding: 0px 3px;
+          color: #000;
+          width: auto;
+          background-color: #eee; }
+          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .info-tooltip::after {
+            left: 0; }
         .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row i {
-          width: 20px; }
+          font-size: 20px; }
         .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .red {
           color: #EC1D25; }
         .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .green {
@@ -907,6 +928,12 @@ p.page-description {
           cursor: pointer; }
           .referrals-list-container .referrals-list .select-container .options-container span:nth-last-of-type(1) {
             border-bottom: 0; }
+          .referrals-list-container .referrals-list .select-container .options-container span:hover {
+            background-color: #d9d9d9;
+            transition: background-color 0.3s linear; }
+
+.referrals-view .form-group:first-of-type {
+  margin-bottom: 47px; }
 
 .referrals-view .form-group .input-field {
   font-size: 12px;
@@ -987,3 +1014,40 @@ p.page-description {
 
 .manual-transfers-view .main-action-button {
   margin-top: auto; }
+
+.sending-request {
+  margin-bottom: 15px; }
+  .sending-request:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    background: transparent;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    animation: bounce 1s infinite ease-in-out;
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); }
+
+@keyframes bounce {
+  0% {
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); }
+  16% {
+    box-shadow: -15px 10px 0 #d9d9d9, 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); }
+  32% {
+    box-shadow: -15px 10px 0 #d9d9d9, 0 10px #d9d9d9, 15px 10px rgba(217, 217, 217, 0); }
+  48% {
+    box-shadow: -15px 10px 0 #d9d9d9, 0 10px #d9d9d9, 15px 10px #d9d9d9; }
+  66% {
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px #d9d9d9, 15px 10px #d9d9d9; }
+  82% {
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px #d9d9d9; }
+  100% {
+    box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); } }
+
+.insert-referral-code-view form {
+  flex-grow: 1;
+  display: flex; }
+  .insert-referral-code-view form .form-group {
+    align-self: center; }
+    .insert-referral-code-view form .form-group .input-field {
+      padding: 14px; }

@@ -114,7 +114,7 @@ class ConfirmSecretPhrase extends BaseClass
     }
     if (userInput === this.originalSecretPhrase)
     {
-      super.handleChangeView("setExternalWallet");
+      super.handleChangeView("referralCode");
     }
     else
     {
