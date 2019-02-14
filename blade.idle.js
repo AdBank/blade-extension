@@ -1,6 +1,6 @@
 "use strict";
 
-/* eslint-disable */
+/* eslint-disable max-len */
 
 const Fingerprint = require("./fingerprint");
 
@@ -81,7 +81,7 @@ function getSelectorsWidth(selectors, data)
   selectors.forEach(selector =>
   {
     let node = document.querySelector(selector);
-    const id= "blade-ext-" + Date.now();
+    const id = "blade-ext-" + Date.now();
     node.id = id;
     if (!node)
     {
@@ -102,8 +102,8 @@ function getSelectorsWidth(selectors, data)
 function insertAdd(selectorId, selectorWidth, data)
 {
   const fp = new Fingerprint().get();
-  const charset = document.charset ? 'charset='+document.charset : (document.characterSet ? 'charset='+document.characterSet : '');
-  const src = `${data.reviveUrl}/www/delivery/blade_controller.php?sel=${selectorId}&blade_id=${data.bladeUserId}&width=${selectorWidth}&finger_print=`+fp+'&loc='+ escape(window.location)+'&'+charset;
+  const charset = document.charset ? "charset=" + document.charset : (document.characterSet ? "charset=" + document.characterSet : "");
+  const src = `${data.reviveUrl}/www/delivery/blade_controller.php?sel=${selectorId}&blade_id=${data.bladeUserId}&width=${selectorWidth}&finger_print=` + fp + "&loc=" + escape(window.location) + "&" + charset;
   const script = document.createElement("script");
   script.src = src;
   document.body.appendChild(script);
