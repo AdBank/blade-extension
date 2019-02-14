@@ -39,30 +39,14 @@ class BaseClass
       else
       {
         this.bearerToken = token;
-        request({
-          method: "get",
-          url: "/jwt/transfer/info",
-          headers: {
-            Authorization: `Bearer ${data.bladeUserData.token}`
-          }
-        })
-        .then(response =>
-        {
-          const res = JSON.parse(response.response);
-          this.transferPossibilityNotification = res.transfer_possibility === "ALLOWED";
-          if (this.transferPossibilityNotification)
-          {
-            this._renderTransferNotification();
-          }
-        })
-        .catch(err => console.error(err));
+        this._renderTransferNotification(this.bearerToken);
       }
     });
   }
 
   initListeners()
   {
-    throw new Error("you mast implement this method");
+    throw new Error("you must implement this method");
   }
 
   _initMenu()
@@ -87,14 +71,30 @@ class BaseClass
     });
   }
 
-  _renderTransferNotification()
+  _renderTransferNotification(token)
   {
-    if (this.burgerButton)
+    if (token)
     {
-      const notification = document.createElement("div");
-      notification.className = "notification-icon";
-      notification.innerHTML = "<i class=\"fa fa-exclamation\"></i>";
-      this.burgerButton.appendChild(notification);
+      request({
+        method: "get",
+        url: "/jwt/transfer/info",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(response =>
+      {
+        const res = JSON.parse(response.response);
+        this.transferPossibilityNotification = res.transfer_possibility === "ALLOWED";
+        if (this.transferPossibilityNotification && this.burgerButton)
+        {
+          const notification = document.createElement("div");
+          notification.className = "notification-icon";
+          notification.innerHTML = "<i class=\"fa fa-exclamation\"></i>";
+          this.burgerButton.appendChild(notification);
+        }
+      })
+      .catch(err => console.error(err));
     }
   }
 
