@@ -172,11 +172,6 @@ function loadPage(page = "getStarted")
       initialView.render(referralCode);
       break;
     }
-    case "transfersListView": {
-      const initialView = new TransfersList({onChangeView});
-      initialView.render(transfersListView);
-      break;
-    }
     case "dashboardMenuView": {
       const initialView = new DashboardView({onChangeView});
       initialView.render(dashboardMenuView);
@@ -192,16 +187,15 @@ function loadPage(page = "getStarted")
     }
   }
 
-  // setViewToStorage(page);
+  setViewToStorage(page);
 }
 
 function renderInitialView()
 {
-  // browser.storage.local.get("bladeCurrentPage").then((view) =>
-  // {
-  //   loadPage(view.bladeCurrentPage);
-  // });
-  loadPage("transfersListView");
+  browser.storage.local.get("bladeCurrentPage").then((view) =>
+  {
+    loadPage(view.bladeCurrentPage);
+  });
 }
 
 function setViewToStorage(view)

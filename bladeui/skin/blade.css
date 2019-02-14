@@ -788,6 +788,7 @@ button {
     .referrals-list-container .referrals-list .referrals-list-content {
       overflow-x: hidden; }
       .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -800,16 +801,33 @@ button {
           font-size: 12px;
           color: #EEEEEE; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.email {
+            position: relative;
             width: 87px;
             overflow-x: hidden;
             text-overflow: ellipsis;
             text-align: left;
             white-space: nowrap; }
+            .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.email:hover + .info-tooltip {
+              display: block; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.date {
             width: 52px;
             text-align: right; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.unit {
             text-transform: uppercase; }
+        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .info-tooltip {
+          display: none;
+          box-sizing: border-box;
+          height: 16px;
+          align-self: center;
+          position: absolute;
+          top: 100%;
+          left: 35px;
+          padding: 0px 3px;
+          color: #000;
+          width: auto;
+          background-color: #eee; }
+          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .info-tooltip::after {
+            left: 0; }
         .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row i {
           font-size: 20px; }
         .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .red {
@@ -1140,3 +1158,10 @@ button {
       font-family: inherit;
       text-decoration: underline;
       cursor: pointer; }
+.insert-referral-code-view form {
+  flex-grow: 1;
+  display: flex; }
+  .insert-referral-code-view form .form-group {
+    align-self: center; }
+    .insert-referral-code-view form .form-group .input-field {
+      padding: 14px; }
