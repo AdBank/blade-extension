@@ -1,6 +1,7 @@
 "use strict";
 
 const URL = "http://ec2-3-81-128-247.compute-1.amazonaws.com:8088";
+const {GENERAL_ERROR} = require("./constants");
 
 function makeRequest(opts)
 {
@@ -25,11 +26,20 @@ function makeRequest(opts)
     };
     xhr.onerror = function()
     {
-      reject({
-        status: this.status,
-        statusText: xhr.statusText,
-        error: JSON.parse(this.response).error
-      });
+      if (this.response)
+      {
+        reject({
+          status: this.status,
+          statusText: xhr.statusText,
+          error: JSON.parse(this.response).error
+        });
+      }
+      else
+      {
+        reject({
+          error: GENERAL_ERROR
+        });
+      }
     };
     xhr.setRequestHeader("Content-Type", "application/json");
     if (opts.headers)
@@ -40,7 +50,16 @@ function makeRequest(opts)
       });
     }
 
-    xhr.send(JSON.stringify(opts.data));
+    try
+    {
+      xhr.send(JSON.stringify(opts.data));
+    }
+    catch (error)
+    {
+      reject({
+        error
+      });
+    }
   }));
 }
 

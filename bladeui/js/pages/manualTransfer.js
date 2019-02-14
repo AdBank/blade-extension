@@ -7,6 +7,7 @@ const request = require("../utils/request");
 const {isAddress} = require("ethereum-address");
 const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH,  MIN_PASSWORD_ERROR,
   MAX_PASSWORD_ERROR,VALID_WALLET_ADDRESS_LENGTH} = require("../utils/constants");
+const loader = require("../html/common/loader");
 
 class ManualTransfer extends BaseClass
 {
@@ -175,6 +176,7 @@ class ManualTransfer extends BaseClass
       this.passwordField.value.length < MAX_PASSWORD_LENGTH)
     {
       this.sendRequest(data);
+      this.sendButton.innerHTML = loader(true);
     }
     else
     {
@@ -186,14 +188,20 @@ class ManualTransfer extends BaseClass
   {
     request({
       method: "post",
-      url: "/jwt/user/wallet",
+      url: "/jwt/transfer",
       data,
       headers: {
         Authorization: `Bearer ${this.bearerToken}`
       }
     })
-    .then(() => {})
-    .catch(errorInfo => this.highlightErrors(null, this.passwordFieldError, errorInfo.error));
+    .then(() => {
+      this.sendButton.innerHTML = loader(true);
+    })
+    .catch(errorInfo => {
+      console.log(errorInfo);
+      this.highlightErrors(this.passwordFieldError, null, errorInfo.error);
+      this.sendButton.innerHTML = "SEND";
+    });
   }
 }
 
