@@ -8,6 +8,7 @@ const formatDate = require("../utils/formatDate");
 const infiniteScrollLoader = require("../html/common/infiniteScrollLoader");
 const tooltip = require("../html/common/tooltipRedExclamation");
 const TRANSFERS_ROW_COUNT = 10;
+const MAXIMUM_FIT_WITHOUT_SCROLL = 4;
 
 class Transfers extends BaseClass
 {
@@ -226,7 +227,7 @@ class Transfers extends BaseClass
     }
     this.hideLoader();
     this.transfersListTarget.appendChild(virtualRowContainer);
-    if (info.length > 4)
+    if (info.length > MAXIMUM_FIT_WITHOUT_SCROLL)
     {
       this.scrollObserver.observe(this.infiniteScrollTrigger);
     }
