@@ -55,7 +55,7 @@ class Transfers extends BaseClass
     .then(response =>
     {
       const res = JSON.parse(response.response);
-      this.renderAccountStats(res.balance, res.earned);
+      this.renderAccountStats(Math.round(res.balance), Math.round(res.earned));
       this.renderControlArea(res.transfer_possibility, Math.ceil(res.threshold));
     })
     .catch((err) => console.error(err));
@@ -161,7 +161,11 @@ class Transfers extends BaseClass
         this.stopScrollObserver();
       }
     })
-    .catch((err) => console.error(err));
+    .catch((err) =>
+    {
+      this.hideLoader();
+      this.stopScrollObserver();
+    });
   }
 
   renderAccountStats(accountBalance, earnedToday)

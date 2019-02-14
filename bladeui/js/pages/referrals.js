@@ -99,7 +99,11 @@ class Referrals extends BaseClass
         this.stopScrollObserver();
       }
     })
-    .catch((err) => console.error(err));
+    .catch((err) =>
+    {
+      this.hideLoader();
+      this.stopScrollObserver();
+    });
   }
 
   renderRewardStats(totalReferred, totalReward)

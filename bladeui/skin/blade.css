@@ -1055,80 +1055,80 @@ p.page-description {
     .insert-referral-code-view form .form-group .input-field {
       padding: 14px; }
 
-.transfers-list-container {
+.transfers-view .transfers-list-container {
   margin: 0 -24px 12px;
   height: 170px;
   background-color: rgba(51, 51, 51, 0.5);
   position: relative; }
-  .transfers-list-container .transfers-list {
+  .transfers-view .transfers-list-container .transfers-list {
     overflow-y: auto;
     width: 256px;
     height: 170px;
     padding: 8px 0;
     margin: 0 auto; }
-    .transfers-list-container .transfers-list .transfers-list-content {
+    .transfers-view .transfers-list-container .transfers-list .transfers-list-content {
       overflow-x: hidden; }
-      .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar {
+      .transfers-view .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar {
         width: 2px;
         border-radius: 1px; }
-      .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar-track {
+      .transfers-view .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar-track {
         background: transparent; }
-      .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar-thumb {
+      .transfers-view .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar-thumb {
         background: #999999; }
-    .transfers-list-container .transfers-list .transfers-list-row {
+    .transfers-view .transfers-list-container .transfers-list .transfers-list-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 16px; }
-      .transfers-list-container .transfers-list .transfers-list-row p {
+      .transfers-view .transfers-list-container .transfers-list .transfers-list-row p {
         margin: 0;
         padding: 0;
         line-height: 18px;
         letter-spacing: 0.2px;
         font-size: 12px;
         color: #EEEEEE; }
-        .transfers-list-container .transfers-list .transfers-list-row p.txhash {
+        .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.txhash {
           width: 87px;
           overflow-x: hidden;
           text-overflow: ellipsis;
           text-align: left;
           white-space: nowrap; }
-          .transfers-list-container .transfers-list .transfers-list-row p.txhash a {
+          .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.txhash a {
             color: #4CC1FC;
             text-decoration: none; }
-        .transfers-list-container .transfers-list .transfers-list-row p.date {
+        .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.date {
           width: 52px;
           text-align: right; }
-        .transfers-list-container .transfers-list .transfers-list-row p.unit {
+        .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.unit {
           text-transform: uppercase; }
-      .transfers-list-container .transfers-list .transfers-list-row i {
+      .transfers-view .transfers-list-container .transfers-list .transfers-list-row i {
         font-size: 20px; }
-    .transfers-list-container .transfers-list .red {
+    .transfers-view .transfers-list-container .transfers-list .red {
       color: #EC1D25; }
-    .transfers-list-container .transfers-list .green {
+    .transfers-view .transfers-list-container .transfers-list .green {
       color: #00CB00; }
-    .transfers-list-container .transfers-list .select-container {
+    .transfers-view .transfers-list-container .transfers-list .select-container {
       position: relative;
       line-height: 16px;
       width: 55px;
       margin-left: 77%;
       cursor: pointer; }
-    .transfers-list-container .transfers-list .select-control-items {
+    .transfers-view .transfers-list-container .transfers-list .select-control-items {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between; }
-      .transfers-list-container .transfers-list .select-control-items p {
+      .transfers-view .transfers-list-container .transfers-list .select-control-items p {
         display: inline-block;
         text-transform: uppercase;
         color: #EEEEEE;
         font-size: 10px;
         line-height: 14px; }
-        .transfers-list-container .transfers-list .select-control-items p span {
+        .transfers-view .transfers-list-container .transfers-list .select-control-items p span {
           width: 11px;
           text-align: right;
           display: inline-block; }
-      .transfers-list-container .transfers-list .select-control-items .button {
+      .transfers-view .transfers-list-container .transfers-list .select-control-items .button {
         width: 16px;
         height: 16px;
         padding: 0;
@@ -1140,12 +1140,12 @@ p.page-description {
         align-items: center;
         justify-content: space-evenly;
         cursor: pointer; }
-        .transfers-list-container .transfers-list .select-control-items .button:focus {
+        .transfers-view .transfers-list-container .transfers-list .select-control-items .button:focus {
           border: none;
           background: inherit;
           color: inherit;
           outline: none; }
-        .transfers-list-container .transfers-list .select-control-items .button:before, .transfers-list-container .transfers-list .select-control-items .button:after {
+        .transfers-view .transfers-list-container .transfers-list .select-control-items .button:before, .transfers-view .transfers-list-container .transfers-list .select-control-items .button:after {
           content: "";
           display: block;
           width: 0;
@@ -1153,9 +1153,9 @@ p.page-description {
           border-left: 3px solid transparent;
           border-right: 3px solid transparent;
           border-bottom: 3px solid #EC1D25; }
-        .transfers-list-container .transfers-list .select-control-items .button:after {
+        .transfers-view .transfers-list-container .transfers-list .select-control-items .button:after {
           transform: rotate(180deg); }
-    .transfers-list-container .transfers-list .options-container {
+    .transfers-view .transfers-list-container .transfers-list .options-container {
       width: 100%;
       border: 1px solid #c4cdd5;
       position: absolute;
@@ -1165,7 +1165,7 @@ p.page-description {
       font-size: 14px;
       text-align: center;
       display: none; }
-      .transfers-list-container .transfers-list .options-container span {
+      .transfers-view .transfers-list-container .transfers-list .options-container span {
         font-family: inherit;
         font-size: inherit;
         color: #4A4A4A;
@@ -1178,60 +1178,61 @@ p.page-description {
         background-color: #ffffff;
         border-bottom: 1px solid #f4f6f8;
         cursor: pointer; }
-        .transfers-list-container .transfers-list .options-container span:nth-last-of-type(1) {
+        .transfers-view .transfers-list-container .transfers-list .options-container span:nth-last-of-type(1) {
           border-bottom: 0; }
-        .transfers-list-container .transfers-list .options-container span:hover {
+        .transfers-view .transfers-list-container .transfers-list .options-container span:hover {
           background-color: #d9d9d9;
           transition: background-color 0.3s linear; }
-  .transfers-list-container .control-transfer-action-area {
-    margin-top: auto;
-    color: #EEEEEE;
-    text-align: center; }
-    .transfers-list-container .control-transfer-action-area .transfers-warning-message {
-      margin: 0;
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 0.2px;
-      line-height: 20px; }
-    .transfers-list-container .control-transfer-action-area .transfers-auto-transfers-warning {
-      margin: 0;
-      font-size: 10px;
-      line-height: 14px; }
-      .transfers-list-container .control-transfer-action-area .transfers-auto-transfers-warning .go-to-settings-btn {
-        color: inherit;
-        font-size: inherit;
-        font-family: inherit;
-        text-decoration: underline;
-        cursor: pointer; }
-    .transfers-list-container .control-transfer-action-area .main-action-button {
-      position: relative; }
-      .transfers-list-container .control-transfer-action-area .main-action-button .info-tooltip {
+
+.transfers-view .control-transfer-action-area {
+  margin-top: auto;
+  color: #EEEEEE;
+  text-align: center; }
+  .transfers-view .control-transfer-action-area .transfers-warning-message {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 20px; }
+  .transfers-view .control-transfer-action-area .transfers-auto-transfers-warning {
+    margin: 0;
+    font-size: 10px;
+    line-height: 14px; }
+    .transfers-view .control-transfer-action-area .transfers-auto-transfers-warning .go-to-settings-btn {
+      color: inherit;
+      font-size: inherit;
+      font-family: inherit;
+      text-decoration: underline;
+      cursor: pointer; }
+  .transfers-view .control-transfer-action-area .main-action-button {
+    position: relative; }
+    .transfers-view .control-transfer-action-area .main-action-button .info-tooltip {
+      position: absolute;
+      top: -19%;
+      right: 0; }
+      .transfers-view .control-transfer-action-area .main-action-button .info-tooltip .notification-icon {
         position: absolute;
-        top: -19%;
-        right: 0; }
-        .transfers-list-container .control-transfer-action-area .main-action-button .info-tooltip .notification-icon {
-          position: absolute;
-          top: -4px;
-          right: -4px;
-          height: 24px;
-          width: 24px;
-          color: #EEEEEE; }
-          .transfers-list-container .control-transfer-action-area .main-action-button .info-tooltip .notification-icon .fa {
-            font-size: 23px;
-            line-height: 23px; }
-        .transfers-list-container .control-transfer-action-area .main-action-button .info-tooltip .text {
-          width: 235px;
-          position: absolute;
-          right: -10px;
-          top: -77px;
-          margin-bottom: 15px;
-          margin-top: 0;
-          text-transform: none; }
-          .transfers-list-container .control-transfer-action-area .main-action-button .info-tooltip .text::after {
-            left: initial;
-            right: 10px;
-            bottom: -10%;
-            border-left: 7px solid transparent;
-            border-right: 7px solid transparent;
-            border-top: 7px solid #EEEEEE;
-            border-bottom: none; }
+        top: -4px;
+        right: -4px;
+        height: 24px;
+        width: 24px;
+        color: #EEEEEE; }
+        .transfers-view .control-transfer-action-area .main-action-button .info-tooltip .notification-icon .fa {
+          font-size: 23px;
+          line-height: 23px; }
+      .transfers-view .control-transfer-action-area .main-action-button .info-tooltip .text {
+        width: 235px;
+        position: absolute;
+        right: -10px;
+        top: -77px;
+        margin-bottom: 15px;
+        margin-top: 0;
+        text-transform: none; }
+        .transfers-view .control-transfer-action-area .main-action-button .info-tooltip .text::after {
+          left: initial;
+          right: 10px;
+          bottom: -10%;
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+          border-top: 7px solid #EEEEEE;
+          border-bottom: none; }
