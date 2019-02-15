@@ -174,6 +174,7 @@ function loadPage(page = "getStarted")
     case "makeManualTransfer": {
       const initialView = new ManualTransfer({onChangeView});
       initialView.render(manualTransfer);
+      break;
     }
     case "referralCode": {
       const initialView = new ReferralCode({onChangeView});
