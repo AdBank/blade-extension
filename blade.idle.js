@@ -1,6 +1,6 @@
 "use strict";
 
-/* eslint-disable max-len */
+/* eslint-disable */
 
 const Fingerprint = require("./fingerprint");
 
@@ -80,21 +80,37 @@ function getSelectorsWidth(selectors, data)
 {
   selectors.forEach(selector =>
   {
+    let selectorToInsert = data.selector;
     let node = document.querySelector(selector);
     const id = "blade-ext-" + Date.now();
-    node.id = id;
+    //node.id = id;
     if (node)
     {
       let nodeWidth = node.clientWidth;
-      while (nodeWidth === 0 && node)
+      let isNodeHidden = !isHidden(node);
+      if (selectorToInsert)
+      while (nodeWidth === 0 && node && !isNodeHidden)
       {
+        console.log("node=", node);
+        if (isHidden(node))
+        {
+          node.setAttribute('style', 'display: block !important;');
+        }
+
         node = node.parentNode;
         nodeWidth = node.clientWidth;
       }
 
+      /* eslint-disable */
+      console.log(nodeWidth);
       insertAdd(id, nodeWidth, data);
     }
   });
+}
+
+function isHidden(el) {
+  var style = window.getComputedStyle(el);
+  return (style.display === 'none')
 }
 
 function insertAdd(selectorId, selectorWidth, data)

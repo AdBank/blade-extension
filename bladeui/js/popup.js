@@ -222,7 +222,7 @@ function loadPage(page = "getStarted")
     }
   }
 
-  setViewToStorage(page);
+  // setViewToStorage(page);
 }
 
 function renderInitialView()
