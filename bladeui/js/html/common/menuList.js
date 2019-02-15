@@ -4,7 +4,7 @@
 
 const checkbox = require("./checkbox");
 
-function menuList(active, withNotification)
+function menuList(active)
 {
   return `
   <div class="menu-wrapper hidden" id="menu-wrapper">
@@ -14,9 +14,7 @@ function menuList(active, withNotification)
       <ul>
         <li data-menu-item="dashboardMenuView" class="${active === "dashboard" && "active"} menu-item"><span>dashboard</span></li>
         <li data-menu-item="transfersListView" class="${active === "transfers" && "active"} menu-item">
-          <span>transfers ${withNotification ?
-            "<div class=\"notification-icon\"><i class=\"fa fa-exclamation\"></i></div>" :
-            ""}</span>
+          <span>transfers<div class="hidden notification-icon" id="transfer-notification"><i class="fa fa-exclamation"></i></div></span>
         </li>
         <li data-menu-item="feedMenuView" class="${active === "feed" && "active"} menu-item"><span>feed</span></li>
         <li data-menu-item="referralsMenuView" class="${active === "referrals" && "active"} menu-item" id="refferals-link"><span>refferals</span></li>
