@@ -46,6 +46,7 @@ class BaseClass
 
   initListeners()
   {
+    // The error is thrown because this method is required to implement in child classes
     throw new Error("you must implement this method");
   }
 
