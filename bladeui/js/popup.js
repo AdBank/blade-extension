@@ -42,7 +42,10 @@ const {
   referralCode,
   dashboardMenuView,
   feedMenuView,
-  transfersListView
+  transfersListView,
+  resetPassword,
+  resetPhrase,
+  resettedPassword
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -66,7 +69,10 @@ const {
   ReferralCode,
   DashboardView,
   FeedView,
-  TransfersList
+  TransfersList,
+  ResetPassword,
+  ResetPhrase,
+  ResettedPassword
 } = require("./pages/index.js");
 
 
@@ -196,6 +202,21 @@ function loadPage(page = "getStarted")
       initialView.render(transfersListView);
       break;
     }
+    case "resetPassword": {
+      const initialView = new ResetPassword({onChangeView});
+      initialView.render(resetPassword);
+      break;
+    }
+    case "resetPhrase": {
+      const initialView = new ResetPhrase({onChangeView});
+      initialView.render(resetPhrase);
+      break;
+    }
+    case "resettedPassword": {
+      const initialView = new ResettedPassword({onChangeView});
+      initialView.render(resettedPassword);
+      break;
+    }
     default: {
       console.error(`Page '${page}' is not declared`);
     }
@@ -210,6 +231,7 @@ function renderInitialView()
   {
     loadPage(view.bladeCurrentPage);
   });
+ // loadPage("profile");
 }
 
 function setViewToStorage(view)

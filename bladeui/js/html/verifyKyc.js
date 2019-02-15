@@ -11,7 +11,7 @@ const html = `
   transfer your ADB rewards to your external wallet. 
   Please note that you can still earn the ADB rewards 
   until the verification is complete.`)}
-  <button data-href="http://ec2-18-223-111-55.us-east-2.compute.amazonaws.com/bladeKYC/" class="main-action-button verify-kyc-button" id="kyc-button">
+  <button class="main-action-button verify-kyc-button" id="kyc-button">
     <i class="icon-user-unfollow"></i>
     VERIFY YOUR IDENTIY NOW
   </button>

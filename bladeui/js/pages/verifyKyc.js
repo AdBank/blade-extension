@@ -1,6 +1,7 @@
 "use strict";
 
 const BaseClass = require("./baseClass");
+const {KYC_LINK} = require("../utils/constants");
 
 class VerifyKyc extends BaseClass
 {
@@ -20,11 +21,9 @@ class VerifyKyc extends BaseClass
 
   handleKycClicked(e)
   {
-    const href = this.kycButton.getAttribute("data-href");
-
     browser.storage.sync.get(null, (data) =>
     {
-      browser.tabs.create({url: href + data.bladeUserData.userCode});
+      browser.tabs.create({url: KYC_LINK + data.bladeUserData.userCode});
     });
   }
 
