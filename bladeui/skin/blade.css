@@ -1310,3 +1310,50 @@ p.page-description {
 .transfers-view .create-wallet-form .form-group .input-field:placeholder-shown {
   font-size: 12px;
   font-weight: 400; }
+
+.profile-view .kyc-status {
+  margin-bottom: 24px; }
+  .profile-view .kyc-status i {
+    font-size: 20px; }
+  .profile-view .kyc-status span {
+    margin-left: 12px; }
+
+.profile-view .group {
+  margin-bottom: 6px; }
+
+.profile-view .kyc-button {
+  height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #FFFFFF;
+  font: 700 12px / 16px Montserrat;
+  letter-spacing: .2px; }
+
+.profile-view .kyc-accepted {
+  background-color: #336699; }
+
+.profile-view .kyc-default, .profile-view .kyc-failed {
+  background-color: #EC1D25; }
+
+.profile-view .kyc-pending {
+  background-color: #F9A937; }
+
+.profile-view .form-info .label {
+  color: #FFFFFF;
+  font: 700 12px / 16px Montserrat;
+  letter-spacing: .2px;
+  margin-bottom: 14px; }
+
+.profile-view .form-info .value {
+  color: #4CC1FC;
+  font: 400 14px / 20px	Montserrat; }
+
+.profile-view .small-under-button {
+  margin-top: 12px;
+  color: #FFFFFF;
+  font: 10px / 14px Montserrat;
+  text-align: right;
+  text-decoration: underline; }
