@@ -3,6 +3,7 @@
 /* eslint-disable max-len, no-console */
 
 const {isPageWhitelisted} = require("../popup.utils.js");
+const request = require("../utils/request");
 const PAGES_ALLOWED_FOR_UNREGISTERED = [
   "getStarted",
   "termsAndConditions",
@@ -16,17 +17,17 @@ class BaseClass
   {
     this.wrapper = document.getElementById("main-app-wrapper");
     this.emitViewChange = onChangeView;
-    // browser.storage.local.get(null, (data) =>
-    // {
-    //   const page = data.bladeCurrentPage;
-    //   if (!PAGES_ALLOWED_FOR_UNREGISTERED.includes(page))
-    //   {
-    //     this.checkUserHasToken();
-    //   }
-    // });
+    browser.storage.local.get(null, (data) =>
+    {
+      const page = data.bladeCurrentPage;
+      if (!PAGES_ALLOWED_FOR_UNREGISTERED.includes(page))
+      {
+        this._checkUserHasToken();
+      }
+    });
   }
 
-  checkUserHasToken()
+  _checkUserHasToken()
   {
     browser.storage.sync.get(null, (data) =>
     {
@@ -35,37 +36,70 @@ class BaseClass
       {
         this.handleChangeView(FIRST_PAGE);
       }
+      else
+      {
+        this.bearerToken = token;
+        this._renderTransferNotification(this.bearerToken);
+      }
     });
   }
 
   initListeners()
   {
-
+    // The error is thrown because this method is required to implement in child classes
+    throw new Error("you must implement this method");
   }
 
-  initMenu()
+  _initMenu()
   {
     this.menuWrapper = document.getElementById("menu-wrapper");
-    const burgerButton = document.getElementById("burger-button");
+    this.burgerButton = document.getElementById("burger-button");
     const closeButton = document.getElementById("close");
     const settingsTabs = document.getElementById("settings-tabs");
     const menuList = document.getElementById("menu-list");
 
-    burgerButton && burgerButton.addEventListener("click", this.handleClickOnBurger.bind(this));
-    closeButton && closeButton.addEventListener("click", this.handleClose.bind(this));
-    settingsTabs && settingsTabs.addEventListener("click", this.handleSettingsTabClick.bind(this));
-    menuList && menuList.addEventListener("click", this.handleGoToMenuView.bind(this));
+    this.burgerButton && this.burgerButton.addEventListener("click", this._handleClickOnBurger.bind(this));
+    closeButton && closeButton.addEventListener("click", this._handleClose.bind(this));
+    settingsTabs && settingsTabs.addEventListener("click", this._handleSettingsTabClick.bind(this));
+    menuList && menuList.addEventListener("click", this._handleGoToMenuView.bind(this));
 
-    // browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
-    // {
-    //   if (menuList)
-    //   {
-    //     this.initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
-    //   }
-    // });
+    browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
+    {
+      if (menuList)
+      {
+        this._initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
+      }
+    });
   }
 
-  initToggleOnOff(tab)
+  _renderTransferNotification(token)
+  {
+    if (token)
+    {
+      request({
+        method: "get",
+        url: "/jwt/transfer/info",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(response =>
+      {
+        const res = JSON.parse(response.response);
+        this.transferPossibilityNotification = res.transfer_possibility === "ALLOWED";
+        if (this.transferPossibilityNotification && this.burgerButton)
+        {
+          const notification = document.createElement("div");
+          notification.className = "notification-icon";
+          notification.innerHTML = "<i class=\"fa fa-exclamation\"></i>";
+          this.burgerButton.appendChild(notification);
+        }
+      })
+      .catch(err => console.error(err));
+    }
+  }
+
+  _initToggleOnOff(tab)
   {
     this.toggler = document.getElementById("checkbox");
 
@@ -96,7 +130,7 @@ class BaseClass
     });
   }
 
-  handleGoToMenuView(e)
+  _handleGoToMenuView(e)
   {
     if (!e.target.classList.contains("menu-item") && !e.target.parentNode.classList.contains("menu-item"))
     {
@@ -108,7 +142,7 @@ class BaseClass
     this.handleChangeView(menuItemClicked);
   }
 
-  handleSettingsTabClick(e)
+  _handleSettingsTabClick(e)
   {
     if (!e.target.classList.contains("tab-item"))
     {
@@ -120,12 +154,17 @@ class BaseClass
     this.handleChangeView(itemClicked);
   }
 
-  handleClickOnBurger()
+  _handleClickOnBurger()
   {
     this.menuWrapper.classList.remove("hidden");
+    if (this.transferPossibilityNotification)
+    {
+      const transferNotificationMark = document.getElementById("transfer-notification");
+      transferNotificationMark.classList.remove("hidden");
+    }
   }
 
-  handleClose()
+  _handleClose()
   {
     this.menuWrapper.classList.add("hidden");
   }
@@ -139,7 +178,7 @@ class BaseClass
   {
     this.wrapper.insertAdjacentHTML("beforeend", html);
     this.initListeners();
-    this.initMenu();
+    this._initMenu();
   }
 }
 
