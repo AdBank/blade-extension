@@ -9,6 +9,7 @@ const infiniteScrollLoader = require("../html/common/infiniteScrollLoader");
 const tooltip = require("../html/common/tooltipRedExclamation");
 const TRANSFERS_ROW_COUNT = 10;
 const MAXIMUM_FIT_WITHOUT_SCROLL = 4;
+const THRESHOLD = 1000;
 
 class Transfers extends BaseClass
 {
@@ -56,7 +57,19 @@ class Transfers extends BaseClass
     {
       const res = JSON.parse(response.response);
       this.renderAccountStats(Math.round(res.balance), Math.round(res.earned));
-      this.renderControlArea(res.transfer_possibility, Math.ceil(res.threshold));
+      request({
+        method: "get",
+        url: "/jwt/transfer/threshold",
+        headers: {
+          Authorization: `Bearer ${this.bearerToken}`
+        }
+      })
+      .then(answer =>
+      {
+        const result = JSON.parse(answer.response);
+        this.renderControlArea(res.transfer_possibility, Math.ceil(result.threshold));
+      })
+      .catch(() => this.renderControlArea(res.transfer_possibility, THRESHOLD));
     })
     .catch((err) => console.error(err));
   }
@@ -65,7 +78,7 @@ class Transfers extends BaseClass
   {
     if (status === "ALLOWED")
    {
-      this.renderMakeTransferButton();
+      this.renderMakeTransferButton(threshold);
     }
     else if (status === "FORBIDDEN_BY_KYC" || status === "FORBIDDEN_BY_BALANCE")
    {
@@ -96,12 +109,12 @@ class Transfers extends BaseClass
     this.transferActionArea.appendChild(message);
   }
 
-  renderMakeTransferButton()
+  renderMakeTransferButton(threshold)
   {
     const button = document.createElement("button");
     button.className = "main-action-button";
     button.id = "go-to-manual-transfer-btn";
-    button.innerHTML = `<span>MAKE A TRANSFER</span>${tooltip("Congrats! You’ve earned over 1000 ADB meaning your account is eligible to make a transfer to an external wallet address of your choosing!")}`;
+    button.innerHTML = `<span>MAKE A TRANSFER</span>${tooltip(`Congrats! You’ve earned over ${threshold} ADB meaning your account is eligible to make a transfer to an external wallet address of your choosing!`)}`;
     this.transferActionArea.appendChild(button);
     const linkBnt = document.getElementById("go-to-manual-transfer-btn");
     if (linkBnt)

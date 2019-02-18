@@ -1,0 +1,94 @@
+.transfers-view {
+  .content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .main-action-button {
+      display: none;
+    }
+  }
+
+  .wallet-info-title {
+    margin: 0;
+    color: #EEEEEE;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 16px;
+  }
+
+  .wallet-info-address-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    p {
+      margin: 0;
+      width: 213px;
+      color: #4CC1FC;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    i {
+      width: 24px;
+      color: #FFFFFF;
+      font-size: 18px;
+      letter-spacing: 0.26px;
+      line-height: 18px;
+    }
+  }
+
+  .enable-automatic-transfers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    .info-tooltip .text {
+      width: 232px;
+      right: -65px;
+      &::after {
+        left: 66%;
+      }
+    }
+
+    .enable-automatic-transfers-text {
+      color: #EEEEEE;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      line-height: 16px;
+    }
+  }
+
+
+  .create-wallet-form {
+    .form-group {
+      &:first-child .input-wrapper input {
+        color: #336699;
+      }
+
+      .input-field {
+        &[type=password]::placeholder,
+        &:placeholder-shown  {
+          font: 400 12px / 34px 'Montserrat';
+        }
+
+        &[type=text] {
+          font-size: 12px;
+          font-weight: 500;
+        }
+
+        &:placeholder-shown {
+          line-height: 1;
+        }
+      }
+    }
+  }
+}

@@ -455,6 +455,10 @@ button {
   .menu-list {
     margin: auto 0;
 
+    .hidden {
+      display: none;
+    }
+
     li {
       position: relative;
       color: #EEEEEE;
