@@ -18,13 +18,9 @@ ${menuList("settings")}
     <div class="form-info">
       <div class="group">
         <p class="label">Account Number</p>
-        <p class="value">1238fdjwjf0w3e3dw4w4wg4ffesdf</p>
+        <p class="value" id="user-id"></p>
         <p class="small-under-button" style="display: none">View Global Dash</p>
       </div>
-      <div class="group">
-        <p class="label">Account Number</p>
-        <p class="view">1238fdjwjf0w3e3dw4w4wg4ffesdf</p>
-    </div>
     </div>
   </div>
   <button id="reset-password-button" class="main-action-button">RECOVER PASSWORD</button>

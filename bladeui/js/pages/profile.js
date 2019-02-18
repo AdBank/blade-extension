@@ -18,6 +18,7 @@ class Profile extends BaseClass
   {
     this.kycStatus = document.getElementById("kyc-status");
     this.resetPasswordButton = document.getElementById("reset-password-button");
+    this.userIdField = document.getElementById("user-id");
 
     browser.storage.sync.get(null, (data) =>
     {
@@ -25,9 +26,15 @@ class Profile extends BaseClass
       this.token = data.bladeUserData.token;
 
       this.kycStatus.addEventListener("click", this.openKyc.bind(this));
+      this.insertUserId();
       this.getData();
     });
     this.resetPasswordButton.addEventListener("click", this.handleOpenRecovering.bind(this));
+  }
+
+  insertUserId()
+  {
+    this.userIdField.innerHTML = this.userId;
   }
 
   openKyc()

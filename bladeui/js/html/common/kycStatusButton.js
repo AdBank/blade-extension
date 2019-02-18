@@ -1,28 +1,29 @@
 "use strict";
 
+/* eslint-disable max-len */
+
+function generateButtonTemplate(classname, text, iconClassname)
+{
+  return `<button class="kyc-button ${classname}">
+    <i class="${iconClassname}"></i><span>${text}</span>
+    </button>`;
+}
+
 function generateKycButton(status)
 {
   if (status === "VERIFIED")
   {
-    return `<button class="kyc-button kyc-accepted">
-    <i class="icon-user-follow"></i><span>VERIFIED</span>
-    </button>`;
+    return generateButtonTemplate("kyc-accepted", "VERIFIED", "icon-user-follow");
   }
   else if (status === "PENDING")
   {
-    return `<button class="kyc-button kyc-pending">
-      <i class="icon-clock"></i><span>VERIFICATION IN PROGRESS</span>
-    </button>`;
+    return generateButtonTemplate("kyc-pending", "VERIFICATION IN PROGRESS", "icon-clock");
   }
   else if (status === "FAILED")
   {
-    return `<button class="kyc-button kyc-failed">
-      <i class="fa fa-exclamation"></i><span>VERIFICATION FAILED</span>
-    </button>`;
+    return generateButtonTemplate("kyc-failed", "VERIFICATION FAILED", "fa fa-exclamation");
   }
-  return `<button class="kyc-button kyc-default">
-    <i class="icon-user-unfollow"></i><span>VERIFY YOUR IDENTIY NOW</span>
-  </button>`;
+  return generateButtonTemplate("kyc-default", "VERIFY YOUR IDENTIY NOW", "icon-user-unfollow");
 }
 
 module.exports = generateKycButton;
