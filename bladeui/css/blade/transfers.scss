@@ -8,42 +8,87 @@
       display: none;
     }
   }
-}
 
-.create-wallet-form {
-  .form-group .input-field[type=password]::placeholder {
-    font-size: 12px;
-    line-height: 34px;
+  .wallet-info-title {
+    margin: 0;
+    color: #EEEEEE;
     font-family: "Montserrat";
-  }
-  .form-group .input-field[type=text] {
     font-size: 12px;
-    font-weight: 500;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 16px;
   }
-  .form-group .input-field:placeholder-shown {
-    font-size: 12px;
-    font-weight: 400;
-  }
-}
 
-.enable-automatic-transfers {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 28px;
-  .info-tooltip .text {
-    width: 232px;
-    right: -65px;
-    &::after {
-      left: 66%;
+  .wallet-info-address-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    p {
+      margin: 0;
+      width: 213px;
+      color: #4CC1FC;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    i {
+      width: 24px;
+      color: #FFFFFF;
+      font-size: 18px;
+      letter-spacing: 0.26px;
+      line-height: 18px;
     }
   }
-}
 
-.enable-automatic-transfers-text {
-  color: #EEEEEE;
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 0.2px;
-  line-height: 16px;
+  .enable-automatic-transfers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    .info-tooltip .text {
+      width: 232px;
+      right: -65px;
+      &::after {
+        left: 66%;
+      }
+    }
+
+    .enable-automatic-transfers-text {
+      color: #EEEEEE;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      line-height: 16px;
+    }
+  }
+
+
+  .create-wallet-form {
+    .form-group {
+      &:first-child > .input-wrapper > input {
+        color: #336699;
+      }
+
+      .input-field[type=password]::placeholder {
+        font-size: 12px;
+        line-height: 34px;
+        font-family: "Montserrat";
+      }
+
+      .input-field[type=text] {
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .input-field:placeholder-shown {
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+  }
 }

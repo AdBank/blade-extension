@@ -4,7 +4,7 @@
 
 const input = require("./input");
 
-function walletCreationForm()
+function walletCreationForm(wallet)
 {
   return `
     <form class="create-wallet-form">
@@ -17,11 +17,13 @@ function walletCreationForm()
           iconId: "",
           errorId: "public-wallet-error",
           required: true,
-          placeholder: "Verify, transfers can’t be undone"
+          placeholder: "Verify, transfers can’t be undone",
+          value: wallet
         }
       })}
       ${input({
-        label: "Blade Password",
+        label: "Password",
+        wrapperId: "password",
         input: {
           type: "password",
           id: "start-password",

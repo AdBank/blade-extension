@@ -347,6 +347,8 @@ button {
       letter-spacing: .2px; }
   .menu-wrapper .menu-list {
     margin: auto 0; }
+    .menu-wrapper .menu-list .hidden {
+      display: none; }
     .menu-wrapper .menu-list li {
       position: relative;
       color: #EEEEEE;
@@ -1245,33 +1247,66 @@ p.page-description {
   .transfers-view .content .main-action-button {
     display: none; }
 
-.create-wallet-form .form-group .input-field[type=password]::placeholder {
-  font-size: 12px;
-  line-height: 34px;
-  font-family: "Montserrat"; }
-
-.create-wallet-form .form-group .input-field[type=text] {
-  font-size: 12px;
-  font-weight: 500; }
-
-.create-wallet-form .form-group .input-field:placeholder-shown {
-  font-size: 12px;
-  font-weight: 400; }
-
-.enable-automatic-transfers {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 28px; }
-  .enable-automatic-transfers .info-tooltip .text {
-    width: 232px;
-    right: -65px; }
-    .enable-automatic-transfers .info-tooltip .text::after {
-      left: 66%; }
-
-.enable-automatic-transfers-text {
+.transfers-view .wallet-info-title {
+  margin: 0;
   color: #EEEEEE;
+  font-family: "Montserrat";
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0.2px;
   line-height: 16px; }
+
+.transfers-view .wallet-info-address-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px; }
+  .transfers-view .wallet-info-address-holder p {
+    margin: 0;
+    width: 213px;
+    color: #4CC1FC;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .transfers-view .wallet-info-address-holder i {
+    width: 24px;
+    color: #FFFFFF;
+    font-size: 18px;
+    letter-spacing: 0.26px;
+    line-height: 18px; }
+
+.transfers-view .enable-automatic-transfers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px; }
+  .transfers-view .enable-automatic-transfers .info-tooltip .text {
+    width: 232px;
+    right: -65px; }
+    .transfers-view .enable-automatic-transfers .info-tooltip .text::after {
+      left: 66%; }
+  .transfers-view .enable-automatic-transfers .enable-automatic-transfers-text {
+    color: #EEEEEE;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 16px; }
+
+.transfers-view .create-wallet-form .form-group:first-child > .input-wrapper > input {
+  color: #336699; }
+
+.transfers-view .create-wallet-form .form-group .input-field[type=password]::placeholder {
+  font-size: 12px;
+  line-height: 34px;
+  font-family: "Montserrat"; }
+
+.transfers-view .create-wallet-form .form-group .input-field[type=text] {
+  font-size: 12px;
+  font-weight: 500; }
+
+.transfers-view .create-wallet-form .form-group .input-field:placeholder-shown {
+  font-size: 12px;
+  font-weight: 400; }

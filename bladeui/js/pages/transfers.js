@@ -1,6 +1,6 @@
 "use strict";
 
-/* eslint-disable max-len*/
+/* eslint-disable max-len, no-console*/
 
 const BaseClass = require("./baseClass");
 const request = require("../utils/request");
@@ -9,25 +9,42 @@ const walletCreationForm = require("../html/common/walletCreationForm.js");
 const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_ERROR,
   MAX_PASSWORD_ERROR, VALID_WALLET_ADDRESS_LENGTH} = require("../utils/constants");
 const loader = require("../html/common/loader");
+const walletInfo = require("../html/common/walletInfo.js");
+const WAIT_BEFORE_REDIRECT = 2000;
 
 class Transfers extends BaseClass
 {
   constructor(props)
   {
     super(props);
-    this.startWalletAddress = "";
+    this.walletAddress = "";
   }
 
   initListeners()
   {
     this.automaticTransfers = document.getElementById("enable-automatic-transfers");
+    this.thresholdAmount = document.getElementById("threshold-amount");
     this.walletArea = document.getElementById("wallet-action-area");
     this.saveButton = document.getElementById("save-wallet");
     browser.storage.sync.get("bladeUserData", (data) =>
     {
       this.bearerToken = data.bladeUserData.token;
       this.checkAutomaticTransferStatus();
+      request({
+        method: "get",
+        url: "/jwt/transfer/threshold",
+        headers: {
+          Authorization: `Bearer ${this.bearerToken}`
+        }
+      })
+      .then(response =>
+      {
+        const res = JSON.parse(response.response);
+        this.thresholdAmount.innerText = Math.ceil(res.threshold) + " ADB";
+      })
+      .catch(() => this.thresholdAmount.innerText = "1000 ADB");
     });
+    this.saveButton && this.saveButton.addEventListener("click", this.handleSaveButton.bind(this));
   }
 
   checkAutomaticTransferStatus()
@@ -44,7 +61,7 @@ class Transfers extends BaseClass
       const res = JSON.parse(response.response);
       this.renderAutomaticTransferControl(res.auto_transfer, res.wallet_address);
       this.autoTransfer = res.auto_transfer;
-      this.startWalletAddress = res.wallet_address ? res.wallet_address : "";
+      this.walletAddress = res.wallet_address ? res.wallet_address : "";
     })
     .catch(err => console.error(err));
   }
@@ -54,9 +71,9 @@ class Transfers extends BaseClass
     /* later will be changed, after move menu to different page cos now it also contains this switcher, so I had do duplicate this element with another id */
     this.enablerAutoTransfer = document.getElementById("switcher");
     this.enablerAutoTransfer && this.enablerAutoTransfer.addEventListener("change", this.handleSwitchAutoTransfer.bind(this));
-    if (status) { this.enablerAutoTransfer.checked = true; }
     if (status)
     {
+      this.enablerAutoTransfer.checked = true;
       this.renderWalletContent(wallet);
     }
     else
@@ -69,8 +86,6 @@ class Transfers extends BaseClass
   {
     if (wallet)
     {
-      this.saveButton.innerHTML = "EDIT WALLET";
-      this.saveButton.addEventListener("click", this.handleEditButton.bind(this));
       this.renderSavedWallet(wallet);
     }
     else
@@ -81,14 +96,15 @@ class Transfers extends BaseClass
 
   renderSavedWallet(wallet)
   {
-    /* here will be implemented a method for representstion
-      users wallet address, needed component will be pasted with this.walletArea.innerHTML*/
+    this.saveButton.innerHTML = "EDIT WALLET";
+    this.showButton(true);
+    this.walletArea.innerHTML = walletInfo(wallet);
   }
 
   handleEditButton()
   {
-    /* here will be implemented a method for edit wallet
-      should be another data object for sending request */
+    this.saveButton.innerHTML = "SAVE WALLET";
+    this.renderWalletCreateForm(this.walletAddress);
   }
 
   clearWalletArea()
@@ -100,9 +116,9 @@ class Transfers extends BaseClass
     this.showButton(false);
   }
 
-  renderWalletCreateForm()
+  renderWalletCreateForm(wallet)
   {
-    this.walletArea.innerHTML = walletCreationForm();
+    this.walletArea.innerHTML = walletCreationForm(wallet);
     const passwordEye = document.getElementById("password-eye");
     this.passwordField = document.getElementById("start-password");
     this.passwordFieldError = document.getElementById("password-error");
@@ -110,14 +126,15 @@ class Transfers extends BaseClass
     this.startWalletField = document.getElementById("public-wallet-address");
     this.startWalletErrorField = document.getElementById("public-wallet-error");
 
-    this.startWalletField && this.startWalletField.addEventListener("change", this.handleWalletInputChange.bind(this));
-    this.startWalletField && this.startWalletField.addEventListener("focus", this.handleWalletInputFocus.bind(this));
-    this.startWalletField && this.startWalletField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
+    if (this.startWalletField)
+    {
+      this.startWalletField.addEventListener("change", this.handleWalletInputChange.bind(this));
+      this.startWalletField.addEventListener("focus", this.handleWalletInputFocus.bind(this));
+      this.startWalletField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
+    }
 
     passwordEye && passwordEye.addEventListener("click", this.handleShowHidePassword.bind(this));
     this.passwordField && this.passwordField.addEventListener("change", this.handlePasswordFieldChange.bind(this));
-
-    this.saveButton && this.saveButton.addEventListener("click", this.handleSaveButton.bind(this));
   }
 
   unhighlightErrors(inputField, errorField)
@@ -140,7 +157,7 @@ class Transfers extends BaseClass
 
   handleWalletInputFocus(e)
   {
-    e.target.value = this.startWalletAddress;
+    e.target.value = this.walletAddress;
   }
 
   checkWallet(walletField, walletAddress, walletErrorField)
@@ -158,11 +175,11 @@ class Transfers extends BaseClass
 
   handleWalletInputChange(e)
   {
-    this.startWalletAddress = e.target.value;
+    this.walletAddress = e.target.value;
 
     this.unhighlightErrors(e.target, this.startWalletErrorField);
 
-    this.checkWallet(e.target, this.startWalletAddress, this.startWalletErrorField);
+    this.checkWallet(e.target, this.walletAddress, this.startWalletErrorField);
   }
 
   handleWalletInputBlur(e)
@@ -208,27 +225,27 @@ class Transfers extends BaseClass
     }
   }
 
-  disableSaveButton()
+  switchSaveButton(status)
   {
-    this.saveButton.disabled = true;
-  }
-
-  enableSaveButton()
-  {
-    this.saveButton.disabled = false;
+    this.saveButton.disabled = status;
   }
 
   handleSaveButton()
   {
-    this.disableSaveButton();
+    if (this.saveButton.innerText === "EDIT WALLET")
+    {
+      this.handleEditButton();
+      return true;
+    }
+    this.switchSaveButton(true);
     this.saveButton.classList.remove("disabled");
     const data = {
-      user_wallet: this.startWalletAddress,
+      user_wallet: this.walletAddress,
       password: this.passwordField.value,
       auto_transfer: this.autoTransfer
     };
 
-    if (isAddress(this.startWalletAddress) &&
+    if (isAddress(this.walletAddress) &&
       this.passwordField.value.length >= MIN_PASSWORD_LENGTH &&
       this.passwordField.value.length < MAX_PASSWORD_LENGTH)
     {
@@ -237,7 +254,7 @@ class Transfers extends BaseClass
     else
     {
       this.highlightErrors();
-      this.enableSaveButton();
+      this.switchSaveButton(false);
     }
   }
 
@@ -255,30 +272,49 @@ class Transfers extends BaseClass
     })
     .then(() =>
     {
-      this.enableSaveButton();
+      this.switchSaveButton(false);
       this.saveButton.innerHTML = loader(false);
-      setTimeout(() => this.renderSavedWallet(this.startWalletAddress), 2000);
+      const passwordNontainer = document.getElementById("password");
+      passwordNontainer.remove();
+      setTimeout(() => this.renderSavedWallet(this.walletAddress), WAIT_BEFORE_REDIRECT);
     })
     .catch(errorInfo =>
     {
       this.highlightErrors(this.passwordFieldError, null, errorInfo.error);
       this.saveButton.innerHTML = previousButtonContent;
-      this.enableSaveButton();
+      this.switchSaveButton(false);
     });
   }
 
   handleSwitchAutoTransfer(e)
   {
     this.autoTransfer = e.target.checked;
-    if (e.target.checked && !this.wallet)
+    if (this.autoTransfer && !this.walletAddress)
     {
       this.renderWalletCreateForm();
       this.showButton(true);
     }
+    else if (this.autoTransfer && this.walletAddress)
+    {
+      this.renderSavedWallet(this.walletAddress);
+      this.showButton(true);
+    }
     else
     {
-      this.clearWalletArea();
-      this.showButton(false);
+      request({
+        method: "put",
+        url: "/jwt/user/settings",
+        data: {auto_transfer: false},
+        headers: {
+          Authorization: `Bearer ${this.bearerToken}`
+        }
+      })
+      .then(() =>
+      {
+        this.clearWalletArea();
+        this.showButton(false);
+      })
+      .catch(errorInfo => console.log(errorInfo));
     }
   }
 
