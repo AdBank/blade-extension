@@ -222,7 +222,7 @@ function loadPage(page = "getStarted")
     }
   }
 
-  // setViewToStorage(page);
+  setViewToStorage(page);
 }
 
 function renderInitialView()
@@ -231,7 +231,6 @@ function renderInitialView()
   {
     loadPage(view.bladeCurrentPage);
   });
- // loadPage("profile");
 }
 
 function setViewToStorage(view)

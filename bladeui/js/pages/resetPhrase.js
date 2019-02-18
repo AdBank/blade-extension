@@ -19,10 +19,7 @@ class ResetPhrase extends BaseClass
     const backButton = document.getElementById("back-button");
     this.mainActionButton = document.getElementById("main-action-button");
     this.phraseTextarea = document.getElementById("phrase-textarea");
-    const mainAppWrapper = document.getElementById("main-app-wrapper");
     this.error = document.getElementById("error");
-
-    mainAppWrapper.classList.remove("custom-bg");
 
     backButton.addEventListener("click", this.handleOpenPreviousView.bind(this));
     this.mainActionButton.addEventListener("click", this.handleSubmit.bind(this));

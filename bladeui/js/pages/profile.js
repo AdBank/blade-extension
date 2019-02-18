@@ -1,6 +1,6 @@
 "use strict";
 
-/*eslint-disable */
+/* eslint-disable max-len */
 
 const BaseClass = require("./baseClass");
 const {KYC_LINK} = require("../utils/constants");
@@ -44,14 +44,15 @@ class Profile extends BaseClass
         Authorization: "Bearer " + this.token
       }
     })
-    .then((data) => 
+    .then((data) =>
     {
       const button = kycStatusButton(data.status);
       this.kycStatus.insertAdjacentHTML("beforeend", button);
     })
-    .catch((error) => {
-      console.error(error)
-    })
+    .catch((error) =>
+    {
+      console.error(error);
+    });
   }
 
   handleOpenRecovering()
