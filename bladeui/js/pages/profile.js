@@ -53,7 +53,8 @@ class Profile extends BaseClass
     })
     .then((data) =>
     {
-      const button = kycStatusButton(data.status);
+      const res = JSON.parse(data.response);
+      const button = kycStatusButton(res.status);
       this.kycStatus.insertAdjacentHTML("beforeend", button);
     })
     .catch((error) =>
