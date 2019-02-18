@@ -1295,21 +1295,18 @@ p.page-description {
     letter-spacing: 0.2px;
     line-height: 16px; }
 
-.transfers-view .create-wallet-form .form-group:first-child > .input-wrapper > input {
+.transfers-view .create-wallet-form .form-group:first-child .input-wrapper input {
   color: #336699; }
 
-.transfers-view .create-wallet-form .form-group .input-field[type=password]::placeholder {
-  font-size: 12px;
-  line-height: 34px;
-  font-family: "Montserrat"; }
+.transfers-view .create-wallet-form .form-group .input-field[type=password]::placeholder, .transfers-view .create-wallet-form .form-group .input-field:placeholder-shown {
+  font: 400 12px / 34px 'Montserrat'; }
 
 .transfers-view .create-wallet-form .form-group .input-field[type=text] {
   font-size: 12px;
   font-weight: 500; }
 
 .transfers-view .create-wallet-form .form-group .input-field:placeholder-shown {
-  font-size: 12px;
-  font-weight: 400; }
+  line-height: 1; }
 
 .profile-view .kyc-status {
   margin-bottom: 24px; }

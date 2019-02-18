@@ -70,24 +70,24 @@
 
   .create-wallet-form {
     .form-group {
-      &:first-child > .input-wrapper > input {
+      &:first-child .input-wrapper input {
         color: #336699;
       }
 
-      .input-field[type=password]::placeholder {
-        font-size: 12px;
-        line-height: 34px;
-        font-family: "Montserrat";
-      }
+      .input-field {
+        &[type=password]::placeholder,
+        &:placeholder-shown  {
+          font: 400 12px / 34px 'Montserrat';
+        }
 
-      .input-field[type=text] {
-        font-size: 12px;
-        font-weight: 500;
-      }
+        &[type=text] {
+          font-size: 12px;
+          font-weight: 500;
+        }
 
-      .input-field:placeholder-shown {
-        font-size: 12px;
-        font-weight: 400;
+        &:placeholder-shown {
+          line-height: 1;
+        }
       }
     }
   }
