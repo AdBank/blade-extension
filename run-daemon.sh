@@ -2,13 +2,14 @@
 
 STRING_MATCHER_START="URL = \""
 STRING_MATCHER_END="\";"
-PROD_URL="Here will be production url"
+PROD_URL=$1
 PATH_TO_FILE_WITH_URL="./bladeui/js/utils/request.js"
 
 docker run -it -d --name blade blade
 
-# comment until production url provided
-# docker exec blade sed -i 's|'"$STRING_MATCHER_START"'.*'"$STRING_MATCHER_END"'|'"$STRING_MATCHER_START$PROD_URL$STRING_MATCHER_END"'|' $PATH_TO_FILE_WITH_URL
+if [[ ! -z $PROD_URL ]]; then
+  docker exec blade sed -i 's|'"$STRING_MATCHER_START"'.*'"$STRING_MATCHER_END"'|'"$STRING_MATCHER_START$PROD_URL$STRING_MATCHER_END"'|' $PATH_TO_FILE_WITH_URL
+fi
 
 docker exec blade npm run prod
 
