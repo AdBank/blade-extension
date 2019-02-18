@@ -7,7 +7,8 @@ PATH_TO_FILE_WITH_URL="./bladeui/js/utils/request.js"
 
 docker run -it -d --name blade blade
 
-docker exec blade sed -i 's|'"$STRING_MATCHER_START"'.*'"$STRING_MATCHER_END"'|'"$STRING_MATCHER_START$PROD_URL$STRING_MATCHER_END"'|' $PATH_TO_FILE_WITH_URL
+# comment until production url provided
+# docker exec blade sed -i 's|'"$STRING_MATCHER_START"'.*'"$STRING_MATCHER_END"'|'"$STRING_MATCHER_START$PROD_URL$STRING_MATCHER_END"'|' $PATH_TO_FILE_WITH_URL
 
 docker exec blade npm run prod
 
