@@ -22,6 +22,10 @@ const ReferralCode = require("./referralCode");
 const DashboardView = require("./dashboardView");
 const FeedView = require("./feedView");
 const TransfersList = require("./transfersList");
+const ResetPassword = require("./resetPassword");
+const ResetPhrase = require("./resetPhrase");
+const ResettedPassword = require("./resettedPassword");
+
 
 module.exports = {
   GetStartedPage,
@@ -45,5 +49,8 @@ module.exports = {
   ReferralCode,
   DashboardView,
   FeedView,
-  TransfersList
+  TransfersList,
+  ResetPassword,
+  ResetPhrase,
+  ResettedPassword
 };

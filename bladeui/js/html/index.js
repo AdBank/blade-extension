@@ -13,7 +13,7 @@ const termsAndConditionsText = require("./termsAndConditionsText");
 const recoverPhrase = require("./recoverPhrase");
 const recoveredAccount = require("./recoveredAccount");
 const recoverPassword = require("./recoverPassword");
-const profile = require("./profie");
+const profile = require("./profile");
 const transfers = require("./transfers");
 const referralCode = require("./referralCode");
 const referrals = require("./referralsMenuView");
@@ -22,6 +22,9 @@ const manualTransfer = require("./manualTransfer");
 const dashboardMenuView = require("./dashboardMenuView");
 const feedMenuView = require("./feedMenuView");
 const transfersListView = require("./transfersListView");
+const resetPassword = require("./resetPassword");
+const resetPhrase = require("./resetPhrase");
+const resettedPassword = require("./resettedPassword");
 
 module.exports = {
   getStarted,
@@ -45,5 +48,8 @@ module.exports = {
   referralCode,
   dashboardMenuView,
   feedMenuView,
-  transfersListView
+  transfersListView,
+  resetPassword,
+  resetPhrase,
+  resettedPassword
 };

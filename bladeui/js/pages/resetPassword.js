@@ -7,7 +7,7 @@ const request = require("../utils/request");
 const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH,
   MIN_PASSWORD_ERROR, MAX_PASSWORD_ERROR, PASSWORDS_MATCH_ERROR} = require("../utils/constants");
 
-class RecoverPassword extends BaseClass
+class ResetPassword extends BaseClass
 {
   constructor(props)
   {
@@ -23,12 +23,10 @@ class RecoverPassword extends BaseClass
     this.passwordError = document.getElementById("password-error");
     this.confirmPasswordError = document.getElementById("confirm-password-error");
     this.mainActionButton = document.getElementById("main-action-button");
-    this.backButton = document.getElementById("back-button");
 
     this.passwordEye.addEventListener("click", this.handleClickOnPasswordEye.bind(this));
     this.confirmPasswordEye.addEventListener("click", this.handleClickOnConfirmPasswordEye.bind(this));
     this.mainActionButton.addEventListener("click", this.handleSubmit.bind(this));
-    this.backButton.addEventListener("click", this.handleOpenPreviousView.bind(this));
   }
 
   handleClickOnPasswordEye(e)
@@ -43,11 +41,6 @@ class RecoverPassword extends BaseClass
       this.hideEyeIcon(e);
       this.passwordField.type = "password";
     }
-  }
-
-  handleOpenPreviousView()
-  {
-    super.handleChangeView("getStarted");
   }
 
   handleClickOnConfirmPasswordEye(e)
@@ -147,7 +140,7 @@ class RecoverPassword extends BaseClass
     })
     .then((response) =>
     {
-      super.handleChangeView("recoveredAccount");
+      super.handleChangeView("resettedPassword");
     })
     .catch((err) =>
     {
@@ -161,4 +154,4 @@ class RecoverPassword extends BaseClass
   }
 }
 
-module.exports = RecoverPassword;
+module.exports = ResetPassword;
