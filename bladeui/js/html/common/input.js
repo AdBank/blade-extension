@@ -10,7 +10,7 @@ function input({label, wrapperId, input: {type, id, iconClass, iconId, errorId, 
   <div class="form-group" id=${wrapperId}>
     <label>${label} ${tooltip(withTooltip)}</label>
     <div class="input-wrapper">
-      <input class="input-field" type=${type} id=${id} required=${required} placeholder="${placeholder ? placeholder : ""}" value="${value ? value : ""}"/>
+      <input class="input-field" type=${type} id=${id} required=${required} placeholder="${placeholder || ""}" value="${value || ""}"/>
       <span id=${iconId}>
         <i class="${iconClass}"></i>
       </span>

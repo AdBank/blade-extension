@@ -17,7 +17,7 @@ ${menuList("settings")}
   <div class="content">
     <div class="enable-automatic-transfers" id="enable-automatic-transfers">
       <p class="enable-automatic-transfers-text">Enable Automatic Transfers ${infoTooltip(AUTO_TRANSFER_TOOLTIP)}</p>
-      ${switcher(false)}
+      ${switcher()}
     </div>
     <div id="wallet-action-area"></div>
     <button class="main-action-button" id="save-wallet">SAVE WALLET</button>

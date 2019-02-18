@@ -9,6 +9,7 @@ const infiniteScrollLoader = require("../html/common/infiniteScrollLoader");
 const tooltip = require("../html/common/tooltipRedExclamation");
 const TRANSFERS_ROW_COUNT = 10;
 const MAXIMUM_FIT_WITHOUT_SCROLL = 4;
+const THRESHOLD = 1000;
 
 class Transfers extends BaseClass
 {
@@ -68,7 +69,7 @@ class Transfers extends BaseClass
         const result = JSON.parse(answer.response);
         this.renderControlArea(res.transfer_possibility, Math.ceil(result.threshold));
       })
-      .catch(() => this.renderControlArea(res.transfer_possibility, 1000));
+      .catch(() => this.renderControlArea(res.transfer_possibility, THRESHOLD));
     })
     .catch((err) => console.error(err));
   }

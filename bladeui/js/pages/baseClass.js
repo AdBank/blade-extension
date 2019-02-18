@@ -86,7 +86,6 @@ class BaseClass
       .then(response =>
       {
         const res = JSON.parse(response.response);
-        console.log("res", res);
         this.transferPossibilityNotification = res.transfer_possibility === "ALLOWED";
         if (this.transferPossibilityNotification && this.burgerButton)
         {
