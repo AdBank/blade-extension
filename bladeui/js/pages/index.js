@@ -1,32 +1,45 @@
 "use strict";
 
-const GetStartedPage = require("./getStarted.js");
-const TermsAndConditionsPage = require("./termsAndConditions.js");
-const CreatePasswordPage = require("./createPassword.js");
-const SecretPhrasePage = require("./secretPhrase.js");
-const ConfirmSecretPhrasePage = require("./confirmSecretPhrase.js");
-const VerifyKycPage = require("./verifyKyc.js");
-const SetExternalWalletPage = require("./setExternalWallet.js");
-const RegistrationCompletedPage = require("./registrationCompleted.js");
-const AboutPage = require("./about.js");
-const TermsAndConditionsTextPage = require("./termsAndConditionsText");
-const RecoverPhrasePage = require("./recoverPhrase");
-const RecoveredAccountPage = require("./recoveredAccount");
-const RecoverPasswordPage = require("./recoverPassword");
-const ProfilePage = require("./profile");
-const TransfersPage = require("./transfers");
-const ReferralsPage = require("./referrals");
-const ReferralsForm = require("./referralsForm");
-const ManualTransfer = require("./manualTransfer");
-const ReferralCode = require("./referralCode");
-const DashboardView = require("./dashboardView");
-const FeedView = require("./feedView");
-const TransfersList = require("./transfersList");
-const ResetPassword = require("./resetPassword");
-const ResetPhrase = require("./resetPhrase");
-const ResettedPassword = require("./resettedPassword");
-const Menu = require("./menu");
-
+const {
+  GetStartedPage
+} = require("./pagesAllowedForUnregistered/index");
+const {
+  SecretPhrasePage,
+  ConfirmSecretPhrasePage,
+  ReferralCode,
+  SetExternalWalletPage,
+  VerifyKycPage,
+  RegistrationCompletedPage,
+  TermsAndConditionsPage,
+  TermsAndConditionsTextPage,
+  CreatePasswordPage,
+  RecoverPhrasePage
+} = require("./registration/index");
+const {
+  RecoveredAccountPage,
+  RecoverPasswordPage
+} = require("./recovery/index");
+const {
+  ResetPassword,
+  ResetPhrase,
+  ResettedPassword
+} = require("./reset/index");
+const {
+  ReferralsPage,
+  ReferralsForm
+} = require("./referrals/index");
+const {
+  TransfersList,
+  ManualTransfer
+} = require("./transfers/index");
+const {
+  ProfilePage,
+  TransfersPage,
+  AboutPage
+} = require("./settings/index");
+const {DashboardView} = require("./dashbord/index");
+const {FeedView} = require("./feed/index");
+const {Menu} = require("./menu/index");
 
 module.exports = {
   GetStartedPage,
