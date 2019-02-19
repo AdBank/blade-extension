@@ -13,7 +13,6 @@
 @import 'pagesAllowedForUnregistered/getStarted.scss';
 
 @import 'registration/createPassword.scss';
-@import 'registration/recoverPhrase.scss';
 @import 'registration/termsAndConditions.scss';
 @import 'registration/confirmSecretPhrase.scss';
 @import 'registration/referralCode.scss';
@@ -22,6 +21,7 @@
 @import 'registration/setExternalWallet.scss';
 @import 'registration/verifyKyc.scss';
 
+@import 'recovery/recoverPhrase.scss';
 @import 'recovery/recoverCompleted.scss';
 @import 'recovery/recoverPassword.scss';
 

@@ -10,7 +10,6 @@ const registrationCompleted = require("./registrationCompleted");
 const verifyKyc = require("./verifyKyc");
 const termsAndConditions = require("./termsAndConditions");
 const createPassword = require("./createPassword");
-const recoverPhrase = require("./recoverPhrase");
 const termsAndConditionsText = require("./termsAndConditionsText");
 
 module.exports = {
@@ -22,6 +21,5 @@ module.exports = {
   verifyKyc,
   termsAndConditions,
   createPassword,
-  recoverPhrase,
   termsAndConditionsText
 };

@@ -9,7 +9,6 @@ const RegistrationCompletedPage = require("./registrationCompleted");
 const TermsAndConditionsPage = require("./termsAndConditions");
 const TermsAndConditionsTextPage = require("./termsAndConditionsText");
 const CreatePasswordPage = require("./createPassword");
-const RecoverPhrasePage = require("./recoverPhrase");
 
 module.exports = {
   SecretPhrasePage,
@@ -20,6 +19,5 @@ module.exports = {
   RegistrationCompletedPage,
   TermsAndConditionsPage,
   TermsAndConditionsTextPage,
-  CreatePasswordPage,
-  RecoverPhrasePage
+  CreatePasswordPage
 };

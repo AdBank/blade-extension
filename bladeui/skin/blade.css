@@ -836,45 +836,6 @@ p.page-description {
 .create-password-view .main-action-button {
   margin-top: auto; }
 
-.recover-phrase-view .fa-long-arrow-left {
-  position: absolute;
-  left: 0;
-  color: #FFFFFF;
-  font-weight: 500;
-  font-size: 20px;
-  cursor: pointer; }
-
-.recover-phrase-view .underheader {
-  margin-top: 20px;
-  color: #EEEEEE;
-  font: 700 14px / 20px Montserrat;
-  letter-spacing: .2px;
-  text-align: center; }
-
-.recover-phrase-view .content-wrapper {
-  position: relative;
-  margin-top: 36px; }
-
-.recover-phrase-view .label {
-  margin-bottom: 6px;
-  color: #EEEEEE;
-  font: 700 12px / 16px Montserrat;
-  letter-spacing: .2px; }
-
-.recover-phrase-view textarea {
-  width: 100%;
-  padding: 10px 12px;
-  color: #4A4A4A;
-  height: 68px;
-  border: 1px solid #999999;
-  background-color: #FFFFFF;
-  resize: none;
-  font: 500 12px / 16px Montserrat;
-  overflow: hidden; }
-
-.recover-phrase-view .main-action-button {
-  margin-top: auto; }
-
 .terms-and-conditions .text {
   width: 256px;
   height: 172px;
@@ -1137,6 +1098,45 @@ p.page-description {
   font-size: 20px;
   letter-spacing: 0.33px;
   line-height: 20px; }
+
+.recover-phrase-view .fa-long-arrow-left {
+  position: absolute;
+  left: 0;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer; }
+
+.recover-phrase-view .underheader {
+  margin-top: 20px;
+  color: #EEEEEE;
+  font: 700 14px / 20px Montserrat;
+  letter-spacing: .2px;
+  text-align: center; }
+
+.recover-phrase-view .content-wrapper {
+  position: relative;
+  margin-top: 36px; }
+
+.recover-phrase-view .label {
+  margin-bottom: 6px;
+  color: #EEEEEE;
+  font: 700 12px / 16px Montserrat;
+  letter-spacing: .2px; }
+
+.recover-phrase-view textarea {
+  width: 100%;
+  padding: 10px 12px;
+  color: #4A4A4A;
+  height: 68px;
+  border: 1px solid #999999;
+  background-color: #FFFFFF;
+  resize: none;
+  font: 500 12px / 16px Montserrat;
+  overflow: hidden; }
+
+.recover-phrase-view .main-action-button {
+  margin-top: auto; }
 
 .recover-completed-view .underlogo-desc {
   margin-top: 73px; }

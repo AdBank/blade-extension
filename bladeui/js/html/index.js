@@ -30,12 +30,12 @@ const {
   verifyKyc,
   termsAndConditions,
   createPassword,
-  recoverPhrase,
   termsAndConditionsText
 } = require("./registration/index");
 const {
   recoveredAccount,
-  recoverPassword
+  recoverPassword,
+  recoverPhrase
 } = require("./recovery/index");
 const {dashboardMenuView} = require("./dashbord/index");
 const {feedMenuView} = require("./feed/index");
