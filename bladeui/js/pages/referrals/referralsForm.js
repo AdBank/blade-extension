@@ -1,6 +1,6 @@
 "use strict";
 
-const BaseClass = require("../baseClass");
+const BaseClass = require("../common/baseClass");
 const loader = require("../../html/common/loader");
 const request = require("../../utils/request");
 

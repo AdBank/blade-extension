@@ -1,12 +1,12 @@
 "use strict";
 
-const headerNavbar = require("./common/headerNavbar");
+const headerNavbar = require("../common/headerNavbar");
 
 const html = `
 <div class="get-started-view flex-column">
-  ${headerNavbar("feed")}
+  ${headerNavbar("dashbord")}
   <p class="desciption">
-    This is a feed view
+    This is a dashbord view
   </p>
 </div>
 `;

@@ -1,7 +1,5 @@
 "use strict";
 
-const dashboardMenuView = require("./dashboardMenuView");
-const feedMenuView = require("./feedMenuView");
 const {
   referrals,
   referralsFormView
@@ -16,12 +14,8 @@ const {
   resettedPassword
 } = require("./reset/index");
 const {
-  getStarted,
-  termsAndConditions,
-  termsAndConditionsText,
-  createPassword,
-  recoverPhrase
-} = require("./pagesForUnregisteredUsers/index");
+  getStarted
+} = require("./pagesAllowedForUnregistered/index");
 const {
   profile,
   transfers,
@@ -33,12 +27,18 @@ const {
   referralCode,
   setExternalWallet,
   registrationCompleted,
-  verifyKyc
+  verifyKyc,
+  termsAndConditions,
+  createPassword,
+  recoverPhrase,
+  termsAndConditionsText
 } = require("./registration/index");
 const {
   recoveredAccount,
   recoverPassword
 } = require("./recovery/index");
+const {dashboardMenuView} = require("./dashbord/index");
+const {feedMenuView} = require("./feed/index");
 
 module.exports = {
   getStarted,

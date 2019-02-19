@@ -1,6 +1,6 @@
 "use strict";
 
-const BaseClass = require("./baseClass");
+const BaseClass = require("../common/baseClass");
 
 class FeedView extends BaseClass
 {

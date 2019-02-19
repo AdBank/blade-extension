@@ -2,7 +2,7 @@
 
 "use strict";
 
-const BaseClass = require("../baseClass");
+const BaseClass = require("../common/baseClass");
 const request = require("../../utils/request");
 const formatDate = require("../../utils/formatDate");
 const infiniteScrollLoader = require("../../html/common/infiniteScrollLoader");

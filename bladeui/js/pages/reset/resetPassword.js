@@ -2,7 +2,7 @@
 
 "use strict";
 
-const BaseClass = require("../baseClass");
+const BaseClass = require("../common/baseClass");
 const request = require("../../utils/request");
 const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH,
   MIN_PASSWORD_ERROR, MAX_PASSWORD_ERROR, PASSWORDS_MATCH_ERROR} = require("../../utils/constants");

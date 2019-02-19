@@ -10,11 +10,11 @@
 @import 'transfers/manualTransfer.scss';
 @import 'transfers/transfersList.scss';
 
-@import 'pagesForUnregisteredUsers/createPassword.scss';
-@import 'pagesForUnregisteredUsers/getStarted.scss';
-@import 'pagesForUnregisteredUsers/recoverPhrase.scss';
-@import 'pagesForUnregisteredUsers/termsAndConditions.scss';
+@import 'pagesAllowedForUnregistered/getStarted.scss';
 
+@import 'registration/createPassword.scss';
+@import 'registration/recoverPhrase.scss';
+@import 'registration/termsAndConditions.scss';
 @import 'registration/confirmSecretPhrase.scss';
 @import 'registration/referralCode.scss';
 @import 'registration/registrationCompleted.scss';

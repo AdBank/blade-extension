@@ -2,7 +2,7 @@
 
 "use strict";
 
-const BaseClass = require("../baseClass");
+const BaseClass = require("../common/baseClass");
 
 class TermsAndConditions extends BaseClass
 {

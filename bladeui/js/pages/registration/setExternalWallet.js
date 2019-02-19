@@ -2,7 +2,7 @@
 
 "use strict";
 
-const BaseClass = require("../baseClass");
+const BaseClass = require("../common/baseClass");
 const {isAddress} = require("ethereum-address");
 const request = require("../../utils/request");
 const {VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");

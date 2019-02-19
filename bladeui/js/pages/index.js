@@ -1,22 +1,19 @@
 "use strict";
 
-const DashboardView = require("./dashboardView");
-const FeedView = require("./feedView");
-
 const {
-  GetStartedPage,
-  TermsAndConditionsPage,
-  TermsAndConditionsTextPage,
-  CreatePasswordPage,
-  RecoverPhrasePage
-} = require("./pagesForUnregisteredUsers/index");
+  GetStartedPage
+} = require("./pagesAllowedForUnregistered/index");
 const {
   SecretPhrasePage,
   ConfirmSecretPhrasePage,
   ReferralCode,
   SetExternalWalletPage,
   VerifyKycPage,
-  RegistrationCompletedPage
+  RegistrationCompletedPage,
+  TermsAndConditionsPage,
+  TermsAndConditionsTextPage,
+  CreatePasswordPage,
+  RecoverPhrasePage
 } = require("./registration/index");
 const {
   RecoveredAccountPage,
@@ -40,6 +37,8 @@ const {
   TransfersPage,
   AboutPage
 } = require("./settings/index");
+const {DashboardView} = require("./dashbord/index");
+const {FeedView} = require("./feed/index");
 
 
 module.exports = {

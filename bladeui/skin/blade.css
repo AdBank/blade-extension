@@ -815,12 +815,6 @@ p.page-description {
           border-top: 7px solid #EEEEEE;
           border-bottom: none; }
 
-.create-password-view form {
-  margin-top: 56px; }
-
-.create-password-view .main-action-button {
-  margin-top: auto; }
-
 .get-started-view {
   justify-content: space-between;
   height: 100%; }
@@ -835,6 +829,12 @@ p.page-description {
   .get-started-view .logo {
     padding-top: 65px;
     text-align: center; }
+
+.create-password-view form {
+  margin-top: 56px; }
+
+.create-password-view .main-action-button {
+  margin-top: auto; }
 
 .recover-phrase-view .fa-long-arrow-left {
   position: absolute;
@@ -995,6 +995,7 @@ p.page-description {
   flex-grow: 1;
   display: flex; }
   .insert-referral-code-view form .form-group {
+    width: 100%;
     align-self: center; }
     .insert-referral-code-view form .form-group .input-field {
       padding: 14px; }

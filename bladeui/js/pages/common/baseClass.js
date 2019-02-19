@@ -2,8 +2,8 @@
 
 "use strict";
 
-const {isPageWhitelisted} = require("../popup.utils.js");
-const request = require("../utils/request");
+const {isPageWhitelisted} = require("../../popup.utils.js");
+const request = require("../../utils/request");
 const PAGES_ALLOWED_FOR_UNREGISTERED = [
   "getStarted",
   "termsAndConditions",

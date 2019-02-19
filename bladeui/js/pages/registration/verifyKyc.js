@@ -1,6 +1,6 @@
 "use strict";
 
-const BaseClass = require("../baseClass");
+const BaseClass = require("../common/baseClass");
 const {KYC_LINK} = require("../../utils/constants");
 
 class VerifyKyc extends BaseClass
