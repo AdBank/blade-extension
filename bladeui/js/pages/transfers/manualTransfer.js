@@ -3,6 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
+const PasswordHelper = require("../common/passwordHelper");
 const request = require("../../utils/request");
 const {isAddress} = require("ethereum-address");
 const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_ERROR,
@@ -39,6 +40,8 @@ class ManualTransfer extends BaseClass
       this.bearerToken = data.bladeUserData.token;
     });
 
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye);
+
     this.walletField.addEventListener("change", this.handleWalletInputChange.bind(this));
     this.walletField.addEventListener("focus", this.handleWalletInputFocus.bind(this));
     this.walletField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
@@ -47,7 +50,6 @@ class ManualTransfer extends BaseClass
     this.walletConfirmField.addEventListener("focus", this.handleWalletConfirmInputFocus.bind(this));
     this.walletConfirmField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
 
-    passwordEye.addEventListener("click", this.handleShowHidePassword.bind(this));
     this.passwordField.addEventListener("change", this.handlePasswordFieldChange.bind(this));
 
     backButton.addEventListener("click", this.handleChangeView.bind(this));
@@ -126,26 +128,6 @@ class ManualTransfer extends BaseClass
     this.sendButton.classList.add("disabled");
     if (errorField) errorField.innerHTML = error;
     if (inputField) inputField.classList.add("input-invalid");
-  }
-
-  handleShowHidePassword(e)
-  {
-    const icon = e.target;
-    const shownIconClassname = "ion-md-eye";
-    const hiddenIconClassname = "ion-md-eye-off";
-
-    if (icon.classList.contains(hiddenIconClassname))
-    {
-      icon.classList.remove(hiddenIconClassname);
-      icon.classList.add(shownIconClassname);
-      this.passwordField.type = "text";
-    }
-    else
-    {
-      icon.classList.add(hiddenIconClassname);
-      icon.classList.remove(shownIconClassname);
-      this.passwordField.type = "password";
-    }
   }
 
   handlePasswordFieldChange(e)

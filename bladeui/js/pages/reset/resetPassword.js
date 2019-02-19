@@ -3,6 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
+const PasswordHelper = require("../common/passwordHelper");
 const request = require("../../utils/request");
 const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH,
   MIN_PASSWORD_ERROR, MAX_PASSWORD_ERROR, PASSWORDS_MATCH_ERROR} = require("../../utils/constants");
@@ -24,49 +25,10 @@ class ResetPassword extends BaseClass
     this.confirmPasswordError = document.getElementById("confirm-password-error");
     this.mainActionButton = document.getElementById("main-action-button");
 
-    this.passwordEye.addEventListener("click", this.handleClickOnPasswordEye.bind(this));
-    this.confirmPasswordEye.addEventListener("click", this.handleClickOnConfirmPasswordEye.bind(this));
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, this.passwordEye);
+    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, this.confirmPasswordEye);
+
     this.mainActionButton.addEventListener("click", this.handleSubmit.bind(this));
-  }
-
-  handleClickOnPasswordEye(e)
-  {
-    if (e.target.classList.contains("ion-md-eye-off"))
-    {
-      this.showEyeIcon(e);
-      this.passwordField.type = "text";
-    }
-    else
-    {
-      this.hideEyeIcon(e);
-      this.passwordField.type = "password";
-    }
-  }
-
-  handleClickOnConfirmPasswordEye(e)
-  {
-    if (e.target.classList.contains("ion-md-eye-off"))
-    {
-      this.showEyeIcon(e);
-      this.confirmPasswordField.type = "text";
-    }
-    else
-    {
-      this.hideEyeIcon(e);
-      this.confirmPasswordField.type = "password";
-    }
-  }
-
-  showEyeIcon(e)
-  {
-    e.target.classList.remove("ion-md-eye-off");
-    e.target.classList.add("ion-md-eye");
-  }
-
-  hideEyeIcon(e)
-  {
-    e.target.classList.add("ion-md-eye-off");
-    e.target.classList.remove("ion-md-eye");
   }
 
   onErrorMainField(errorText)

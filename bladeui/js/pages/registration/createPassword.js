@@ -3,6 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
+const PasswordHelper = require("../common/passwordHelper");
 const request = require("../../utils/request");
 const saveAdserverUrl = require("../../utils/saveAdserverUrl");
 const {MIN_PASSWORD_LENGTH,
@@ -24,53 +25,14 @@ class CreatePassword extends BaseClass
     const confirmPasswordEye = document.getElementById("confirm-password-eye");
     const passwordEye = document.getElementById("password-eye");
     this.passwordField = document.getElementById("password");
+    this.passwordError = document.getElementById("password-error");
     this.confirmPasswordField = document.getElementById("confirm-password");
     this.confirmPasswordError = document.getElementById("confirm-password-error");
 
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, passwordEye);
+    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, confirmPasswordEye);
 
     this.mainActionButton.addEventListener("click", this.handleSubmitButton.bind(this));
-    passwordEye.addEventListener("click", this.handleShowPassword.bind(this));
-    confirmPasswordEye.addEventListener("click", this.handleShowConfirmPassword.bind(this));
-  }
-
-  handleShowPassword(e)
-  {
-    if (e.target.classList.contains("ion-md-eye-off"))
-    {
-      this.showEyeIcon(e);
-      this.passwordField.type = "text";
-    }
-    else
-    {
-      this.hideEyeIcon(e);
-      this.passwordField.type = "password";
-    }
-  }
-
-  handleShowConfirmPassword(e)
-  {
-    if (e.target.classList.contains("ion-md-eye-off"))
-    {
-      this.showEyeIcon(e);
-      this.confirmPasswordField.type = "text";
-    }
-    else
-    {
-      this.hideEyeIcon(e);
-      this.confirmPasswordField.type = "password";
-    }
-  }
-
-  showEyeIcon(e)
-  {
-    e.target.classList.remove("ion-md-eye-off");
-    e.target.classList.add("ion-md-eye");
-  }
-
-  hideEyeIcon(e)
-  {
-    e.target.classList.add("ion-md-eye-off");
-    e.target.classList.remove("ion-md-eye");
   }
 
   onErrorMainField(errorText)
