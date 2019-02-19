@@ -1,6 +1,6 @@
-"use strict";
-
 /* eslint-disable max-len */
+
+"use strict";
 
 function settingsTabGroup(active)
 {

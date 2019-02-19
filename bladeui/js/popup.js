@@ -17,7 +17,6 @@
 
 "use strict";
 
-
 require("./popup.notifications.js");
 
 const {
