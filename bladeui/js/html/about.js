@@ -2,10 +2,8 @@
 
 const headerNavbar = require("./common/headerNavbar");
 const settingsTabGroup = require("./common/settingsTabGroup");
-const menuList = require("./common/menuList");
 
 const html = `
-${menuList("settings")}
 <div class="about-view">
   ${headerNavbar("settings")}
   ${settingsTabGroup("info")}

@@ -4,10 +4,8 @@
 
 const headerNavbar = require("./common/headerNavbar");
 const settingsTabGroup = require("./common/settingsTabGroup");
-const menuList = require("./common/menuList");
 
 const html = `
-${menuList("settings")}
 <div class="profile-view flex-column">
   ${headerNavbar("settings")}
   ${settingsTabGroup("profile")}
@@ -23,7 +21,7 @@ ${menuList("settings")}
       </div>
     </div>
   </div>
-  <button id="reset-password-button" class="main-action-button">RECOVER PASSWORD</button>
+  <button id="reset-password-button" class="main-action-button">RESET PASSWORD</button>
 </div>
 `;
 

@@ -3,12 +3,10 @@
 /* eslint-disable max-len */
 
 const headerNavbar = require("./common/headerNavbar");
-const menuList = require("./common/menuList");
 const backButtonWithTitle = require("./common/backButtonWithTitle");
 const input = require("./common/input");
 
 const html = `
-${menuList("transfers")}
 <div class="manual-transfers-view flex-column">
   ${headerNavbar("transfers")}
   <div class="content">

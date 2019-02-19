@@ -6,7 +6,7 @@ const header = require("./common/header");
 
 const html = `
 <div class="recover-phrase-view flex-column">
-  ${header("<i class=\"fa fa-long-arrow-left\" id=\"back-button\"></i> Recover a Password.")}
+  ${header("<i class=\"fa fa-long-arrow-left\" id=\"back-button\"></i> Reset a Password.")}
   <p class="underheader">Start by entering your secret phrase.</p>
   <div class="content-wrapper">
     <p class="label">Your Secret Phrase</p>

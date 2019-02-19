@@ -4,12 +4,10 @@
 
 const headerNavbar = require("./common/headerNavbar");
 const backButtonWithTitle = require("./common/backButtonWithTitle");
-const menuList = require("./common/menuList");
 const input = require("./common/input");
 const textarea = require("./common/textarea");
 
 const html = `
-${menuList("refferalsMenuView")}
 <div class="referrals-view flex-column">
   ${headerNavbar("referrals")}
   <div class="content">

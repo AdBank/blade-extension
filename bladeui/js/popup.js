@@ -45,7 +45,8 @@ const {
   transfersListView,
   resetPassword,
   resetPhrase,
-  resettedPassword
+  resettedPassword,
+  menu
 } = require("./html/index.js");
 const {
   GetStartedPage,
@@ -72,11 +73,12 @@ const {
   TransfersList,
   ResetPassword,
   ResetPhrase,
-  ResettedPassword
+  ResettedPassword,
+  Menu
 } = require("./pages/index.js");
 
 
-function onChangeView(next)
+function onChangeView(next, previous)
 {
   const mainWrapper = document.getElementById("main-app-wrapper");
 
@@ -85,10 +87,10 @@ function onChangeView(next)
     mainWrapper.removeChild(mainWrapper.firstChild);
   }
 
-  loadPage(next);
+  loadPage(next, previous);
 }
 
-function loadPage(page = "getStarted")
+function loadPage(page = "getStarted", previousPage)
 {
   switch (page)
   {
@@ -215,6 +217,11 @@ function loadPage(page = "getStarted")
     case "resettedPassword": {
       const initialView = new ResettedPassword({onChangeView});
       initialView.render(resettedPassword);
+      break;
+    }
+    case "menu": {
+      const initialView = new Menu({onChangeView, previousPage});
+      initialView.render(menu);
       break;
     }
     default: {

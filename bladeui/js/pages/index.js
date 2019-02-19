@@ -25,6 +25,7 @@ const TransfersList = require("./transfersList");
 const ResetPassword = require("./resetPassword");
 const ResetPhrase = require("./resetPhrase");
 const ResettedPassword = require("./resettedPassword");
+const Menu = require("./menu");
 
 
 module.exports = {
@@ -52,5 +53,6 @@ module.exports = {
   TransfersList,
   ResetPassword,
   ResetPhrase,
-  ResettedPassword
+  ResettedPassword,
+  Menu
 };

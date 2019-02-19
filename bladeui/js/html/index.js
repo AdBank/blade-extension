@@ -25,6 +25,8 @@ const transfersListView = require("./transfersListView");
 const resetPassword = require("./resetPassword");
 const resetPhrase = require("./resetPhrase");
 const resettedPassword = require("./resettedPassword");
+const menu = require("./menu");
+
 
 module.exports = {
   getStarted,
@@ -51,5 +53,6 @@ module.exports = {
   transfersListView,
   resetPassword,
   resetPhrase,
-  resettedPassword
+  resettedPassword,
+  menu
 };

@@ -8,6 +8,8 @@ const MAX_PASSWORD_ERROR = "Please enter no more than 30 characters";
 const PASSWORDS_MATCH_ERROR = "Passwords do not match";
 const GENERAL_ERROR = "Something went wrong.";
 const KYC_LINK = "http://ec2-18-223-111-55.us-east-2.compute.amazonaws.com/bladeKYC/";
+const FIRST_PAGE = "getStarted";
+const FIRST_PAGE_FOR_REGISTERED = "profile";
 
 module.exports = {
   MIN_PASSWORD_LENGTH,
@@ -17,5 +19,7 @@ module.exports = {
   MAX_PASSWORD_ERROR,
   PASSWORDS_MATCH_ERROR,
   GENERAL_ERROR,
-  KYC_LINK
+  KYC_LINK,
+  FIRST_PAGE,
+  FIRST_PAGE_FOR_REGISTERED
 };
