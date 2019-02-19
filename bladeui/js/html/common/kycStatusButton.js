@@ -23,6 +23,7 @@ function generateKycButton(status)
   {
     return generateButtonTemplate("kyc-failed", "VERIFICATION FAILED", "fa fa-exclamation");
   }
+
   return generateButtonTemplate("kyc-default", "VERIFY YOUR IDENTIY NOW", "icon-user-unfollow");
 }
 
