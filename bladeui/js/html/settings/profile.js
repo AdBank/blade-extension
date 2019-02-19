@@ -21,7 +21,7 @@ const html = `
       </div>
     </div>
   </div>
-  <button id="reset-password-button" class="main-action-button">RECOVER PASSWORD</button>
+  <button id="reset-password-button" class="main-action-button">RESET PASSWORD</button>
 </div>
 `;
 

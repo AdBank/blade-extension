@@ -1,8 +1,7 @@
-/* eslint-disable max-len, no-console */
-
 "use strict";
 
-const {isPageWhitelisted} = require("../../popup.utils.js");
+/* eslint-disable max-len */
+
 const request = require("../../utils/request");
 const PAGES_ALLOWED_FOR_UNREGISTERED = [
   "getStarted",
@@ -10,7 +9,7 @@ const PAGES_ALLOWED_FOR_UNREGISTERED = [
   "createPasswordView",
   "recoverPhrase"
 ];
-const FIRST_PAGE = "getStarted";
+const {FIRST_PAGE, FIRST_PAGE_FOR_REGISTERED} = require("../../utils/constants");
 class BaseClass
 {
   constructor({onChangeView})
@@ -39,7 +38,7 @@ class BaseClass
       else
       {
         this.bearerToken = token;
-        this._renderTransferNotification(this.bearerToken);
+        this._renderTransferNotification();
       }
     });
   }
@@ -52,94 +51,40 @@ class BaseClass
 
   _initMenu()
   {
-    this.menuWrapper = document.getElementById("menu-wrapper");
     this.burgerButton = document.getElementById("burger-button");
-    const closeButton = document.getElementById("close");
     const settingsTabs = document.getElementById("settings-tabs");
-    const menuList = document.getElementById("menu-list");
 
     this.burgerButton && this.burgerButton.addEventListener("click", this._handleClickOnBurger.bind(this));
-    closeButton && closeButton.addEventListener("click", this._handleClose.bind(this));
     settingsTabs && settingsTabs.addEventListener("click", this._handleSettingsTabClick.bind(this));
-    menuList && menuList.addEventListener("click", this._handleGoToMenuView.bind(this));
-
-    browser.tabs.query({active: true, lastFocusedWindow: true}, tabs =>
-    {
-      if (menuList)
-      {
-        this._initToggleOnOff({id: tabs[0].id, url: tabs[0].url});
-      }
-    });
   }
 
-  _renderTransferNotification(token)
+  _renderTransferNotification()
   {
-    if (token)
-    {
-      request({
-        method: "get",
-        url: "/jwt/transfer/info",
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      .then(response =>
-      {
-        const res = JSON.parse(response.response);
-        this.transferPossibilityNotification = res.transfer_possibility === "ALLOWED";
-        if (this.transferPossibilityNotification && this.burgerButton)
-        {
-          const notification = document.createElement("div");
-          notification.className = "notification-icon";
-          notification.innerHTML = "<i class=\"fa fa-exclamation\"></i>";
-          this.burgerButton.appendChild(notification);
-        }
-      })
-      .catch(err => console.error(err));
-    }
-  }
-
-  _initToggleOnOff(tab)
-  {
-    this.toggler = document.getElementById("checkbox");
-
-    isPageWhitelisted(tab, whitelisted =>
-    {
-      if (whitelisted)
-      {
-        this.toggler.checked = false;
+    request({
+      method: "get",
+      url: "/jwt/transfer/info",
+      headers: {
+        Authorization: `Bearer ${this.bearerToken}`
       }
-    });
-
-    this.toggler.addEventListener("change", () =>
+    })
+    .then(response =>
     {
-      if (this.toggler.checked)
+      const res = JSON.parse(response.response);
+      this.transferPossibilityNotification = res.transfer_possibility === "ALLOWED";
+      if (this.transferPossibilityNotification && this.burgerButton)
       {
-        browser.runtime.sendMessage({
-          type: "filters.unwhitelist",
-          tab
-        });
+        const notification = document.createElement("div");
+        notification.className = "notification-icon";
+        notification.innerHTML = "<i class=\"fa fa-exclamation\"></i>";
+        this.burgerButton.appendChild(notification);
+        browser.storage.sync.set({transferAllowed: true});
       }
       else
       {
-        browser.runtime.sendMessage({
-          type: "filters.whitelist",
-          tab
-        });
+        browser.storage.sync.set({transferAllowed: false});
       }
-    });
-  }
-
-  _handleGoToMenuView(e)
-  {
-    if (!e.target.classList.contains("menu-item") && !e.target.parentNode.classList.contains("menu-item"))
-    {
-      return;
-    }
-
-    const menuItemClicked = e.target.getAttribute("data-menu-item") || e.target.parentNode.getAttribute("data-menu-item");
-
-    this.handleChangeView(menuItemClicked);
+    })
+    .catch(err => console.error(err));
   }
 
   _handleSettingsTabClick(e)
@@ -156,22 +101,21 @@ class BaseClass
 
   _handleClickOnBurger()
   {
-    this.menuWrapper.classList.remove("hidden");
-    if (this.transferPossibilityNotification)
+    this.handleChangeView("menu");
+  }
+
+  handleChangeView(next)
+  {
+    browser.storage.local.get(null, (data) =>
     {
-      const transferNotificationMark = document.getElementById("transfer-notification");
-      transferNotificationMark.classList.remove("hidden");
-    }
-  }
+      let prev = FIRST_PAGE_FOR_REGISTERED;
+      if (data && data.bladeCurrentPage)
+      {
+        prev = data.bladeCurrentPage;
+      }
 
-  _handleClose()
-  {
-    this.menuWrapper.classList.add("hidden");
-  }
-
-  handleChangeView(current, next)
-  {
-    this.emitViewChange(current, next);
+      this.emitViewChange(next, prev);
+    });
   }
 
   render(html)

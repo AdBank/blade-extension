@@ -1,6 +1,6 @@
-/* eslint-disable max-len, no-console*/
-
 "use strict";
+
+/* eslint-disable max-len */
 
 const BaseClass = require("../common/baseClass");
 const request = require("../../utils/request");
@@ -26,6 +26,8 @@ class Transfers extends BaseClass
     this.thresholdAmount = document.getElementById("threshold-amount");
     this.walletArea = document.getElementById("wallet-action-area");
     this.saveButton = document.getElementById("save-wallet");
+    this.enablerAutoTransfer = document.getElementById("checkbox");
+
     browser.storage.sync.get("bladeUserData", (data) =>
     {
       this.bearerToken = data.bladeUserData.token;
@@ -44,7 +46,9 @@ class Transfers extends BaseClass
       })
       .catch(() => this.thresholdAmount.innerText = "1000 ADB");
     });
+
     this.saveButton && this.saveButton.addEventListener("click", this.handleSaveButton.bind(this));
+    this.enablerAutoTransfer.addEventListener("change", this.handleSwitchAutoTransfer.bind(this));
   }
 
   checkAutomaticTransferStatus()
@@ -68,9 +72,6 @@ class Transfers extends BaseClass
 
   renderAutomaticTransferControl(status, wallet)
   {
-    /* later will be changed, after move menu to different page cos now it also contains this switcher, so I had do duplicate this element with another id */
-    this.enablerAutoTransfer = document.getElementById("switcher");
-    this.enablerAutoTransfer && this.enablerAutoTransfer.addEventListener("change", this.handleSwitchAutoTransfer.bind(this));
     if (status)
     {
       this.enablerAutoTransfer.checked = true;
@@ -139,8 +140,8 @@ class Transfers extends BaseClass
 
   unhighlightErrors(inputField, errorField)
   {
-    inputField.classList.remove("input-invalid");
-    errorField.innerHTML = "";
+    if (inputField) inputField.classList.remove("input-invalid");
+    if (errorField) errorField.innerHTML = "";
     const errors = document.getElementsByClassName("input-invalid");
     if (!errors.length)
     {
@@ -274,8 +275,8 @@ class Transfers extends BaseClass
     {
       this.switchSaveButton(false);
       this.saveButton.innerHTML = loader(false);
-      const passwordNontainer = document.getElementById("password");
-      passwordNontainer.remove();
+      const passwordContainer = document.getElementById("password");
+      passwordContainer.remove();
       setTimeout(() => this.renderSavedWallet(this.walletAddress), WAIT_BEFORE_REDIRECT);
     })
     .catch(errorInfo =>
@@ -288,6 +289,8 @@ class Transfers extends BaseClass
 
   handleSwitchAutoTransfer(e)
   {
+    this.enableSaveButton();
+
     this.autoTransfer = e.target.checked;
     if (this.autoTransfer && !this.walletAddress)
     {
@@ -314,13 +317,18 @@ class Transfers extends BaseClass
         this.clearWalletArea();
         this.showButton(false);
       })
-      .catch(errorInfo => console.log(errorInfo));
+      .catch(errorInfo => console.error(errorInfo));
     }
   }
 
   showButton(show)
   {
     this.saveButton.style.display = show ? "block" : "none";
+  }
+
+  enableSaveButton()
+  {
+    this.saveButton.classList.remove("disabled");
   }
 }
 

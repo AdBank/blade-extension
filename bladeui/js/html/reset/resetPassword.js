@@ -7,8 +7,8 @@ const input = require("../common/input");
 
 const html = `
 <div class="recover-password-view flex-column">
-  ${header("Recover a Password.")}
-  <p class="underheader">Reset your password.</p>
+  ${header("Reset a Password.")}
+  <p class="underheader">Enter your new password.</p>
   <form>
     ${input({
       label: "Password",

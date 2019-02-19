@@ -5,7 +5,7 @@
 const headerNavbar = require("../common/headerNavbar");
 const settingsTabGroup = require("../common/settingsTabGroup");
 const infoTooltip = require("../common/informationTooltip");
-const switcher = require("../common/switcher");
+const switcher = require("../common/checkbox");
 const AUTO_TRANSFER_TOOLTIP = "When your ADB reward reaches the<br>transfer threshold, <span id=\"threshold-amount\">1000 ADB</span>, it will<br>automatically transfer to a wallet<br>address of your choosing. If automatic<br>transfers are disabled, you will be<br>notified of the threshold and asked to<br>make a transfer.";
 
 const html = `

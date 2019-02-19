@@ -39,6 +39,7 @@ const {
 } = require("./recovery/index");
 const {dashboardMenuView} = require("./dashbord/index");
 const {feedMenuView} = require("./feed/index");
+const {menu} = require("./menu/index");
 
 module.exports = {
   getStarted,
@@ -65,5 +66,6 @@ module.exports = {
   resettedPassword,
   referrals,
   referralsFormView,
-  referralCode
+  referralCode,
+  menu
 };

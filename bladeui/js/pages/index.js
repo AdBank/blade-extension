@@ -39,7 +39,7 @@ const {
 } = require("./settings/index");
 const {DashboardView} = require("./dashbord/index");
 const {FeedView} = require("./feed/index");
-
+const {Menu} = require("./menu/index");
 
 module.exports = {
   GetStartedPage,
@@ -66,5 +66,6 @@ module.exports = {
   TransfersList,
   ResetPassword,
   ResetPhrase,
-  ResettedPassword
+  ResettedPassword,
+  Menu
 };
