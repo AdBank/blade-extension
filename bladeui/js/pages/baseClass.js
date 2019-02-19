@@ -1,6 +1,6 @@
-"use strict";
-
 /* eslint-disable max-len, no-console */
+
+"use strict";
 
 const {isPageWhitelisted} = require("../popup.utils.js");
 const request = require("../utils/request");

@@ -1,6 +1,6 @@
-"use strict";
-
 /* eslint-disable max-len */
+
+"use strict";
 
 const infoTooltip = require("./informationTooltip");
 

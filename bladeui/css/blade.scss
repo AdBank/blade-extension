@@ -1,24 +1,30 @@
 @import 'blade/common.scss';
-@import 'blade/getStarted.scss';
-@import 'blade/termsAndConditions.scss';
-@import 'blade/secretPhrase.scss';
-@import 'blade/confirmSecretPhrase.scss';
-@import 'blade/verifyKyc.scss';
-@import 'blade/createPassword.scss';
-@import 'blade/setExternalWallet.scss';
-@import 'blade/registrationCompleted.scss';
-@import 'blade/about.scss';
-@import 'blade/recoverPhrase.scss';
-@import 'blade/recoverPassword.scss';
-@import 'blade/recoverCompleted.scss';
-@import 'blade/refferals.scss';
 @import 'blade/statsRepresentation.scss';
-@import 'blade/refferalsList.scss';
-@import 'blade/referralsForm.scss';
 @import 'blade/loader.scss';
-@import 'blade/manualTransfer.scss';
 @import 'blade/infiniteScrollLoader.scss';
-@import 'blade/referralCode.scss';
-@import 'blade/transfersList.scss';
-@import 'blade/transfers.scss';
-@import 'blade/profile.scss';
+
+@import 'settings/about.scss';
+@import 'settings/transfers.scss';
+@import 'settings/profile.scss';
+
+@import 'transfers/manualTransfer.scss';
+@import 'transfers/transfersList.scss';
+
+@import 'pagesForUnregisteredUsers/createPassword.scss';
+@import 'pagesForUnregisteredUsers/getStarted.scss';
+@import 'pagesForUnregisteredUsers/recoverPhrase.scss';
+@import 'pagesForUnregisteredUsers/termsAndConditions.scss';
+
+@import 'registration/confirmSecretPhrase.scss';
+@import 'registration/referralCode.scss';
+@import 'registration/registrationCompleted.scss';
+@import 'registration/secretPhrase.scss';
+@import 'registration/setExternalWallet.scss';
+@import 'registration/verifyKyc.scss';
+
+@import 'recovery/recoverCompleted.scss';
+@import 'recovery/recoverPassword.scss';
+
+@import 'referrals/refferalsList.scss';
+@import 'referrals/referralsForm.scss';
+@import 'referrals/refferals.scss';

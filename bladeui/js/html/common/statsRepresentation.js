@@ -1,7 +1,7 @@
+/* eslint-disable max-len */
 
 "use strict";
 
-/* eslint-disable max-len */
 
 function statsRepresentation()
 {
