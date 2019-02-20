@@ -114,8 +114,8 @@ class Referrals extends BaseClass
     const rightDescription = document.getElementById("right-description");
 
     leftDescription.innerHTML = "friends referred";
-    leftQuantity.innerHTML = totalReferred;
-    rightQuantity.innerHTML = `${totalReward} <span>ADB</span>`;
+    leftQuantity.innerHTML = Math.round(Number(totalReferred));
+    rightQuantity.innerHTML = `${Math.round(Number(totalReward))} <span>ADB</span>`;
     rightDescription.innerHTML = "rewards earned";
   }
 
@@ -143,7 +143,7 @@ class Referrals extends BaseClass
     {
       const newRow = document.createElement("div");
       newRow.className = "referrals-list-row";
-      const rewardInfo = info[i].reward;
+      const rewardInfo = Math.round(Number(info[i].reward));
       let userStatus = "<i class=\"icon-user-follow green\"></i>";
       if (info[i].status !== "ACCEPTED")
       {
