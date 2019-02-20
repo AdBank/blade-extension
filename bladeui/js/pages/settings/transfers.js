@@ -53,7 +53,7 @@ class Transfers extends BaseClass
       const res = JSON.parse(response.response);
       this.thresholdAmount.innerText = Math.ceil(res.threshold) + " ADB";
     })
-    .catch(() => this.thresholdAmount.innerText = "1000 ADB");
+    .catch(() => this.thresholdAmount.innerText = "not available");
   }
 
   checkAutomaticTransferStatus()
