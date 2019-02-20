@@ -1,6 +1,6 @@
-"use strict";
-
 /* eslint-disable max-len */
+
+"use strict";
 
 const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_ERROR, MAX_PASSWORD_ERROR} = require("../../utils/constants");
 class PasswordHelper

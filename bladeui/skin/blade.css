@@ -675,8 +675,8 @@ p.page-description {
             color: #4CC1FC;
             text-decoration: none; }
         .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.date {
-          width: 52px;
-          text-align: right; }
+          width: 54px;
+          text-align: left; }
         .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.unit {
           text-transform: uppercase; }
       .transfers-view .transfers-list-container .transfers-list .transfers-list-row i {
@@ -1221,7 +1221,7 @@ p.page-description {
             .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.email:hover + .info-tooltip {
               display: block; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.date {
-            width: 52px;
+            width: 54px;
             text-align: right; }
           .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.unit {
             text-transform: uppercase; }
