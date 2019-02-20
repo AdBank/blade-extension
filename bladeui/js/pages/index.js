@@ -12,12 +12,12 @@ const {
   RegistrationCompletedPage,
   TermsAndConditionsPage,
   TermsAndConditionsTextPage,
-  CreatePasswordPage,
-  RecoverPhrasePage
+  CreatePasswordPage
 } = require("./registration/index");
 const {
   RecoveredAccountPage,
-  RecoverPasswordPage
+  RecoverPasswordPage,
+  RecoverPhrasePage
 } = require("./recovery/index");
 const {
   ResetPassword,
