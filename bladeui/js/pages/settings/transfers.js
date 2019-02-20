@@ -9,7 +9,7 @@ const walletCreationForm = require("../../html/transfers/walletCreationForm");
 const PasswordHelper = require("../common/passwordHelper");
 const {VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");
 const loader = require("../../html/common/loader");
-const walletInfo = require("../../html/transfers/walletInfo");
+const walletInfoRepresentation = require("../../html/transfers/walletInfo");
 const WAIT_BEFORE_REDIRECT = 2000;
 
 class Transfers extends BaseClass
@@ -85,27 +85,21 @@ class Transfers extends BaseClass
 
   renderWalletContent(wallet)
   {
-    if (wallet)
-    {
-      this.renderSavedWallet(wallet);
-    }
-    else
-    {
-      this.renderWalletCreateForm();
-    }
+    if (wallet) this.renderSavedWallet(wallet);
+    else this.renderWalletForm();
   }
 
-  renderSavedWallet(wallet)
+  renderSavedWallet(walletAddress)
   {
     this.saveButton.innerHTML = "EDIT WALLET";
     this.showButton(true);
-    this.walletArea.innerHTML = walletInfo(wallet);
+    this.walletArea.innerHTML = walletInfoRepresentation(walletAddress);
   }
 
   handleEditButton()
   {
     this.saveButton.innerHTML = "SAVE WALLET";
-    this.renderWalletCreateForm(this.walletAddress);
+    this.renderWalletForm(this.walletAddress);
   }
 
   clearWalletArea()
@@ -117,52 +111,28 @@ class Transfers extends BaseClass
     this.showButton(false);
   }
 
-  renderWalletCreateForm(wallet)
+  renderWalletForm(wallet)
   {
     this.walletArea.innerHTML = walletCreationForm(wallet);
     const passwordEye = document.getElementById("password-eye");
     this.passwordField = document.getElementById("start-password");
     this.passwordFieldError = document.getElementById("password-error");
 
-    this.startWalletField = document.getElementById("public-wallet-address");
-    this.startWalletErrorField = document.getElementById("public-wallet-error");
+    this.walletField = document.getElementById("public-wallet-address");
+    this.walletErrorField = document.getElementById("public-wallet-error");
 
-    if (this.startWalletField)
-    {
-      this.startWalletField.addEventListener("change", this.handleWalletInputChange.bind(this));
-      this.startWalletField.addEventListener("focus", this.handleWalletInputFocus.bind(this));
-      this.startWalletField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
-    }
+    this.walletField.addEventListener("change", this.handleWalletInputChange.bind(this));
+    this.walletField.addEventListener("focus", this.handleWalletInputFocus.bind(this));
+    this.walletField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
 
     this.passwordField.addEventListener("change", this.handlePasswordFieldChange.bind(this));
 
     this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye, this.saveButton);
+
+    this.showButton(true);
   }
 
-  unhighlightErrors(inputField, errorField)
-  {
-    if (inputField) inputField.classList.remove("input-invalid");
-    if (errorField) errorField.innerHTML = "";
-    const errors = document.getElementsByClassName("input-invalid");
-    if (!errors.length)
-    {
-      this.saveButton.classList.remove("disabled");
-    }
-  }
-
-  highlightErrors(errorField, inputField, error = "Please enter a ERC20 compatible wallet")
-  {
-    this.saveButton.classList.add("disabled");
-    if (errorField) errorField.innerHTML = error;
-    if (inputField) inputField.classList.add("input-invalid");
-  }
-
-  handleWalletInputFocus(e)
-  {
-    e.target.value = this.walletAddress;
-  }
-
-  checkWallet(walletField, walletAddress, walletErrorField)
+  checkWallet(walletField, walletAddress)
   {
     if (walletAddress.length > VALID_WALLET_ADDRESS_LENGTH)
     {
@@ -171,17 +141,34 @@ class Transfers extends BaseClass
 
     if (!isAddress(walletAddress))
     {
-      this.highlightErrors(walletErrorField, walletField);
+      this.showWalletError();
     }
+  }
+
+  showWalletError(error = "Please enter a ERC20 compatible wallet")
+  {
+    this.walletErrorField.innerHTML = error;
+    this.walletField.classList.add("input-invalid");
+  }
+
+  removeWalletError()
+  {
+    this.walletField.classList.remove("input-invalid");
+    this.walletErrorField.innerHTML = "";
+  }
+
+  handleWalletInputFocus(e)
+  {
+    e.target.value = this.walletAddress;
   }
 
   handleWalletInputChange(e)
   {
     this.walletAddress = e.target.value;
 
-    this.unhighlightErrors(e.target, this.startWalletErrorField);
+    this.removeWalletError();
 
-    this.checkWallet(e.target, this.walletAddress, this.startWalletErrorField);
+    this.checkWallet(this.walletField, this.walletAddress);
   }
 
   handleWalletInputBlur(e)
@@ -198,7 +185,7 @@ class Transfers extends BaseClass
     this.PasswordHelper.checkPassword();
   }
 
-  switchSaveButton(status)
+  disableSaveButton(status)
   {
     this.saveButton.disabled = status;
   }
@@ -210,29 +197,35 @@ class Transfers extends BaseClass
       this.handleEditButton();
       return true;
     }
-    this.switchSaveButton(true);
-    this.saveButton.classList.remove("disabled");
+    this.disableSaveButton(true);
     const data = {
       user_wallet: this.walletAddress,
       password: this.passwordField.value,
       auto_transfer: this.autoTransfer
     };
 
-    if (isAddress(this.walletAddress) &&
-      this.PasswordHelper.checkPassword())
+    if (isAddress(this.walletAddress) && this.PasswordHelper.checkPassword())
     {
       this.sendRequest(data);
     }
     else
     {
-      this.highlightErrors();
-      this.switchSaveButton(false);
+      if (!isAddress(this.walletAddress)) this.showWalletError();
+      if (!this.PasswordHelper.checkPassword()) this.PasswordHelper.onError("Check your password");
+      this.disableSaveButton(false);
     }
+  }
+
+  clearInputs()
+  {
+    this.walletAddress = "";
+    this.passwordField.value = "";
+    this.PasswordHelper.removeErrors();
+    this.removeWalletError();
   }
 
   sendRequest(data)
   {
-    const previousButtonContent = this.saveButton.innerHTML;
     this.saveButton.innerHTML = loader(true);
     request({
       method: "put",
@@ -244,7 +237,7 @@ class Transfers extends BaseClass
     })
     .then(() =>
     {
-      this.switchSaveButton(false);
+      this.disableSaveButton(false);
       this.saveButton.innerHTML = loader(false);
       const passwordContainer = document.getElementById("password");
       passwordContainer.remove();
@@ -252,33 +245,26 @@ class Transfers extends BaseClass
     })
     .catch(errorInfo =>
     {
-      this.highlightErrors(this.passwordFieldError, null, errorInfo.error);
-      this.saveButton.innerHTML = previousButtonContent;
-      this.switchSaveButton(false);
+      this.PasswordHelper.onError(errorInfo.error);
+      this.saveButton.innerHTML = "SAVE WALLET";
+      this.disableSaveButton(false);
     });
   }
 
   handleSwitchAutoTransfer(e)
   {
-    this.enableSaveButton();
-
     this.autoTransfer = e.target.checked;
     if (this.autoTransfer && !this.walletAddress)
     {
-      this.renderWalletCreateForm();
-      this.showButton(true);
+      this.renderWalletForm();
     }
     else if (this.autoTransfer && this.walletAddress)
     {
       this.renderSavedWallet(this.walletAddress);
-      this.showButton(true);
     }
     else
     {
-      this.walletAddress = "";
-      this.passwordField.value = "";
-      this.unhighlightErrors(this.passwordField, this.passwordFieldError);
-      this.unhighlightErrors(this.startWalletField, this.startWalletErrorField);
+      this.clearInputs();
       this.enablerAutoTransfer.disabled = true;
       request({
         method: "put",
@@ -305,11 +291,6 @@ class Transfers extends BaseClass
   showButton(show)
   {
     this.saveButton.style.display = show ? "block" : "none";
-  }
-
-  enableSaveButton()
-  {
-    this.saveButton.classList.remove("disabled");
   }
 }
 

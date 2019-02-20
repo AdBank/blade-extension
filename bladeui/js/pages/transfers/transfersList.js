@@ -266,7 +266,7 @@ class Transfers extends BaseClass
 
   goToUrl(e)
   {
-    browser.tabs.create({url: e.target.href});
+    if (e.target.href) browser.tabs.create({url: e.target.href});
   }
 
   handleChangeView(viewName)

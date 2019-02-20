@@ -1,16 +1,15 @@
-"use strict";
-
 /* eslint-disable max-len */
+
+"use strict";
 
 const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_ERROR, MAX_PASSWORD_ERROR} = require("../../utils/constants");
 class PasswordHelper
 {
-  constructor(passwordField, passwordError, eyeIcon, submitButton)
+  constructor(passwordField, passwordError, eyeIcon)
   {
     this.passwordField = passwordField;
     this.passwordError = passwordError;
     this.eyeIcon = eyeIcon;
-    this.submitButton = submitButton;
 
     this.initListeners();
   }
@@ -39,7 +38,6 @@ class PasswordHelper
 
   onError(errorText)
   {
-    this.submitButton.classList.add("disabled");
     this.passwordError.innerHTML = errorText;
     this.passwordField.classList.add("input-invalid");
   }
@@ -60,7 +58,6 @@ class PasswordHelper
 
   removeErrors()
   {
-    this.submitButton.classList.remove("disabled");
     this.passwordError.innerHTML = "";
     this.passwordField.classList.remove("input-invalid");
   }
