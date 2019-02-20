@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable max-len */
 
 "use strict";
 
@@ -36,7 +36,6 @@ class WalletHelper
 
   handleInputBlur(e)
   {
-    console.log(e);
     this.sliceInputIfPossible(e);
   }
 
