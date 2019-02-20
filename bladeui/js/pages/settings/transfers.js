@@ -136,23 +136,17 @@ class Transfers extends BaseClass
 
     this.passwordField.addEventListener("change", this.handlePasswordFieldChange.bind(this));
 
-    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye, this.saveButton);
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye);
   }
 
   unhighlightErrors(inputField, errorField)
   {
     if (inputField) inputField.classList.remove("input-invalid");
     if (errorField) errorField.innerHTML = "";
-    const errors = document.getElementsByClassName("input-invalid");
-    if (!errors.length)
-    {
-      this.saveButton.classList.remove("disabled");
-    }
   }
 
   highlightErrors(errorField, inputField, error = "Please enter a ERC20 compatible wallet")
   {
-    this.saveButton.classList.add("disabled");
     if (errorField) errorField.innerHTML = error;
     if (inputField) inputField.classList.add("input-invalid");
   }
@@ -211,7 +205,6 @@ class Transfers extends BaseClass
       return true;
     }
     this.switchSaveButton(true);
-    this.saveButton.classList.remove("disabled");
     const data = {
       user_wallet: this.walletAddress,
       password: this.passwordField.value,
@@ -260,8 +253,6 @@ class Transfers extends BaseClass
 
   handleSwitchAutoTransfer(e)
   {
-    this.enableSaveButton();
-
     this.autoTransfer = e.target.checked;
     if (this.autoTransfer && !this.walletAddress)
     {
@@ -305,11 +296,6 @@ class Transfers extends BaseClass
   showButton(show)
   {
     this.saveButton.style.display = show ? "block" : "none";
-  }
-
-  enableSaveButton()
-  {
-    this.saveButton.classList.remove("disabled");
   }
 }
 

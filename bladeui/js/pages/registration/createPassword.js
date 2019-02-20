@@ -29,8 +29,8 @@ class CreatePassword extends BaseClass
     this.confirmPasswordField.addEventListener("change", this.handleConfirmPasswordChange.bind(this));
     this.mainActionButton.addEventListener("click", this.handleSubmitButton.bind(this));
 
-    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, passwordEye, this.mainActionButton);
-    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, confirmPasswordEye, this.mainActionButton);
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, passwordEye);
+    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, confirmPasswordEye);
   }
 
   handlePasswordChange()

@@ -117,14 +117,12 @@ class ManualTransfer extends BaseClass
 
   unhighlightErrors(inputField, errorField)
   {
-    this.sendButton.classList.remove("disabled");
     inputField.classList.remove("input-invalid");
     errorField.innerHTML = "";
   }
 
   highlightErrors(errorField, inputField, error = "Please enter a ERC20 compatible wallet")
   {
-    this.sendButton.classList.add("disabled");
     if (errorField) errorField.innerHTML = error;
     if (inputField) inputField.classList.add("input-invalid");
   }

@@ -83,7 +83,6 @@ class SetExternalWallet extends BaseClass
 
   highlightErrors(error = "Please enter a ERC20 compatible wallet")
   {
-    this.actionButton.classList.add("disabled");
     this.error.innerHTML = error;
     this.input.classList.add("input-invalid");
   }
@@ -100,7 +99,6 @@ class SetExternalWallet extends BaseClass
       this.input.value = "";
       this.error.innerHTML = "";
       this.input.classList.remove("input-invalid");
-      this.actionButton.classList.remove("disabled");
     }
   }
 
@@ -108,7 +106,6 @@ class SetExternalWallet extends BaseClass
   {
     const userAddress = e.target.value;
 
-    this.actionButton.classList.remove("disabled");
     e.target.classList.remove("input-invalid");
     this.error.innerHTML = "";
 

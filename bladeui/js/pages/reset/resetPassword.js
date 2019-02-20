@@ -83,7 +83,7 @@ class ResetPassword extends BaseClass
     })
     .catch((err) =>
     {
-      this.onErrorMainField(err.error);
+      this.ConfirmPasswordHelper.onError(err.error);
     });
   }
 }

@@ -5,8 +5,7 @@
 const PasswordHelper = require("../common/passwordHelper");
 const BaseClass = require("../common/baseClass");
 const request = require("../../utils/request");
-const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH,
-  MIN_PASSWORD_ERROR, MAX_PASSWORD_ERROR, PASSWORDS_MATCH_ERROR} = require("../../utils/constants");
+const {PASSWORDS_MATCH_ERROR} = require("../../utils/constants");
 
 class RecoverPassword extends BaseClass
 {
@@ -29,8 +28,8 @@ class RecoverPassword extends BaseClass
     this.mainActionButton.addEventListener("click", this.handleSubmit.bind(this));
     this.backButton.addEventListener("click", this.handleOpenPreviousView.bind(this));
 
-    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, this.passwordEye, this.mainActionButton);
-    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, this.confirmPasswordEye, this.mainActionButton);
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, this.passwordEye);
+    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, this.confirmPasswordEye);
   }
 
   handleOpenPreviousView()
@@ -89,7 +88,7 @@ class RecoverPassword extends BaseClass
     })
     .catch((err) =>
     {
-      this.onErrorMainField(err.error);
+      this.ConfirmPasswordHelper.onError(err.error);
     });
   }
 }
