@@ -1,6 +1,6 @@
-"use strict";
-
 /* eslint-disable max-len */
+
+"use strict";
 
 const BaseClass = require("../common/baseClass");
 const request = require("../../utils/request");
@@ -32,23 +32,28 @@ class Transfers extends BaseClass
     {
       this.bearerToken = data.bladeUserData.token;
       this.checkAutomaticTransferStatus();
-      request({
-        method: "get",
-        url: "/jwt/transfer/threshold",
-        headers: {
-          Authorization: `Bearer ${this.bearerToken}`
-        }
-      })
-      .then(response =>
-      {
-        const res = JSON.parse(response.response);
-        this.thresholdAmount.innerText = Math.ceil(res.threshold) + " ADB";
-      })
-      .catch(() => this.thresholdAmount.innerText = "1000 ADB");
+      this.checkThresholdAmount();
     });
 
     this.saveButton && this.saveButton.addEventListener("click", this.handleSaveButton.bind(this));
     this.enablerAutoTransfer.addEventListener("change", this.handleSwitchAutoTransfer.bind(this));
+  }
+
+  checkThresholdAmount()
+  {
+    request({
+      method: "get",
+      url: "/jwt/transfer/threshold",
+      headers: {
+        Authorization: `Bearer ${this.bearerToken}`
+      }
+    })
+    .then(response =>
+    {
+      const res = JSON.parse(response.response);
+      this.thresholdAmount.innerText = Math.ceil(res.threshold) + " ADB";
+    })
+    .catch(() => this.thresholdAmount.innerText = "1000 ADB");
   }
 
   checkAutomaticTransferStatus()
@@ -63,15 +68,15 @@ class Transfers extends BaseClass
     .then(response =>
     {
       const res = JSON.parse(response.response);
-      this.renderAutomaticTransferControl(res.auto_transfer, res.wallet_address);
-      this.autoTransfer = res.auto_transfer;
-      this.walletAddress = res.wallet_address ? res.wallet_address : "";
+      this.handleAutoTransfersStatus(res.auto_transfer, res.wallet_address);
     })
     .catch(err => console.error(err));
   }
 
-  renderAutomaticTransferControl(status, wallet)
+  handleAutoTransfersStatus(status, wallet)
   {
+    this.autoTransfer = status;
+    this.walletAddress = wallet || "";
     if (status)
     {
       this.enablerAutoTransfer.checked = true;
@@ -98,7 +103,6 @@ class Transfers extends BaseClass
 
   handleEditButton()
   {
-    this.saveButton.innerHTML = "SAVE WALLET";
     this.renderWalletForm(this.walletAddress);
   }
 
@@ -113,6 +117,8 @@ class Transfers extends BaseClass
 
   renderWalletForm(wallet)
   {
+    this.saveButton.innerHTML = "SAVE WALLET";
+
     this.walletArea.innerHTML = walletCreationForm(wallet);
     const passwordEye = document.getElementById("password-eye");
     this.passwordField = document.getElementById("start-password");
@@ -211,7 +217,6 @@ class Transfers extends BaseClass
     else
     {
       if (!isAddress(this.walletAddress)) this.showWalletError();
-      if (!this.PasswordHelper.checkPassword()) this.PasswordHelper.onError("Check your password");
       this.disableSaveButton(false);
     }
   }
@@ -219,9 +224,12 @@ class Transfers extends BaseClass
   clearInputs()
   {
     this.walletAddress = "";
-    this.passwordField.value = "";
-    this.PasswordHelper.removeErrors();
-    this.removeWalletError();
+    if (this.passwordField)
+    {
+      this.passwordField.value = "";
+      this.PasswordHelper.removeErrors();
+      this.removeWalletError();
+    }
   }
 
   sendRequest(data)
@@ -278,7 +286,6 @@ class Transfers extends BaseClass
       {
         this.enablerAutoTransfer.disabled = false;
         this.clearWalletArea();
-        this.showButton(false);
       })
       .catch(errorInfo =>
       {
