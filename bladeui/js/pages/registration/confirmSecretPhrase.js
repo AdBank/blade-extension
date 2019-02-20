@@ -95,7 +95,6 @@ class ConfirmSecretPhrase extends BaseClass
   addErrorOnSubmit(error)
   {
     this.error.innerHTML = error;
-    this.actionButton.classList.add("disabled");
     this.phraseBlockWrapper.classList.add("input-invalid");
     this.viewCorrectButton.classList.remove("hidden");
   }

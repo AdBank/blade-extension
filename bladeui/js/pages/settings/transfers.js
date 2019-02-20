@@ -133,7 +133,7 @@ class Transfers extends BaseClass
 
     this.passwordField.addEventListener("change", this.handlePasswordFieldChange.bind(this));
 
-    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye, this.saveButton);
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye);
 
     this.showButton(true);
   }

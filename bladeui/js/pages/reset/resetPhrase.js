@@ -32,7 +32,6 @@ class ResetPhrase extends BaseClass
   handleSubmit()
   {
     this.error.innerHTML = "";
-    this.mainActionButton.classList.remove("disabled");
 
     browser.storage.sync.get("bladeUserData", (data) => this.sendRequest(data.bladeUserData));
   }
@@ -58,7 +57,6 @@ class ResetPhrase extends BaseClass
     })
     .catch((err) =>
     {
-      this.mainActionButton.classList.add("disabled");
       this.error.innerHTML = err.error;
     });
   }

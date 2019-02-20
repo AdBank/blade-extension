@@ -14,6 +14,11 @@ class PasswordHelper
     this.initListeners();
   }
 
+  get password()
+  {
+    return this.passwordField.value;
+  }
+
   initListeners()
   {
     this.eyeIcon.addEventListener("click", this.handleShowPassword.bind(this));

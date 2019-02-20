@@ -29,8 +29,8 @@ class CreatePassword extends BaseClass
     this.confirmPasswordField.addEventListener("change", this.handleConfirmPasswordChange.bind(this));
     this.mainActionButton.addEventListener("click", this.handleSubmitButton.bind(this));
 
-    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, passwordEye, this.mainActionButton);
-    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, confirmPasswordEye, this.mainActionButton);
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, passwordEye);
+    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, confirmPasswordEye);
   }
 
   handlePasswordChange()
@@ -50,7 +50,7 @@ class CreatePassword extends BaseClass
     this.PasswordHelper.removeErrors();
     this.ConfirmPasswordHelper.removeErrors();
 
-    if (this.passwordField.value !== this.confirmPasswordField.value)
+    if (this.PasswordHelper.password !== this.ConfirmPasswordHelper.password)
     {
       this.ConfirmPasswordHelper.onError(PASSWORDS_MATCH_ERROR);
       return false;
@@ -69,7 +69,7 @@ class CreatePassword extends BaseClass
     request({
       method: "post",
       url: "/api/user",
-      data: {password: this.passwordField.value}
+      data: {password: this.PasswordHelper.password}
     })
     .then((response) =>
     {
