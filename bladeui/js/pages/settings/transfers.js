@@ -134,7 +134,6 @@ class Transfers extends BaseClass
       this.startWalletField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
     }
 
-    passwordEye.addEventListener("click", this.handleShowHidePassword.bind(this));
     this.passwordField.addEventListener("change", this.handlePasswordFieldChange.bind(this));
 
     this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye, this.saveButton);
