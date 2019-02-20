@@ -18,7 +18,7 @@ const html = `
       ${switcher()}
     </div>
     <div id="wallet-action-area"></div>
-    <button class="main-action-button" id="save-wallet">SAVE WALLET</button>
+    <button class="main-action-button" id="save-wallet"></button>
   </div>
 </div>
 `;
