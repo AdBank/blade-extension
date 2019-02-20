@@ -3,17 +3,14 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
-const {isAddress} = require("ethereum-address");
 const request = require("../../utils/request");
-const {VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");
+const WalletHelper = require("../common/walletHelper");
 
 class SetExternalWallet extends BaseClass
 {
   constructor(props)
   {
     super(props);
-
-    this.userInput = "";
   }
 
   initListeners()
@@ -30,40 +27,26 @@ class SetExternalWallet extends BaseClass
     });
 
     this.actionButton.addEventListener("click", this.handleSubmitButton.bind(this));
-    this.input.addEventListener("change", this.handleInputChange.bind(this));
-    this.input.addEventListener("focus", this.handleInputFocus.bind(this));
-    this.input.addEventListener("blur", this.handleInputBlur.bind(this));
     this.checkbox.addEventListener("change", this.handleCheckboxChange.bind(this));
+
+    this.WalletHelper = new WalletHelper(this.input, this.error);
   }
 
-  handleInputFocus(e)
-  {
-    e.target.value = this.userInput;
-  }
-
-  handleInputBlur(e)
-  {
-    e.target.value = e.target.value.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
-  }
 
   handleSubmitButton(e)
   {
     const data = {
       auto_transfer: this.checkbox.checked,
-      user_wallet: this.userInput
+      user_wallet: this.WalletHelper.walletAddress
     };
 
-    if (isAddress(this.userInput) && this.checkbox.checked)
+    if (this.WalletHelper.checkInput() && this.checkbox.checked)
     {
       this.sendRequest(data);
     }
     else if (!this.checkbox.checked)
     {
       super.handleChangeView("registrationCompleted");
-    }
-    else
-    {
-      this.highlightErrors();
     }
   }
 
@@ -78,13 +61,7 @@ class SetExternalWallet extends BaseClass
       }
     })
     .then(() => super.handleChangeView("registrationCompleted"))
-    .catch(errorInfo => this.highlightErrors(errorInfo.error));
-  }
-
-  highlightErrors(error = "Please enter a ERC20 compatible wallet")
-  {
-    this.error.innerHTML = error;
-    this.input.classList.add("input-invalid");
+    .catch(errorInfo => this.WalletHelper.highlightErrors(errorInfo.error));
   }
 
   handleCheckboxChange(e)
@@ -96,32 +73,8 @@ class SetExternalWallet extends BaseClass
     else
     {
       this.inputGroup.classList.add("wrapper-hidden");
-      this.input.value = "";
-      this.error.innerHTML = "";
-      this.input.classList.remove("input-invalid");
-    }
-  }
-
-  handleInputChange(e)
-  {
-    const userAddress = e.target.value;
-
-    e.target.classList.remove("input-invalid");
-    this.error.innerHTML = "";
-
-    if (userAddress.length > VALID_WALLET_ADDRESS_LENGTH)
-    {
-      this.userInput = userAddress;
-      e.target.value = userAddress.slice(0, VALID_WALLET_ADDRESS_LENGTH) + "...";
-    }
-    else
-    {
-      this.userInput = userAddress;
-    }
-
-    if (!isAddress(this.userInput))
-    {
-      this.highlightErrors();
+      this.WalletHelper.clearField();
+      this.WalletHelper.removeErrors();
     }
   }
 }

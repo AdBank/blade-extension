@@ -54,7 +54,7 @@ class RecoverPassword extends BaseClass
     this.PasswordHelper.removeErrors();
     this.ConfirmPasswordHelper.removeErrors();
 
-    if (this.passwordField.value !== this.confirmPasswordField.value)
+    if (this.PasswordHelper.password !== this.ConfirmPasswordHelper.password)
     {
       this.ConfirmPasswordHelper.onError(PASSWORDS_MATCH_ERROR);
       return false;
@@ -77,7 +77,7 @@ class RecoverPassword extends BaseClass
     request({
       method: "post",
       url: "/jwt/user/password",
-      data: {password: this.passwordField.value},
+      data: {password: this.PasswordHelper.password},
       headers: {
         Authorization: "Bearer " + token
       }

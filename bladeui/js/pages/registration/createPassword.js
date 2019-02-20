@@ -50,7 +50,7 @@ class CreatePassword extends BaseClass
     this.PasswordHelper.removeErrors();
     this.ConfirmPasswordHelper.removeErrors();
 
-    if (this.passwordField.value !== this.confirmPasswordField.value)
+    if (this.PasswordHelper.password !== this.ConfirmPasswordHelper.password)
     {
       this.ConfirmPasswordHelper.onError(PASSWORDS_MATCH_ERROR);
       return false;
@@ -69,7 +69,7 @@ class CreatePassword extends BaseClass
     request({
       method: "post",
       url: "/api/user",
-      data: {password: this.passwordField.value}
+      data: {password: this.PasswordHelper.password}
     })
     .then((response) =>
     {
