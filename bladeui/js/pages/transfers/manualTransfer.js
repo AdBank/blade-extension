@@ -6,8 +6,7 @@ const BaseClass = require("../common/baseClass");
 const PasswordHelper = require("../common/passwordHelper");
 const request = require("../../utils/request");
 const {isAddress} = require("ethereum-address");
-const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_ERROR,
-  MAX_PASSWORD_ERROR, VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");
+const {VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");
 const loader = require("../../html/common/loader");
 
 class ManualTransfer extends BaseClass
@@ -40,8 +39,6 @@ class ManualTransfer extends BaseClass
       this.bearerToken = data.bladeUserData.token;
     });
 
-    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye);
-
     this.walletField.addEventListener("change", this.handleWalletInputChange.bind(this));
     this.walletField.addEventListener("focus", this.handleWalletInputFocus.bind(this));
     this.walletField.addEventListener("blur", this.handleWalletInputBlur.bind(this));
@@ -55,6 +52,8 @@ class ManualTransfer extends BaseClass
     backButton.addEventListener("click", this.handleChangeView.bind(this));
 
     this.sendButton.addEventListener("click", this.handleSubmitButton.bind(this));
+
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye, this.sendButton);
   }
 
   handleChangeView()
@@ -132,17 +131,7 @@ class ManualTransfer extends BaseClass
 
   handlePasswordFieldChange(e)
   {
-    this.unhighlightErrors(this.passwordField, this.passwordFieldError);
-    const password = e.target.value;
-
-    if (password.length < MIN_PASSWORD_LENGTH)
-    {
-      this.highlightErrors(this.passwordFieldError, this.passwordField, MIN_PASSWORD_ERROR);
-    }
-    if (password.length > MAX_PASSWORD_LENGTH)
-    {
-      this.highlightErrors(this.passwordFieldError, this.passwordField, MAX_PASSWORD_ERROR);
-    }
+    this.PasswordHelper.checkPassword();
   }
 
   disableSubmitButton()
@@ -163,9 +152,7 @@ class ManualTransfer extends BaseClass
       password: this.passwordField.value
     };
 
-    if (isAddress(this.walletAddress) && isAddress(this.walletConfirmAddress) &&
-      this.passwordField.value.length > MIN_PASSWORD_LENGTH &&
-      this.passwordField.value.length < MAX_PASSWORD_LENGTH)
+    if (isAddress(this.walletAddress) && isAddress(this.walletConfirmAddress) && this.PasswordHelper.checkPassword())
     {
       this.sendRequest(data);
       this.sendButton.innerHTML = loader(true);

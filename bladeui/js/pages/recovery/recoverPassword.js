@@ -26,11 +26,11 @@ class RecoverPassword extends BaseClass
     this.mainActionButton = document.getElementById("main-action-button");
     this.backButton = document.getElementById("back-button");
 
-    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, this.passwordEye);
-    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, this.confirmPasswordEye);
-
     this.mainActionButton.addEventListener("click", this.handleSubmit.bind(this));
     this.backButton.addEventListener("click", this.handleOpenPreviousView.bind(this));
+
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, this.passwordEye, this.mainActionButton);
+    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, this.confirmPasswordEye, this.mainActionButton);
   }
 
   handleOpenPreviousView()
@@ -38,55 +38,31 @@ class RecoverPassword extends BaseClass
     super.handleChangeView("getStarted");
   }
 
-  onErrorMainField(errorText)
+  handlePasswordChange()
   {
-    this.disableSubmitButton();
-    this.passwordError.innerHTML = errorText;
-    this.passwordField.classList.add("input-invalid");
+    this.PasswordHelper.removeErrors();
+    this.PasswordHelper.checkPassword();
   }
 
-  onErrorConfirmField(errorText)
+  handleConfirmPasswordChange()
   {
-    this.disableSubmitButton();
-    this.confirmPasswordError.innerHTML = errorText;
-    this.confirmPasswordField.classList.add("input-invalid");
+    this.ConfirmPasswordHelper.removeErrors();
+    this.ConfirmPasswordHelper.checkPassword();
   }
 
   handleSubmit(e)
   {
-    this.passwordError.innerHTML = "";
-    this.confirmPasswordError.innerHTML = "";
-    this.confirmPasswordField.classList.remove("input-invalid");
-    this.passwordField.classList.remove("input-invalid");
+    this.PasswordHelper.removeErrors();
+    this.ConfirmPasswordHelper.removeErrors();
 
     if (this.passwordField.value !== this.confirmPasswordField.value)
     {
-      this.onErrorMainField(PASSWORDS_MATCH_ERROR);
-      this.confirmPasswordField.classList.add("input-invalid");
+      this.ConfirmPasswordHelper.onError(PASSWORDS_MATCH_ERROR);
       return false;
     }
 
-    if (this.passwordField.value.length < MIN_PASSWORD_LENGTH)
+    if (!this.PasswordHelper.checkPassword() || !this.ConfirmPasswordHelper.checkPassword())
     {
-      this.onErrorMainField(MIN_PASSWORD_ERROR);
-      return false;
-    }
-
-    if (this.passwordField.value.length > MAX_PASSWORD_LENGTH)
-    {
-      this.onErrorMainField(MAX_PASSWORD_ERROR);
-      return false;
-    }
-
-    if (this.confirmPasswordField.value.length < MIN_PASSWORD_LENGTH)
-    {
-      this.onErrorConfirmField(MIN_PASSWORD_ERROR);
-      return false;
-    }
-
-    if (this.confirmPasswordField.value.length > MAX_PASSWORD_LENGTH)
-    {
-      this.onErrorConfirmField(MAX_PASSWORD_ERROR);
       return false;
     }
 
@@ -115,11 +91,6 @@ class RecoverPassword extends BaseClass
     {
       this.onErrorMainField(err.error);
     });
-  }
-
-  disableSubmitButton()
-  {
-    this.mainActionButton.classList.add("disabled");
   }
 }
 

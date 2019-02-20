@@ -5,11 +5,11 @@
 const BaseClass = require("../common/baseClass");
 const request = require("../../utils/request");
 const {isAddress} = require("ethereum-address");
-const walletCreationForm = require("../../html/transfers/walletCreationForm.js");
-const {MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH, MIN_PASSWORD_ERROR,
-  MAX_PASSWORD_ERROR, VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");
+const walletCreationForm = require("../../html/transfers/walletCreationForm");
+const PasswordHelper = require("../common/passwordHelper");
+const {VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");
 const loader = require("../../html/common/loader");
-const walletInfo = require("../../html/transfers/walletInfo.js");
+const walletInfo = require("../../html/transfers/walletInfo");
 const WAIT_BEFORE_REDIRECT = 2000;
 
 class Transfers extends BaseClass
@@ -136,6 +136,8 @@ class Transfers extends BaseClass
 
     passwordEye.addEventListener("click", this.handleShowHidePassword.bind(this));
     this.passwordField.addEventListener("change", this.handlePasswordFieldChange.bind(this));
+
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordFieldError, passwordEye, this.saveButton);
   }
 
   unhighlightErrors(inputField, errorField)
@@ -191,39 +193,10 @@ class Transfers extends BaseClass
     }
   }
 
-  handleShowHidePassword(e)
-  {
-    const icon = e.target;
-    const shownIconClassname = "ion-md-eye";
-    const hiddenIconClassname = "ion-md-eye-off";
-
-    if (icon.classList.contains(hiddenIconClassname))
-    {
-      icon.classList.remove(hiddenIconClassname);
-      icon.classList.add(shownIconClassname);
-      this.passwordField.type = "text";
-    }
-    else
-    {
-      icon.classList.add(hiddenIconClassname);
-      icon.classList.remove(shownIconClassname);
-      this.passwordField.type = "password";
-    }
-  }
-
   handlePasswordFieldChange(e)
   {
-    this.unhighlightErrors(this.passwordField, this.passwordFieldError);
-    const password = e.target.value;
-
-    if (password.length < MIN_PASSWORD_LENGTH)
-    {
-      this.highlightErrors(this.passwordFieldError, this.passwordField, MIN_PASSWORD_ERROR);
-    }
-    if (password.length > MAX_PASSWORD_LENGTH)
-    {
-      this.highlightErrors(this.passwordFieldError, this.passwordField, MAX_PASSWORD_ERROR);
-    }
+    this.PasswordHelper.removeErrors();
+    this.PasswordHelper.checkPassword();
   }
 
   switchSaveButton(status)
@@ -247,8 +220,7 @@ class Transfers extends BaseClass
     };
 
     if (isAddress(this.walletAddress) &&
-      this.passwordField.value.length >= MIN_PASSWORD_LENGTH &&
-      this.passwordField.value.length < MAX_PASSWORD_LENGTH)
+      this.PasswordHelper.checkPassword())
     {
       this.sendRequest(data);
     }
