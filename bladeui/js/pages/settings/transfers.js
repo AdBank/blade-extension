@@ -276,6 +276,11 @@ class Transfers extends BaseClass
     }
     else
     {
+      this.walletAddress = "";
+      this.passwordField.value = "";
+      this.unhighlightErrors(this.passwordField, this.passwordFieldError);
+      this.unhighlightErrors(this.startWalletField, this.startWalletErrorField);
+      this.enablerAutoTransfer.disabled = true;
       request({
         method: "put",
         url: "/jwt/user/settings",
@@ -286,10 +291,15 @@ class Transfers extends BaseClass
       })
       .then(() =>
       {
+        this.enablerAutoTransfer.disabled = false;
         this.clearWalletArea();
         this.showButton(false);
       })
-      .catch(errorInfo => console.error(errorInfo));
+      .catch(errorInfo =>
+      {
+        this.enablerAutoTransfer.disabled = false;
+        console.error(errorInfo);
+      });
     }
   }
 
