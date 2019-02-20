@@ -1161,6 +1161,14 @@ p.page-description {
   text-align: center;
   cursor: pointer; }
 
+.recover-password-view .fa-long-arrow-left {
+  position: absolute;
+  left: 0;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 20px;
+  cursor: pointer; }
+
 .recover-password-view .form-group {
   margin-bottom: 18px; }
 

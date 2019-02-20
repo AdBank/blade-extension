@@ -1,5 +1,7 @@
 "use strict";
 
+/* eslint-disable max-len */
+
 function checkbox(checked)
 {
   return `

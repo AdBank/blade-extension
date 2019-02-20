@@ -3,13 +3,10 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
+const PasswordHelper = require("../common/passwordHelper");
 const request = require("../../utils/request");
 const saveAdserverUrl = require("../../utils/saveAdserverUrl");
-const {MIN_PASSWORD_LENGTH,
-  MAX_PASSWORD_LENGTH,
-  MIN_PASSWORD_ERROR,
-  MAX_PASSWORD_ERROR,
-  PASSWORDS_MATCH_ERROR} = require("../../utils/constants");
+const {PASSWORDS_MATCH_ERROR} = require("../../utils/constants");
 
 class CreatePassword extends BaseClass
 {
@@ -24,106 +21,43 @@ class CreatePassword extends BaseClass
     const confirmPasswordEye = document.getElementById("confirm-password-eye");
     const passwordEye = document.getElementById("password-eye");
     this.passwordField = document.getElementById("password");
+    this.passwordError = document.getElementById("password-error");
     this.confirmPasswordField = document.getElementById("confirm-password");
     this.confirmPasswordError = document.getElementById("confirm-password-error");
 
-
+    this.passwordField.addEventListener("change", this.handlePasswordChange.bind(this));
+    this.confirmPasswordField.addEventListener("change", this.handleConfirmPasswordChange.bind(this));
     this.mainActionButton.addEventListener("click", this.handleSubmitButton.bind(this));
-    passwordEye.addEventListener("click", this.handleShowPassword.bind(this));
-    confirmPasswordEye.addEventListener("click", this.handleShowConfirmPassword.bind(this));
+
+    this.PasswordHelper = new PasswordHelper(this.passwordField, this.passwordError, passwordEye, this.mainActionButton);
+    this.ConfirmPasswordHelper = new PasswordHelper(this.confirmPasswordField, this.confirmPasswordError, confirmPasswordEye, this.mainActionButton);
   }
 
-  handleShowPassword(e)
+  handlePasswordChange()
   {
-    if (e.target.classList.contains("ion-md-eye-off"))
-    {
-      this.showEyeIcon(e);
-      this.passwordField.type = "text";
-    }
-    else
-    {
-      this.hideEyeIcon(e);
-      this.passwordField.type = "password";
-    }
+    this.PasswordHelper.removeErrors();
+    this.PasswordHelper.checkPassword();
   }
 
-  handleShowConfirmPassword(e)
+  handleConfirmPasswordChange()
   {
-    if (e.target.classList.contains("ion-md-eye-off"))
-    {
-      this.showEyeIcon(e);
-      this.confirmPasswordField.type = "text";
-    }
-    else
-    {
-      this.hideEyeIcon(e);
-      this.confirmPasswordField.type = "password";
-    }
-  }
-
-  showEyeIcon(e)
-  {
-    e.target.classList.remove("ion-md-eye-off");
-    e.target.classList.add("ion-md-eye");
-  }
-
-  hideEyeIcon(e)
-  {
-    e.target.classList.add("ion-md-eye-off");
-    e.target.classList.remove("ion-md-eye");
-  }
-
-  onErrorMainField(errorText)
-  {
-    this.disableSubmitButton();
-    this.confirmPasswordError.innerHTML = errorText;
-    this.passwordField.classList.add("input-invalid");
-  }
-
-  onErrorConfirmField(errorText)
-  {
-    this.disableSubmitButton();
-    this.confirmPasswordError.innerHTML = errorText;
-    this.confirmPasswordField.classList.add("input-invalid");
+    this.ConfirmPasswordHelper.removeErrors();
+    this.ConfirmPasswordHelper.checkPassword();
   }
 
   handleSubmitButton(e)
   {
-    const passwordError = document.getElementById("password-error");
-
-    passwordError.innerHTML = "";
-    this.confirmPasswordError.innerHTML = "";
-    this.confirmPasswordField.classList.remove("input-invalid");
-    this.passwordField.classList.remove("input-invalid");
+    this.PasswordHelper.removeErrors();
+    this.ConfirmPasswordHelper.removeErrors();
 
     if (this.passwordField.value !== this.confirmPasswordField.value)
     {
-      this.onErrorMainField(PASSWORDS_MATCH_ERROR);
-      this.confirmPasswordField.classList.add("input-invalid");
+      this.ConfirmPasswordHelper.onError(PASSWORDS_MATCH_ERROR);
       return false;
     }
 
-    if (this.passwordField.value.length < MIN_PASSWORD_LENGTH)
+    if (!this.PasswordHelper.checkPassword() || !this.ConfirmPasswordHelper.checkPassword())
     {
-      this.onErrorMainField(MIN_PASSWORD_ERROR);
-      return false;
-    }
-
-    if (this.passwordField.value.length > MAX_PASSWORD_LENGTH)
-    {
-      this.onErrorMainField(MAX_PASSWORD_ERROR);
-      return false;
-    }
-
-    if (this.confirmPasswordField.value.length < MIN_PASSWORD_LENGTH)
-    {
-      this.onErrorConfirmField(MIN_PASSWORD_ERROR);
-      return false;
-    }
-
-    if (this.confirmPasswordField.value.length > MAX_PASSWORD_LENGTH)
-    {
-      this.onErrorConfirmField(MAX_PASSWORD_ERROR);
       return false;
     }
 
@@ -156,13 +90,8 @@ class CreatePassword extends BaseClass
     })
     .catch((err) =>
     {
-      this.onErrorMainField(err.statusText);
+      this.ConfirmPasswordHelper.onError(err.statusText);
     });
-  }
-
-  disableSubmitButton()
-  {
-    this.mainActionButton.classList.add("disabled");
   }
 }
 
