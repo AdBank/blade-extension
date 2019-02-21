@@ -107,7 +107,7 @@ class ManualTransfer extends BaseClass
     })
     .then(() =>
     {
-      this.sendButton.innerHTML = loader(true);
+      this.sendButton.innerHTML = loader(false);
       this.enableSubmitButton();
     })
     .catch(errorInfo =>
