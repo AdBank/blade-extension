@@ -1,0 +1,27 @@
+.feed-view {
+  .info-tooltip .text {
+    right: -10px;
+    width: 208px;
+  }
+
+  .info-tooltip .text:after {
+    left: 89%;
+  }
+
+  .infinite-list-row {
+    i.fa-sign-out {
+      color: #EC1D25;
+      font: 500 20px / 24px;
+      letter-spacing: 2px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    button {
+      color: #4CC1FC;
+      font: 12px / 18px Montserrat;	
+      letter-spacing: .2px;
+      cursor: pointer;
+    }
+  }
+}

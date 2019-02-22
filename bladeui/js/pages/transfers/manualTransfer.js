@@ -5,8 +5,6 @@
 const BaseClass = require("../common/baseClass");
 const PasswordHelper = require("../common/passwordHelper");
 const request = require("../../utils/request");
-const {isAddress} = require("ethereum-address");
-const {VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");
 const loader = require("../../html/common/loader");
 const WalletHelper = require("../common/walletHelper");
 
