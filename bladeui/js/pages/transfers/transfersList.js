@@ -22,10 +22,10 @@ class Transfers extends BaseClass
 
   initListeners()
   {
-    this.displayedTransfersQuantity = document.getElementById("displayed-transfers");
+    this.displayedTransfersQuantity = document.getElementById("dropdown-active");
     const optionsDropDown = document.getElementById("open-select-options");
     this.dropdown = document.getElementById("choose-option");
-    this.transfersListTarget = document.getElementById("transfers-list-content");
+    this.transfersListTarget = document.getElementById("infinite-list-content");
     this.infiniteScrollTrigger = document.getElementById("infinite-scroll-trigger");
     this.transferActionArea = document.getElementById("control-transfer-action-area");
 
@@ -235,7 +235,7 @@ class Transfers extends BaseClass
     for (let i = 0; i < info.length; i += 1)
     {
       const newRow = document.createElement("div");
-      newRow.className = "transfers-list-row";
+      newRow.className = "infinite-list-row";
       const rewardInfo = info[i].amount;
       const transferStatus = "<i class=\"fa fa-arrow-right red\"></i>";
       const date = formatDate(info[i].date);

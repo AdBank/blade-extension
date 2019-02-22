@@ -160,7 +160,7 @@ class FeedView extends BaseClass
     const leftDescription = document.getElementById("left-description");
     const rightDescription = document.getElementById("right-description");
 
-    leftDescription.innerHTML = "ad views totatl";
+    leftDescription.innerHTML = "ad views total";
     leftQuantity.innerHTML = this.totalAdsViewed;
     rightQuantity.innerHTML = this.todayAdsViewed;
     rightDescription.innerHTML = "ad views today";

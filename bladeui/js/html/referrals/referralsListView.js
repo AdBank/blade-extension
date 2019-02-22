@@ -4,7 +4,7 @@
 
 const headerNavbar = require("../common/headerNavbar");
 const statsRepresentation = require("../common/statsRepresentation");
-const referralsList = require("./referralsList");
+const infiniteList = require("../common/infiniteList");
 const TOOLTIP_TEXT = "Get rewarded for referrals!<br>Earn 5 ADB for every invited friend that joins blade.";
 
 const html = `
@@ -12,7 +12,7 @@ const html = `
   ${headerNavbar("referrals", false, TOOLTIP_TEXT)}
   <div class="content">
     ${statsRepresentation()}
-    ${referralsList()}
+    ${infiniteList()}
     </div>
   <button class="main-action-button" id="go-to-referal-form-send-btn">
     SEND A REFERRAL

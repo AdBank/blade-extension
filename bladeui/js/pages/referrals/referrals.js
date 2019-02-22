@@ -21,10 +21,10 @@ class Referrals extends BaseClass
   initListeners()
   {
     const linkBnt = document.getElementById("go-to-referal-form-send-btn");
-    this.displayedEmailQuantity = document.getElementById("displayed-emails");
+    this.displayedEmailQuantity = document.getElementById("dropdown-active");
     const optionsDropDown = document.getElementById("open-select-options");
     this.dropdown = document.getElementById("choose-option");
-    this.emailListTarget = document.getElementById("referrals-list-content");
+    this.emailListTarget = document.getElementById("infinite-list-content");
     this.infiniteScrollTrigger = document.getElementById("infinite-scroll-trigger");
 
     browser.storage.sync.get("bladeUserData", (data) =>
@@ -142,7 +142,7 @@ class Referrals extends BaseClass
     for (let i = 0; i < info.length; i += 1)
     {
       const newRow = document.createElement("div");
-      newRow.className = "referrals-list-row";
+      newRow.className = "infinite-list-row";
       const rewardInfo = Math.round(Number(info[i].reward));
       let userStatus = "<i class=\"icon-user-follow green\"></i>";
       if (info[i].status !== "ACCEPTED")
