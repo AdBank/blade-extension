@@ -1,11 +1,11 @@
-/* eslint-disable max-len */
+/* eslint-disable */
 
 "use strict";
 
 const request = require("../../utils/request");
 const infiniteScrollLoader = require("../../html/common/infiniteScrollLoader");
 const MAXIMUM_FIT_WITHOUT_SCROLL = 4;
-
+const LIST_DEFAULT_LIMIT = 10;
 
 class InfiniteListHelper
 {
@@ -13,7 +13,10 @@ class InfiniteListHelper
   {
     this.urlStaticData = props.urlStaticData,
     this.urlList = props.urlList;
+
     this.listRenderCb = props.listRenderCb;
+    this.afterStaticRenderCb = props.afterStaticRenderCb;
+    
     this.responseLeftDataKey = props.responseLeftDataKey;
     this.responseRightDataKey = props.responseRightDataKey;
 
@@ -22,6 +25,10 @@ class InfiniteListHelper
 
     this.leftNumber = 0;
     this.rightNumber = 0;
+
+    this.skip = 0;
+    this.limit = LIST_DEFAULT_LIMIT;
+
     this.initListeners();
   }
 
@@ -39,6 +46,7 @@ class InfiniteListHelper
       this.initScrollObserver = this.initScrollObserver.bind(this);
       this.initScrollObserver();
       this.getTopStaticData();
+      this.getListData();
     });
 
     optionsDropDown.addEventListener("click", this.handleOpenOptions.bind(this));
@@ -69,17 +77,17 @@ class InfiniteListHelper
     const leftDescription = document.getElementById("left-description");
     const rightDescription = document.getElementById("right-description");
 
-    leftDescription.innerHTML = `${Math.round(Number(this.leftNumberInfo.fieldDescription))} <span>${this.leftNumberInfo.numberText}</span>`;
-    leftQuantity.innerHTML = Math.round(Number(this.leftNumberInfo.numberText));
-    rightQuantity.innerHTML = `${Math.round(Number(this.rightNumberInfo.fieldDescription))} <span>${this.rightNumberInfo.numberText}</span>`;
-    rightDescription.innerHTML = Math.round(Number(this.rightNumberInfo.fieldDescription));
+    leftDescription.innerHTML = this.leftNumberInfo.fieldDescription;
+    leftQuantity.innerHTML = `${Math.round(Number(this.leftNumber))} <span>${this.leftNumberInfo.numberText}</span>`;
+    rightDescription.innerHTML = this.rightNumberInfo.fieldDescription;
+    rightQuantity.innerHTML = `${Math.round(Number(this.rightNumber))} <span>${this.rightNumberInfo.numberText}</span>`;
   }
 
   getTopStaticData()
   {
     request({
       method: "get",
-      url: `${this.urlStaticData}?skip=${this.skip}&limit=${this.limit}`,
+      url: this.urlStaticData,
       headers: {
         Authorization: `Bearer ${this.bearerToken}`
       }
@@ -97,6 +105,8 @@ class InfiniteListHelper
         this.rightNumber = rightNumber;
         this.renderStats();
       }
+
+      if (this.afterStaticRenderCb)  this.afterStaticRenderCb(res.transfer_possibility);
     })
     .catch((err) =>
     {
@@ -104,7 +114,7 @@ class InfiniteListHelper
     });
   }
 
-  getData()
+  getListData()
   {
     this.showLoader();
 
@@ -117,15 +127,14 @@ class InfiniteListHelper
     })
     .then((response) =>
     {
-      const res = JSON.parse(response.response);
+      const list = JSON.parse(response.response);
 
-      if (res.referrals.length)
+      if (list.length)
       {
-        this.listRenderCb(res.referrals);
+        this.listRenderCb(list);
 
         this.hideLoader();
-        this.startObserver(res.referrals);
-
+        this.startObserver(list);
         this.skip = this.skip + this.limit;
       }
       else
@@ -155,16 +164,28 @@ class InfiniteListHelper
     this.infiniteListContent.removeChild(loader);
   }
 
+  handleOpenOptions(event)
+  {
+    event.stopPropagation();
+    this.dropdown.style.display = this.dropdown.style.display === "none" ?
+      "block" : "none";
+  }
+
+  closeSelectOptions()
+  {
+    this.dropdown.style.display = "none";
+  }
+
   handleSelectOption(event)
   {
-    const emailQuantity = event.target.dataset.quantity;
-    this.activeDropdownItem.innerText = emailQuantity;
+    const quantitySelected = event.target.dataset.quantity;
+    this.activeDropdownItem.innerText = quantitySelected;
 
-    this.limit = Number(emailQuantity);
+    this.limit = Number(quantitySelected);
     this.skip = 0;
 
     this.clearList();
-    this.getReferralsInfo();
+    this.getListData();
 
     this.closeSelectOptions();
   }
@@ -176,6 +197,17 @@ class InfiniteListHelper
       this.infiniteListContent.removeChild(this.infiniteListContent.firstChild);
     }
     this.stopScrollObserver();
+  }
+
+  scrollObserverCallback(entries)
+  {
+    entries.forEach(entry =>
+    {
+      if (entry.intersectionRatio === 1)
+      {
+        this.getListData();
+      }
+    });
   }
 
   startObserver(info)

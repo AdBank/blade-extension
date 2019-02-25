@@ -5,7 +5,6 @@
 const BaseClass = require("../common/baseClass");
 const formatDate = require("../../utils/formatDate");
 const InfiniteListHelper = require("../common/infiniteListHelper");
-const REFERRAL_ROW_COUNT = 10;
 
 class Referrals extends BaseClass
 {
@@ -17,7 +16,7 @@ class Referrals extends BaseClass
   initListeners()
   {
     this.infiniteListHelper = new InfiniteListHelper({
-      listRenderCb: this.renderReferralsList,
+      listRenderCb: this.renderReferralsList.bind(this),
       urlStaticData: "here will be url for static data",
       urlList: "/jwt/user/referrals/list",
       responseLeftDataKey: "total_referred",
