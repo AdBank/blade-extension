@@ -1,6 +1,6 @@
 [general]
 basename = bladechrome
-version = 0.0.3
+version = 1.0.0
 author = Adbank
 backgroundScripts = polyfill.js
   ext/common.js
