@@ -1,13 +1,16 @@
 "use strict";
 
 const headerNavbar = require("../common/headerNavbar");
+const statsRepresentation = require("../common/statsRepresentation");
+const infiniteList = require("../common/infiniteList");
 
 const html = `
-<div class="get-started-view flex-column">
+<div class="feed-view flex-column">
   ${headerNavbar("feed")}
-  <p class="desciption">
-    This is a feed view
-  </p>
+  <div class="content">
+    ${statsRepresentation()}
+    ${infiniteList()}
+    </div>
 </div>
 `;
 

@@ -1,0 +1,127 @@
+.infinite-list-container {
+  margin: 0 -24px 12px;
+  height: 170px;
+  background-color: rgba(51, 51, 51, 0.5);
+  position: relative;
+
+  .infinite-list {
+    overflow-y: auto;
+    width: 256px;
+    height: 170px;
+    padding: 10px 4px 0 0;
+    margin: 0 auto;
+    @import "../blade/_scroll";
+  }
+
+  .infinite-list-content {
+    overflow-x: hidden;
+  }
+
+  .infinite-list-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .select-container {
+    display: block;
+    text-align: right;
+    position: relative;
+    line-height: 16px;
+    cursor: pointer;
+  }
+
+  .select-control-items {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    p {
+      display: inline-block;
+      text-transform: uppercase;
+      color: #EEEEEE;
+      font-size: 10px;
+      line-height: 14px;
+
+      span {
+        text-align: right;
+        display: inline-block;
+      }
+    }
+
+    .button {
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #EC1D25;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      cursor: pointer;
+
+      &:focus {
+        border: none;
+        background: inherit;
+        color: inherit;
+        outline: none;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 3px solid #EC1D25;
+      }
+
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .options-container {
+    width: auto;
+    min-width: 55px;
+    border: 1px solid #c4cdd5;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 2;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+
+    span {
+      font-family: inherit;
+      font-size: inherit;
+      color: #4A4A4A;
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      user-select: none;
+      padding: 6px 10px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #f4f6f8;
+      cursor: pointer;
+
+      &:nth-last-of-type(1) {
+        border-bottom: 0;
+      }
+
+      &:hover {
+        background-color: #d9d9d9;
+        transition: background-color 0.3s linear;
+      }
+    }
+  }
+}

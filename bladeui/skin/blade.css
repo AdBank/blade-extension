@@ -459,6 +459,108 @@ p.page-description {
   100% {
     box-shadow: -15px 10px 0 rgba(217, 217, 217, 0), 0 10px rgba(217, 217, 217, 0), 15px 10px rgba(217, 217, 217, 0); } }
 
+.infinite-list-container {
+  margin: 0 -24px 12px;
+  height: 170px;
+  background-color: rgba(51, 51, 51, 0.5);
+  position: relative; }
+  .infinite-list-container .infinite-list {
+    overflow-y: auto;
+    width: 256px;
+    height: 170px;
+    padding: 10px 4px 0 0;
+    margin: 0 auto; }
+    .infinite-list-container .infinite-list::-webkit-scrollbar {
+      width: 2px;
+      border-radius: 1px; }
+    .infinite-list-container .infinite-list::-webkit-scrollbar-track {
+      background: transparent; }
+    .infinite-list-container .infinite-list::-webkit-scrollbar-thumb {
+      background: #999999; }
+  .infinite-list-container .infinite-list-content {
+    overflow-x: hidden; }
+  .infinite-list-container .infinite-list-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px; }
+  .infinite-list-container .select-container {
+    display: block;
+    text-align: right;
+    position: relative;
+    line-height: 16px;
+    cursor: pointer; }
+  .infinite-list-container .select-control-items {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .infinite-list-container .select-control-items p {
+      display: inline-block;
+      text-transform: uppercase;
+      color: #EEEEEE;
+      font-size: 10px;
+      line-height: 14px; }
+      .infinite-list-container .select-control-items p span {
+        text-align: right;
+        display: inline-block; }
+    .infinite-list-container .select-control-items .button {
+      width: 16px;
+      height: 16px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #EC1D25;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      cursor: pointer; }
+      .infinite-list-container .select-control-items .button:focus {
+        border: none;
+        background: inherit;
+        color: inherit;
+        outline: none; }
+      .infinite-list-container .select-control-items .button:before, .infinite-list-container .select-control-items .button:after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 3px solid #EC1D25; }
+      .infinite-list-container .select-control-items .button:after {
+        transform: rotate(180deg); }
+  .infinite-list-container .options-container {
+    width: auto;
+    min-width: 55px;
+    border: 1px solid #c4cdd5;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 2;
+    font-size: 14px;
+    text-align: center;
+    display: none; }
+    .infinite-list-container .options-container span {
+      font-family: inherit;
+      font-size: inherit;
+      color: #4A4A4A;
+      display: block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      user-select: none;
+      padding: 6px 10px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #f4f6f8;
+      cursor: pointer; }
+      .infinite-list-container .options-container span:nth-last-of-type(1) {
+        border-bottom: 0; }
+      .infinite-list-container .options-container span:hover {
+        background-color: #d9d9d9;
+        transition: background-color 0.3s linear; }
+
 .about-view .content {
   text-align: center; }
 
@@ -633,187 +735,93 @@ p.page-description {
 .manual-transfers-view .main-action-button {
   margin-top: auto; }
 
-.transfers-view .transfers-list-container {
-  margin: 0 -24px 12px;
-  height: 170px;
-  background-color: rgba(51, 51, 51, 0.5);
-  position: relative; }
-  .transfers-view .transfers-list-container .transfers-list {
-    overflow-y: auto;
-    width: 256px;
-    height: 170px;
-    padding: 8px 0;
-    margin: 0 auto; }
-    .transfers-view .transfers-list-container .transfers-list .transfers-list-content {
-      overflow-x: hidden; }
-      .transfers-view .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar {
-        width: 2px;
-        border-radius: 1px; }
-      .transfers-view .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar-track {
-        background: transparent; }
-      .transfers-view .transfers-list-container .transfers-list .transfers-list-content::-webkit-scrollbar-thumb {
-        background: #999999; }
-    .transfers-view .transfers-list-container .transfers-list .transfers-list-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 16px; }
-      .transfers-view .transfers-list-container .transfers-list .transfers-list-row p {
-        margin: 0;
-        padding: 0;
-        line-height: 18px;
-        letter-spacing: 0.2px;
-        font-size: 12px;
-        color: #EEEEEE; }
-        .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.txhash {
-          width: 87px;
-          overflow-x: hidden;
-          text-overflow: ellipsis;
-          text-align: left;
-          white-space: nowrap; }
-          .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.txhash a {
-            color: #4CC1FC;
-            text-decoration: none; }
-        .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.date {
-          width: 54px;
-          text-align: left; }
-        .transfers-view .transfers-list-container .transfers-list .transfers-list-row p.unit {
-          text-transform: uppercase; }
-      .transfers-view .transfers-list-container .transfers-list .transfers-list-row i {
-        font-size: 20px; }
-    .transfers-view .transfers-list-container .transfers-list .red {
-      color: #EC1D25; }
-    .transfers-view .transfers-list-container .transfers-list .green {
-      color: #00CB00; }
-    .transfers-view .transfers-list-container .transfers-list .select-container {
-      position: relative;
-      line-height: 16px;
-      width: 55px;
-      margin-left: 77%;
-      cursor: pointer; }
-    .transfers-view .transfers-list-container .transfers-list .select-control-items {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between; }
-      .transfers-view .transfers-list-container .transfers-list .select-control-items p {
-        display: inline-block;
-        text-transform: uppercase;
-        color: #EEEEEE;
-        font-size: 10px;
-        line-height: 14px; }
-        .transfers-view .transfers-list-container .transfers-list .select-control-items p span {
-          width: 11px;
-          text-align: right;
-          display: inline-block; }
-      .transfers-view .transfers-list-container .transfers-list .select-control-items .button {
-        width: 16px;
-        height: 16px;
-        padding: 0;
-        border: none;
-        background: transparent;
-        color: #EC1D25;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        cursor: pointer; }
-        .transfers-view .transfers-list-container .transfers-list .select-control-items .button:focus {
-          border: none;
-          background: inherit;
-          color: inherit;
-          outline: none; }
-        .transfers-view .transfers-list-container .transfers-list .select-control-items .button:before, .transfers-view .transfers-list-container .transfers-list .select-control-items .button:after {
-          content: "";
-          display: block;
-          width: 0;
-          height: 0;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
-          border-bottom: 3px solid #EC1D25; }
-        .transfers-view .transfers-list-container .transfers-list .select-control-items .button:after {
-          transform: rotate(180deg); }
-    .transfers-view .transfers-list-container .transfers-list .options-container {
-      width: 100%;
-      border: 1px solid #c4cdd5;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      z-index: 2;
-      font-size: 14px;
-      text-align: center;
-      display: none; }
-      .transfers-view .transfers-list-container .transfers-list .options-container span {
-        font-family: inherit;
-        font-size: inherit;
-        color: #4A4A4A;
-        display: block;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        user-select: none;
-        padding: 6px 0;
-        background-color: #ffffff;
-        border-bottom: 1px solid #f4f6f8;
-        cursor: pointer; }
-        .transfers-view .transfers-list-container .transfers-list .options-container span:nth-last-of-type(1) {
-          border-bottom: 0; }
-        .transfers-view .transfers-list-container .transfers-list .options-container span:hover {
-          background-color: #d9d9d9;
-          transition: background-color 0.3s linear; }
+.transfers-view .red {
+  color: #EC1D25; }
+
+.transfers-view .green {
+  color: #00CB00; }
+
+.transfers-view .infinite-list-row p {
+  margin: 0;
+  padding: 0;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+  color: #EEEEEE; }
+  .transfers-view .infinite-list-row p.txhash {
+    width: 87px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    white-space: nowrap; }
+    .transfers-view .infinite-list-row p.txhash a {
+      color: #4CC1FC;
+      text-decoration: none; }
+  .transfers-view .infinite-list-row p.date {
+    width: 54px;
+    text-align: left; }
+  .transfers-view .infinite-list-row p.unit {
+    text-transform: uppercase; }
+
+.transfers-view .infinite-list-row i {
+  font-size: 20px; }
 
 .transfers-view .control-transfer-action-area {
   margin-top: auto;
   color: #EEEEEE;
   text-align: center; }
-  .transfers-view .control-transfer-action-area .transfers-warning-message {
-    margin: 0;
-    font-size: 14px;
-    font-weight: bold;
-    letter-spacing: 0.2px;
-    line-height: 20px; }
-  .transfers-view .control-transfer-action-area .transfers-auto-transfers-warning {
-    margin: 0;
-    font-size: 10px;
-    line-height: 14px; }
-    .transfers-view .control-transfer-action-area .transfers-auto-transfers-warning .go-to-settings-btn {
-      color: inherit;
-      font-size: inherit;
-      font-family: inherit;
-      text-decoration: underline;
-      cursor: pointer; }
-  .transfers-view .control-transfer-action-area .main-action-button {
-    position: relative; }
-    .transfers-view .control-transfer-action-area .main-action-button .info-tooltip {
-      position: absolute;
-      top: -19%;
-      right: 0; }
-      .transfers-view .control-transfer-action-area .main-action-button .info-tooltip .notification-icon {
-        position: absolute;
-        top: -4px;
-        right: -4px;
-        height: 24px;
-        width: 24px;
-        color: #EEEEEE; }
-        .transfers-view .control-transfer-action-area .main-action-button .info-tooltip .notification-icon .fa {
-          font-size: 23px;
-          line-height: 23px; }
-      .transfers-view .control-transfer-action-area .main-action-button .info-tooltip .text {
-        width: 235px;
-        position: absolute;
-        right: -10px;
-        top: -77px;
-        margin-bottom: 15px;
-        margin-top: 0;
-        text-transform: none; }
-        .transfers-view .control-transfer-action-area .main-action-button .info-tooltip .text::after {
-          left: initial;
-          right: 10px;
-          bottom: -10%;
-          border-left: 7px solid transparent;
-          border-right: 7px solid transparent;
-          border-top: 7px solid #EEEEEE;
-          border-bottom: none; }
+
+.transfers-view .transfers-warning-message {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 20px; }
+
+.transfers-view .transfers-auto-transfers-warning {
+  margin: 0;
+  font-size: 10px;
+  line-height: 14px; }
+  .transfers-view .transfers-auto-transfers-warning .go-to-settings-btn {
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    text-decoration: underline;
+    cursor: pointer; }
+
+.transfers-view .main-action-button {
+  position: relative; }
+
+.transfers-view .info-tooltip {
+  position: absolute;
+  top: -19%;
+  right: 0; }
+  .transfers-view .info-tooltip .notification-icon {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    height: 24px;
+    width: 24px;
+    color: #EEEEEE; }
+    .transfers-view .info-tooltip .notification-icon .fa {
+      font-size: 23px;
+      line-height: 23px; }
+  .transfers-view .info-tooltip .text {
+    width: 235px;
+    position: absolute;
+    right: -10px;
+    top: -77px;
+    margin-bottom: 15px;
+    margin-top: 0;
+    text-transform: none; }
+    .transfers-view .info-tooltip .text::after {
+      left: initial;
+      right: 10px;
+      bottom: -10%;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid #EEEEEE;
+      border-bottom: none; }
 
 .get-started-view {
   justify-content: space-between;
@@ -1185,150 +1193,6 @@ p.page-description {
 .recover-password-view .main-action-button {
   margin-top: auto; }
 
-.referrals-list-container {
-  margin: 0 -24px 12px;
-  height: 170px;
-  background-color: rgba(51, 51, 51, 0.5);
-  position: relative; }
-  .referrals-list-container .referrals-list {
-    overflow-y: auto;
-    width: 256px;
-    height: 170px;
-    padding: 8px 0;
-    margin: 0 auto; }
-    .referrals-list-container .referrals-list .referrals-list-content {
-      overflow-x: hidden; }
-      .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px; }
-        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p {
-          margin: 0;
-          padding: 0;
-          line-height: 18px;
-          letter-spacing: 0.2px;
-          font-size: 12px;
-          color: #EEEEEE; }
-          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.email {
-            position: relative;
-            width: 87px;
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-            text-align: left;
-            white-space: nowrap; }
-            .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.email:hover + .info-tooltip {
-              display: block; }
-          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.date {
-            width: 54px;
-            text-align: right; }
-          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row p.unit {
-            text-transform: uppercase; }
-        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .info-tooltip {
-          display: none;
-          box-sizing: border-box;
-          height: 16px;
-          align-self: center;
-          position: absolute;
-          top: 100%;
-          left: 35px;
-          padding: 0px 3px;
-          color: #000;
-          width: auto;
-          background-color: #eee; }
-          .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .info-tooltip::after {
-            left: 0; }
-        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row i {
-          font-size: 20px; }
-        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .red {
-          color: #EC1D25; }
-        .referrals-list-container .referrals-list .referrals-list-content .referrals-list-row .green {
-          color: #00CB00; }
-    .referrals-list-container .referrals-list::-webkit-scrollbar {
-      width: 2px;
-      border-radius: 1px; }
-    .referrals-list-container .referrals-list::-webkit-scrollbar-track {
-      background: transparent; }
-    .referrals-list-container .referrals-list::-webkit-scrollbar-thumb {
-      background: #999999; }
-    .referrals-list-container .referrals-list .select-container {
-      position: relative;
-      line-height: 16px;
-      width: 55px;
-      margin-left: 77%;
-      cursor: pointer; }
-      .referrals-list-container .referrals-list .select-container .select-control-items {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between; }
-        .referrals-list-container .referrals-list .select-container .select-control-items p {
-          display: inline-block;
-          text-transform: uppercase;
-          color: #EEEEEE;
-          font-size: 10px;
-          line-height: 14px; }
-          .referrals-list-container .referrals-list .select-container .select-control-items p span {
-            width: 11px;
-            text-align: right;
-            display: inline-block; }
-        .referrals-list-container .referrals-list .select-container .select-control-items .button {
-          width: 16px;
-          height: 16px;
-          padding: 0;
-          border: none;
-          background: transparent;
-          color: #EC1D25;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-evenly;
-          cursor: pointer; }
-          .referrals-list-container .referrals-list .select-container .select-control-items .button:focus {
-            border: none;
-            background: inherit;
-            color: inherit;
-            outline: none; }
-          .referrals-list-container .referrals-list .select-container .select-control-items .button:before, .referrals-list-container .referrals-list .select-container .select-control-items .button:after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 0;
-            border-left: 3px solid transparent;
-            border-right: 3px solid transparent;
-            border-bottom: 3px solid #EC1D25; }
-          .referrals-list-container .referrals-list .select-container .select-control-items .button:after {
-            transform: rotate(180deg); }
-      .referrals-list-container .referrals-list .select-container .options-container {
-        width: 100%;
-        border: 1px solid #c4cdd5;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        z-index: 2;
-        font-size: 14px;
-        text-align: center;
-        display: none; }
-        .referrals-list-container .referrals-list .select-container .options-container span {
-          font-family: inherit;
-          font-size: inherit;
-          color: #4A4A4A;
-          display: block;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          user-select: none;
-          padding: 6px 0;
-          background-color: #ffffff;
-          border-bottom: 1px solid #f4f6f8;
-          cursor: pointer; }
-          .referrals-list-container .referrals-list .select-container .options-container span:nth-last-of-type(1) {
-            border-bottom: 0; }
-          .referrals-list-container .referrals-list .select-container .options-container span:hover {
-            background-color: #d9d9d9;
-            transition: background-color 0.3s linear; }
-
 .referrals-view .form-group:first-of-type {
   margin-bottom: 47px; }
 
@@ -1361,5 +1225,80 @@ p.page-description {
   right: -10px;
   width: 208px; }
 
+.referrals-view .infinite-list-row p {
+  margin: 0;
+  padding: 0;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+  color: #EEEEEE; }
+  .referrals-view .infinite-list-row p.email {
+    position: relative;
+    width: 87px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    white-space: nowrap; }
+    .referrals-view .infinite-list-row p.email:hover + .info-tooltip {
+      display: block; }
+  .referrals-view .infinite-list-row p.date {
+    width: 54px;
+    text-align: right; }
+  .referrals-view .infinite-list-row p.unit {
+    text-transform: uppercase; }
+
+.referrals-view .infinite-list-row .info-tooltip {
+  display: none;
+  box-sizing: border-box;
+  height: 16px;
+  align-self: center;
+  position: absolute;
+  top: 100%;
+  left: 35px;
+  padding: 0px 3px;
+  color: #000;
+  width: auto;
+  background-color: #eee; }
+  .referrals-view .infinite-list-row .info-tooltip::after {
+    left: 0; }
+
+.referrals-view .infinite-list-row i {
+  font-size: 20px; }
+
+.referrals-view .infinite-list-row .red {
+  color: #EC1D25; }
+
+.referrals-view .infinite-list-row .green {
+  color: #00CB00; }
+
 .referrals-view .info-tooltip .text:after {
   left: 89%; }
+
+.feed-view .info-tooltip .text {
+  right: -10px;
+  width: 208px; }
+
+.feed-view .info-tooltip .text:after {
+  left: 89%; }
+
+.feed-view .infinite-list-content {
+  margin-top: 15px; }
+
+.feed-view .infinite-list-row i.fa-sign-out {
+  color: #EC1D25;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-align: center;
+  cursor: pointer; }
+
+.feed-view .infinite-list-row button {
+  color: #4CC1FC;
+  font: 12px / 18px Montserrat;
+  letter-spacing: .2px;
+  cursor: pointer; }
+
+.feed-view .amount {
+  margin-right: 24px;
+  color: #EEEEEE;
+  font: 400 12px / 18px Montserrat;
+  letter-spacing: .2px; }

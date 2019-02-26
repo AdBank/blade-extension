@@ -2,14 +2,14 @@
 
 "use strict";
 
-function transfersList()
+function infinitelist()
 {
   return `
-  <div class="transfers-list-container">
-    <div class="transfers-list" id="transfers-list-scroll-container">
+  <div class="infinite-list-container">
+    <div class="infinite-list" id="infinite-list-scroll-container">
       <div class="select-container">
         <div class="select-control-items" id="open-select-options">
-          <p>Last <span id="displayed-transfers">10</span></p>
+          <p>Last <span id="dropdown-active">10</span></p>
           <button class="button"></button>
         </div>
         <div class="options-container" id="choose-option">
@@ -18,7 +18,7 @@ function transfersList()
           <span data-quantity="25">25</span>
         </div>
       </div>
-      <div class="transfers-list-content" id="transfers-list-content">
+      <div class="infinite-list-content" id="infinite-list-content">
       </div>
       <div id="infinite-scroll-trigger"></div>
     </div>
@@ -26,4 +26,4 @@ function transfersList()
   `;
 }
 
-module.exports = transfersList;
+module.exports = infinitelist;

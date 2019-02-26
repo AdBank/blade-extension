@@ -5,8 +5,6 @@
 const BaseClass = require("../common/baseClass");
 const PasswordHelper = require("../common/passwordHelper");
 const request = require("../../utils/request");
-const {isAddress} = require("ethereum-address");
-const {VALID_WALLET_ADDRESS_LENGTH} = require("../../utils/constants");
 const loader = require("../../html/common/loader");
 const WalletHelper = require("../common/walletHelper");
 
@@ -60,7 +58,11 @@ class ManualTransfer extends BaseClass
       this.WalletHelper.walletAddress !== this.ConfirmWalletHelper.walletAddress)
     {
       this.ConfirmWalletHelper.highlightErrors("Addresses need to match");
+
+      return false;
     }
+
+    return true;
   }
 
   handlePasswordFieldChange(e)
@@ -86,7 +88,7 @@ class ManualTransfer extends BaseClass
       password: this.PasswordHelper.password
     };
 
-    if (this.WalletHelper.checkInput() && this.ConfirmWalletHelper.checkInput() && this.PasswordHelper.checkPassword() && this.checkWallet())
+    if (this.PasswordHelper.checkPassword() && this.checkWallet())
     {
       this.sendRequest(data);
       this.sendButton.innerHTML = loader(true);
@@ -108,7 +110,6 @@ class ManualTransfer extends BaseClass
     .then(() =>
     {
       this.sendButton.innerHTML = loader(false);
-      this.enableSubmitButton();
     })
     .catch(errorInfo =>
     {

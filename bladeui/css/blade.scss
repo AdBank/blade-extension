@@ -2,6 +2,7 @@
 @import 'blade/statsRepresentation.scss';
 @import 'blade/loader.scss';
 @import 'blade/infiniteScrollLoader.scss';
+@import 'blade/infiniteList.scss';
 
 @import 'settings/about.scss';
 @import 'settings/transfers.scss';
@@ -25,6 +26,8 @@
 @import 'recovery/recoverCompleted.scss';
 @import 'recovery/recoverPassword.scss';
 
-@import 'referrals/refferalsList.scss';
 @import 'referrals/referralsForm.scss';
 @import 'referrals/refferals.scss';
+
+@import 'feed/feed.scss';
+
