@@ -8,10 +8,14 @@
     left: 89%;
   }
 
+  .infinite-list-content {
+    margin-top: 15px;
+  }
+
   .infinite-list-row {
     i.fa-sign-out {
       color: #EC1D25;
-      font: 500 20px / 24px;
+      font-size: 20px;
       letter-spacing: 2px;
       text-align: center;
       cursor: pointer;
@@ -23,5 +27,12 @@
       letter-spacing: .2px;
       cursor: pointer;
     }
+  }
+
+  .amount {
+    margin-right: 24px;
+    color: #EEEEEE;
+    font: 400 12px / 18px Montserrat;
+    letter-spacing: .2px;
   }
 }

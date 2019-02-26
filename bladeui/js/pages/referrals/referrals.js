@@ -17,12 +17,12 @@ class Referrals extends BaseClass
   {
     this.infiniteListHelper = new InfiniteListHelper({
       listRenderCb: this.renderReferralsList.bind(this),
-      urlStaticData: "here will be url for static data",
+      urlStaticData: "/jwt/user/referrals/info",
       urlList: "/jwt/user/referrals/list",
       responseLeftDataKey: "total_referred",
       responseRightDataKey: "total_rewards",
-      leftNumberInfo: {numberText: "ADB", fieldDescription: "friends referred"},
-      rightNumberInfo: {numberText: null, fieldDescription: "rewards earned"}
+      leftNumberInfo: {numberText: null, fieldDescription: "friends referred"},
+      rightNumberInfo: {numberText: "ADB", fieldDescription: "rewards earned"}
     });
 
     const linkButton = document.getElementById("go-to-referal-form-send-btn");

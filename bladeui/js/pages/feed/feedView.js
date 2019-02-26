@@ -4,6 +4,8 @@
 
 const BaseClass = require("../common/baseClass");
 const InfiniteListHelper = require("../common/infiniteListHelper");
+
+const WEBSITE_VISIBLE_LENGTH = 20;
 class FeedView extends BaseClass
 {
   constructor(props)
@@ -21,8 +23,8 @@ class FeedView extends BaseClass
       listRenderCb: this.renderFeedsList.bind(this),
       leftNumberInfo: {numberText: null, fieldDescription: "ad views total"},
       rightNumberInfo: {numberText: null, fieldDescription: "ad views today"},
-      responseLeftDataKey: "ad_views_total",
-      responseRightDataKey: "ad_views_today"
+      responseLeftDataKey: "total_views",
+      responseRightDataKey: "today_views"
     });
   }
 
@@ -39,21 +41,26 @@ class FeedView extends BaseClass
     {
       const newRow = document.createElement("div");
       const button = document.createElement("button");
+      const amountField = document.createElement("p");
       const icon = document.createElement("i");
 
       newRow.className = "infinite-list-row";
       icon.className = "fa fa-sign-out";
+      amountField.className = "amount";
 
-      button.innerHTML = data[i].length > 20 ? data[i].slice(0, 20) + "..." : data[i];
-      button.title = data[i];
-      button.dataset.href = data[i];
+      button.innerHTML = data[i].website_url.length > WEBSITE_VISIBLE_LENGTH ? data[i].website_url.slice(0, WEBSITE_VISIBLE_LENGTH) + "..." : data[i].website_url;
+      button.title = data[i].website_url;
+      button.dataset.href = data[i].website_url;
 
-      icon.dataset.href = data[i];
+      amountField.innerHTML = Math.ceil(Number(data[i].amount)) + " ADB";
+
+      icon.dataset.href = data[i].website_url;
 
       button.addEventListener("click", this.openWebsite.bind(this));
       icon.addEventListener("click", this.openWebsite.bind(this));
 
       newRow.appendChild(button);
+      newRow.appendChild(amountField);
       newRow.appendChild(icon);
 
       container.appendChild(newRow);

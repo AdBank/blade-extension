@@ -78,9 +78,9 @@ class InfiniteListHelper
     const rightDescription = document.getElementById("right-description");
 
     leftDescription.innerHTML = this.leftNumberInfo.fieldDescription;
-    leftQuantity.innerHTML = `${Math.round(Number(this.leftNumber))} <span>${this.leftNumberInfo.numberText}</span>`;
+    leftQuantity.innerHTML = `${Math.round(Number(this.leftNumber))} <span>${this.leftNumberInfo.numberText ? this.leftNumberInfo.numberText : ""}</span>`;
     rightDescription.innerHTML = this.rightNumberInfo.fieldDescription;
-    rightQuantity.innerHTML = `${Math.round(Number(this.rightNumber))} <span>${this.rightNumberInfo.numberText}</span>`;
+    rightQuantity.innerHTML = `${Math.round(Number(this.rightNumber))} <span>${this.rightNumberInfo.numberText ? this.rightNumberInfo.numberText : ""}</span>`;
   }
 
   getTopStaticData()
