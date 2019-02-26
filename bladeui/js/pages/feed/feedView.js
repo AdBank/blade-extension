@@ -39,6 +39,8 @@ class FeedView extends BaseClass
     const container = document.createElement("div");
     for (let i = 0; i < data.length; i += 1)
     {
+      const websiteUrl = data[i].website_url;
+
       const newRow = document.createElement("div");
       const button = document.createElement("button");
       const amountField = document.createElement("p");
@@ -48,13 +50,13 @@ class FeedView extends BaseClass
       icon.className = "fa fa-sign-out";
       amountField.className = "amount";
 
-      button.innerHTML = data[i].website_url.length > WEBSITE_VISIBLE_LENGTH ? data[i].website_url.slice(0, WEBSITE_VISIBLE_LENGTH) + "..." : data[i].website_url;
-      button.title = data[i].website_url;
-      button.dataset.href = data[i].website_url;
+      button.innerHTML = websiteUrl.length > WEBSITE_VISIBLE_LENGTH ? websiteUrl.slice(0, WEBSITE_VISIBLE_LENGTH) + "..." : websiteUrl;
+      button.title = websiteUrl;
+      button.dataset.href = websiteUrl;
 
       amountField.innerHTML = Math.ceil(Number(data[i].amount)) + " ADB";
 
-      icon.dataset.href = data[i].website_url;
+      icon.dataset.href = websiteUrl;
 
       button.addEventListener("click", this.openWebsite.bind(this));
       icon.addEventListener("click", this.openWebsite.bind(this));
