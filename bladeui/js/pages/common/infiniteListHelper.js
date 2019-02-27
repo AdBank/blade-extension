@@ -23,8 +23,8 @@ class InfiniteListHelper
     this.leftNumberInfo = props.leftNumberInfo;
     this.rightNumberInfo = props.rightNumberInfo;
 
-    this.leftNumber = 0;
-    this.rightNumber = 0;
+    this.leftNumber = -1;
+    this.rightNumber = -1;
 
     this.skip = 0;
     this.limit = LIST_DEFAULT_LIMIT;
@@ -96,15 +96,10 @@ class InfiniteListHelper
     {
       const res = JSON.parse(response.response);
 
-      const leftNumber = res[this.responseLeftDataKey];
-      const rightNumber = res[this.responseRightDataKey];
+      this.leftNumber = res[this.responseLeftDataKey];
+      this.rightNumber = res[this.responseRightDataKey];
 
-      if (this.leftNumber !== leftNumber || this.rightNumber !== rightNumber)
-      {
-        this.leftNumber = leftNumber;
-        this.rightNumber = rightNumber;
-        this.renderStats();
-      }
+      this.renderStats();
 
       if (this.afterStaticRenderCb)  this.afterStaticRenderCb(res.transfer_possibility);
     })
