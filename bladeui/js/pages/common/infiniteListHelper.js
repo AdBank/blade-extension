@@ -23,8 +23,8 @@ class InfiniteListHelper
     this.leftNumberInfo = props.leftNumberInfo;
     this.rightNumberInfo = props.rightNumberInfo;
 
-    this.leftNumber = -1;
-    this.rightNumber = -1;
+    this.leftNumber = 0;
+    this.rightNumber = 0;
 
     this.skip = 0;
     this.limit = LIST_DEFAULT_LIMIT;
