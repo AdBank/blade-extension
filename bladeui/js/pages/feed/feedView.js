@@ -61,8 +61,8 @@ class FeedView extends BaseClass
       button.addEventListener("click", this.openWebsite.bind(this));
       icon.addEventListener("click", this.openWebsite.bind(this));
 
-      newRow.appendChild(button);
       newRow.appendChild(amountField);
+      newRow.appendChild(button);
       newRow.appendChild(icon);
 
       container.appendChild(newRow);
@@ -72,7 +72,7 @@ class FeedView extends BaseClass
 
   openWebsite(e)
   {
-    const href = e.target.dateset.href;
+    const href = e.target.dataset.href;
 
     browser.tabs.create({url: href});
   }
