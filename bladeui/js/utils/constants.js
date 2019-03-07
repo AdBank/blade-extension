@@ -7,7 +7,7 @@ const MIN_PASSWORD_ERROR = "Please enter at least 8 characters";
 const MAX_PASSWORD_ERROR = "Please enter no more than 30 characters";
 const PASSWORDS_MATCH_ERROR = "Passwords do not match";
 const GENERAL_ERROR = "Something went wrong.";
-const KYC_LINK = "http://ec2-18-223-111-55.us-east-2.compute.amazonaws.com/bladeKYC/";
+const KYC_LINK = "https://kyc.blade.software/";
 const FIRST_PAGE = "getStarted";
 const FIRST_PAGE_FOR_REGISTERED = "profile";
 
