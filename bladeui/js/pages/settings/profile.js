@@ -3,7 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
-const {KYC_LINK} = require("../../utils/constants");
+const {KYC_VERIFICATION_LINK} = require("../../utils/constants");
 const request = require("../../utils/request");
 const kycStatusButton = require("../../html/common/kycStatusButton");
 
@@ -39,7 +39,7 @@ class Profile extends BaseClass
 
   openKyc()
   {
-    browser.tabs.create({url: KYC_LINK + "bladeKYC/" + this.userId});
+    browser.tabs.create({url: KYC_VERIFICATION_LINK + this.userId});
   }
 
   getData()

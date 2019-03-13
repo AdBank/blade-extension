@@ -8,6 +8,7 @@ const MAX_PASSWORD_ERROR = "Please enter no more than 30 characters";
 const PASSWORDS_MATCH_ERROR = "Passwords do not match";
 const GENERAL_ERROR = "Something went wrong.";
 const KYC_LINK = "https://kyc.blade.software/";
+const KYC_VERIFICATION_LINK = KYC_LINK + "bladeKYC/";
 const FIRST_PAGE = "getStarted";
 const FIRST_PAGE_FOR_REGISTERED = "profile";
 
@@ -21,5 +22,6 @@ module.exports = {
   GENERAL_ERROR,
   KYC_LINK,
   FIRST_PAGE,
-  FIRST_PAGE_FOR_REGISTERED
+  FIRST_PAGE_FOR_REGISTERED,
+  KYC_VERIFICATION_LINK
 };
