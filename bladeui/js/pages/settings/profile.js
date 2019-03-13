@@ -39,7 +39,7 @@ class Profile extends BaseClass
 
   openKyc()
   {
-    browser.tabs.create({url: KYC_LINK + this.userId});
+    browser.tabs.create({url: KYC_LINK + "bladeKYC/" + this.userId});
   }
 
   getData()
