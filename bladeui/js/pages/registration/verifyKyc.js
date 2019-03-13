@@ -1,7 +1,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
-const {KYC_LINK} = require("../../utils/constants");
+const {KYC_VERIFICATION_LINK} = require("../../utils/constants");
 
 class VerifyKyc extends BaseClass
 {
@@ -23,7 +23,7 @@ class VerifyKyc extends BaseClass
   {
     browser.storage.sync.get(null, (data) =>
     {
-      browser.tabs.create({url: KYC_LINK + data.bladeUserData.userCode});
+      browser.tabs.create({url: KYC_VERIFICATION_LINK + data.bladeUserData.userCode});
     });
   }
 
