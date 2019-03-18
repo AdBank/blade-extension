@@ -15,7 +15,7 @@ const html = `
     ${infiniteList()}
     </div>
   <button class="main-action-button" id="go-to-referal-form-send-btn">
-    SEND A REFERRAL
+    GET A CODE
   </button>
 </div>
 `;

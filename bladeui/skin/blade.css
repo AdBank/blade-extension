@@ -915,6 +915,9 @@ p.page-description {
       border-width: 0 2px 2px 0;
       transform: rotate(45deg); }
 
+.terms-and-conditions p.page-description {
+  margin-bottom: 0; }
+
 .confirm-secret-phrase-view .phrase-wrapper {
   margin: 12px -24px 4px 0; }
 

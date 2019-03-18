@@ -16,15 +16,22 @@ class TermsAndConditions extends BaseClass
     this.mainActionButton = document.getElementById("action-btn");
     const mainAppWrapper = document.getElementById("main-app-wrapper");
     this.termsAndConditionsCheckbox = document.getElementById("checkbox1");
+    const backButton = document.getElementById("back-button");
 
     mainAppWrapper.classList.remove("custom-bg");
     this.mainActionButton.addEventListener("click", this.handleSubmitButton.bind(this));
     this.termsAndConditionsCheckbox.addEventListener("change", this.handleCheckboxChanged.bind(this));
+    backButton.addEventListener("click", this.handleGoBack.bind(this));
+  }
+
+  handleGoBack()
+  {
+    super.handleChangeView("getStarted");
   }
 
   handleCheckboxChanged(e)
   {
-    if (this.termsAndConditionsCheckbox.checked && this.notResidentOfUSAorCanadaCheckbox.checked)
+    if (this.termsAndConditionsCheckbox.checked)
     {
       this.mainActionButton.disabled = false;
     }
@@ -36,7 +43,7 @@ class TermsAndConditions extends BaseClass
 
   handleSubmitButton(e)
   {
-    if (!this.termsAndConditionsCheckbox.checked || !this.notResidentOfUSAorCanadaCheckbox.checked)
+    if (!this.termsAndConditionsCheckbox.checked)
     {
       e.target.classList.add("disabled");
     }

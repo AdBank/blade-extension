@@ -2,11 +2,12 @@
 
 "use strict";
 
+const backButtonWithTitle = require("../common/backButtonWithTitle");
 const header = require("../common/header");
 
 const html = `
 <div class="terms-and-conditions flex-column">
-  ${header("Accept Terms & Conditions")}
+  ${header(backButtonWithTitle("Accept Terms & Conditions"))}
   <div class="text">
     <h1>BLADE <br />(by ADBANK)</h1>
     <div class="underheader">
