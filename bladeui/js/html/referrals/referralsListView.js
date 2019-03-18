@@ -5,7 +5,7 @@
 const headerNavbar = require("../common/headerNavbar");
 const statsRepresentation = require("../common/statsRepresentation");
 const infiniteList = require("../common/infiniteList");
-const TOOLTIP_TEXT = "Get rewarded for referrals!<br>Earn 5 ADB for every invited friend that joins blade.";
+const TOOLTIP_TEXT = "Get rewarded for referrals!<br /> Get 5% for each new member reward that you invite to the BLADE";
 
 const html = `
 <div class="referrals-view flex-column">
