@@ -179,10 +179,6 @@ const html = `
         <input type="checkbox" id="checkbox1">
         <span class="checkmark"></span>
       </label>
-      <label>I am not a resident of the United States or Canada
-        <input type="checkbox" id="checkbox2">
-        <span class="checkmark"></span>
-      </label>
     </div>
   </div>
   <button class="main-action-button" id="action-btn" disabled="true">ACCEPT</button>
