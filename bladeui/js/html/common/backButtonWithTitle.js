@@ -1,6 +1,6 @@
 "use strict";
 
-function checkbox(title)
+function backButtonWithTitle(title)
 {
   return `
     <p class="page-description">
@@ -10,4 +10,4 @@ function checkbox(title)
   `;
 }
 
-module.exports = checkbox;
+module.exports = backButtonWithTitle;

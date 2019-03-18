@@ -18,7 +18,7 @@ class RegistrationCompleted extends BaseClass
 
   handleSkipClicked()
   {
-    super.handleChangeView("info");
+    super.handleChangeView("feedMenuView");
   }
 }
 
