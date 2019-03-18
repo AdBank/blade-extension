@@ -81,6 +81,11 @@ function getSelectorsWidth(selectors, data)
   selectors.forEach(selector =>
   {
     let node = document.querySelector(selector);
+
+    if (node.getBoundingClientRect().width) {
+      return;
+    }
+
     const id = "blade-ext-" + Date.now();
 
     if (node)
