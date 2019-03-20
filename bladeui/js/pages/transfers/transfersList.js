@@ -82,8 +82,22 @@ class Transfers extends BaseClass
   renderWarningMessage(reason, threshold)
   {
     const message = document.createElement("p");
+    const caption = document.createElement("span");
+
+    caption.className = "caption-link";
+    caption.innerHTML = "Settings";
+    caption.addEventListener("click", () => super.handleChangeView("profile"));
+
     message.className = "transfers-warning-message";
-    message.innerText = reason === "FORBIDDEN_BY_BALANCE" ? `You need to earn ${threshold} ADB to transfer to an external wallet` : "You need to verify your account to withdraw the reward";
+    if (reason === "FORBIDDEN_BY_BALANCE")
+    {
+      message.innerText = `You need to earn ${threshold} ADB to transfer to an external wallet`;
+    }
+    else 
+    {
+      message.innerText = "You need to complete KYC verification to withdraw the rewards";
+      message.appendChild(caption);
+    }
     this.transferActionArea.appendChild(message);
   }
 
