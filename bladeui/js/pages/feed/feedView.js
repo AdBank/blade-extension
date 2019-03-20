@@ -18,6 +18,7 @@ class FeedView extends BaseClass
     this.feedListWrapper = document.getElementById("infinite-list-content");
 
     this.InfiniteListHelper = new InfiniteListHelper({
+      thumbnailName: "feed-coming-soon",
       urlStaticData: "/jwt/feed/info",
       urlList: "/jwt/feed/list",
       listRenderCb: this.renderFeedsList.bind(this),

@@ -16,6 +16,7 @@ class Referrals extends BaseClass
   initListeners()
   {
     this.infiniteListHelper = new InfiniteListHelper({
+      thumbnailName: "referrals-coming-soon",
       listRenderCb: this.renderReferralsList.bind(this),
       urlStaticData: "/jwt/user/referrals/info",
       urlList: "/jwt/user/referrals/list",

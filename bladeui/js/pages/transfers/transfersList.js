@@ -22,6 +22,7 @@ class Transfers extends BaseClass
     this.transferActionArea = document.getElementById("control-transfer-action-area");
 
     this.InfiniteListHelper = new InfiniteListHelper({
+      thumbnailName: "transfer-coming-soon",
       urlStaticData: "/jwt/transfer/info",
       urlList: "/jwt/transfer/list",
       listRenderCb: this.renderTransfersList.bind(this),
