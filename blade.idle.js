@@ -1,15 +1,29 @@
 "use strict";
 
 /* eslint-disable max-len */
-
 const Fingerprint = require("./fingerprint");
+
+const EXCLUDED_WEBSITES = [
+  "https://www.youtube.com",
+  "https://www.facebook.com",
+  "https://www.twitter.com",
+  "https://www.instagram.com",
+  "https://www.amazon.com",
+];
+
+const INCLUDED_WEBSITES = [
+  "https://www.google.com",
+  "https://bing.com"
+];
 
 browser.runtime.sendMessage({
   type: "background.checkWhitelisted"
 },
 isWhitelisted =>
 {
-  if (!isWhitelisted)
+  const url = new URL(window.location.href);
+
+  if (!isWhitelisted && !EXCLUDED_WEBSITES.includes(url.origin))
   {
     findDomSelectors();
   }
@@ -81,8 +95,9 @@ function getSelectorsWidth(selectors, data)
   selectors.forEach(selector =>
   {
     let node = document.querySelector(selector);
+    const url = new URL(window.location.href);
 
-    if (node.getBoundingClientRect().width) {
+    if (node.getBoundingClientRect().width && !INCLUDED_WEBSITES.includes(url.origin)) {
       return;
     }
 
