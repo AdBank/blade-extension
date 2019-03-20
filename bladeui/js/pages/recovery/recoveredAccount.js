@@ -18,7 +18,7 @@ class RecoveredAccount extends BaseClass
 
   handleSkipClicked()
   {
-    super.handleChangeView("info");
+    super.handleChangeView("feedMenuView");
   }
 }
 
