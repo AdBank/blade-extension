@@ -11,6 +11,7 @@ const KYC_LINK = "https://kyc.blade.software/";
 const KYC_VERIFICATION_LINK = KYC_LINK + "bladeKYC/";
 const FIRST_PAGE = "getStarted";
 const FIRST_PAGE_FOR_REGISTERED = "profile";
+const TIMEOUT_BEFORE_REDIRECT = 3000;
 
 module.exports = {
   MIN_PASSWORD_LENGTH,
@@ -23,5 +24,6 @@ module.exports = {
   KYC_LINK,
   FIRST_PAGE,
   FIRST_PAGE_FOR_REGISTERED,
-  KYC_VERIFICATION_LINK
+  KYC_VERIFICATION_LINK,
+  TIMEOUT_BEFORE_REDIRECT
 };

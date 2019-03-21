@@ -1,6 +1,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
+const {TIMEOUT_BEFORE_REDIRECT} = require("../../utils/constants");
 
 class ResettedPassword extends BaseClass
 {
@@ -14,6 +15,8 @@ class ResettedPassword extends BaseClass
     const skipButton = document.getElementById("skip-button");
 
     skipButton.addEventListener("click", this.handleSkipClicked.bind(this));
+
+    setTimeout(this.handleSkipClicked.bind(this), TIMEOUT_BEFORE_REDIRECT)
   }
 
   handleSkipClicked()
