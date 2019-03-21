@@ -5,7 +5,7 @@ const input = require("../common/input");
 
 const html = `
 <div class="insert-referral-code-view flex-column">
-  ${header("Insert a referral code")}
+  ${header("If you have a referral code, please insert it now.")}
   <form>
     ${input({
       label: "Referral Code",

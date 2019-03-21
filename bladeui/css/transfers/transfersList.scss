@@ -7,6 +7,15 @@
     color: #00CB00;
   }
 
+  .caption-link {
+    display: block;
+    text-align: center;
+    text-decoration: underline;
+    color: #FFFFFF;	
+    font: 10px / 14px Montserrat;
+    cursor: pointer;
+  }
+
   .infinite-list-row {
     p {
       margin: 0;
@@ -50,7 +59,7 @@
   }
 
   .transfers-warning-message {
-    margin: 0;
+    margin: 0 -10px;
     font-size: 14px;
     font-weight: bold;
     letter-spacing: 0.2px;

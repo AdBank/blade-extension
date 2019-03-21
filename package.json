@@ -60,6 +60,7 @@
       "cd ./bladeui",
       "npm i",
       "$ bundle.popup",
+      "$ bundle.blade",
       "cd ../buildtools/",
       "npm i",
       "cd ..",

@@ -3,11 +3,9 @@
 const headerNavbar = require("../common/headerNavbar");
 
 const html = `
-<div class="get-started-view flex-column">
+<div class="dashboard-menu-view flex-column">
   ${headerNavbar("dashbord")}
-  <p class="desciption">
-    This is a dashbord view
-  </p>
+  <img class="image" src="./skin/blade_assets/dashboard-coming-soon.png" alt="preview" />
 </div>
 `;
 

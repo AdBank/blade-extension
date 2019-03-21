@@ -29,7 +29,7 @@ class VerifyKyc extends BaseClass
 
   handleSubmitButton(e)
   {
-    super.handleChangeView("confirmSecretPhrase");
+    super.handleChangeView("referralCode");
   }
 }
 

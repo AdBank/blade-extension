@@ -12,8 +12,16 @@ class TermsAndConditionsText extends BaseClass
   initListeners()
   {
     const btn = document.getElementById("action-btn");
+    const link = document.getElementById("link");
 
+    link.addEventListener("click", this.handleOpenLink.bind(this));
     btn.addEventListener("click", this.handleSubmitButton.bind(this));
+  }
+
+  handleOpenLink(e)
+  {
+    e.preventDefault();
+    browser.tabs.create({url: e.target.href});
   }
 
   handleSubmitButton(e)

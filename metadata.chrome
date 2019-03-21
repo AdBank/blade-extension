@@ -66,6 +66,11 @@ skin/blade_assets/blade-background-all-other-screens.png = bladeui/skin/blade_as
 skin/blade_assets/blade-background-get-started.png = bladeui/skin/blade_assets/blade-background-get-started.png
 skin/blade_assets/blade-logo.svg = bladeui/skin/blade_assets/blade-logo.svg
 skin/blade_assets/blade-powered-adbank-logo.svg = bladeui/skin/blade_assets/blade-powered-adbank-logo.svg
+skin/blade_assets/feed-coming-soon.png = bladeui/skin/blade_assets/feed-coming-soon.png
+skin/blade_assets/referrals-coming-soon.png = bladeui/skin/blade_assets/referrals-coming-soon.png
+skin/blade_assets/dashboard-coming-soon.png = bladeui/skin/blade_assets/dashboard-coming-soon.png
+skin/blade_assets/transfer-coming-soon.png = bladeui/skin/blade_assets/transfer-coming-soon.png
+
 devtools-panel.html = bladeui/devtools-panel.html
 devtools-panel.js = bladeui/devtools-panel.js
 skin/devtools-panel.css = bladeui/skin/devtools-panel.css

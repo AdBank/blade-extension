@@ -6,6 +6,9 @@ function infinitelist()
 {
   return `
   <div class="infinite-list-container">
+    <div id="thumbnail" class="thumbnail">
+      <img alt="thumbnail" />
+    </div>
     <div class="infinite-list" id="infinite-list-scroll-container">
       <div class="select-container">
         <div class="select-control-items" id="open-select-options">

@@ -113,7 +113,7 @@ class ConfirmSecretPhrase extends BaseClass
     }
     if (userInput === this.originalSecretPhrase)
     {
-      super.handleChangeView("referralCode");
+      super.handleChangeView("verifyKyc");
     }
     else
     {

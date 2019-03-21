@@ -11,6 +11,7 @@ class InfiniteListHelper
 {
   constructor(props)
   {
+    this.thumbnailName = props.thumbnailName;
     this.urlStaticData = props.urlStaticData,
     this.urlList = props.urlList;
 
@@ -39,6 +40,7 @@ class InfiniteListHelper
     this.activeDropdownItem = document.getElementById("dropdown-active");
     this.infiniteListContent = document.getElementById("infinite-list-content");
     this.infiniteScrollTrigger = document.getElementById("infinite-scroll-trigger");
+    this.thumbnailContainer = document.getElementById("thumbnail");
 
     browser.storage.sync.get("bladeUserData", (data) =>
     {
@@ -134,6 +136,7 @@ class InfiniteListHelper
       }
       else
       {
+        this.renderEmptyListThumbnail();
         this.hideLoader();
         this.stopScrollObserver();
       }
@@ -143,6 +146,13 @@ class InfiniteListHelper
       this.hideLoader();
       this.stopScrollObserver();
     });
+  }
+
+  renderEmptyListThumbnail()
+  {
+    this.thumbnailContainer.style.display = "block";
+    const thumbnailImg = this.thumbnailContainer.querySelector("img");
+    thumbnailImg.src = `./skin/blade_assets/${this.thumbnailName}.png`;
   }
 
   showLoader()
