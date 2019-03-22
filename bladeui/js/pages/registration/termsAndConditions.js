@@ -28,7 +28,6 @@ class TermsAndConditions extends BaseClass
 
   handleOpenLink(e)
   {
-    debugger;
     e.preventDefault();
     browser.tabs.create({url: e.target.href});
   }

@@ -13,9 +13,7 @@ const html = `
     <div class="content">
       <div class="stats-representation" id="stats-representation">
         <div class="column">
-          <p class="quantity" id="center-quantity">
-            ${infoTooltip(`Balance can take from 3-30 days to be updated based on individual adbank campaign timelines.<button class="learn-more">Learn more</button>`)}
-          </p>
+          <p class="quantity" id="center-quantity">-</p>
         </div>
       </div>
       <div class="select-period-container">

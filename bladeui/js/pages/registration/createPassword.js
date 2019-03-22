@@ -80,7 +80,8 @@ class CreatePassword extends BaseClass
         bladeUserData: {
           token,
           secretPhrase: responseObj.secret_phrase,
-          userCode: responseObj.user_code
+          userCode: responseObj.user_code,
+          referralCode: responseObj.referral_code
         }
       });
 

@@ -9,6 +9,7 @@ const tooltip = require("../../html/common/tooltipRedExclamation");
 const InfiniteListHelper = require("../common/infiniteListHelper");
 const THRESHOLD = 1000;
 const {TRANSFERS_OPTIONS, TRANSFERS_OPTIONS_INFO} = require("../../utils/constants");
+const infoTooltip = require("../../html/common/informationTooltip");
 
 class Transfers extends BaseClass
 {
@@ -32,7 +33,7 @@ class Transfers extends BaseClass
       thumbnailName: "transfer-coming-soon",
       customStaticData: true,
       urlList: "/jwt/transfer/list",
-      listRenderCb: this.renderTransfersList.bind(this)
+      listRenderCb: this.renderTransfersList.bind(this),
     });
 
     browser.storage.sync.get("bladeUserData", (data) =>
@@ -55,6 +56,12 @@ class Transfers extends BaseClass
       "block" : "none";
   }
 
+  handleOpenLearnMore(e)
+  {
+    e.preventDefault();
+    browser.tabs.create({url: e.target.href});
+  }
+
   closeSelectPeriodOptions()
   {
     this.dropdown.style.display = "none";
@@ -64,7 +71,7 @@ class Transfers extends BaseClass
   {
     request({
       method: "get",
-      url: `/jwt/tansfer/info?type=${this.periodParam}`,
+      url: `/jwt/transfer/info?type=${this.periodParam}`,
       headers: {
         Authorization: `Bearer ${this.bearerToken}`
       }
@@ -73,9 +80,12 @@ class Transfers extends BaseClass
     {
       const res = JSON.parse(response.response);
 
-      const value = res[this.value];
+      const value = res.value;
+      const transferPossibility = res.transfer_possibility;
 
       this.renderValueNumber(value);
+
+      this.getThreshold(transferPossibility);
     })
     .catch((err) =>
     {
@@ -85,12 +95,16 @@ class Transfers extends BaseClass
 
   renderValueNumber(value)
   {
-    this.centerValueField.insertAdjacentText("afterbegin", value + "ADB");
+    const tooltip = infoTooltip(`Balance can take from 3-30 days to be updated based on individual adbank campaign timelines.<a href="https://blade.software/faq" class="learn-more" id="learn-more">Learn more</a>`);
+
+    this.centerValueField.innerHTML = value + " ADB" + tooltip;
+
+    this.learnMoreLink = document.getElementById("learn-more");
+    this.learnMoreLink.addEventListener("click", this.handleOpenLearnMore.bind(this));
   }
 
   handleSelectPeriodOption(event)
   {
-    debugger;
     this.periodParam = event.target.dataset.period;
     this.activeDropdownItem.innerText = TRANSFERS_OPTIONS_INFO[this.periodParam];
 
@@ -118,6 +132,8 @@ class Transfers extends BaseClass
 
   renderControlArea(status, threshold)
   {
+    this.transferActionArea.innerHTML = "";
+
     if (status === "ALLOWED")
     {
       this.renderMakeTransferButton(threshold);
