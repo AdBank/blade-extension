@@ -26,9 +26,9 @@ const html = `
         <div class="options-period-container" id="choose-period-option">
           <span data-period="${TRANSFERS_OPTIONS[0]}">${TRANSFERS_OPTIONS_INFO["BALANCE"]}</span>
           <span data-period="${TRANSFERS_OPTIONS[1]}">${TRANSFERS_OPTIONS_INFO["WEEKLY"]}</span>
-          <span data-period="${TRANSFERS_OPTIONS[2]}>${TRANSFERS_OPTIONS_INFO["MONTHLY"]}</span>
+          <span data-period="${TRANSFERS_OPTIONS[2]}">${TRANSFERS_OPTIONS_INFO["MONTHLY"]}</span>
           <span data-period="${TRANSFERS_OPTIONS[3]}">${TRANSFERS_OPTIONS_INFO["YEARLY"]}</span>
-          <span data-period="${TRANSFERS_OPTIONS[4]}>${TRANSFERS_OPTIONS_INFO["TOTAL"]}</span>
+          <span data-period="${TRANSFERS_OPTIONS[4]}">${TRANSFERS_OPTIONS_INFO["TOTAL"]}</span>
         </div>
       </div>
     ${infiniteList()}
