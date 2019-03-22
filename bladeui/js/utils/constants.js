@@ -1,5 +1,7 @@
 "use strict";
 
+/* eslint-disable */
+
 const MIN_PASSWORD_LENGTH = 8;
 const MAX_PASSWORD_LENGTH = 30;
 const VALID_WALLET_ADDRESS_LENGTH = 25;
@@ -12,6 +14,14 @@ const KYC_VERIFICATION_LINK = KYC_LINK + "bladeKYC/";
 const FIRST_PAGE = "getStarted";
 const FIRST_PAGE_FOR_REGISTERED = "profile";
 const TIMEOUT_BEFORE_REDIRECT = 3000;
+const TRANSFERS_OPTIONS = ["BALANCE", "WEEKLY", "MONTHLY", "YEARLY", "TOTAL"]; 
+const TRANSFERS_OPTIONS_INFO = {
+  "BALANCE": "Account Balance", 
+  "WEEKLY": "Weekly Earnings", 
+  "MONTHLY": "Monthly Earnings", 
+  "YEARLY": "Yearly Earnings", 
+  "TOTAL": "Total Earnings"
+};
 
 module.exports = {
   MIN_PASSWORD_LENGTH,
@@ -25,5 +35,7 @@ module.exports = {
   FIRST_PAGE,
   FIRST_PAGE_FOR_REGISTERED,
   KYC_VERIFICATION_LINK,
-  TIMEOUT_BEFORE_REDIRECT
+  TIMEOUT_BEFORE_REDIRECT,
+  TRANSFERS_OPTIONS,
+  TRANSFERS_OPTIONS_INFO
 };

@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable max-len */
 
 "use strict";
 
@@ -11,6 +11,8 @@ class InfiniteListHelper
 {
   constructor(props)
   {
+    this.customStaticData = props.customStaticData;
+
     this.thumbnailName = props.thumbnailName;
     this.urlStaticData = props.urlStaticData,
     this.urlList = props.urlList;
@@ -47,7 +49,12 @@ class InfiniteListHelper
       this.bearerToken = data.bladeUserData.token;
       this.initScrollObserver = this.initScrollObserver.bind(this);
       this.initScrollObserver();
-      this.getTopStaticData();
+
+      if (!this.customStaticData)
+      {
+        this.getTopStaticData();
+      }
+
       this.getListData();
     });
 

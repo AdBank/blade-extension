@@ -8,32 +8,95 @@ const formatDate = require("../../utils/formatDate");
 const tooltip = require("../../html/common/tooltipRedExclamation");
 const InfiniteListHelper = require("../common/infiniteListHelper");
 const THRESHOLD = 1000;
+const {TRANSFERS_OPTIONS, TRANSFERS_OPTIONS_INFO} = require("../../utils/constants");
 
 class Transfers extends BaseClass
 {
   constructor(props)
   {
     super(props);
+
+    this.periodParam = TRANSFERS_OPTIONS[0];
   }
 
   initListeners()
   {
     this.transfersListTarget = document.getElementById("infinite-list-content");
     this.transferActionArea = document.getElementById("control-transfer-action-area");
+    const optionsDropDown = document.getElementById("open-select-period-options");
+    this.dropdown = document.getElementById("choose-period-option");
+    this.activeDropdownItem = document.getElementById("active-period");
+    this.centerValueField = document.getElementById("center-quantity");
 
     this.InfiniteListHelper = new InfiniteListHelper({
       thumbnailName: "transfer-coming-soon",
-      urlStaticData: "/jwt/transfer/info",
+      customStaticData: true,
       urlList: "/jwt/transfer/list",
-      listRenderCb: this.renderTransfersList.bind(this),
-      leftNumberInfo: {numberText: "ADB", fieldDescription: "account balance"},
-      rightNumberInfo: {numberText: "ADB", fieldDescription: "earned today"},
-      responseLeftDataKey: "balance",
-      responseRightDataKey: "earned",
-      afterStaticRenderCb: this.getThreshold.bind(this)
+      listRenderCb: this.renderTransfersList.bind(this)
+    });
+
+    browser.storage.sync.get("bladeUserData", (data) =>
+    {
+      this.bearerToken = data.bladeUserData.token;
+
+      this.getStaticData();
     });
 
     this.transfersListTarget.addEventListener("click", this.goToUrl.bind(this));
+    optionsDropDown.addEventListener("click", this.handleOpenPeriodOptions.bind(this));
+    this.dropdown.addEventListener("click", this.handleSelectPeriodOption.bind(this));
+    window.addEventListener("click", this.closeSelectPeriodOptions.bind(this));
+  }
+
+  handleOpenPeriodOptions(event)
+  {
+    event.stopPropagation();
+    this.dropdown.style.display = this.dropdown.style.display === "none" ?
+      "block" : "none";
+  }
+
+  closeSelectPeriodOptions()
+  {
+    this.dropdown.style.display = "none";
+  }
+
+  getStaticData()
+  {
+    request({
+      method: "get",
+      url: `/jwt/tansfer/info?type=${this.periodParam}`,
+      headers: {
+        Authorization: `Bearer ${this.bearerToken}`
+      }
+    })
+    .then((response) =>
+    {
+      const res = JSON.parse(response.response);
+
+      const value = res[this.value];
+
+      this.renderValueNumber(value);
+    })
+    .catch((err) =>
+    {
+      console.error(err.error);
+    });
+  }
+
+  renderValueNumber(value)
+  {
+    this.centerValueField.insertAdjacentText("afterbegin", value + "ADB");
+  }
+
+  handleSelectPeriodOption(event)
+  {
+    debugger;
+    this.periodParam = event.target.dataset.period;
+    this.activeDropdownItem.innerText = TRANSFERS_OPTIONS_INFO[this.periodParam];
+
+    this.getStaticData();
+
+    this.closeSelectPeriodOptions();
   }
 
   getThreshold(transferPossibility)
