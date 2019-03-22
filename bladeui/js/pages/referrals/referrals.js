@@ -51,14 +51,9 @@ class Referrals extends BaseClass
       newRow.className = "infinite-list-row";
       const rewardInfo = Math.round(Number(info[i].reward));
       let userStatus = "<i class=\"icon-user-follow green\"></i>";
-      if (info[i].status !== "ACCEPTED")
-      {
-        userStatus = info[i].status === "PENDING" ?
-          "<img src=\"./skin/blade_icons/pending-referral.svg\"></img>" :
-          "<i class=\"icon-user-unfollow red\"></i>";
-      }
+      
       const date = formatDate(info[i].created_at);
-      newRow.innerHTML = `${userStatus}<p class="email">${info[i].email}</p><p class="info-tooltip">${info[i].email}</p><p class="date">${date}</p><p class="quantity">${rewardInfo}</p><p class="unit">ADB</p>`;
+      newRow.innerHTML = `${userStatus}<p class="email">${info[i].user_code}</p><p class="info-tooltip">${info[i].user_code}</p><p class="date">${date}</p><p class="quantity">${rewardInfo}</p><p class="unit">ADB</p>`;
       virtualRowContainer.appendChild(newRow);
     }
 

@@ -1,8 +1,8 @@
 "use strict";
 
+/* eslint-disable max-len */
+
 const BaseClass = require("../common/baseClass");
-const loader = require("../../html/common/loader");
-const request = require("../../utils/request");
 
 class ReferralsForm extends BaseClass
 {
@@ -14,23 +14,54 @@ class ReferralsForm extends BaseClass
   initListeners()
   {
     this.backButton = document.getElementById("back-button");
-    this.sendButton = document.getElementById("send-referral-btn");
-    this.email = document.getElementById("email");
-    this.emailError = document.getElementById("email-error");
-    this.message = document.getElementById("message");
-    this.form = document.getElementById("referral-form");
+    this.copyButton = document.getElementById("copy-button");
+    this.referralCodeField = document.getElementById("referral-code");
+   
+
     browser.storage.sync.get("bladeUserData", (data) =>
     {
-      this.bearerToken = data.bladeUserData.token;
+      this.referralCode = data.bladeUserData.referralCode;
+
+      this.referralCodeField.innerHTML = this.referralCode;
     });
 
-    this.backButton.addEventListener("click",
-      this.handleOpenPreviousView.bind(this));
-    this.sendButton.addEventListener("click",
-      this.handleSubmitReferralForm.bind(this));
-    this.email.addEventListener("change", this.onChangeEmail.bind(this));
-    this.email.addEventListener("paste", this.handlePasteEmail.bind(this));
-    this.message.addEventListener("change", this.onChangeMessage.bind(this));
+    this.copyButton.addEventListener("click", this.handleCopyButton.bind(this));
+    this.backButton.addEventListener("click", this.handleOpenPreviousView.bind(this));
+  }
+
+  copyToClipboard(str)
+  {
+    const el = document.createElement("textarea");
+    el.value = str;
+    el.setAttribute("readonly", "");
+    el.style.position = "absolute";
+    el.style.left = "-9999px";
+    document.body.appendChild(el);
+    const selected =
+      document.getSelection().rangeCount > 0 ?
+        document.getSelection().getRangeAt(0) :
+        false;
+    el.select();
+    document.execCommand("copy");
+    document.body.removeChild(el);
+    if (selected)
+    {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(selected);
+    }
+  }
+
+  handleCopyButton(e)
+  {
+    const tooltip = document.getElementById("tooltip");
+    tooltip.classList.remove("hidden");
+    tooltip.classList.add("visible");
+    setTimeout(() =>
+    {
+      tooltip.classList.add("hidden");
+      tooltip.classList.remove("visible");
+    }, 3000);
+    this.copyToClipboard(this.referralCode);
   }
 
   handleOpenPreviousView()
@@ -38,84 +69,6 @@ class ReferralsForm extends BaseClass
     super.handleChangeView("referralsMenuView");
   }
 
-  onChangeEmail(e)
-  {
-    if (this.validateEmail(e.target.value))
-    {
-      this.email.classList.remove("input-invalid");
-      this.sendButton.innerHTML = "SEND";
-    }
-  }
-
-  handlePasteEmail()
-  {
-    this.email.classList.remove("input-invalid");
-    this.sendButton.innerHTML = "SEND";
-  }
-
-  onChangeMessage(e)
-  {
-    if (e.target.value)
-    {
-      this.message.classList.remove("input-invalid");
-    }
-  }
-
-  validateEmail(email)
-  {
-    const emailRegex = /\S+@\S+\.\S+/;
-    return emailRegex.test(email);
-  }
-
-  highlightErrors(email, message)
-  {
-    this.sendButton.innerHTML = "SEND";
-    if (!this.validateEmail(email))
-    {
-      this.email.classList.add("input-invalid");
-    }
-    if (!message)
-    {
-      this.message.classList.add("input-invalid");
-    }
-  }
-
-  handleSubmitReferralForm(e)
-  {
-    e.preventDefault();
-    const email = this.form.elements["email"].value;
-    const message = this.form.elements["message"].value;
-    this.emailError.innerHTML = "";
-    if (this.validateEmail(email) && message)
-    {
-      this.sendButton.innerHTML = loader(true);
-      this.sendButton.disabled = true;
-      request({
-        method: "post",
-        url: "/jwt/user/referrals/send",
-        data: {email, message},
-        headers: {
-          Authorization: `Bearer ${this.bearerToken}`
-        }
-      })
-      .then(() =>
-      {
-        this.sendButton.innerHTML = loader(false);
-        this.sendButton.disabled = false;
-      })
-      .catch((err) =>
-      {
-        this.sendButton.innerHTML = "SEND";
-        this.sendButton.disabled = false;
-        this.emailError.innerHTML = err.error;
-        this.email.classList.add("input-invalid");
-      });
-    }
-    else
-    {
-      this.highlightErrors(email, message);
-    }
-  }
 }
 
 module.exports = ReferralsForm;
