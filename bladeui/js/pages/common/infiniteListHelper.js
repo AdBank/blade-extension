@@ -143,9 +143,13 @@ class InfiniteListHelper
       }
       else
       {
-        this.renderEmptyListThumbnail();
         this.hideLoader();
         this.stopScrollObserver();
+      }
+
+      if(!list.length && !this.skip)
+      {
+        this.renderEmptyListThumbnail();
       }
     })
     .catch((err) =>

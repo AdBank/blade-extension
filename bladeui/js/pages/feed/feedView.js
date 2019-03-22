@@ -40,7 +40,7 @@ class FeedView extends BaseClass
     const container = document.createElement("div");
     for (let i = 0; i < data.length; i += 1)
     {
-      const websiteUrl = data[i].website_url;
+      const websiteUrl = `https://${data[i].website_url}`;
 
       const newRow = document.createElement("div");
       const button = document.createElement("button");
