@@ -97,7 +97,7 @@ class Transfers extends BaseClass
   {
     const tooltip = infoTooltip(`Balance can take from 3-30 days to be updated based on individual adbank campaign timelines.<a href="https://blade.software/faq" class="learn-more" id="learn-more">Learn more</a>`);
 
-    this.centerValueField.innerHTML = value + " ADB" + tooltip;
+    this.centerValueField.innerHTML = Math.round(Number(value)) + " ADB" + tooltip;
 
     this.learnMoreLink = document.getElementById("learn-more");
     this.learnMoreLink.addEventListener("click", this.handleOpenLearnMore.bind(this));
