@@ -8,32 +8,109 @@ const formatDate = require("../../utils/formatDate");
 const tooltip = require("../../html/common/tooltipRedExclamation");
 const InfiniteListHelper = require("../common/infiniteListHelper");
 const THRESHOLD = 1000;
+const {TRANSFERS_OPTIONS, TRANSFERS_OPTIONS_INFO} = require("../../utils/constants");
+const infoTooltip = require("../../html/common/informationTooltip");
 
 class Transfers extends BaseClass
 {
   constructor(props)
   {
     super(props);
+
+    this.periodParam = TRANSFERS_OPTIONS[0];
   }
 
   initListeners()
   {
     this.transfersListTarget = document.getElementById("infinite-list-content");
     this.transferActionArea = document.getElementById("control-transfer-action-area");
+    const optionsDropDown = document.getElementById("open-select-period-options");
+    this.dropdown = document.getElementById("choose-period-option");
+    this.activeDropdownItem = document.getElementById("active-period");
+    this.centerValueField = document.getElementById("center-quantity");
 
     this.InfiniteListHelper = new InfiniteListHelper({
       thumbnailName: "transfer-coming-soon",
-      urlStaticData: "/jwt/transfer/info",
+      customStaticData: true,
       urlList: "/jwt/transfer/list",
       listRenderCb: this.renderTransfersList.bind(this),
-      leftNumberInfo: {numberText: "ADB", fieldDescription: "account balance"},
-      rightNumberInfo: {numberText: "ADB", fieldDescription: "earned today"},
-      responseLeftDataKey: "balance",
-      responseRightDataKey: "earned",
-      afterStaticRenderCb: this.getThreshold.bind(this)
+    });
+
+    browser.storage.sync.get("bladeUserData", (data) =>
+    {
+      this.bearerToken = data.bladeUserData.token;
+
+      this.getStaticData();
     });
 
     this.transfersListTarget.addEventListener("click", this.goToUrl.bind(this));
+    optionsDropDown.addEventListener("click", this.handleOpenPeriodOptions.bind(this));
+    this.dropdown.addEventListener("click", this.handleSelectPeriodOption.bind(this));
+    window.addEventListener("click", this.closeSelectPeriodOptions.bind(this));
+  }
+
+  handleOpenPeriodOptions(event)
+  {
+    event.stopPropagation();
+    this.dropdown.style.display = this.dropdown.style.display === "none" ?
+      "block" : "none";
+  }
+
+  handleOpenLearnMore(e)
+  {
+    e.preventDefault();
+    browser.tabs.create({url: e.target.href});
+  }
+
+  closeSelectPeriodOptions()
+  {
+    this.dropdown.style.display = "none";
+  }
+
+  getStaticData()
+  {
+    request({
+      method: "get",
+      url: `/jwt/transfer/info?type=${this.periodParam}`,
+      headers: {
+        Authorization: `Bearer ${this.bearerToken}`
+      }
+    })
+    .then((response) =>
+    {
+      const res = JSON.parse(response.response);
+
+      const value = res.value;
+      const transferPossibility = res.transfer_possibility;
+
+      this.renderValueNumber(value);
+
+      this.getThreshold(transferPossibility);
+    })
+    .catch((err) =>
+    {
+      console.error(err.error);
+    });
+  }
+
+  renderValueNumber(value)
+  {
+    const tooltip = infoTooltip(`Balance can take from 3-30 days to be updated based on individual adbank campaign timelines.<a href="https://blade.software/faq" class="learn-more" id="learn-more">Learn more</a>`);
+
+    this.centerValueField.innerHTML = Math.round(Number(value)) + " ADB" + tooltip;
+
+    this.learnMoreLink = document.getElementById("learn-more");
+    this.learnMoreLink.addEventListener("click", this.handleOpenLearnMore.bind(this));
+  }
+
+  handleSelectPeriodOption(event)
+  {
+    this.periodParam = event.target.dataset.period;
+    this.activeDropdownItem.innerText = TRANSFERS_OPTIONS_INFO[this.periodParam];
+
+    this.getStaticData();
+
+    this.closeSelectPeriodOptions();
   }
 
   getThreshold(transferPossibility)
@@ -55,6 +132,8 @@ class Transfers extends BaseClass
 
   renderControlArea(status, threshold)
   {
+    this.transferActionArea.innerHTML = "";
+
     if (status === "ALLOWED")
     {
       this.renderMakeTransferButton(threshold);

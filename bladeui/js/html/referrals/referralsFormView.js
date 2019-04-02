@@ -11,35 +11,19 @@ const html = `
 <div class="referrals-view flex-column">
   ${headerNavbar("referrals")}
   <div class="content">
-    ${backButtonWithTitle("Send a Referral")}
-    <form id="referral-form">
-      ${input({
-        label: "Friends Email Address",
-        input: {
-          type: "email",
-          id: "email",
-          iconClass: "icon fa fa-envelope",
-          iconId: "fa-envelope",
-          errorId: "email-error",
-          required: true
-        }
-      })}
-      ${textarea({
-        label: "Your Message",
-        value: "I’ve been using this chrome extension to earn ADB tokens as I browse the web! Download it and check it out!",
-        maxlength: 255,
-        name: "message",
-        rows: 3,
-        errorId: "message-error",
-        required: true,
-        id: "message"
-      })}
-    </form>
+    ${backButtonWithTitle("Copy the code")}
+    <div class="phrase-wrapper">
+      <p id="referral-code">
+
+      </p>
+      <p class="tooltip hidden" id="tooltip">Copied!</p>
+      <div class="action-phrase-buttons">
+        <button class="copy" id="copy-button">
+          <i class="fa fa-copy"></i>
+        </button>
+      </div>
+    </div>
   </div>
-  <button form="referral-form"
-    type="submit" class="main-action-button" id="send-referral-btn">
-    SEND
-  </button>
 </div>
 `;
 

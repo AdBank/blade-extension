@@ -7,7 +7,7 @@ const html = `
   ${header(`You’ve successfully recovered your blade account,
   you can continue earning ADB tokens as you browse the web!`)}
   <i class="fa fa-check"></i>
-  <button class="skip" id="skip-button">Skip</button>
+  <button class="skip" id="skip-button">Go to Feed</button>
 </div>
 `;
 

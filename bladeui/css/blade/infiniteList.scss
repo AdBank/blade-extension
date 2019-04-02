@@ -40,7 +40,8 @@
   }
 
   .select-container {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
     text-align: right;
     position: relative;
     line-height: 16px;
@@ -50,7 +51,6 @@
   .select-control-items {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 
     p {
       display: inline-block;

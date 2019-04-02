@@ -62,7 +62,7 @@ class BaseClass
   {
     request({
       method: "get",
-      url: "/jwt/transfer/info",
+      url: "/jwt/transfer/info?type=BALANCE",
       headers: {
         Authorization: `Bearer ${this.bearerToken}`
       }
