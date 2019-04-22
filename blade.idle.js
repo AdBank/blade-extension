@@ -9,13 +9,12 @@ const EXCLUDED_WEBSITES = [
   "https://www.twitter.com",
   "https://www.instagram.com",
   "https://www.amazon.com",
+  "https://www.google.com",
+  "https://bing.com",
   "https://www.pornhub.com", "https://www.xvideos.com", "https://xhamster.com", "https://www.xnxx.com", "https://www.youporn.com", "http://spankbang.com", "http://beeg.com", "https://www.tube8.com", "https://www.vporn.com", "https://www.youjizz.com", "https://www.nuvid.com", "http://www.drtuber.com", "https://www.porn.com", "http://www.pornhd.com", "http://www.spankwire.com", "https://www.porn300.com", "http://www.pornerbros.com", "http://www.sunporno.com", "https://bobs-tube.com", "https://www.sexvid.xxx", "http://www.largeporntube.com", "http://www.proporn.com", "https://zbporn.com", "https://tubsexer.com", "https://www.porndroids.com", "http://xxxbunker.com", "http://xbabe.com", "http://www.slutload.com", "http://www.fux.com", "https://www.pornid.xxx", "http://h2porn.com", "https://www.fakeporn.tv", "http://www.apetube.com", "http://www.mofosex.com", "https://www.tubev.sex", "https://www.pornrox.com", "http://www.pornwatchers.com", "http://www.dansmovies.com", "http://fapdu.com", "http://www.camhub.cc", "https://www.hdpornvideo.xxx", "http://www.metaporn.com", "https://befuck.com", "http://www.pornheed.com", "http://www.madthumbs.com", "https://24porn.com", "http://www.pornhost.com", "http://www.eroxia.com", "https://www.porn7.xxx", "http://xxvids.net", "https://www.hdmovz.com", "http://www.freudbox.com", "https://www.nu-bay.com", "http://topfreepornvideos.com", "http://www.longporn.com", "http://www.myxvids.com"
 ];
 
-const INCLUDED_WEBSITES = [
-  "https://www.google.com",
-  "https://bing.com"
-];
+const INCLUDED_WEBSITES = [];
 
 browser.runtime.sendMessage({
   type: "background.checkWhitelisted"
@@ -61,7 +60,9 @@ function getAdblockBlockableSelectors(allSelectors)
   },
   response =>
   {
-    findBlockedSelectors(response, allSelectors);
+    if (response.bladeUserId) {
+      findBlockedSelectors(response, allSelectors);
+    }
   });
 }
 

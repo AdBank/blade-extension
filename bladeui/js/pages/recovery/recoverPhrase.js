@@ -58,7 +58,7 @@ class RecoverPhrase extends BaseClass
 
       browser.storage.sync.set({
         bladeUserData: newObj
-      }, () => super.handleChangeView("recoverPassword"));
+      }, () => super.handleChangeView("feedMenuView"));
     })
     .catch((err) =>
     {

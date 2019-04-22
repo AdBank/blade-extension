@@ -36,6 +36,10 @@ function makeRequest(opts)
     };
     xhr.onerror = function()
     {
+      if (this.status === 401)
+      {
+        browser.storage.sync.clear();
+      }
       if (this.response)
       {
         reject({
