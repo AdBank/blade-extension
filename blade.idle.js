@@ -60,7 +60,8 @@ function getAdblockBlockableSelectors(allSelectors)
   },
   response =>
   {
-    if (response.bladeUserId) {
+    if (response.bladeUserId)
+    {
       findBlockedSelectors(response, allSelectors);
     }
   });
