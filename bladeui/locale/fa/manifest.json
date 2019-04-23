@@ -1,11 +1,11 @@
 {
   "description": {
-    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+    "message": "A revolutionary new adblocker+ it earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Blade"
+    "message": "Adblocker+ Earn Rewards - BLADE"
   },
   "name_devbuild": {
-    "message": "Blade development build"
+    "message": "Adblocker+ Earn Rewards - BLADE development build"
   }
 }

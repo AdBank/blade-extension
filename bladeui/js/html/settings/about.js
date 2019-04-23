@@ -10,7 +10,7 @@ const html = `
   <div class="content">
     <img src="./skin/blade_assets/blade-powered-adbank-logo.svg" class="logo" />
     <p class="title">Version</p>
-    <p class="version-number">1.0.0</p>
+    <p class="version-number">1.1.0</p>
     <p class="title">Links</p>
     <ul>
       <li class="link-item">

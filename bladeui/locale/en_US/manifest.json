@@ -1,13 +1,13 @@
 {
   "description": {
     "description": "Note: this cannot be longer than 132 characters",
-    "message": "A revolutionary new adblocker that earns you ADB while you browse the web. All while blocking all other ads!"
+    "message": "A revolutionary new adblocker+ it earns you ADB while you browse the web. All while blocking all other ads!"
   },
   "name": {
-    "message": "Blade"
+    "message": "Adblocker+ Earn Rewards - BLADE"
   },
   "name_devbuild": {
     "description": "Extension name to be shown for development builds. Note: this cannot be longer than 45 characters.",
-    "message": "Blade development build"
+    "message": "Adblocker+ Earn Rewards - BLADE development build"
   }
 }

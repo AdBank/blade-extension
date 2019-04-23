@@ -276,7 +276,7 @@ def fix_translations_for_chrome(files):
 
     limits = {}
     manifest = json.loads(files['manifest.json'])
-    for key, limit in (('name', 45), ('description', 132), ('short_name', 12)):
+    for key, limit in (('name', 45), ('description', 132), ('short_name', 45)):
         match = re.search(r'__MSG_(\S+)__', manifest.get(key, ''))
         if match:
             limits[match.group(1)] = limit
