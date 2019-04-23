@@ -10,6 +10,7 @@ const PAGES_ALLOWED_FOR_UNREGISTERED = [
   "recoverPhrase"
 ];
 const {FIRST_PAGE, FIRST_PAGE_FOR_REGISTERED} = require("../../utils/constants");
+
 class BaseClass
 {
   constructor({onChangeView})
@@ -23,6 +24,24 @@ class BaseClass
       {
         this._checkUserHasToken();
       }
+      else
+      {
+        this._setNotauthorizedIcon();
+      }
+    });
+  }
+
+  _setNotauthorizedIcon()
+  {
+    browser.browserAction.setIcon({
+      path: "/icons/blade/blade-16-whitelisted.png"
+    });
+  }
+
+  _setAuthorizedIcon()
+  {
+    browser.browserAction.setIcon({
+      path: "/icons/blade/blade-16.png"
     });
   }
 
@@ -34,9 +53,11 @@ class BaseClass
       if (!token)
       {
         this.handleChangeView(FIRST_PAGE);
+        this._setNotauthorizedIcon();
       }
       else
       {
+        this._setAuthorizedIcon();
         this.bearerToken = token;
         this._renderTransferNotification();
       }

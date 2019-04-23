@@ -31,8 +31,6 @@ const {
   about,
   termsAndConditionsText,
   recoverPhrase,
-  recoveredAccount,
-  recoverPassword,
   profile,
   transfers,
   referrals,
@@ -59,8 +57,6 @@ const {
   AboutPage,
   TermsAndConditionsTextPage,
   RecoverPhrasePage,
-  RecoveredAccountPage,
-  RecoverPasswordPage,
   ProfilePage,
   TransfersPage,
   ReferralsPage,
@@ -146,16 +142,6 @@ function loadPage(page = "getStarted", previousPage)
     case "recoverPhrase": {
       const initialView = new RecoverPhrasePage({onChangeView});
       initialView.render(recoverPhrase);
-      break;
-    }
-    case "recoverPassword": {
-      const initialView = new RecoverPasswordPage({onChangeView});
-      initialView.render(recoverPassword);
-      break;
-    }
-    case "recoveredAccount": {
-      const initialView = new RecoveredAccountPage({onChangeView});
-      initialView.render(recoveredAccount);
       break;
     }
     case "profile": {
