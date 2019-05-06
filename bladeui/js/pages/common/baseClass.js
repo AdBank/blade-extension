@@ -29,6 +29,24 @@ class BaseClass
         this._setNotauthorizedIcon();
       }
     });
+
+    browser.storage.onChanged.addListener(this.listenOnUserDataCleanUp.bind(this));
+  }
+
+  listenOnUserDataCleanUp(changes, area)
+  {
+    if (area !== "sync")
+    {
+      return;
+    }
+    const changedItems = Object.keys(changes);
+    for (const item of changedItems)
+    {
+      if (item === "bladeUserData" && changes[item].newValue === undefined)
+      {
+        this.handleChangeView(FIRST_PAGE);
+      }
+    }
   }
 
   _setNotauthorizedIcon()

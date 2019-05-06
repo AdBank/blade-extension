@@ -78,7 +78,6 @@ async function makeRequest(opts)
           reject({
             error: GENERAL_ERROR
           });
-          window.close();
         }
       }
       else
