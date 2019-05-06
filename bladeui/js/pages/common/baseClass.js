@@ -2,7 +2,7 @@
 
 /* eslint-disable max-len */
 
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const PAGES_ALLOWED_FOR_UNREGISTERED = [
   "getStarted",
   "termsAndConditions",
@@ -81,7 +81,7 @@ class BaseClass
 
   _renderTransferNotification()
   {
-    request({
+    makeRequest({
       method: "get",
       url: "/jwt/transfer/info?type=BALANCE",
       headers: {

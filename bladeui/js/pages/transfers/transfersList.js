@@ -3,7 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const formatDate = require("../../utils/formatDate");
 const tooltip = require("../../html/common/tooltipRedExclamation");
 const InfiniteListHelper = require("../common/infiniteListHelper");
@@ -69,7 +69,7 @@ class Transfers extends BaseClass
 
   getStaticData()
   {
-    request({
+    makeRequest({
       method: "get",
       url: `/jwt/transfer/info?type=${this.periodParam}`,
       headers: {
@@ -115,7 +115,7 @@ class Transfers extends BaseClass
 
   getThreshold(transferPossibility)
   {
-    request({
+    makeRequest({
       method: "get",
       url: "/jwt/transfer/threshold",
       headers: {

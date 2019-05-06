@@ -2,7 +2,7 @@
 
 "use strict";
 
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const infiniteScrollLoader = require("../../html/common/infiniteScrollLoader");
 const MAXIMUM_FIT_WITHOUT_SCROLL = 4;
 const LIST_DEFAULT_LIMIT = 10;
@@ -19,7 +19,7 @@ class InfiniteListHelper
 
     this.listRenderCb = props.listRenderCb;
     this.afterStaticRenderCb = props.afterStaticRenderCb;
-    
+
     this.responseLeftDataKey = props.responseLeftDataKey;
     this.responseRightDataKey = props.responseRightDataKey;
 
@@ -94,7 +94,7 @@ class InfiniteListHelper
 
   getTopStaticData()
   {
-    request({
+    makeRequest({
       method: "get",
       url: this.urlStaticData,
       headers: {
@@ -110,7 +110,7 @@ class InfiniteListHelper
 
       this.renderStats();
 
-      if (this.afterStaticRenderCb)  this.afterStaticRenderCb(res.transfer_possibility);
+      if (this.afterStaticRenderCb) this.afterStaticRenderCb(res.transfer_possibility);
     })
     .catch((err) =>
     {
@@ -122,7 +122,7 @@ class InfiniteListHelper
   {
     this.showLoader();
 
-    request({
+    makeRequest({
       method: "get",
       url: `${this.urlList}?skip=${this.skip}&limit=${this.limit}`,
       headers: {
@@ -147,7 +147,7 @@ class InfiniteListHelper
         this.stopScrollObserver();
       }
 
-      if(!list.length && !this.skip)
+      if (!list.length && !this.skip)
       {
         this.renderEmptyListThumbnail();
       }

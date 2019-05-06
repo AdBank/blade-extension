@@ -1,10 +1,10 @@
 "use strict";
 
-const request = require("./request");
+const {makeRequest} = require("./request");
 
 function getAdserverUrl()
 {
-  request({
+  makeRequest({
     method: "get",
     url: "/api/config/adserver",
     headers: {

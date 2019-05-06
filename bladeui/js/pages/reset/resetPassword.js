@@ -4,7 +4,7 @@
 
 const BaseClass = require("../common/baseClass");
 const PasswordHelper = require("../common/passwordHelper");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const {PASSWORDS_MATCH_ERROR} = require("../../utils/constants");
 
 class ResetPassword extends BaseClass
@@ -69,7 +69,7 @@ class ResetPassword extends BaseClass
 
   sendRequest(token)
   {
-    request({
+    makeRequest({
       method: "post",
       url: "/jwt/user/password",
       data: {password: this.PasswordHelper.password},

@@ -4,7 +4,7 @@
 
 const BaseClass = require("../common/baseClass");
 const PasswordHelper = require("../common/passwordHelper");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const loader = require("../../html/common/loader");
 const WalletHelper = require("../common/walletHelper");
 
@@ -99,7 +99,7 @@ class ManualTransfer extends BaseClass
 
   sendRequest(data)
   {
-    request({
+    makeRequest({
       method: "post",
       url: "/jwt/transfer",
       data,

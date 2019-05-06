@@ -4,7 +4,7 @@
 
 const BaseClass = require("../common/baseClass");
 const {KYC_VERIFICATION_LINK} = require("../../utils/constants");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const kycStatusButton = require("../../html/common/kycStatusButton");
 
 class Profile extends BaseClass
@@ -44,7 +44,7 @@ class Profile extends BaseClass
 
   getData()
   {
-    request({
+    makeRequest({
       method: "get",
       url: "/jwt/kyc/status",
       headers: {

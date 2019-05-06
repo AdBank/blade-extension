@@ -4,7 +4,7 @@
 
 const BaseClass = require("../common/baseClass");
 const PasswordHelper = require("../common/passwordHelper");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const saveAdserverUrl = require("../../utils/saveAdserverUrl");
 const {PASSWORDS_MATCH_ERROR} = require("../../utils/constants");
 
@@ -66,7 +66,7 @@ class CreatePassword extends BaseClass
 
   sendRequest()
   {
-    request({
+    makeRequest({
       method: "post",
       url: "/api/user",
       data: {password: this.PasswordHelper.password}

@@ -2,6 +2,7 @@
 
 /* eslint-disable max-len */
 const Fingerprint = require("./fingerprint");
+const {URL} = require("./bladeui/js/utils/request");
 
 const EXCLUDED_WEBSITES = [
   "https://www.youtube.com",
@@ -23,10 +24,40 @@ isWhitelisted =>
 {
   const url = new URL(window.location.href);
 
-  if (!isWhitelisted && !EXCLUDED_WEBSITES.includes(url.origin))
+  browser.runtime.sendMessage({
+    type: "background.getUserToken"
+  },
+  response =>
   {
-    findDomSelectors();
-  }
+    if (response.token)
+    {
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", URL + "/jwt/user/token/expiration/check");
+      xhr.onload = async function()
+      {
+        if (this.status === 200)
+        {
+          if (!isWhitelisted && !EXCLUDED_WEBSITES.includes(url.origin))
+          {
+            findDomSelectors();
+          }
+        }
+        else
+        {
+          console.error("Error while check token expiration");
+        }
+      };
+      xhr.onerror = function()
+      {
+        console.error("Error while check token expiration");
+      };
+
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.setRequestHeader("Authorization", `Bearer ${response.token}`);
+
+      xhr.send();
+    }
+  });
 });
 
 
