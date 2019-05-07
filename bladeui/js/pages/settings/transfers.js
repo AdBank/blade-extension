@@ -3,7 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const {isAddress} = require("ethereum-address");
 const walletCreationForm = require("../../html/transfers/walletCreationForm");
 const PasswordHelper = require("../common/passwordHelper");
@@ -41,7 +41,7 @@ class Transfers extends BaseClass
 
   checkThresholdAmount()
   {
-    request({
+    makeRequest({
       method: "get",
       url: "/jwt/transfer/threshold",
       headers: {
@@ -58,7 +58,7 @@ class Transfers extends BaseClass
 
   checkAutomaticTransferStatus()
   {
-    request({
+    makeRequest({
       method: "get",
       url: "/jwt/user/settings/transfers",
       headers: {
@@ -235,7 +235,7 @@ class Transfers extends BaseClass
   sendRequest(data)
   {
     this.saveButton.innerHTML = loader(true);
-    request({
+    makeRequest({
       method: "put",
       url: "/jwt/user/settings",
       data,
@@ -274,7 +274,7 @@ class Transfers extends BaseClass
     {
       this.clearInputs();
       this.enablerAutoTransfer.disabled = true;
-      request({
+      makeRequest({
         method: "put",
         url: "/jwt/user/settings",
         data: {auto_transfer: false},

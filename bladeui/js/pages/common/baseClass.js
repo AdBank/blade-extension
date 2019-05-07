@@ -2,7 +2,7 @@
 
 /* eslint-disable max-len */
 
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const PAGES_ALLOWED_FOR_UNREGISTERED = [
   "getStarted",
   "termsAndConditions",
@@ -29,6 +29,23 @@ class BaseClass
         this._setNotauthorizedIcon();
       }
     });
+
+    browser.storage.onChanged.addListener(this.listenOnUserDataCleanUp.bind(this));
+  }
+
+  listenOnUserDataCleanUp(changes, area)
+  {
+    if (area === "sync")
+    {
+      const changedItems = Object.keys(changes);
+      for (const item of changedItems)
+      {
+        if (item === "bladeUserData" && changes[item].newValue === undefined)
+        {
+          this.handleChangeView(FIRST_PAGE);
+        }
+      }
+    }
   }
 
   _setNotauthorizedIcon()
@@ -81,7 +98,7 @@ class BaseClass
 
   _renderTransferNotification()
   {
-    request({
+    makeRequest({
       method: "get",
       url: "/jwt/transfer/info?type=BALANCE",
       headers: {

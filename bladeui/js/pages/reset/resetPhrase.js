@@ -3,7 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const saveAdserverUrl = require("../../utils/saveAdserverUrl");
 
 class ResetPhrase extends BaseClass
@@ -38,7 +38,7 @@ class ResetPhrase extends BaseClass
 
   sendRequest(userData)
   {
-    request({
+    makeRequest({
       method: "post",
       url: "/api/phrase/check",
       data: {secret_phrase: this.phraseTextarea.value.trim()}

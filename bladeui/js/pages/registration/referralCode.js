@@ -3,7 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 
 class ReferralCode extends BaseClass
 {
@@ -71,7 +71,7 @@ class ReferralCode extends BaseClass
 
   sendRequest()
   {
-    request({
+    makeRequest({
       method: "post",
       url: "/jwt/user/referrals",
       data: {referral_code: this.referralCodeField.value},

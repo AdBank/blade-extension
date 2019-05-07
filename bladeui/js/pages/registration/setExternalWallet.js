@@ -3,7 +3,7 @@
 "use strict";
 
 const BaseClass = require("../common/baseClass");
-const request = require("../../utils/request");
+const {makeRequest} = require("../../utils/request");
 const WalletHelper = require("../common/walletHelper");
 
 class SetExternalWallet extends BaseClass
@@ -52,7 +52,7 @@ class SetExternalWallet extends BaseClass
 
   sendRequest(data)
   {
-    request({
+    makeRequest({
       method: "post",
       url: "/jwt/user/wallet",
       data,
