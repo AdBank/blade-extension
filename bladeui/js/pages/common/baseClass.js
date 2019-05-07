@@ -35,16 +35,15 @@ class BaseClass
 
   listenOnUserDataCleanUp(changes, area)
   {
-    if (area !== "sync")
+    if (area === "sync")
     {
-      return;
-    }
-    const changedItems = Object.keys(changes);
-    for (const item of changedItems)
-    {
-      if (item === "bladeUserData" && changes[item].newValue === undefined)
+      const changedItems = Object.keys(changes);
+      for (const item of changedItems)
       {
-        this.handleChangeView(FIRST_PAGE);
+        if (item === "bladeUserData" && changes[item].newValue === undefined)
+        {
+          this.handleChangeView(FIRST_PAGE);
+        }
       }
     }
   }
