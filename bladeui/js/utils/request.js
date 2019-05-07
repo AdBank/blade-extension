@@ -25,7 +25,12 @@ async function refreshToken()
       if (this.status === 200)
       {
         const newToken = this.getResponseHeader("token");
-        browser.storage.sync.set({bladeUserData: {token: newToken}});
+        browser.storage.sync.get(null, (data) =>
+        {
+          const bladeData = data.bladeUserData;
+          const newObj = Object.assign({}, bladeData, {token: newToken});
+          browser.storage.sync.set({bladeUserData: newObj});
+        });
         resolve("success");
       }
       else if (this.status === 401)
