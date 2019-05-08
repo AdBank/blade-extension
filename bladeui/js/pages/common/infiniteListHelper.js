@@ -96,10 +96,7 @@ class InfiniteListHelper
   {
     makeRequest({
       method: "get",
-      url: this.urlStaticData,
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: this.urlStaticData
     })
     .then((response) =>
     {
@@ -124,10 +121,7 @@ class InfiniteListHelper
 
     makeRequest({
       method: "get",
-      url: `${this.urlList}?skip=${this.skip}&limit=${this.limit}`,
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: `${this.urlList}?skip=${this.skip}&limit=${this.limit}`
     })
     .then((response) =>
     {

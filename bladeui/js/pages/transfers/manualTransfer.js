@@ -102,10 +102,7 @@ class ManualTransfer extends BaseClass
     makeRequest({
       method: "post",
       url: "/jwt/transfer",
-      data,
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      data
     })
     .then(() =>
     {

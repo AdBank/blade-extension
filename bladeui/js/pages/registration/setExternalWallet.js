@@ -55,10 +55,7 @@ class SetExternalWallet extends BaseClass
     makeRequest({
       method: "post",
       url: "/jwt/user/wallet",
-      data,
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      data
     })
     .then(() => super.handleChangeView("registrationCompleted"))
     .catch(errorInfo => this.WalletHelper.highlightErrors(errorInfo.error));

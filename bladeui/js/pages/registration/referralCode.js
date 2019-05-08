@@ -74,10 +74,7 @@ class ReferralCode extends BaseClass
     makeRequest({
       method: "post",
       url: "/jwt/user/referrals",
-      data: {referral_code: this.referralCodeField.value},
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      data: {referral_code: this.referralCodeField.value}
     })
     .then(() => super.handleChangeView("setExternalWallet"))
     .catch((err) => this.highlightErrors(err.error));

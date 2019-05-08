@@ -6,15 +6,20 @@
 const URL = "http://ec2-3-81-128-247.compute-1.amazonaws.com:8088";
 const {GENERAL_ERROR} = require("./constants");
 
-async function refreshToken()
+function getToken()
 {
-  const token = await new Promise((resolve) =>
+  return new Promise((resolve) =>
   {
     browser.storage.sync.get(null, (data) =>
     {
       resolve(data && data.bladeUserData ? data.bladeUserData.token : null);
     });
   });
+}
+
+async function refreshToken()
+{
+  const token = await getToken();
 
   return new Promise((resolve, reject) =>
   {
@@ -29,9 +34,12 @@ async function refreshToken()
         {
           const bladeData = data.bladeUserData;
           const newObj = Object.assign({}, bladeData, {token: newToken});
-          browser.storage.sync.set({bladeUserData: newObj});
+          browser.storage.sync.set({bladeUserData: newObj}, () =>
+          {
+            console.log("SET BLADE USER DATA WITH NEW TOKEN", newObj);
+            resolve("success");
+          });
         });
-        resolve("success");
       }
       else if (this.status === 401)
       {
@@ -59,13 +67,14 @@ async function refreshToken()
 
 async function makeRequest(opts)
 {
+  const token = await getToken();
+
   return new Promise(((resolve, reject) =>
   {
     const xhr = new XMLHttpRequest();
     xhr.open(opts.method, URL + opts.url);
     xhr.onload = async function()
     {
-      console.log("onload status=", this.status);
       if (this.status >= 200 && this.status < 300)
       {
         resolve(this);
@@ -122,6 +131,8 @@ async function makeRequest(opts)
       }
     };
     xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Authorization", `Bearer ${token}`);
+
     if (opts.headers)
     {
       Object.keys(opts.headers).forEach((key) =>

@@ -100,10 +100,7 @@ class BaseClass
   {
     makeRequest({
       method: "get",
-      url: "/jwt/transfer/info?type=BALANCE",
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: "/jwt/transfer/info?type=BALANCE"
     })
     .then(response =>
     {

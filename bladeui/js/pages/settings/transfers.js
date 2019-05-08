@@ -43,10 +43,7 @@ class Transfers extends BaseClass
   {
     makeRequest({
       method: "get",
-      url: "/jwt/transfer/threshold",
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: "/jwt/transfer/threshold"
     })
     .then(response =>
     {
@@ -60,10 +57,7 @@ class Transfers extends BaseClass
   {
     makeRequest({
       method: "get",
-      url: "/jwt/user/settings/transfers",
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: "/jwt/user/settings/transfers"
     })
     .then(response =>
     {
@@ -238,10 +232,7 @@ class Transfers extends BaseClass
     makeRequest({
       method: "put",
       url: "/jwt/user/settings",
-      data,
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      data
     })
     .then(() =>
     {
@@ -277,10 +268,7 @@ class Transfers extends BaseClass
       makeRequest({
         method: "put",
         url: "/jwt/user/settings",
-        data: {auto_transfer: false},
-        headers: {
-          Authorization: `Bearer ${this.bearerToken}`
-        }
+        data: {auto_transfer: false}
       })
       .then(() =>
       {

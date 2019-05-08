@@ -46,10 +46,7 @@ class Profile extends BaseClass
   {
     makeRequest({
       method: "get",
-      url: "/jwt/kyc/status",
-      headers: {
-        Authorization: "Bearer " + this.token
-      }
+      url: "/jwt/kyc/status"
     })
     .then((data) =>
     {
