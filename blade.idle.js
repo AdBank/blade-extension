@@ -2,7 +2,7 @@
 
 /* eslint-disable max-len */
 const Fingerprint = require("./fingerprint");
-const {URL} = require("./bladeui/js/utils/request");
+const {URL: PROD_URL} = require("./bladeui/js/utils/request");
 
 const EXCLUDED_WEBSITES = [
   "https://www.youtube.com",
@@ -32,7 +32,7 @@ isWhitelisted =>
     if (response.token)
     {
       const xhr = new XMLHttpRequest();
-      xhr.open("get", URL + "/jwt/user/token/expiration/check");
+      xhr.open("get", PROD_URL + "/jwt/user/token/expiration/check");
       xhr.onload = async function()
       {
         if (this.status === 200)
