@@ -1,3 +1,5 @@
+/* eslint-disable no-debugger */
+/* eslint-disable no-undef */
 /* eslint-disable no-console */
 /* eslint-disable max-len */
 
@@ -5,6 +7,17 @@
 
 const URL = "http://ec2-3-81-128-247.compute-1.amazonaws.com:8088";
 const {GENERAL_ERROR} = require("./constants");
+
+xhook.after(after);
+
+function after(req, response)
+{
+  debugger;
+  if (response.status === 401)
+  {
+    refreshToken();
+  }
+}
 
 function getToken()
 {
@@ -79,21 +92,21 @@ async function makeRequest(opts)
       {
         resolve(this);
       }
-      else if (this.status === 401)
-      {
-        const refreshStatus = await refreshToken();
+      // else if (this.status === 401)
+      // {
+      //   const refreshStatus = await refreshToken();
 
-        if (refreshStatus === "success")
-        {
-          makeRequest(opts);
-        }
-        else
-        {
-          reject({
-            error: GENERAL_ERROR
-          });
-        }
-      }
+      //   if (refreshStatus === "success")
+      //   {
+      //     makeRequest(opts);
+      //   }
+      //   else
+      //   {
+      //     reject({
+      //       error: GENERAL_ERROR
+      //     });
+      //   }
+      // }
       else
       {
         try
