@@ -98,10 +98,7 @@ class BaseClass
 
   _renderTransferNotification()
   {
-    makeRequest({
-      method: "get",
-      url: "/jwt/transfer/info?type=BALANCE"
-    })
+    makeRequest.get("/jwt/transfer/info?type=BALANCE")
     .then(response =>
     {
       const res = JSON.parse(response.response);
