@@ -58,7 +58,7 @@ class SetExternalWallet extends BaseClass
       data
     })
     .then(() => super.handleChangeView("registrationCompleted"))
-    .catch(errorInfo => this.WalletHelper.highlightErrors(errorInfo.error));
+    .catch(error => this.WalletHelper.highlightErrors(error.error));
   }
 
   handleCheckboxChange(e)

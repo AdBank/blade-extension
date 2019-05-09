@@ -73,15 +73,14 @@ class CreatePassword extends BaseClass
     })
     .then((response) =>
     {
-      const token = response.getResponseHeader("token");
-      const responseObj = JSON.parse(response.response);
+      const token = response.headers.token;
 
       browser.storage.sync.set({
         bladeUserData: {
           token,
-          secretPhrase: responseObj.secret_phrase,
-          userCode: responseObj.user_code,
-          referralCode: responseObj.referral_code
+          secretPhrase: response.data.secret_phrase,
+          userCode: response.data.user_code,
+          referralCode: response.data.referral_code
         }
       });
 
@@ -91,7 +90,7 @@ class CreatePassword extends BaseClass
     })
     .catch((err) =>
     {
-      this.ConfirmPasswordHelper.onError(err.statusText);
+      this.ConfirmPasswordHelper.onError(err.error);
     });
   }
 }

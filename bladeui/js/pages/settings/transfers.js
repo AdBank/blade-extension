@@ -47,8 +47,7 @@ class Transfers extends BaseClass
     })
     .then(response =>
     {
-      const res = JSON.parse(response.response);
-      this.thresholdAmount.innerText = Math.ceil(res.threshold) + " ADB";
+      this.thresholdAmount.innerText = Math.ceil(response.data.threshold) + " ADB";
     })
     .catch(() => this.thresholdAmount.innerText = "not available");
   }
@@ -61,8 +60,7 @@ class Transfers extends BaseClass
     })
     .then(response =>
     {
-      const res = JSON.parse(response.response);
-      this.handleAutoTransfersStatus(res.auto_transfer, res.wallet_address);
+      this.handleAutoTransfersStatus(response.data.auto_transfer, response.data.wallet_address);
     })
     .catch(err => console.error(err));
   }

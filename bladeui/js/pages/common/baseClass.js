@@ -101,8 +101,7 @@ class BaseClass
     makeRequest.get("/jwt/transfer/info?type=BALANCE")
     .then(response =>
     {
-      const res = JSON.parse(response.response);
-      this.transferPossibilityNotification = res.transfer_possibility === "ALLOWED";
+      this.transferPossibilityNotification = response.data.transfer_possibility === "ALLOWED";
       if (this.transferPossibilityNotification && this.burgerButton)
       {
         const notification = document.createElement("div");

@@ -18,7 +18,6 @@
 "use strict";
 
 require("./popup.notifications.js");
-require("./utils/xhook");
 
 const {
   getStarted,

@@ -100,10 +100,8 @@ class InfiniteListHelper
     })
     .then((response) =>
     {
-      const res = JSON.parse(response.response);
-
-      this.leftNumber = res[this.responseLeftDataKey];
-      this.rightNumber = res[this.responseRightDataKey];
+      this.leftNumber = response.data[this.responseLeftDataKey];
+      this.rightNumber = response.data[this.responseRightDataKey];
 
       this.renderStats();
 
@@ -125,14 +123,12 @@ class InfiniteListHelper
     })
     .then((response) =>
     {
-      const list = JSON.parse(response.response);
-
-      if (list.length)
+      if (response.data.length)
       {
-        this.listRenderCb(list);
+        this.listRenderCb(response.data);
 
         this.hideLoader();
-        this.startObserver(list);
+        this.startObserver(response.data);
         this.skip = this.skip + this.limit;
       }
       else
@@ -141,7 +137,7 @@ class InfiniteListHelper
         this.stopScrollObserver();
       }
 
-      if (!list.length && !this.skip)
+      if (!response.data.length && !this.skip)
       {
         this.renderEmptyListThumbnail();
       }

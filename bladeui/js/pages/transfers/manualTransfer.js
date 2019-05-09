@@ -108,9 +108,9 @@ class ManualTransfer extends BaseClass
     {
       this.sendButton.innerHTML = loader(false);
     })
-    .catch(errorInfo =>
+    .catch(error =>
     {
-      this.PasswordHelper.onError(errorInfo.error);
+      this.PasswordHelper.onError(error.error);
       this.sendButton.innerHTML = "SEND";
       this.enableSubmitButton();
     });

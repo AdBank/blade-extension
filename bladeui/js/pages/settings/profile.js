@@ -48,10 +48,9 @@ class Profile extends BaseClass
       method: "get",
       url: "/jwt/kyc/status"
     })
-    .then((data) =>
+    .then((response) =>
     {
-      const res = JSON.parse(data.response);
-      const button = kycStatusButton(res.status);
+      const button = kycStatusButton(response.data.status);
       this.kycStatus.insertAdjacentHTML("beforeend", button);
     })
     .catch((error) =>

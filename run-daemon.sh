@@ -11,6 +11,8 @@ if [[ ! -z $PROD_URL ]]; then
   docker exec blade sed -i 's|'"$STRING_MATCHER_START"'.*'"$STRING_MATCHER_END"'|'"$STRING_MATCHER_START$PROD_URL$STRING_MATCHER_END"'|' $PATH_TO_FILE_WITH_URL
 fi
 
+docker exec blade npm i
+
 docker exec blade npm run prod
 
 docker cp blade:/app/blade.zip .

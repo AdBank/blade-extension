@@ -1,6 +1,6 @@
 "use strict";
-
 /* eslint-disable max-len */
+
 const Fingerprint = require("./fingerprint");
 const {URL: PROD_URL} = require("./bladeui/js/utils/request");
 
@@ -29,7 +29,7 @@ isWhitelisted =>
   },
   response =>
   {
-    if (response.token)
+    if (response)
     {
       const xhr = new XMLHttpRequest();
       xhr.open("get", PROD_URL + "/jwt/user/token/expiration/check");

@@ -75,10 +75,8 @@ class Transfers extends BaseClass
     })
     .then((response) =>
     {
-      const res = JSON.parse(response.response);
-
-      const value = res.value;
-      const transferPossibility = res.transfer_possibility;
+      const value = response.data.value;
+      const transferPossibility = response.data.transfer_possibility;
 
       this.renderValueNumber(value);
 
