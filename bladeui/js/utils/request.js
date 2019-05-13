@@ -45,7 +45,7 @@ makeRequest.interceptors.response.use(
 value => value,
 async error =>
 {
-  if (error.response.status === 401 && error.config.retry)
+  if (error.response.status === 401 && refreshRequest)
   {
     browser.storage.sync.clear();
     throw error;
