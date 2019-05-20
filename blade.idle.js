@@ -1,5 +1,7 @@
-"use strict";
 /* eslint-disable max-len */
+
+"use strict";
+
 
 const Fingerprint = require("./fingerprint");
 const {URL: PROD_URL} = require("./bladeui/js/utils/request");
