@@ -43,15 +43,11 @@ class Transfers extends BaseClass
   {
     makeRequest({
       method: "get",
-      url: "/jwt/transfer/threshold",
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: "/jwt/transfer/threshold"
     })
     .then(response =>
     {
-      const res = JSON.parse(response.response);
-      this.thresholdAmount.innerText = Math.ceil(res.threshold) + " ADB";
+      this.thresholdAmount.innerText = Math.ceil(response.data.threshold) + " ADB";
     })
     .catch(() => this.thresholdAmount.innerText = "not available");
   }
@@ -60,15 +56,11 @@ class Transfers extends BaseClass
   {
     makeRequest({
       method: "get",
-      url: "/jwt/user/settings/transfers",
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: "/jwt/user/settings/transfers"
     })
     .then(response =>
     {
-      const res = JSON.parse(response.response);
-      this.handleAutoTransfersStatus(res.auto_transfer, res.wallet_address);
+      this.handleAutoTransfersStatus(response.data.auto_transfer, response.data.wallet_address);
     })
     .catch(err => console.error(err));
   }
@@ -238,10 +230,7 @@ class Transfers extends BaseClass
     makeRequest({
       method: "put",
       url: "/jwt/user/settings",
-      data,
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      data
     })
     .then(() =>
     {
@@ -277,10 +266,7 @@ class Transfers extends BaseClass
       makeRequest({
         method: "put",
         url: "/jwt/user/settings",
-        data: {auto_transfer: false},
-        headers: {
-          Authorization: `Bearer ${this.bearerToken}`
-        }
+        data: {auto_transfer: false}
       })
       .then(() =>
       {

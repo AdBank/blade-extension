@@ -71,17 +71,12 @@ class Transfers extends BaseClass
   {
     makeRequest({
       method: "get",
-      url: `/jwt/transfer/info?type=${this.periodParam}`,
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: `/jwt/transfer/info?type=${this.periodParam}`
     })
     .then((response) =>
     {
-      const res = JSON.parse(response.response);
-
-      const value = res.value;
-      const transferPossibility = res.transfer_possibility;
+      const value = response.data.value;
+      const transferPossibility = response.data.transfer_possibility;
 
       this.renderValueNumber(value);
 
@@ -117,10 +112,7 @@ class Transfers extends BaseClass
   {
     makeRequest({
       method: "get",
-      url: "/jwt/transfer/threshold",
-      headers: {
-        Authorization: `Bearer ${this.bearerToken}`
-      }
+      url: "/jwt/transfer/threshold"
     })
     .then(answer =>
     {

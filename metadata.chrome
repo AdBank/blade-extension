@@ -43,6 +43,9 @@ permissions =
   unlimitedStorage
   notifications
 
+web_accessible_resources =
+  icons/*
+
 [compat]
 chrome = 49.0
 opera = 36.0

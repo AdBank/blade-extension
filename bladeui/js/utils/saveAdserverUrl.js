@@ -13,7 +13,7 @@ function getAdserverUrl()
   })
   .then((response) =>
   {
-    const adbankUrl = JSON.parse(response.response).adserver_url;
+    const adbankUrl = response.data.adserver_url;
 
     saveAdserverUrl(adbankUrl);
   })

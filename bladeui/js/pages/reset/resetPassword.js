@@ -72,10 +72,7 @@ class ResetPassword extends BaseClass
     makeRequest({
       method: "post",
       url: "/jwt/user/password",
-      data: {password: this.PasswordHelper.password},
-      headers: {
-        Authorization: "Bearer " + token
-      }
+      data: {password: this.PasswordHelper.password}
     })
     .then((response) =>
     {

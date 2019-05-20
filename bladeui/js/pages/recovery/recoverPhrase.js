@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-
+/* eslint-disable max-len, no-console */
 "use strict";
 
 const BaseClass = require("../common/baseClass");
@@ -48,10 +47,9 @@ class RecoverPhrase extends BaseClass
     })
     .then((response) =>
     {
-      const token = response.getResponseHeader("token");
-      const parsedJson = JSON.parse(response.response);
-      const userCode = parsedJson.user_code;
-      const referralCode = parsedJson.referral_code;
+      const token = response.headers.token;
+      const userCode = response.data.user_code;
+      const referralCode = response.data.referral_code;
       const newObj = Object.assign({}, userData, {token, userCode, referralCode});
 
       saveAdserverUrl();
