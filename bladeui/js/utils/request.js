@@ -33,8 +33,6 @@ makeRequest.interceptors.request.use(async config =>
 
   const newConfig = Object.assign({}, config, {headers: {}});
 
-  console.log("REQUEST WITH TOKEN=", token);
-
   newConfig.headers.Authorization = `Bearer ${token}`;
 
   return newConfig;

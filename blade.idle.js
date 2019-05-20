@@ -53,7 +53,7 @@ isWhitelisted =>
       };
 
       xhr.setRequestHeader("Content-Type", "application/json");
-      xhr.setRequestHeader("Authorization", `Bearer ${response.token}`);
+      xhr.setRequestHeader("Authorization", `Bearer ${response}`);
 
       xhr.send();
     }
